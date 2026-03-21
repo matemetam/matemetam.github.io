@@ -544,7 +544,33 @@ header.kapali {
     height: 100vh !important;
 }
 
+/* --- MOBİL EKRAN KURTARICISI (TELEFON UYUMU) --- */
+@media (max-width: 768px) {
+    /* 1. Logonun telefondan taşmasını engelle */
+    .landing-content img {
+        max-width: 85% !important; 
+        height: auto !important;
+        margin-top: 0 !important; /* Telefonda o -40px boşluğa gerek yok */
+    }
 
+    /* 2. O devasa MATEVERSE yazısını telefona sığdır */
+    .landing-title {
+        font-size: 2.5rem !important; /* 5rem'i yarıya düşürdük */
+        letter-spacing: 2px !important;
+    }
+
+    /* 3. Alt başlığı biraz ufalt */
+    .landing-subtitle {
+        font-size: 0.9rem !important;
+        margin-bottom: 30px !important;
+    }
+
+    /* 4. Kutuların sağdan soldan taşmasını engelle */
+    .landing-card {
+        width: 100% !important;
+        max-width: 280px !important; 
+    }
+}
 
 
 
