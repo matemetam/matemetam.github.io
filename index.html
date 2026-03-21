@@ -141,7 +141,7 @@ window.MathJax = {
         .landing-content {
             width: 100%; max-width: 1100px;
             text-align: center; position: relative; z-index: 2;
-            padding-top: 40px;
+            padding-top: 20px;
         }
 
         .landing-title { 
@@ -527,6 +527,31 @@ window.MathJax = {
 
 }
 
+/* --- ZEN MOD (TAM EKRAN) AYARLARI --- */
+
+/* Header'a yukarı kayma animasyonu ver */
+header {
+    transition: margin-top 0.3s ease;
+}
+
+/* Header kapandığında 70px yukarı çıkarak ekrandan tamamen çıkar */
+header.kapali {
+    margin-top: -70px !important;
+}
+
+/* Header gizlendiğinde altta kalan beyaz boşluğu doldurur */
+.layout.tam-ekran {
+    height: 100vh !important;
+}
+
+
+
+
+
+
+
+
+
 
     </style>
 </head>
@@ -720,10 +745,10 @@ window.MathJax = {
 
 
 
-            { id: 15, title: "Matematiksel Görselleştirme Araçları", topics: ["15.1 Matplotlib", "15.2 Plotly", "15.3 D3.js", "15.4 GeoGebra", "15.5 Three.js","15.6 Jsxgraph", "15.7 Karşılaştırma ve Seçim Rehberi", "15.8 Serbest Çizim Tahtsı", "15.9 Plotly Lab",] },
+            { id: 15, title: "Matematiksel Görselleştirme Araçları", topics: ["15.1 Matplotlib", "15.2 Plotly", "15.3 D3.js", "15.4 GeoGebra", "15.5 Three.js","15.6 Jsxgraph", "15.7 Karşılaştırma ve Seçim Rehberi",] },
         
 
-            { id: 16, title: "Mateverse Lab", topics: ["16.1 2D Kalkülüs Motoru", "16.2 Faz Düzlemi & Vektör Alanları", "16.3 3D Uzay ve Yüzeyler", ] },
+            { id: 16, title: "Mateverse Lab", topics: ["16.1 2D Kalkülüs Motoru", "16.2 3D Kalkülüs Motoru", "16.3 Faz Düzlemi & Vektör Alanları", "16.4 3D Uzay ve Yüzeyler", ] },
 
 
 
@@ -26799,45 +26824,69 @@ var kutupsalEgri = board4.create(<span style="color: #98c379;">'curve'</span>, [
 
 // =========================================
 else if (id === "16.1") {
-    html += '<div class="question-container" style="border-left: 5px solid #8b5cf6;">'; // Farklı bir mor renk verelim lab için
-    html += '<h3 style="color: #8b5cf6; border-bottom: 2px solid var(--border); padding-bottom: 10px; font-family: var(--font-math); font-size: 1.8rem;">🔬 Serbest Çizim Laboratuvarı</h3>';
+       html += '<p>Sol taraftaki giriş kutusuna istediğiniz bir fonksiyonu yazın (Örneğin: <b>f(x) = sin(x)*x</b> veya <b>y = x^2 - 4</b>). Alt alta birden fazla fonksiyon girip kesişimlerini inceleyebilirsiniz.</p>';
     
-    html += '<div class="lecture-box" style="margin-top: 20px;">';
-    html += '<p>Sol taraftaki giriş kutusuna istediğiniz bir fonksiyonu yazın (Örneğin: <b>f(x) = sin(x)*x</b> veya <b>y = x^2 - 4</b>). Enter tuşuna basarak grafiği inceleyebilir, tekerlek ile yakınlaşıp uzaklaşabilirsiniz.</p>';
-    
-    // GeoGebra'nın içine oturacağı div
+    // GeoGebra'nın içine oturacağı div (ID'si çok önemli: laboratuvar-alani)
     html += '<div id="laboratuvar-alani" style="width: 100%; height: 600px; margin-top: 20px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 4px 12px rgba(0,0,0,0.1);"></div>';
     
-    html += '</div></div>';
+    html += '</div>';
 
-    // HTML sayfaya basıldıktan hemen sonra GeoGebra'yı bu div'in içine yerleştirecek motor
+    // 2D GeoGebra Motorunu Yükle (KLASİK & AKADEMİK MOD)
     setTimeout(() => {
         var ggbParametreleri = {
-            "appName": "graphing", // Sadece "graphing" (2D) motoru
+            "appName": "classic", // Klasik mod
+            "perspective": "1",   // 1 = Sol tarafta Cebir, Sağ tarafta 2D Uzay
             "width": document.getElementById('laboratuvar-alani').offsetWidth,
             "height": 600,
-            "showToolBar": true, // Üstteki araç çubuğu
-            "showAlgebraInput": true, // Soldaki fonksiyon yazma yeri (En önemlisi!)
-            "showMenuBar": false, // Menü karmaşasını gizle
+            "showToolBar": true,  
+            "showAlgebraInput": true, 
+            "showMenuBar": false, 
             "enableLabelDrags": false,
             "enableShiftDragZoom": true,
             "enableRightClick": true,
             "useBrowserForJS": false,
-            "language": "tr" // Türkçe arayüz
+            "language": "tr" 
         };
         
-        // GeoGebra objesini yarat ve ID'sini verdiğimiz div'e göm
+        // applet'i HTML'deki 'laboratuvar-alani' ID'li kutuya gömüyoruz
         var applet = new GGBApplet(ggbParametreleri, true);
         applet.inject('laboratuvar-alani');
-    }, 150); // DOM'un yüklenmesi için 150 milisaniye bekle
+    }, 150);
+}
+else if (id === "16.2") {
+       html += '<p>Çok değişkenli fonksiyonları ve parametrik yüzeyleri keşfedin. Sol taraftaki alana <b>z = x^2 - y^2</b> (Eyer Noktası) veya vektör denklemleri yazarak 3 boyutlu uzayda farenizle gezinebilirsiniz.</p>';
+    
+    // Çakışma olmaması için ID'yi laboratuvar-alani-3d yaptık
+    html += '<div id="laboratuvar-alani-3d" style="width: 100%; height: 650px; margin-top: 20px; border-radius: 8px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 6px 16px rgba(0,0,0,0.15);"></div>';
+    html += '</div>';
+
+    // 3D GeoGebra Motorunu Yükle
+    // 3D GeoGebra Motorunu Yükle (KLASİK & AKADEMİK MOD)
+    setTimeout(() => {
+        var ggbParametreleri3D = {
+            "appName": "classic", // "3d" yerine "classic" yaptık, tam yetki aldık
+            "perspective": "5",   // SİHİRLİ KOD: 5 = Sol tarafta Cebir, Sağ tarafta 3D Uzay
+            "width": document.getElementById('laboratuvar-alani-3d').offsetWidth,
+            "height": 650,
+            "showToolBar": true,  
+            "showAlgebraInput": true, 
+            "showMenuBar": false, 
+            "enableLabelDrags": false,
+            "enableShiftDragZoom": true,
+            "enableRightClick": true,
+            "useBrowserForJS": false,
+            "language": "tr" 
+        };
+        
+        var applet3D = new GGBApplet(ggbParametreleri3D, true);
+        applet3D.inject('laboratuvar-alani-3d');
+    }, 200);
 }
 // =========================================
-// 16.2 JSXGRAPH: GERÇEK PPLANE VE YÖRÜNGELER
+// 16.3 JSXGRAPH: GERÇEK PPLANE VE YÖRÜNGELER
 // =========================================
-else if (id === "16.2") {
-    html += '<div class="question-container" style="border-left: 5px solid var(--accent);">';
-    html += '<h3 style="color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 10px; font-family: var(--font-math); font-size: 1.8rem;">🌀 Faz Düzlemi & Yörünge Analizi (Pplane)</h3>';
-    
+else if (id === "16.3") {
+        
     html += '<div style="background: rgba(56, 189, 248, 0.05); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-top: 20px;">';
     html += '<p style="margin-bottom: 0; font-size: 1rem; line-height: 1.6;">Denklemleri girip <b>Çiz</b> butonuna basın. Ardından grafikte <b>herhangi bir yere tıklayarak</b> o noktadan geçen yörüngeyi (trajectory) oluşturabilirsiniz.</p>';
     html += '</div>';
@@ -26919,8 +26968,8 @@ else if (id === "16.2") {
                         // Okların boyunu dengeliyoruz
                         return [vx/mag, vy/mag]; 
                     }, 
-                    [-5, 20, 5], 
-                    [-5, 20, 5]  
+                    [-10, 20, 10], 
+                    [-10, 20, 10]  
                 ], {
                     strokeColor: '#334155', // Okları koyu gri/siyah yaptık (görseldeki gibi)
                     strokeWidth: 1.2,
@@ -27003,12 +27052,10 @@ else if (id === "16.2") {
 
     }, 300);
 }// =========================================
-// 16.3 3D UZAY VE ÇOK DEĞİŞKENLİ YÜZEYLER
+// 16.4 3D UZAY VE ÇOK DEĞİŞKENLİ YÜZEYLER
 // =========================================
-else if (id === "16.3") {
-    html += '<div class="question-container" style="border-left: 5px solid var(--accent);">';
-    html += '<h3 style="color: var(--accent); border-bottom: 2px solid var(--border); padding-bottom: 10px; font-family: var(--font-math); font-size: 1.8rem;">🌌 3D Uzay ve Yüzeyler (Çok Değişkenli Analiz)</h3>';
-    
+else if (id === "16.4") {
+        
     // --- AKADEMİK REHBER VE YÖNLENDİRME PANOSU ---
     html += '<div style="background: rgba(139, 92, 246, 0.05); border: 1px solid var(--border); border-radius: 8px; padding: 20px; margin-top: 20px;">';
     html += '<h4 style="color: var(--text-header); margin-top: 0; margin-bottom: 10px; font-size: 1.2rem;">📚 3D Laboratuvar Rehberi</h4>';
@@ -27132,106 +27179,6 @@ else if (id === "16.3") {
     }, 300);
 }
 
-// =========================================
-// 15.2 PLOTLY 3D YÜZEY LABORATUVARI (SANAL KLAVYELİ)
-// =========================================
-else if (id === "15.9") {
-    html += '<div class="question-container" style="border-left: 5px solid #ec4899;">';
-    html += '<h3 style="color: #ec4899; border-bottom: 2px solid var(--border); padding-bottom: 10px; font-family: var(--font-math); font-size: 1.8rem;">🌌 3D Yüzey Laboratuvarı</h3>';
-    
-    html += '<div class="lecture-box" style="margin-top: 20px;">';
-    html += '<p>Katlı integrallerde hacmini hesapladığınız yüzeyleri kendiniz oluşturun. İşlemleri aşağıdaki sanal klavyeyi kullanarak kolayca yazabilirsiniz.</p>';
-    
-    // Kullanıcı Giriş Arayüzü
-    html += '<div style="display: flex; gap: 10px; align-items: center; margin-top: 20px;">';
-    html += '<span style="font-size: 1.2rem; font-weight: bold; font-family: var(--font-math); font-style: italic;">z = f(x,y) = </span>';
-    html += '<input type="text" id="fonksiyonGirdisi" value="x^2 - y^2" placeholder="Örn: x^2 - y^2" style="flex:1; padding: 12px; font-size: 1.1rem; border-radius: 6px; border: 1px solid var(--border); font-family: var(--font-main); color: var(--text-main); background: var(--bg-body);">';
-    html += '<button onclick="cizPlotly3D()" style="padding: 12px 24px; font-size: 1.1rem; font-weight: bold; background: #ec4899; color: white; border: none; border-radius: 6px; cursor: pointer; transition: 0.2s; box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3);">Çiz 🚀</button>';
-    html += '</div>';
-    
-    // --- SANAL MATEMATİK KLAVYESİ ---
-    html += '<div style="margin-top: 15px; padding: 15px; background: var(--bg-body); border-radius: 8px; border: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 8px;">';
-    
-    const tuslar = [
-        { etiket: 'x²', kod: 'x^2' }, { etiket: 'y²', kod: 'y^2' }, 
-        { etiket: 'x³', kod: 'x^3' }, { etiket: 'y³', kod: 'y^3' },
-        { etiket: '√', kod: 'sqrt(' }, { etiket: 'sin', kod: 'sin(' }, 
-        { etiket: 'cos', kod: 'cos(' }, { etiket: 'eˣ', kod: 'exp(' },
-        { etiket: 'π', kod: 'pi' }, { etiket: '(', kod: '(' }, 
-        { etiket: ')', kod: ')' }, { etiket: '+', kod: '+' },
-        { etiket: '-', kod: '-' }, { etiket: '×', kod: '*' }, 
-        { etiket: '÷', kod: '/' }
-    ];
-
-    tuslar.forEach(tus => {
-        html += `<button onclick="sanalKlavyeYaz('${tus.kod}')" style="padding: 8px 14px; font-size: 1.1rem; font-family: var(--font-math); background: var(--bg-sidebar); color: var(--text-main); border: 1px solid var(--border); border-radius: 6px; cursor: pointer; transition: 0.2s;" onmouseover="this.style.borderColor='#ec4899'; this.style.color='#ec4899'" onmouseout="this.style.borderColor='var(--border)'; this.style.color='var(--text-main)'">${tus.etiket}</button>`;
-    });
-
-    html += `<button onclick="sanalKlavyeTemizle()" style="padding: 8px 14px; font-size: 0.9rem; font-weight:bold; background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid #ef4444; border-radius: 6px; cursor: pointer; margin-left: auto;">Temizle 🗑️</button>`;
-    html += '</div>';
-    // --- KLAVYE BİTİŞ ---
-
-    // Plotly Tuvali
-    html += '<div id="plotly-lab-alani" style="width: 100%; height: 500px; margin-top: 25px; border-radius: 8px; border: 1px solid var(--border); box-shadow: var(--shadow); background: var(--bg-body);"></div>';
-    html += '</div></div>';
-
-    // --- KLAVYE İŞLEV MOTORU ---
-    window.sanalKlavyeYaz = function(kod) {
-        var input = document.getElementById('fonksiyonGirdisi');
-        // İmlecin olduğu yere yazmak yerine şimdilik sonuna ekliyoruz (daha güvenli)
-        input.value += kod;
-        input.focus(); // Öğrenci yazmaya devam edebilsin diye kutuyu aktif tut
-    };
-
-    window.sanalKlavyeTemizle = function() {
-        var input = document.getElementById('fonksiyonGirdisi');
-        input.value = '';
-        input.focus();
-    };
-
-    // --- PLOTLY ÇİZİM MOTORU ---
-    window.cizPlotly3D = function() {
-        var funcMetni = document.getElementById('fonksiyonGirdisi').value;
-        var xEkseni = [], yEkseni = [], zMatrisi = [];
-        
-        for(let i = -5; i <= 5; i += 0.25) {
-            xEkseni.push(i);
-            yEkseni.push(i);
-        }
-
-        for(let i = 0; i < yEkseni.length; i++) {
-            let zSatiri = [];
-            for(let j = 0; j < xEkseni.length; j++) {
-                try {
-                    let zDegeri = math.evaluate(funcMetni, {x: xEkseni[j], y: yEkseni[i]});
-                    zSatiri.push(zDegeri);
-                } catch(hata) {
-                    zSatiri.push(0); // Hata olursa yüzeyi düzleştir (çökme olmasın)
-                }
-            }
-            zMatrisi.push(zSatiri);
-        }
-
-        var veri = [{
-            z: zMatrisi, x: xEkseni, y: yEkseni, type: 'surface',
-            colorscale: 'Plasma', // Görsel olarak daha canlı bir renk paleti
-            showscale: false // Yandaki renk çubuğunu gizle (daha temiz görünsün)
-        }];
-
-        var ayarlar = {
-            margin: { l: 0, r: 0, b: 0, t: 0 },
-            scene: {
-                xaxis: {title: 'X'}, yaxis: {title: 'Y'}, zaxis: {title: 'Z'}
-            },
-            paper_bgcolor: 'transparent'
-        };
-
-        Plotly.newPlot('plotly-lab-alani', veri, ayarlar, {responsive: true});
-    };
-
-    // Sayfa açıldığında varsayılanı çiz
-    setTimeout(window.cizPlotly3D, 200); 
-}
 
 
 
@@ -29668,27 +29615,25 @@ if (grafikId === "grafik-silindirik-soru1") {
             }));
             if(!found) list.innerHTML = "<div style='padding:20px; text-align:center; opacity:0.6'>Sonuç bulunamadı.</div>";
         }
-
+// --- MENÜ AÇMA/KAPATMA FONKSİYONU ---
 function toggleSidebar() {
-        const sidebar = document.getElementById('sidebar');
-        const btn = document.getElementById('toggle-btn');
-        
-        // Sınıfı ekle/çıkar
-        sidebar.classList.toggle('closed');
+    const sidebar = document.getElementById('sidebar');
+    const header = document.querySelector('header');
+    const layout = document.querySelector('.layout');
+    const btn = document.getElementById('toggle-btn');
 
-        // Ok yönünü değiştir
-        if (sidebar.classList.contains('closed')) {
-            btn.innerText = "▶";
-        } else {
-            btn.innerText = "◀";
-        }
+    // Menüleri aynı anda tetikle
+    sidebar.classList.toggle('closed');
+    header.classList.toggle('kapali');
+    layout.classList.toggle('tam-ekran');
 
-        // Formülleri düzelt (Gecikmeli)
-        setTimeout(() => {
-            if(window.MathJax) MathJax.typesetPromise();
-        }, 300);
+    // Butonun ok yönünü değiştir
+    if (sidebar.classList.contains('closed')) {
+        btn.innerText = "▶";
+    } else {
+        btn.innerText = "◀";
     }
-
+}
 // --- KONU ANLATIMI KUTUSU OLUŞTURUCU ---
 function createLecture(title, content) {
     return `
