@@ -572,7 +572,37 @@ header.kapali {
     }
 }
 
+/* --- AI VİDEO OYNATMA BUTONU TASARIMI --- */
+.title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Başlık ile buton arasındaki mesafe */
+    flex-wrap: wrap;
+}
 
+.ai-play-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--accent); /* Temanın kendi rengini kullanır */
+    color: #ffffff !important;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 50px; /* Hap şeklinde estetik görünüm */
+    font-family: var(--font-main);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.ai-play-btn:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 15px var(--accent);
+    filter: brightness(1.1);
+}
 
 
 
@@ -967,9 +997,14 @@ const id = topicTitle.split(" ")[0].trim();
                 lectureHTML = `<div class="lecture-box"><div class="lecture-title">📖 ${topicTitle}</div>${topicLectures[topicTitle]}</div>`;
             }
 
-            let headerHTML = `
+           let headerHTML = `
                 <div class="content-header-wrapper">
-                    <h2 class="content-title">${topicTitle}</h2>
+                    <div class="title-wrapper">
+                        <h2 class="content-title">${topicTitle}</h2>
+                        <button class="ai-play-btn" onclick="openVideoModal('${topicTitle}')" title="Yapay Zeka Anlatımını İzle">
+                            ▶ Yapay Zeka Anlatımı
+                        </button>
+                    </div>
                     <div class="content-tools">
                         <div class="font-sizer">
                             <button class="font-btn" onclick="setFontSize('0.98rem', this)" title="Küçük">A</button>
@@ -980,8 +1015,6 @@ const id = topicTitle.split(" ")[0].trim();
                     </div>
                 </div>
             `;
-
-          main.scrollTop = 0;
 
 
 
@@ -29571,9 +29604,43 @@ if (grafikId === "grafik-silindirik-soru1") {
 }
 
 
+// --- SİNEMA MODU (AKILLI VİDEO OYNATICI) FONKSİYONU ---
+function openVideoModal(topicTitle) {
+    
+    // 1. MATEVERSE VİDEO KATALOĞU (15 videoyu buraya ekleyeceğiz)
+    const videoKatalogu = {
+        // Sol tarafa konunun tam adını, sağ tarafa YouTube linkinin sonundaki ID'yi yazıyoruz.
+        "1.1 Fonksiyonlar ve Grafikleri": "ehl5mVOaXH4",
+        "1.2 Fonksiyonları Birleştirmek": "ehl5mVOaXH4", // Şimdilik test için aynı videoyu koyduk
+        "6. Transandant Fonksiyonlar": "ehl5mVOaXH4",
+        
+        // İleride yeni video ürettikçe buraya alt alta ekleyeceksin:
+        // "2.1 Değişim Oranları ve Eğrilerin Teğetleri": "YENI_VIDEO_ID_BURAYA",
+    };
 
-
-
+    // 2. Tıklanan konunun videosunu katalogdan bul (Yoksa varsayılan olarak ilk videoyu aç)
+    let videoId = videoKatalogu[topicTitle] || "ehl5mVOaXH4"; 
+    
+    // YouTube Gömme (Embed) Linkini oluştur (autoplay=1 otomatik başlatır, rel=0 alakasız önerileri kapatır)
+    let videoUrl = "https://www.youtube.com/embed/" + videoId; 
+    
+    const modalHTML = `
+        <div id="videoModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.95); z-index: 999999; display: flex; align-items: center; justify-content: center; flex-direction: column; backdrop-filter: blur(10px);">
+            
+            <button onclick="document.getElementById('videoModal').remove()" style="position: absolute; top: 25px; right: 35px; background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; font-size: 1.4rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='rgba(239, 68, 68, 0.9)'; this.style.transform='rotate(90deg)';" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.transform='rotate(0deg)';">✖</button>
+            
+            <h3 style="color: #cbd5e1; font-family: var(--font-main); font-weight: 500; margin-bottom: 25px; letter-spacing: 1px; text-transform: uppercase;">▶ ${topicTitle} - AI Anlatımı</h3>
+            
+            <div style="position: relative; width: 85%; max-width: 1000px; aspect-ratio: 16/9; background: #000; border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7); border: 1px solid rgba(255,255,255,0.1);">
+                <iframe src="${videoUrl}?autoplay=1&rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="autoplay; fullscreen"></iframe>
+            </div>
+            
+        </div>
+    `;
+    
+    // Modalı (Sinema ekranını) sayfaya ekle
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+}
 
                     
 
