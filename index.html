@@ -20,12 +20,13 @@ window.MathJax = {
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css" />
 
 <script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
-
+<script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
 <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:wght@300;400;600;700&display=swap" rel="stylesheet">
+
 
     <style>
         /* --- TEMEL AYARLAR --- */
@@ -1016,7 +1017,7 @@ const id = topicTitle.split(" ")[0].trim();
                 </div>
             `;
 
-
+main.scrollTop = 0;
 
 
             
@@ -19764,13 +19765,13 @@ if (id === "1" || id === "1.") {
                 html += `
     <div style="font-family: 'Times New Roman', Times, serif; color: inherit; line-height: 1.6;">
         
-        <div style="border-bottom: 2px solid currentColor; margin-bottom: 20px; padding-bottom: 10px;">                 
+                         
 
         <p>
             Bu bölüm, düzlemdeki eğrileri \\( y = f(x) \\) formunun ötesine taşıyarak; zaman (\\( t \\)) veya açı (\\( \\theta \\)) gibi üçüncü bir parametre yardımıyla tanımlamayı, kutupsal koordinat sistemini ve konik kesitleri inceler.
         </p>
         
-        </div>
+       
 
         <br>
 
@@ -20097,11 +20098,11 @@ if (id === "1" || id === "1.") {
                 html += `
     <div style="font-family: 'Times New Roman', Times, serif; color: inherit; line-height: 1.6;">
         
-        <div style="border-bottom: 2px solid currentColor; margin-bottom: 20px; padding-bottom: 10px;">                 
+                     
             <p>
                 Bu bölüm, parçacıkların üç boyutlu uzaydaki hareketlerini vektör değerli fonksiyonlar kullanarak incelememizi sağlar. Üç boyutlu düzlemde hız, ivme ve yörünge gibi kavramları vektör kalkülüsü ile analiz etmeye başlıyoruz.
             </p>
-        </div>
+       
 
         <br>
 
@@ -26651,18 +26652,13 @@ var kutupsalEgri = board4.create(<span style="color: #98c379;">'curve'</span>, [
                 </div>
                 `;
             }
-
 // === 15.7: KARŞILAŞTIRMA VE SEÇİM REHBERİ ===
             else if (id === "15.7") {
                 html += `
                 <div style="font-family: 'Times New Roman', Times, serif; color: inherit; line-height: 1.6;">
-
-                    <h2 style="margin-top: 10px; text-align: center; border-bottom: 2px solid currentColor; padding-bottom: 10px;">
-                        15.7. Karşılaştırma Laboratuvarı: Hangi Aracı Seçmeliyim?
-                    </h2>
-
+          
                     <p style="margin-top: 20px;">
-                        Kalkülüs ve Çok Değişkenli Analiz yolculuğumuzda 6 farklı dev kütüphaneyi inceledik. Aşağıdaki 5 temel matematiksel senaryoda, araçların <b>canlı olarak</b> nasıl bir sonuç ürettiğini görmek için kütüphane isimlerine tıklayın.
+                        Kalkülüs ve Çok Değişkenli Analiz yolculuğumuzda 6 farklı dev kütüphaneyi inceledik. Aşağıdaki 7 temel matematiksel senaryoda, araçların <b>canlı olarak</b> nasıl bir sonuç ürettiğini görmek için kütüphane isimlerine tıklayın.
                     </p>
 
                     <br>
@@ -26687,199 +26683,351 @@ var kutupsalEgri = board4.create(<span style="color: #98c379;">'curve'</span>, [
                         <h4 class="comp-title">1. Uygulama: 3 Boyutlu Yüzeyler ve Katı Cisimler</h4>
                         
                         <div class="tool-btn-group">
-                            <button class="tool-btn s1-btn active-tab" onclick="document.querySelectorAll('.s1-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s1-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s1-mpl').classList.add('active-content'); this.classList.add('active-tab');">Matplotlib</button>
-                            <button class="tool-btn s1-btn" onclick="document.querySelectorAll('.s1-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s1-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s1-plot').classList.add('active-content'); this.classList.add('active-tab');">Plotly</button>
-                            <button class="tool-btn s1-btn" onclick="document.querySelectorAll('.s1-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s1-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s1-d3').classList.add('active-content'); this.classList.add('active-tab');">D3.js</button>
-                            <button class="tool-btn s1-btn" onclick="document.querySelectorAll('.s1-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s1-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s1-ggb').classList.add('active-content'); this.classList.add('active-tab');">GeoGebra</button>
-                            <button class="tool-btn s1-btn" onclick="document.querySelectorAll('.s1-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s1-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s1-three').classList.add('active-content'); this.classList.add('active-tab');">Three.js</button>
-                            <button class="tool-btn s1-btn" onclick="document.querySelectorAll('.s1-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s1-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s1-jxg').classList.add('active-content'); this.classList.add('active-tab');">JSXGraph</button>
+                            <button class="tool-btn s1-btn active-tab" onclick="document.querySelectorAll('.s1-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s1-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s1-mpl').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s1-mpl-canvas'); }, 50);">Matplotlib</button>
+                            <button class="tool-btn s1-btn" onclick="document.querySelectorAll('.s1-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s1-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s1-plot').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s1-plot-canvas'); }, 50);">Plotly</button>
+                            <button class="tool-btn s1-btn" onclick="document.querySelectorAll('.s1-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s1-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s1-d3').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s1-d3-canvas'); }, 50);">D3.js</button>
+                            <button class="tool-btn s1-btn" onclick="document.querySelectorAll('.s1-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s1-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s1-ggb').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s1-ggb-canvas'); }, 50);">GeoGebra</button>
+                            <button class="tool-btn s1-btn" onclick="document.querySelectorAll('.s1-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s1-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s1-three').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s1-three-canvas'); }, 50);">Three.js</button>
+                            <button class="tool-btn s1-btn" onclick="document.querySelectorAll('.s1-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s1-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s1-jxg').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s1-jxg-canvas'); }, 50);">JSXGraph</button>
                         </div>
 
                         <div id="s1-mpl" class="tool-content s1-content active-content">
-                            <iframe class="live-frame" src="grafikler/s1-mpl.html" loading="lazy"></iframe>
+                            <div id="s1-mpl-canvas" style="width:100%; height:350px; background:#fff; display:flex; align-items:center; justify-content:center; color:#ef4444; font-weight:bold; font-size:1.1rem; text-align:center;">Matplotlib (Python) tarayıcıda canlı render alamaz.<br>Sadece sunucu (Backend) tarafında çalışır.</div>
                             <div class="text-box"><b>Değerlendirme:</b> PNG formatında statik bir görsel üretir. Etkileşim yoktur, belge çıktıları için uygundur.</div>
                         </div>
+
                         <div id="s1-plot" class="tool-content s1-content">
-                            <iframe class="live-frame" src="grafikler/s1-plot.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Yüzey üzerinde farenizi gezdirdiğinizde Z değerlerini interaktif olarak okumanızı sağlar.</div>
+                            <div id="s1-plot-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Yüzey üzerinde farenizi gezdirdiğinizde Z değerlerini interaktif olarak okumanızı sağlar. Veri bilimi için endüstri standardıdır.</div>
                         </div>
+
                         <div id="s1-d3" class="tool-content s1-content">
-                            <iframe class="live-frame" src="grafikler/s1-d3.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> D3.js yerel olarak 3D desteklemez. 2D uzayda izometrik izdüşüm yapmak zordur.</div>
+                            <div id="s1-d3-canvas" style="width:100%; height:350px; background:#fff; display:flex; align-items:center; justify-content:center; color:#ef4444; font-weight:bold; font-size:1.1rem; text-align:center;">D3.js yerel olarak 3 Boyutlu çizimleri desteklemez.</div>
+                            <div class="text-box"><b>Değerlendirme:</b> 2D uzayda izometrik izdüşüm yapmak zordur ve performansı çok düşüktür. 3D yüzeyler için tavsiye edilmez.</div>
                         </div>
+
                         <div id="s1-ggb" class="tool-content s1-content">
-                            <iframe class="live-frame" src="grafikler/s1-ggb.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Surface[] komutu ile hızlıca oluşturulur, ancak 3D görünüm arayüzü ağır çalışabilir.</div>
+                            <div id="s1-ggb-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Surface[] komutu ile hızlıca oluşturulur, eksen yapısıyla akademik gösterim için çok uygundur ancak arayüzü biraz ağır çalışabilir.</div>
                         </div>
+
                         <div id="s1-three" class="tool-content s1-content">
-                            <iframe class="live-frame" src="grafikler/s1-three.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Kusursuz ışıklandırma ve gölgelendirmeyle yüzeyi bir oyun motoru akıcılığında çizer. Mükemmeldir.</div>
+                            <div id="s1-three-canvas" style="width:100%; height:350px; background:#111827; overflow:hidden;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Kusursuz ışıklandırma ve gölgelendirmeyle yüzeyi bir oyun motoru akıcılığında (60 FPS) çizer. Görsellik açısından mükemmeldir.</div>
                         </div>
+
                         <div id="s1-jxg" class="tool-content s1-content">
-                            <iframe class="live-frame" src="grafikler/s1-jxg.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> 3D desteği deneyseldir. Bu görev için uygun değildir.</div>
+                            <div id="s1-jxg-canvas" class="jxgbox" style="width:100%; height:350px; background:#fff; border:none;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> 3D desteği deneyseldir (view3d). Sadece basit tel kafes (wireframe) çizimleri için uygundur.</div>
                         </div>
                     </div>
-
 
                     <div class="comp-scenario">
                         <h4 class="comp-title">2. Uygulama: Eğri Üzerinde Kayan Teğet Doğrusu</h4>
                         
                         <div class="tool-btn-group">
-                            <button class="tool-btn s2-btn active-tab" onclick="document.querySelectorAll('.s2-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s2-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s2-mpl').classList.add('active-content'); this.classList.add('active-tab');">Matplotlib</button>
-                            <button class="tool-btn s2-btn" onclick="document.querySelectorAll('.s2-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s2-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s2-plot').classList.add('active-content'); this.classList.add('active-tab');">Plotly</button>
-                            <button class="tool-btn s2-btn" onclick="document.querySelectorAll('.s2-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s2-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s2-d3').classList.add('active-content'); this.classList.add('active-tab');">D3.js</button>
-                            <button class="tool-btn s2-btn" onclick="document.querySelectorAll('.s2-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s2-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s2-ggb').classList.add('active-content'); this.classList.add('active-tab');">GeoGebra</button>
-                            <button class="tool-btn s2-btn" onclick="document.querySelectorAll('.s2-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s2-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s2-three').classList.add('active-content'); this.classList.add('active-tab');">Three.js</button>
-                            <button class="tool-btn s2-btn" onclick="document.querySelectorAll('.s2-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s2-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s2-jxg').classList.add('active-content'); this.classList.add('active-tab');">JSXGraph</button>
+                            <button class="tool-btn s2-btn active-tab" onclick="document.querySelectorAll('.s2-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s2-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s2-mpl').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s2-mpl-canvas'); }, 50);">Matplotlib</button>
+                            <button class="tool-btn s2-btn" onclick="document.querySelectorAll('.s2-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s2-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s2-plot').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s2-plot-canvas'); }, 50);">Plotly</button>
+                            <button class="tool-btn s2-btn" onclick="document.querySelectorAll('.s2-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s2-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s2-d3').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s2-d3-canvas'); }, 50);">D3.js</button>
+                            <button class="tool-btn s2-btn" onclick="document.querySelectorAll('.s2-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s2-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s2-ggb').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s2-ggb-canvas'); }, 50);">GeoGebra</button>
+                            <button class="tool-btn s2-btn" onclick="document.querySelectorAll('.s2-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s2-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s2-three').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s2-three-canvas'); }, 50);">Three.js</button>
+                            <button class="tool-btn s2-btn" onclick="document.querySelectorAll('.s2-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s2-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s2-jxg').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s2-jxg-canvas'); }, 50);">JSXGraph</button>
                         </div>
 
                         <div id="s2-mpl" class="tool-content s2-content active-content">
-                            <iframe class="live-frame" src="grafikler/s2-mpl.html" loading="lazy"></iframe>
+                            <div id="s2-mpl-canvas" style="width:100%; height:350px; background:#fff; display:flex; align-items:center; justify-content:center; color:#ef4444; font-weight:bold; font-size:1.1rem; text-align:center;">Matplotlib canlı animasyon yapamaz.</div>
                             <div class="text-box"><b>Değerlendirme:</b> Belirlenen sabit bir noktada statik bir teğet çizer. Dinamik kaydırma yapılamaz.</div>
                         </div>
+
                         <div id="s2-plot" class="tool-content s2-content">
-                            <iframe class="live-frame" src="grafikler/s2-plot.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Vurgulanan (hover) noktanın türevini metin olarak verebilir, teğet animasyonu için uygun değildir.</div>
+                            <div id="s2-plot-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Plotly ile teğet çizimi. Farenizi doğrunun veya eğrinin üzerinde gezdirerek koordinatları interaktif olarak okuyabilirsiniz.</div>
                         </div>
+
                         <div id="s2-d3" class="tool-content s2-content">
-                            <iframe class="live-frame" src="grafikler/s2-d3.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Fare pozisyonunu algılayıp türevi hesaplayarak canlı teğet doğrusunu başarıyla güncelleyebilir.</div>
+                            <div id="s2-d3-canvas" style="width:100%; height:350px; background:#fff; display:flex; align-items:center; justify-content:center; color:#ef4444; font-weight:bold; font-size:1.1rem; text-align:center;">D3.js ile matematiksel türev hesaplamak zahmetlidir.</div>
+                            <div class="text-box"><b>Değerlendirme:</b> Ekrana çizilebilir ancak özel matematik fonksiyonları yazmak gerekir.</div>
                         </div>
+
                         <div id="s2-ggb" class="tool-content s2-content">
-                            <iframe class="live-frame" src="grafikler/s2-ggb.html" loading="lazy"></iframe>
+                            <div id="s2-ggb-canvas" style="width:100%; height:350px; background:#fff;"></div>
                             <div class="text-box"><b>Değerlendirme:</b> Tangent komutuyla mükemmel çalışır. Denklemi anında hesaplayıp ekrana yansıtır.</div>
                         </div>
+
                         <div id="s2-three" class="tool-content s2-content">
-                            <iframe class="live-frame" src="grafikler/s2-three.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> 2 Boyutlu basit bir türev için oyun motoru kullanmak gereksizdir (overkill).</div>
+                            <div id="s2-three-canvas" style="width:100%; height:350px; background:#111827; display:flex; align-items:center; justify-content:center; color:#ef4444; font-weight:bold; font-size:1.1rem; text-align:center;">2 Boyutlu çizim için oyun motoru kullanmak gereksizdir.</div>
+                            <div class="text-box"><b>Değerlendirme:</b> 2 Boyutlu basit bir türev için Three.js aşırı büyük bir araçtır (overkill).</div>
                         </div>
+
                         <div id="s2-jxg" class="tool-content s2-content">
-                            <iframe class="live-frame" src="grafikler/s2-jxg.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> İnanılmaz derecede hafiftir. Tarayıcıyı hiç yormadan, tamamen kod üzerinden kesintisiz teğet animasyonu sağlar.</div>
+                            <div id="s2-jxg-canvas" class="jxgbox" style="width:100%; height:350px; background:#fff; border:none;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> İnanılmaz derecede hafiftir. Tarayıcıyı hiç yormadan kesintisiz teğet animasyonu sağlar. Kırmızı noktayı sürükleyin!</div>
                         </div>
                     </div>
-
-
+                    
                     <div class="comp-scenario">
                         <h4 class="comp-title">3. Uygulama: Riemann Toplamları (Alan Hesabı)</h4>
                         
                         <div class="tool-btn-group">
-                            <button class="tool-btn s3-btn active-tab" onclick="document.querySelectorAll('.s3-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s3-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s3-mpl').classList.add('active-content'); this.classList.add('active-tab');">Matplotlib</button>
-                            <button class="tool-btn s3-btn" onclick="document.querySelectorAll('.s3-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s3-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s3-plot').classList.add('active-content'); this.classList.add('active-tab');">Plotly</button>
-                            <button class="tool-btn s3-btn" onclick="document.querySelectorAll('.s3-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s3-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s3-d3').classList.add('active-content'); this.classList.add('active-tab');">D3.js</button>
-                            <button class="tool-btn s3-btn" onclick="document.querySelectorAll('.s3-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s3-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s3-ggb').classList.add('active-content'); this.classList.add('active-tab');">GeoGebra</button>
-                            <button class="tool-btn s3-btn" onclick="document.querySelectorAll('.s3-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s3-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s3-three').classList.add('active-content'); this.classList.add('active-tab');">Three.js</button>
-                            <button class="tool-btn s3-btn" onclick="document.querySelectorAll('.s3-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s3-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s3-jxg').classList.add('active-content'); this.classList.add('active-tab');">JSXGraph</button>
+                            <button class="tool-btn s3-btn active-tab" onclick="document.querySelectorAll('.s3-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s3-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s3-mpl').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s3-mpl-canvas'); }, 50);">Matplotlib</button>
+                            <button class="tool-btn s3-btn" onclick="document.querySelectorAll('.s3-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s3-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s3-plot').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s3-plot-canvas'); }, 50);">Plotly</button>
+                            <button class="tool-btn s3-btn" onclick="document.querySelectorAll('.s3-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s3-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s3-d3').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s3-d3-canvas'); }, 50);">D3.js</button>
+                            <button class="tool-btn s3-btn" onclick="document.querySelectorAll('.s3-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s3-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s3-ggb').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s3-ggb-canvas'); }, 50);">GeoGebra</button>
+                            <button class="tool-btn s3-btn" onclick="document.querySelectorAll('.s3-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s3-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s3-three').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s3-three-canvas'); }, 50);">Three.js</button>
+                            <button class="tool-btn s3-btn" onclick="document.querySelectorAll('.s3-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s3-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s3-jxg').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s3-jxg-canvas'); }, 50);">JSXGraph</button>
                         </div>
 
                         <div id="s3-mpl" class="tool-content s3-content active-content">
-                            <iframe class="live-frame" src="grafikler/s3-mpl.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Bar grafikleriyle statik olarak çizilebilir. N sayısı değiştiğinde akıcılık yoktur.</div>
+                            <div id="s3-mpl-canvas" style="width:100%; height:350px; background:#fff; display:flex; align-items:center; justify-content:center; color:#ef4444; font-weight:bold; font-size:1.1rem; text-align:center;">Bar grafikleriyle statik olarak çizilebilir. N sayısı değiştiğinde akıcılık yoktur.</div>
+                            <div class="text-box"><b>Değerlendirme:</b> Matplotlib canlı etkileşimde zayıf kalır.</div>
                         </div>
+
                         <div id="s3-plot" class="tool-content s3-content">
-                            <iframe class="live-frame" src="grafikler/s3-plot.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Veri analizi hissiyatı verir, pedagojik bir integral anlatımı için zayıftır.</div>
+                            <div id="s3-plot-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Veri analizi hissiyatı verir, pedagojik bir integral anlatımı için zayıftır ancak kaydırıcı (slider) ile animasyon sağlanabilir.</div>
                         </div>
+
                         <div id="s3-d3" class="tool-content s3-content">
-                            <iframe class="live-frame" src="grafikler/s3-d3.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> N sayısı değiştiğinde dikdörtgenlerin dans ederek bölünmesi (transition) sadece D3 ile mümkündür.</div>
+                            <div id="s3-d3-canvas" style="width:100%; height:350px; background:#fff; display:flex; align-items:center; justify-content:center; color:#ef4444; font-weight:bold; font-size:1.1rem; text-align:center;">N sayısı değiştiğinde dikdörtgenlerin dans ederek bölünmesi harikadır ancak çok fazla kod gerektirir.</div>
+                            <div class="text-box"><b>Değerlendirme:</b> Animasyon (transition) konusunda rakipsizdir ama matematik motoru yoktur.</div>
                         </div>
+
                         <div id="s3-ggb" class="tool-content s3-content">
-                            <iframe class="live-frame" src="grafikler/s3-ggb.html" loading="lazy"></iframe>
+                            <div id="s3-ggb-canvas" style="width:100%; height:350px; background:#fff;"></div>
                             <div class="text-box"><b>Değerlendirme:</b> Alt ve Üst Toplam komutlarıyla saniyeler içinde kurulur, hesabı mükemmel yapar.</div>
                         </div>
+
                         <div id="s3-three" class="tool-content s3-content">
-                            <iframe class="live-frame" src="grafikler/s3-three.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> 2 Boyutlu alan hesabı için gereksizdir.</div>
+                            <div id="s3-three-canvas" style="width:100%; height:350px; background:#111827; display:flex; align-items:center; justify-content:center; color:#ef4444; font-weight:bold; font-size:1.1rem; text-align:center;">2 Boyutlu alan hesabı için gereksizdir.</div>
+                            <div class="text-box"><b>Değerlendirme:</b> Hacim hesaplamaları dışında Three.js bu senaryoda overkill'dir.</div>
                         </div>
+
                         <div id="s3-jxg" class="tool-content s3-content">
-                            <iframe class="live-frame" src="grafikler/s3-jxg.html" loading="lazy"></iframe>
+                            <div id="s3-jxg-canvas" class="jxgbox" style="width:100%; height:350px; background:#fff; border:none;"></div>
                             <div class="text-box"><b>Değerlendirme:</b> Yerleşik "riemannsum" komutuyla D3'ten 10 kat daha az kodla çok hızlı sonuç üretir.</div>
                         </div>
                     </div>
-
-
+                    
                     <div class="comp-scenario">
                         <h4 class="comp-title">4. Uygulama: Yön Alanları (Slope Fields)</h4>
                         
                         <div class="tool-btn-group">
-                            <button class="tool-btn s4-btn active-tab" onclick="document.querySelectorAll('.s4-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s4-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s4-mpl').classList.add('active-content'); this.classList.add('active-tab');">Matplotlib</button>
-                            <button class="tool-btn s4-btn" onclick="document.querySelectorAll('.s4-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s4-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s4-plot').classList.add('active-content'); this.classList.add('active-tab');">Plotly</button>
-                            <button class="tool-btn s4-btn" onclick="document.querySelectorAll('.s4-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s4-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s4-d3').classList.add('active-content'); this.classList.add('active-tab');">D3.js</button>
-                            <button class="tool-btn s4-btn" onclick="document.querySelectorAll('.s4-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s4-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s4-ggb').classList.add('active-content'); this.classList.add('active-tab');">GeoGebra</button>
-                            <button class="tool-btn s4-btn" onclick="document.querySelectorAll('.s4-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s4-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s4-three').classList.add('active-content'); this.classList.add('active-tab');">Three.js</button>
-                            <button class="tool-btn s4-btn" onclick="document.querySelectorAll('.s4-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s4-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s4-jxg').classList.add('active-content'); this.classList.add('active-tab');">JSXGraph</button>
+                            <button class="tool-btn s4-btn active-tab" onclick="document.querySelectorAll('.s4-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s4-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s4-mpl').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s4-mpl-canvas'); }, 50);">Matplotlib</button>
+                            <button class="tool-btn s4-btn" onclick="document.querySelectorAll('.s4-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s4-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s4-plot').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s4-plot-canvas'); }, 50);">Plotly</button>
+                            <button class="tool-btn s4-btn" onclick="document.querySelectorAll('.s4-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s4-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s4-d3').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s4-d3-canvas'); }, 50);">D3.js</button>
+                            <button class="tool-btn s4-btn" onclick="document.querySelectorAll('.s4-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s4-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s4-ggb').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s4-ggb-canvas'); }, 50);">GeoGebra</button>
+                            <button class="tool-btn s4-btn" onclick="document.querySelectorAll('.s4-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s4-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s4-three').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s4-three-canvas'); }, 50);">Three.js</button>
+                            <button class="tool-btn s4-btn" onclick="document.querySelectorAll('.s4-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s4-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s4-jxg').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s4-jxg-canvas'); }, 50);">JSXGraph</button>
                         </div>
 
                         <div id="s4-mpl" class="tool-content s4-content active-content">
-                            <iframe class="live-frame" src="grafikler/s4-mpl.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Bilimsel standart olan quiver() fonksiyonuyla inanılmaz detaylı vektör alanları çıkarır.</div>
+                            <div id="s4-mpl-canvas" style="width:100%; height:350px; background:#fff; display:flex; align-items:center; justify-content:center; color:#ef4444; font-weight:bold; font-size:1.1rem; text-align:center;">Matplotlib statik çizimler üretir, web için interaktif değildir.</div>
+                            <div class="text-box"><b>Değerlendirme:</b> Bilimsel standart olan quiver() fonksiyonuyla inanılmaz detaylı vektör alanları çıkarır ancak tarayıcıda canlı çalışmaz.</div>
                         </div>
+                        
                         <div id="s4-plot" class="tool-content s4-content">
-                            <iframe class="live-frame" src="grafikler/s4-plot.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Cone grafikleri ile 3 boyutlu uzaydaki akışlarda harikadır.</div>
+                            <div id="s4-plot-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Yerleşik bir 2D vektör fonksiyonu olmamasına rağmen, segmentli çizim tekniğiyle çok hızlı yön alanları oluşturabilir.</div>
                         </div>
+                        
                         <div id="s4-d3" class="tool-content s4-content">
-                            <iframe class="live-frame" src="grafikler/s4-d3.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Hazır fonksiyonu yoktur. X-Y döngüleri kurup okları manuel SVG olarak çizmek gerekir.</div>
+                            <div id="s4-d3-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Matematiksel x-y döngüleri kurup binlerce SVG okunu (line) manuel konumlandırarak şık sonuçlar verir.</div>
                         </div>
+                        
                         <div id="s4-ggb" class="tool-content s4-content">
-                            <iframe class="live-frame" src="grafikler/s4-ggb.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Diferansiyel denklemlerin yön alanını çizer ve çözüm eğrisini (SolveODE) o an ekranda akıtır.</div>
+                            <div id="s4-ggb-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Diferansiyel denklemlerin yön alanını çizer ve çözüm eğrisini (SolveODE) anında ekranda hesaplar. Noktayı sürükleyin!</div>
                         </div>
+                        
                         <div id="s4-three" class="tool-content s4-content">
-                            <iframe class="live-frame" src="grafikler/s4-three.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> ArrowHelper ile on binlerce vektörü donanım ivmesiyle çizebilir.</div>
+                            <div id="s4-three-canvas" style="width:100%; height:350px; background:#111827;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> ArrowHelper ile on binlerce vektörü donanım ivmesiyle 3 Boyutlu uzayda akıcı bir şekilde gösterebilir. (Kamerayı fareyle döndürün)</div>
                         </div>
+                        
                         <div id="s4-jxg" class="tool-content s4-content">
-                            <iframe class="live-frame" src="grafikler/s4-jxg.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Yerleşik diferansiyel denklem çözücüsü sayesinde 2D yön alanlarını kusursuz çizer.</div>
+                            <div id="s4-jxg-canvas" class="jxgbox" style="width:100%; height:350px; background:#fff; border:none;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Yerleşik diferansiyel denklem çözücüsü sayesinde 2D yön alanlarını mükemmel çizer.</div>
                         </div>
                     </div>
-
-
+                    
                     <div class="comp-scenario">
                         <h4 class="comp-title">5. Uygulama: Parametrik ve Kutupsal Eğriler</h4>
                         
                         <div class="tool-btn-group">
-                            <button class="tool-btn s5-btn active-tab" onclick="document.querySelectorAll('.s5-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s5-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s5-mpl').classList.add('active-content'); this.classList.add('active-tab');">Matplotlib</button>
-                            <button class="tool-btn s5-btn" onclick="document.querySelectorAll('.s5-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s5-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s5-plot').classList.add('active-content'); this.classList.add('active-tab');">Plotly</button>
-                            <button class="tool-btn s5-btn" onclick="document.querySelectorAll('.s5-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s5-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s5-d3').classList.add('active-content'); this.classList.add('active-tab');">D3.js</button>
-                            <button class="tool-btn s5-btn" onclick="document.querySelectorAll('.s5-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s5-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s5-ggb').classList.add('active-content'); this.classList.add('active-tab');">GeoGebra</button>
-                            <button class="tool-btn s5-btn" onclick="document.querySelectorAll('.s5-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s5-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s5-three').classList.add('active-content'); this.classList.add('active-tab');">Three.js</button>
-                            <button class="tool-btn s5-btn" onclick="document.querySelectorAll('.s5-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s5-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s5-jxg').classList.add('active-content'); this.classList.add('active-tab');">JSXGraph</button>
+                            <button class="tool-btn s5-btn active-tab" onclick="document.querySelectorAll('.s5-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s5-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s5-mpl').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s5-mpl-canvas'); }, 50);">Matplotlib</button>
+                            <button class="tool-btn s5-btn" onclick="document.querySelectorAll('.s5-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s5-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s5-plot').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s5-plot-canvas'); }, 50);">Plotly</button>
+                            <button class="tool-btn s5-btn" onclick="document.querySelectorAll('.s5-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s5-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s5-d3').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s5-d3-canvas'); }, 50);">D3.js</button>
+                            <button class="tool-btn s5-btn" onclick="document.querySelectorAll('.s5-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s5-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s5-ggb').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s5-ggb-canvas'); }, 50);">GeoGebra</button>
+                            <button class="tool-btn s5-btn" onclick="document.querySelectorAll('.s5-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s5-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s5-three').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s5-three-canvas'); }, 50);">Three.js</button>
+                            <button class="tool-btn s5-btn" onclick="document.querySelectorAll('.s5-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s5-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s5-jxg').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s5-jxg-canvas'); }, 50);">JSXGraph</button>
                         </div>
 
                         <div id="s5-mpl" class="tool-content s5-content active-content">
-                            <iframe class="live-frame" src="grafikler/s5-mpl.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Polar eksen projeksiyonu sayesinde kutupsal fonksiyonları çizer ancak etkileşimi yoktur.</div>
+                            <div id="s5-mpl-canvas" style="width:100%; height:350px; background:#fff; display:flex; align-items:center; justify-content:center; color:#ef4444; font-weight:bold; font-size:1.1rem; text-align:center;">Matplotlib statik olarak kusursuz çizer, ancak web'de etkileşimi zayıftır.</div>
+                            <div class="text-box"><b>Değerlendirme:</b> Polar eksen projeksiyonu sayesinde kutupsal fonksiyonları çizer ancak anlık parametre değişimi yapılamaz.</div>
                         </div>
+                        
                         <div id="s5-plot" class="tool-content s5-content">
-                            <iframe class="live-frame" src="grafikler/s5-plot.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Scatterpolar yapısıyla güzeldir fakat anlık parametre değişimi (slider) için ağırdır.</div>
+                            <div id="s5-plot-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> İstenilen hassasiyette parametrik noktalar üretilerek slider ile canlandırılabilir.</div>
                         </div>
+                        
                         <div id="s5-d3" class="tool-content s5-content">
-                            <iframe class="live-frame" src="grafikler/s5-d3.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Açıları ve yarıçapları manuel hesaplamanız gerekir.</div>
+                            <div id="s5-d3-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> SVG path (yol) geçişleriyle parametre değiştikçe eğrinin dans etmesini olağanüstü pürüzsüzlükte sağlar.</div>
                         </div>
+                        
                         <div id="s5-ggb" class="tool-content s5-content">
-                            <iframe class="live-frame" src="grafikler/s5-ggb.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Parametrik denklemleri kusursuz işler ve sürgülere anında tepki verir.</div>
+                            <div id="s5-ggb-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> "Curve" komutu ile parametrik denklemleri saniyeler içinde işler ve sürgülere anında matematiksel tepki verir.</div>
                         </div>
+                        
                         <div id="s5-three" class="tool-content s5-content">
-                            <iframe class="live-frame" src="grafikler/s5-three.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> 3 Boyutlu uzay eğrileri için harikadır, ancak 2D kutupsal çizimler için büyüktür.</div>
+                            <div id="s5-three-canvas" style="width:100%; height:350px; background:#111827;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> 3 Boyutlu parametrik uzay eğrileri (Torus Düğümü gibi) için rakipsizdir. Fareyle döndürün!</div>
                         </div>
+                        
                         <div id="s5-jxg" class="tool-content s5-content">
-                            <iframe class="live-frame" src="grafikler/s5-jxg.html" loading="lazy"></iframe>
-                            <div class="text-box"><b>Değerlendirme:</b> Sürgüyü kaydırdıkça kutupsal şeklin deformasyonunu hiç kasmadan pürüzsüzce çizer.</div>
+                            <div id="s5-jxg-canvas" class="jxgbox" style="width:100%; height:350px; background:#fff; border:none;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Sürgüyü kaydırdıkça kutupsal şeklin deformasyonunu hiç kasmadan, devasa bir hızla çizer.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="comp-scenario">
+                        <h4 class="comp-title">6. Uygulama: Taylor Serileri (Fonksiyon Yaklaşımı)</h4>
+                        
+                        <div class="tool-btn-group">
+                            <button class="tool-btn s6-btn active-tab" onclick="document.querySelectorAll('.s6-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s6-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s6-mpl').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s6-mpl-canvas'); }, 50);">Matplotlib</button>
+                            <button class="tool-btn s6-btn" onclick="document.querySelectorAll('.s6-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s6-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s6-plot').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s6-plot-canvas'); }, 50);">Plotly</button>
+                            <button class="tool-btn s6-btn" onclick="document.querySelectorAll('.s6-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s6-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s6-d3').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s6-d3-canvas'); }, 50);">D3.js</button>
+                            <button class="tool-btn s6-btn" onclick="document.querySelectorAll('.s6-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s6-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s6-ggb').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s6-ggb-canvas'); }, 50);">GeoGebra</button>
+                            <button class="tool-btn s6-btn" onclick="document.querySelectorAll('.s6-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s6-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s6-three').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s6-three-canvas'); }, 50);">Three.js</button>
+                            <button class="tool-btn s6-btn" onclick="document.querySelectorAll('.s6-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s6-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s6-jxg').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s6-jxg-canvas'); }, 50);">JSXGraph</button>
+                        </div>
+
+                        <div id="s6-mpl" class="tool-content s6-content active-content">
+                            <div id="s6-mpl-canvas" style="width:100%; height:350px; background:#fff; display:flex; align-items:center; justify-content:center; color:#ef4444; font-weight:bold; font-size:1.1rem; text-align:center;">Matplotlib interaktif polinom değişimi için uygun değildir.</div>
+                            <div class="text-box"><b>Değerlendirme:</b> Statik olarak Taylor serilerini çizebilir ancak terim sayısını anlık artırıp azaltma hissiyatını veremez.</div>
+                        </div>
+                        
+                        <div id="s6-plot" class="tool-content s6-content">
+                            <div id="s6-plot-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> İki farklı fonksiyonu aynı düzlemde karşılaştırmak ve animasyonla sarmak için muazzamdır.</div>
+                        </div>
+                        
+                        <div id="s6-d3" class="tool-content s6-content">
+                            <div id="s6-d3-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Polinomun derece atladıkça bir yılan gibi kıvrılarak sinüs dalgasına sarılmasını en pürüzsüz D3.js gösterir.</div>
+                        </div>
+                        
+                        <div id="s6-ggb" class="tool-content s6-content">
+                            <div id="s6-ggb-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Yerleşik "TaylorPolynomial" komutu sayesinde inanılmaz bir hızla ve pedagojik doğrulukla çalışır.</div>
+                        </div>
+                        
+                        <div id="s6-three" class="tool-content s6-content">
+                            <div id="s6-three-canvas" style="width:100%; height:350px; background:#111827;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> 2 Boyutlu bir konsepti, 3 Boyutlu neon tüplerle uzayda asılıymış gibi göstererek görsel bir şölen sunar.</div>
+                        </div>
+                        
+                        <div id="s6-jxg" class="tool-content s6-content">
+                            <div id="s6-jxg-canvas" class="jxgbox" style="width:100%; height:350px; background:#fff; border:none;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Yüksek dereceli polinomların getirdiği devasa sayısal yükleri tarayıcıyı hiç yormadan anında hesaplar.</div>
                         </div>
                     </div>
 
-                </div>
-                `;
-            }
+                    <div class="comp-scenario">
+                        <h4 class="comp-title">7. Uygulama: Dönel Cisimler ve Hacim (Solids of Revolution)</h4>
+
+                        <div class="tool-btn-group">
+                            <button class="tool-btn s7-btn active-tab" onclick="document.querySelectorAll('.s7-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s7-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s7-mpl').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s7-mpl-canvas'); }, 50);">Matplotlib</button>
+                            <button class="tool-btn s7-btn" onclick="document.querySelectorAll('.s7-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s7-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s7-plot').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s7-plot-canvas'); }, 50);">Plotly</button>
+                            <button class="tool-btn s7-btn" onclick="document.querySelectorAll('.s7-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s7-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s7-d3').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s7-d3-canvas'); }, 50);">D3.js</button>
+                            <button class="tool-btn s7-btn" onclick="document.querySelectorAll('.s7-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s7-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s7-ggb').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s7-ggb-canvas'); }, 50);">GeoGebra</button>
+                            <button class="tool-btn s7-btn" onclick="document.querySelectorAll('.s7-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s7-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s7-three').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s7-three-canvas'); }, 50);">Three.js</button>
+                            <button class="tool-btn s7-btn" onclick="document.querySelectorAll('.s7-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s7-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s7-jxg').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s7-jxg-canvas'); }, 50);">JSXGraph</button>
+                        </div>
+
+                        <div id="s7-mpl" class="tool-content s7-content active-content">
+                            <div id="s7-mpl-canvas" style="width:100%; height:350px; background:#fff; display:flex; align-items:center; justify-content:center; color:#ef4444; font-weight:bold; font-size:1.1rem; text-align:center;">Matplotlib 3D yüzey çizebilir ancak tarayıcıda canlı dönmez.</div>
+                            <div class="text-box"><b>Değerlendirme:</b> plot_surface ile statik 3 Boyutlu hacim oluşturur.</div>
+                        </div>
+
+                        <div id="s7-plot" class="tool-content s7-content">
+                            <div id="s7-plot-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Silindirik koordinat dönüşümü ile 3 Boyutlu muazzam bir hacim yüzeyi çıkarır.</div>
+                        </div>
+
+                        <div id="s7-d3" class="tool-content s7-content">
+                            <div id="s7-d3-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Hacmin 2 Boyutlu izdüşümünü ve yansıma alanını estetik bir SVG animasyonu ile gösterir.</div>
+                        </div>
+
+                        <div id="s7-ggb" class="tool-content s7-content">
+                            <div id="s7-ggb-canvas" style="width:100%; height:350px; background:#fff;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Surface komutu ile fonksiyonu eksen etrafında canlı canlı döndürerek 3D katı cisim oluşturur. Sürgüyü kaydırın!</div>
+                        </div>
+
+                        <div id="s7-three" class="tool-content s7-content">
+                            <div id="s7-three-canvas" style="width:100%; height:350px; background:#0f172a;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> LatheGeometry (Torna) motoru ile saf bir 3D katı cisim üretir. Dinamik dönme açısıyla içyapıyı inceleyebilirsiniz.</div>
+                        </div>
+
+                        <div id="s7-jxg" class="tool-content s7-content">
+                            <div id="s7-jxg-canvas" class="jxgbox" style="width:100%; height:350px; background:#fff; border:none;"></div>
+                            <div class="text-box"><b>Değerlendirme:</b> Sürgü yardımıyla x ekseni boyunca ilerleyen yarıçap diskini (Disk Metodu) interaktif olarak hesaplar.</div>
+                        </div>
+                    </div>
+
+              
+           
+<div class="comp-scenario">
+    <h4 class="comp-title">8. Uygulama: Çok Değişkenli Fonksiyonlar (Gradyan ve Teğet Düzlem)</h4>
+
+    <div class="tool-btn-group">
+        <button class="tool-btn s8-btn active-tab" onclick="document.querySelectorAll('.s8-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s8-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s8-mpl').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s8-mpl-canvas'); }, 50);">Matplotlib</button>
+        <button class="tool-btn s8-btn" onclick="document.querySelectorAll('.s8-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s8-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s8-plot').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s8-plot-canvas'); }, 50);">Plotly</button>
+        <button class="tool-btn s8-btn" onclick="document.querySelectorAll('.s8-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s8-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s8-d3').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s8-d3-canvas'); }, 50);">D3.js</button>
+        <button class="tool-btn s8-btn" onclick="document.querySelectorAll('.s8-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s8-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s8-ggb').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s8-ggb-canvas'); }, 50);">GeoGebra</button>
+        <button class="tool-btn s8-btn" onclick="document.querySelectorAll('.s8-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s8-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s8-three').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s8-three-canvas'); }, 50);">Three.js</button>
+        <button class="tool-btn s8-btn" onclick="document.querySelectorAll('.s8-content').forEach(c=>c.classList.remove('active-content')); document.querySelectorAll('.s8-btn').forEach(b=>b.classList.remove('active-tab')); document.getElementById('s8-jxg').classList.add('active-content'); this.classList.add('active-tab'); setTimeout(() => { if(window.ozelGrafikleriCiz) window.ozelGrafikleriCiz('s8-jxg-canvas'); }, 50);">JSXGraph</button>
+    </div>
+
+    <div id="s8-mpl" class="tool-content s8-content active-content">
+        <div id="s8-mpl-canvas" style="width:100%; height:350px; background:#fff; display:flex; align-items:center; justify-content:center; color:#ef4444; font-weight:bold; font-size:1.1rem; text-align:center;">Matplotlib canlı 3D düzlem hesaplayamaz.</div>
+        <div class="text-box"><b>Değerlendirme:</b> İki boyutlu eş yükselti eğrilerini (contour map) statik olarak basmak için sektördeki en iyi araçtır.</div>
+    </div>
+
+    <div id="s8-plot" class="tool-content s8-content">
+        <div id="s8-plot-canvas" style="width:100%; height:350px; background:#fff;"></div>
+        <div class="text-box"><b>Değerlendirme:</b> Paraboloidin zeminine kendi izdüşümünü (contour projection) otomatik olarak çizerek muazzam bir veri analizi sunar.</div>
+    </div>
+
+    <div id="s8-d3" class="tool-content s8-content">
+        <div id="s8-d3-canvas" style="width:100%; height:350px; background:#fff;"></div>
+        <div class="text-box"><b>Değerlendirme:</b> Eş yükselti eğrilerini (topografya) animasyonla çizebilir ancak 3D derinlik algısı sunamaz.</div>
+    </div>
+
+    <div id="s8-ggb" class="tool-content s8-content">
+        <div id="s8-ggb-canvas" style="width:100%; height:350px; background:#fff;"></div>
+        <div class="text-box"><b>Değerlendirme:</b> Yüzey üzerindeki bir noktadan geçen Teğet Düzlemi (Tangent Plane) anında hesaplar ve 3D uzayda kusursuz gösterir. (Sürgüleri kaydırın)</div>
+    </div>
+
+    <div id="s8-three" class="tool-content s8-content">
+        <div id="s8-three-canvas" style="width:100%; height:350px; background:#f1f5f9;"></div>
+        <div class="text-box"><b>Değerlendirme:</b> Geometriyi "PlaneGeometry" ile pürüzsüz inşa edip, GPU hızlandırmasıyla 3D paraboloidi sıfır kasmayla döndürür.</div>
+    </div>
+
+    <div id="s8-jxg" class="tool-content s8-content">
+        <div id="s8-jxg-canvas" class="jxgbox" style="width:100%; height:350px; background:#fff; border:none;"></div>
+        <div class="text-box"><b>Değerlendirme:</b> 2D düzlemde Eş Yükselti Eğrilerini çizer. Kırmızı noktayı sürükleyerek fonksiyonun <b>Gradyan Vektörünün (Maksimum Artış Yönü)</b> eğrilere her zaman dik olduğunu görün!</div>
+    </div>
+</div>
+`;
+
+
+ }
 
 // =========================================
 else if (id === "16.1") {
@@ -27110,7 +27258,11 @@ else if (id === "16.3") {
         window.cizPplane();
 
     }, 300);
-}// =========================================
+}
+
+
+
+// =========================================
 // 16.4 3D UZAY VE ÇOK DEĞİŞKENLİ YÜZEYLER
 // =========================================
 else if (id === "16.4") {
@@ -29596,6 +29748,1612 @@ if (grafikId === "grafik-silindirik-soru1") {
     var applet = new GGBApplet(params, true);
     applet.inject(grafikId);
 }
+
+
+// ==========================================
+    // 1. UYGULAMA: 3 BOYUTLU YÜZEY (z = sin(sqrt(x^2 + y^2)))
+    // ==========================================
+
+    if (grafikId === "s1-mpl-canvas") {
+        // Matplotlib boş. Uyarı HTML tarafında verildi.
+    }
+    
+    else if (grafikId === "s1-plot-canvas") {
+        document.getElementById(grafikId).innerHTML = ""; // Kutuyu temizle
+        var z_data = [];
+        for(var i=0; i<40; i++) {
+            var row = [];
+            for(var j=0; j<40; j++) {
+                var x = -5 + i*0.25; var y = -5 + j*0.25;
+                row.push(Math.sin(Math.sqrt(x*x + y*y)));
+            }
+            z_data.push(row);
+        }
+        var data = [{ z: z_data, type: 'surface', colorscale: 'Viridis', showscale: false }];
+        var layout = { margin: {l:0, r:0, b:0, t:20}, scene: {xaxis: {title: 'X'}, yaxis: {title: 'Y'}, zaxis: {title: 'Z'}}, paper_bgcolor: 'rgba(0,0,0,0)', plot_bgcolor: 'rgba(0,0,0,0)' };
+        Plotly.newPlot(grafikId, data, layout);
+    }
+
+    else if (grafikId === "s1-d3-canvas") {
+        // D3.js boş. Uyarı HTML tarafında verildi.
+    }
+
+    else if (grafikId === "s1-ggb-canvas") {
+        document.getElementById(grafikId).innerHTML = "";
+        let ggbParam = {
+            "appName": "3d", "width": document.getElementById(grafikId).offsetWidth, "height": 350,
+            "showToolBar": false, "showAlgebraInput": false, "showMenuBar": false,
+            "appletOnLoad": function(api) { api.evalCommand("f(x,y) = sin(sqrt(x^2 + y^2))"); }
+        };
+        new GGBApplet(ggbParam, true).inject(grafikId);
+    }
+
+    else if (grafikId === "s1-three-canvas") {
+        document.getElementById(grafikId).innerHTML = ""; 
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x111827); 
+        const camera = new THREE.PerspectiveCamera(60, document.getElementById(grafikId).clientWidth / 350, 0.1, 100);
+        camera.position.set(6, 4, 6);
+        const renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setSize(document.getElementById(grafikId).clientWidth, 350);
+        document.getElementById(grafikId).appendChild(renderer.domElement);
+        
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+
+        const geometry = new THREE.PlaneGeometry(10, 10, 60, 60);
+        geometry.rotateX(-Math.PI / 2);
+        const pos = geometry.attributes.position;
+        for(let i=0; i<pos.count; i++){
+            let x = pos.getX(i); let y = pos.getZ(i);
+            pos.setY(i, Math.sin(Math.sqrt(x*x + y*y)));
+        }
+        geometry.computeVertexNormals();
+        
+        const material = new THREE.MeshPhongMaterial({color: 0x3b82f6, side: THREE.DoubleSide, shininess: 80});
+        scene.add(new THREE.Mesh(geometry, material));
+        const light = new THREE.DirectionalLight(0xffffff, 1); light.position.set(5, 10, 5);
+        scene.add(light); scene.add(new THREE.AmbientLight(0x404040));
+
+        function animate() { requestAnimationFrame(animate); controls.update(); renderer.render(scene, camera); }
+        animate();
+    }
+
+    else if (grafikId === "s1-jxg-canvas") {
+        document.getElementById(grafikId).innerHTML = "";
+        var board = JXG.JSXGraph.initBoard(grafikId, {boundingbox: [-8, 8, 8, -8], keepaspectratio: false, axis: false});
+        var view = board.create('view3d', [[-6, -3], [8, 8], [[-5, 5], [-5, 5], [-5, 5]]], {});
+        view.create('functiongraph3d', [
+            function(x, y) { return Math.sin(Math.sqrt(x*x + y*y)); },
+            [-5, 5], [-5, 5]
+        ], {strokeWidth: 0.8, strokeColor: '#10b981', stepU: 40, stepV: 40}); 
+    }
+// ==========================================
+// 2. UYGULAMA: KAYAN TEĞET DOĞRUSU
+// ==========================================
+
+else if (grafikId === "s2-mpl-canvas" || grafikId === "s2-d3-canvas" || grafikId === "s2-three-canvas") {
+    // Bunlar hala uyarı ekranında kalacak.
+}
+
+// --- PLOTLY TEĞET ÇİZİMİ (HAREKETLİ SLIDER İLE) ---
+else if (grafikId === "s2-plot-canvas") {
+    document.getElementById(grafikId).innerHTML = ""; 
+
+    var x_vals = [], y_vals = [];
+    // f(x) = 0.5x^2 - 2 için ana eğri noktaları
+    for (var i = -5; i <= 5; i += 0.1) {
+        x_vals.push(i);
+        y_vals.push(0.5 * i * i - 2);
+    }
+
+    var frames = [];
+    var sliderSteps = [];
+
+    // Kaydırıcı animasyonu için teğetin farklı noktalarındaki (a) durumlarını hesaplıyoruz
+    for (var a = -4; a <= 4; a += 0.2) { 
+        var fa = 0.5 * a * a - 2;
+        var fpa = a; // Türev m = x
+        
+        var tx_vals = [-5, 5];
+        var ty_vals = [fpa * (-5 - a) + fa, fpa * (5 - a) + fa];
+
+        var frameName = a.toFixed(1);
+        frames.push({
+            name: frameName,
+            data: [
+                {x: x_vals, y: y_vals}, // Eğri
+                {x: tx_vals, y: ty_vals}, // Teğet doğrusu
+                {x: [a], y: [fa]} // Teğet noktası
+            ]
+        });
+
+        sliderSteps.push({
+            method: 'animate',
+            label: frameName,
+            args: [[frameName], {
+                mode: 'immediate',
+                transition: {duration: 0},
+                frame: {duration: 0, redraw: false},
+            }]
+        });
+    }
+    
+    // Başlangıç durumu (x = 1 için)
+    var a_init = 1;
+    var fa_init = 0.5 * a_init * a_init - 2;
+    var tx_init = [-5, 5];
+    var ty_init = [a_init * (-5 - a_init) + fa_init, a_init * (5 - a_init) + fa_init];
+
+    var trace1 = { x: x_vals, y: y_vals, mode: 'lines', name: 'f(x)', line: {color: '#1d4ed8', width: 3} };
+    var trace2 = { x: tx_init, y: ty_init, mode: 'lines', name: 'Teğet', line: {color: '#10b981', width: 2, dash: 'dash'} };
+    var trace3 = { x: [a_init], y: [fa_init], mode: 'markers', name: 'A', marker: {color: '#ef4444', size: 10} };
+
+    var layout = {
+        margin: {l:40, r:20, b:40, t:20}, 
+        xaxis: {range: [-5, 5], zeroline: true}, 
+        yaxis: {range: [-4, 5], zeroline: true}, 
+        showlegend: false,
+        sliders: [{
+            pad: {t: 30},
+            currentvalue: {
+              visible: true,
+              prefix: 'x = ',
+              xanchor: 'right',
+              font: {size: 14, color: '#ef4444'}
+            },
+            steps: sliderSteps
+        }]
+    };
+
+    // Önce grafiği çizdirip ardından hareket karelerini (frames) ekliyoruz
+    Plotly.newPlot(grafikId, [trace1, trace2, trace3], layout).then(function() {
+        Plotly.addFrames(grafikId, frames);
+    });
+}
+
+// --- GEOGEBRA TEĞET DÜZELTMESİ (FARE İLE SÜRÜKLENEBİLİR) ---
+else if (grafikId === "s2-ggb-canvas") {
+    document.getElementById(grafikId).innerHTML = "";
+    let ggbParam2 = {
+        "appName": "graphing", 
+        "width": document.getElementById(grafikId).offsetWidth, 
+        "height": 350,
+        "showToolBar": false, 
+        "showAlgebraInput": false, 
+        "showMenuBar": false,
+        "appletOnLoad": function(api) { 
+            api.evalCommand("f(x) = 0.5*x^2 - 2"); 
+
+            // Noktayı kitlemek yerine f(x) fonksiyonu üzerinde serbest bir nokta yapıyoruz
+            api.evalCommand("A = Point(f)"); 
+            api.evalCommand("SetCoords(A, 1, -1.5)"); // Uygulama açıldığında 1 noktasında dursun
+            
+            // Hata riskini sıfıra indirmek için köşeli parantez kullanıyoruz
+            api.evalCommand("t = Tangent[A, f]"); 
+
+            // Görsel cilalar
+            api.evalCommand("SetColor(A, 239, 68, 68)"); 
+            api.evalCommand("SetPointSize(A, 5)");
+            api.evalCommand("SetColor(t, 16, 185, 129)"); 
+            api.evalCommand("SetLineThickness(t, 3)");
+            api.evalCommand("SetLineStyle(t, 1)"); 
+        }
+    };
+    new GGBApplet(ggbParam2, true).inject(grafikId);
+}
+
+// --- JSXGRAPH ÇİZİMİ ---
+else if (grafikId === "s2-jxg-canvas") {
+    document.getElementById(grafikId).innerHTML = "";
+    var boardK2 = JXG.JSXGraph.initBoard(grafikId, {boundingbox: [-5, 5, 5, -5], axis: true, showNavigation: false});
+    var egrimiz = boardK2.create('functiongraph', [function(x){ return 0.5 * x * x - 2; }], {strokeColor: '#1d4ed8', strokeWidth: 2.5});
+    var kayanNokta = boardK2.create('glider', [1, -1.5, egrimiz], {name: 'Teğet', color: '#ef4444', size: 4});
+    boardK2.create('tangent', [kayanNokta], {strokeColor: '#10b981', strokeWidth: 2, dash: 2});
+    boardK2.create('text', [-4.5, 4, 'f(x) = x²/2 - 2'], {fontSize: 14, color: '#1d4ed8', fontWeight: 'bold'});
+    boardK2.create('text', [-4.5, 3.2, function() { return '► Anlık Eğim (m) = ' + kayanNokta.X().toFixed(2); }], {fontSize: 16, color: '#ef4444', fontWeight: 'bold'});
+}
+
+// ==========================================
+// 3. UYGULAMA: RİEMANN TOPLAMLARI (ALAN HESABI)
+// ==========================================
+
+var f_riemann = function(x) { return -0.5 * x * x + 8; };
+var gercekAlan = 42.67; // 128/3 referans değeri
+
+if (grafikId === "s3-mpl-canvas") {
+    // Matplotlib statik olduğu için uyarı ekranında bırakıyoruz.
+}
+
+// --- 1. PLOTLY RİEMANN ÇİZİMİ (HAREKETLİ SLIDER) ---
+else if (grafikId === "s3-plot-canvas") {
+    document.getElementById(grafikId).innerHTML = "";
+
+    var x_vals = [], y_vals = [];
+    for (var i = -4; i <= 4; i += 0.1) {
+        x_vals.push(i);
+        y_vals.push(f_riemann(i));
+    }
+
+    var frames = [];
+    var sliderSteps = [];
+
+    // N sayısını 2'den 40'a kadar oluşturuyoruz
+    for (var n = 2; n <= 40; n += 2) {
+        var bar_x = [], bar_y = [];
+        var dx = 8 / n; 
+        var anlikToplam = 0;
+
+        for (var j = 0; j < n; j++) {
+            var mid_x = -4 + j * dx + dx / 2; // Orta nokta Riemann
+            var h = f_riemann(mid_x);
+            bar_x.push(mid_x);
+            bar_y.push(h);
+            anlikToplam += h * dx;
+        }
+
+        var frameName = n.toString();
+        frames.push({
+            name: frameName,
+            data: [
+                {x: x_vals, y: y_vals}, 
+                {x: bar_x, y: bar_y, width: dx}
+            ],
+            layout: { title: { text: "Yaklaşık Alan: " + anlikToplam.toFixed(2) + " | Gerçek Alan: 42.67" } }
+        });
+
+        sliderSteps.push({
+            method: 'animate',
+            label: 'n=' + frameName,
+            args: [[frameName], { mode: 'immediate', transition: {duration: 200}, frame: {duration: 200, redraw: true} }]
+        });
+    }
+
+    // Başlangıç durumu
+    var trace1 = { x: x_vals, y: y_vals, mode: 'lines', name: 'f(x)', line: {color: '#1d4ed8', width: 3} };
+    var trace2 = { x: frames[0].data[1].x, y: frames[0].data[1].y, type: 'bar', name: 'Dikdörtgenler', marker: {color: '#3b82f6', opacity: 0.7, line: {color: '#ffffff', width: 1}}, width: 8/2 };
+
+    var layout = {
+        title: { text: "Yaklaşık Alan: 24.00 | Gerçek Alan: 42.67", font: {size: 16, color: '#1d4ed8'} },
+        margin: {l:40, r:20, b:40, t:50}, 
+        xaxis: {range: [-5, 5], zeroline: true}, 
+        yaxis: {range: [-2, 10], zeroline: true}, 
+        showlegend: false,
+        sliders: [{ pad: {t: 20}, currentvalue: { visible: true, prefix: 'Bölüntü Sayısı: ', xanchor: 'right', font: {size: 14} }, steps: sliderSteps }]
+    };
+
+    Plotly.newPlot(grafikId, [trace1, trace2], layout).then(function() { Plotly.addFrames(grafikId, frames); });
+}
+// --- 2. D3.JS DİNAMİK RİEMANN DANS ANIMASYONU ---
+else if (grafikId === "s3-d3-canvas") {
+    var container = document.getElementById(grafikId);
+    
+    // Önceki sekmelerden kalan flex yapısını ezip kaydırıcının üste oturmasını sağlıyoruz
+    container.style.display = "block"; 
+    container.style.padding = "0";
+
+    container.innerHTML = `
+        <div style="text-align:center; padding-top:15px; height: 60px; font-family:sans-serif; box-sizing: border-box;">
+            <label style="font-weight:bold; color:#1d4ed8;">N (Dikdörtgen Sayısı): <span id="d3-n-label">10</span></label><br>
+            <input type="range" id="d3-n-slider" min="2" max="60" step="1" value="10" style="width: 50%; cursor:pointer;">
+        </div>
+        <div id="d3-svg-box" style="width:100%; height:270px;"></div>
+    `;
+
+    var width = container.offsetWidth || 600; // Genişlik alamazsa çökmemesi için yedek
+    var height = 270; // SVG yüksekliğini slider'a yer açmak için biraz kıstık
+    var margin = {top: 20, right: 30, bottom: 30, left: 40};
+
+    if (typeof d3 !== 'undefined') {
+        var svg = d3.select("#d3-svg-box").append("svg").attr("width", width).attr("height", height);
+        var innerWidth = width - margin.left - margin.right;
+        var innerHeight = height - margin.top - margin.bottom;
+        var g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+        var xScale = d3.scaleLinear().domain([-5, 5]).range([0, innerWidth]);
+        var yScale = d3.scaleLinear().domain([-2, 10]).range([innerHeight, 0]);
+
+        // Eksenler
+        g.append("g").attr("transform", "translate(0," + yScale(0) + ")").call(d3.axisBottom(xScale));
+        g.append("g").attr("transform", "translate(" + xScale(0) + ",0)").call(d3.axisLeft(yScale));
+
+        // Ana Eğri
+        var lineGen = d3.line().x(d => xScale(d.x)).y(d => yScale(d.y)).curve(d3.curveMonotoneX);
+        var curveData = d3.range(-4, 4.1, 0.1).map(x => ({x: x, y: f_riemann(x)}));
+        g.append("path").datum(curveData).attr("fill", "none").attr("stroke", "#ef4444").attr("stroke-width", 3).attr("d", lineGen);
+
+        var rectGroup = g.append("g").attr("class", "riemann-rects");
+
+        function drawD3Riemann(n) {
+            var a = -4, b = 4;
+            var dx = (b - a) / n;
+            var rectData = d3.range(n).map(i => {
+                var mid = a + i * dx + dx / 2;
+                return { x: a + i * dx, w: dx, h: f_riemann(mid) };
+            });
+
+            var rects = rectGroup.selectAll("rect").data(rectData);
+
+            rects.enter().append("rect")
+                .attr("fill", "#3b82f6").attr("opacity", 0.6).attr("stroke", "#fff")
+                .attr("y", yScale(0)).attr("height", 0) 
+                .merge(rects)
+                .transition().duration(600) 
+                .attr("x", d => xScale(d.x))
+                .attr("y", d => yScale(d.h))
+                .attr("width", d => xScale(d.w) - xScale(0))
+                .attr("height", d => yScale(0) - yScale(d.h));
+
+            rects.exit().transition().duration(400).attr("y", yScale(0)).attr("height", 0).remove();
+        }
+
+        drawD3Riemann(10);
+        d3.select("#d3-n-slider").on("input", function() {
+            d3.select("#d3-n-label").text(this.value);
+            drawD3Riemann(+this.value);
+        });
+    } else {
+        document.getElementById("d3-svg-box").innerHTML = "<p style='color:red; text-align:center;'>D3.js kütüphanesi yüklenmemiş!</p>";
+    }
+}
+// --- 3. GEOGEBRA RİEMANN DÜZELTMESİ (HEX RENK İLE KUSURSUZ GÖRÜNÜM) ---
+else if (grafikId === "s3-ggb-canvas") {
+    document.getElementById(grafikId).innerHTML = "";
+    let ggbParam3 = {
+        "appName": "graphing", 
+        "width": document.getElementById(grafikId).offsetWidth, 
+        "height": 350,
+        "showToolBar": false, "showAlgebraInput": false, "showMenuBar": false,
+        "appletOnLoad": function(api) { 
+            api.evalCommand("f(x) = -0.5*x^2 + 8"); 
+            api.evalCommand("n = Slider[2, 50, 1]"); 
+            api.evalCommand("SetValue[n, 10]"); 
+            
+            // Alt toplam ve renk düzeltmesi (Hex kod ile)
+            api.evalCommand("R = LowerSum[f, -4, 4, n]"); 
+            api.evalCommand('SetColor[R, "#3b82f6"]'); // Beyaz olma sorunu kesin çözümü
+            api.evalCommand("SetFilling[R, 0.55]");
+            api.evalCommand("SetLineThickness[R, 2]");
+
+            // Eğitici metinler
+            api.evalCommand('txt1 = Text["Gerçek Alan: 42.67", (-4.5, 9)]');
+            api.evalCommand('SetColor[txt1, "#ef4444"]');
+        }
+    };
+    new GGBApplet(ggbParam3, true).inject(grafikId);
+}
+
+// --- 4. THREE.JS 3 BOYUTLU UZAYDA RİEMANN HACİMLERİ ---
+else if (grafikId === "s3-three-canvas") {
+    var container = document.getElementById(grafikId);
+    container.style.position = "relative";
+    container.innerHTML = `
+        <div style="position:absolute; top:15px; left:15px; color:#fff; z-index:10; font-family:sans-serif; background:rgba(0,0,0,0.5); padding:10px; border-radius:8px;">
+            <b>3D Riemann Blokları</b><br>
+            N = <span id="t3-n-val">15</span><br>
+            <input type="range" id="t3-slider" min="4" max="60" step="1" value="15" style="width:150px; margin-top:5px; cursor:pointer;">
+        </div>
+        <div id="t3-render-box" style="width:100%; height:100%;"></div>
+    `;
+
+    if (typeof THREE !== 'undefined') {
+        var w = container.offsetWidth, h = 350;
+        var scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x111827); // Koyu arka plan
+        
+        var camera = new THREE.PerspectiveCamera(45, w/h, 0.1, 100);
+        camera.position.set(0, 6, 18);
+        
+        var renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setSize(w, h);
+        document.getElementById("t3-render-box").appendChild(renderer.domElement);
+
+        // Ana Eğriyi Çizme
+        var curvePoints = [];
+        for(var i = -4; i <= 4; i += 0.1) curvePoints.push(new THREE.Vector3(i, f_riemann(i), 0));
+        var curveGeo = new THREE.BufferGeometry().setFromPoints(curvePoints);
+        var curveMat = new THREE.LineBasicMaterial({color: 0xef4444, linewidth: 3});
+        var curveLine = new THREE.Line(curveGeo, curveMat);
+        scene.add(curveLine);
+
+        var boxesGroup = new THREE.Group();
+        scene.add(boxesGroup);
+
+        function drawThreeRiemann(n) {
+            // Eski kutuları temizle
+            while(boxesGroup.children.length > 0) { boxesGroup.remove(boxesGroup.children[0]); }
+            
+            var a = -4, b = 4;
+            var dx = (b - a) / n;
+            for(var i = 0; i < n; i++) {
+                var mid = a + i * dx + dx / 2;
+                var height = f_riemann(mid);
+                
+                var boxGeo = new THREE.BoxGeometry(dx * 0.92, height, dx * 2); // 3D görünüm için derinlik (Z) verdik
+                var boxMat = new THREE.MeshBasicMaterial({color: 0x3b82f6, transparent: true, opacity: 0.6});
+                var mesh = new THREE.Mesh(boxGeo, boxMat);
+                mesh.position.set(mid, height / 2, 0);
+
+                // Beyaz çerçeveler
+                var edges = new THREE.EdgesGeometry(boxGeo);
+                var lineMat = new THREE.LineBasicMaterial({color: 0xffffff, linewidth: 1});
+                var wireframe = new THREE.LineSegments(edges, lineMat);
+                mesh.add(wireframe);
+
+                boxesGroup.add(mesh);
+            }
+        }
+
+        drawThreeRiemann(15);
+        document.getElementById("t3-slider").addEventListener("input", function(e) {
+            var val = e.target.value;
+            document.getElementById("t3-n-val").innerText = val;
+            drawThreeRiemann(+val);
+        });
+
+        // Kamerayı yavaşça etrafında döndürme efekti
+        function animate() {
+            requestAnimationFrame(animate);
+            var time = Date.now() * 0.0005;
+            camera.position.x = Math.sin(time) * 18;
+            camera.position.z = Math.cos(time) * 18;
+            camera.lookAt(0, 4, 0);
+            renderer.render(scene, camera);
+        }
+        animate();
+    } else {
+        document.getElementById("t3-render-box").innerHTML = "<p style='color:red; text-align:center; padding-top:150px;'>Three.js yüklü değil!</p>";
+    }
+}
+
+// --- 5. JSXGRAPH KUSURSUZ MATEMATİK MOTORU ---
+else if (grafikId === "s3-jxg-canvas") {
+    document.getElementById(grafikId).innerHTML = "";
+    var boardK3 = JXG.JSXGraph.initBoard(grafikId, {boundingbox: [-5, 11, 5, -2], axis: true, showNavigation: false});
+
+    boardK3.create('functiongraph', [f_riemann], {strokeColor: '#ef4444', strokeWidth: 3});
+
+    var nSlider = boardK3.create('slider', [[-3, -1], [2, -1], [2, 12, 50]], {name: 'N Sayısı', snapWidth: 1});
+    
+    // Riemann Toplamı
+    var rSum = boardK3.create('riemannsum', [f_riemann, function(){ return nSlider.Value(); }, 'middle', -4, 4], {fillColor: '#3b82f6', fillOpacity: 0.5});
+
+    // Dinamik Metinler
+    boardK3.create('text', [-4.5, 10, 'Gerçek Alan (İntegral) = 42.67'], {fontSize: 15, color: '#ef4444', fontWeight: 'bold'});
+    boardK3.create('text', [-4.5, 9, function() { return '► Yaklaşık Alan (n=' + nSlider.Value() + ') = ' + rSum.Value().toFixed(2); }], {fontSize: 15, color: '#1d4ed8', fontWeight: 'bold'});
+}
+
+// ==========================================
+// 4. UYGULAMA: YÖN ALANLARI (SLOPE FIELDS)
+// ==========================================
+
+// Ortak Diferansiyel Denklem Fonksiyonumuz: y' = sin(x) + cos(y)
+var diffEq = function(x, y) { return Math.sin(x) + Math.cos(y); };
+
+if (grafikId === "s4-mpl-canvas") {
+    // Matplotlib uyarı ekranında kalacak.
+}
+
+// --- 1. PLOTLY KUSURSUZ YÖN ALANI ---
+else if (grafikId === "s4-plot-canvas") {
+    var container = document.getElementById(grafikId);
+    container.innerHTML = "";
+
+    let px = [], py = [];
+    let length = 0.35; // Çizgi uzunluğunu biraz artırdık, daha belirgin oldu
+
+    for (let x = -5.5; x <= 5.5; x += 0.5) {
+        for (let y = -5.5; y <= 5.5; y += 0.5) {
+            let slope = diffEq(x, y);
+            let theta = Math.atan(slope); 
+            
+            let dx = Math.cos(theta) * (length / 2);
+            let dy = Math.sin(theta) * (length / 2);
+
+            // null değeri çizgileri birbirinden ayırır, tek bir trace ile binlerce çizgi çizeriz (Çok hızlıdır)
+            px.push(x - dx, x + dx, null);
+            py.push(y - dy, y + dy, null);
+        }
+    }
+
+    var trace1 = { x: px, y: py, mode: 'lines', line: {color: '#2563eb', width: 2}, hoverinfo: 'none' };
+    var layout = { 
+        title: { text: "y' = sin(x) + cos(y)", font: {color: '#ef4444'} }, 
+        margin: {l:40, r:20, b:40, t:40}, 
+        xaxis: {range: [-6, 6], zeroline: true}, 
+        yaxis: {range: [-6, 6], zeroline: true}, 
+        showlegend: false,
+        height: 350 // Sekme gizliyken 0px olma hatasını çözer
+    };
+    
+    Plotly.newPlot(grafikId, [trace1], layout);
+}
+
+// --- 2. D3.JS RENKLİ YÖN ALANI ---
+else if (grafikId === "s4-d3-canvas") {
+    var container = document.getElementById(grafikId);
+    container.innerHTML = ""; 
+    
+    // Sekme anlık gizliyken genişlik 0 dönerse diye "|| 600" kalkanı ekledik
+    var width = container.offsetWidth || 600;
+    var height = 350;
+    
+    if (typeof d3 !== 'undefined') {
+        var svg = d3.select("#s4-d3-canvas").append("svg").attr("width", width).attr("height", height);
+        var xScale = d3.scaleLinear().domain([-6, 6]).range([0, width]);
+        var yScale = d3.scaleLinear().domain([-6, 6]).range([height, 0]);
+
+        var g = svg.append("g");
+        var len = 0.35; 
+
+        for (var x = -5.5; x <= 5.5; x += 0.5) {
+            for (var y = -5.5; y <= 5.5; y += 0.5) {
+                var slope = diffEq(x, y);
+                var theta = Math.atan(slope);
+                var dx = Math.cos(theta) * len;
+                var dy = Math.sin(theta) * len;
+
+                // Eğime göre harika bir maviden kırmızıya renk geçişi (Görselliği arşa çıkarır)
+                var colorVal = Math.floor(Math.abs(Math.sin(theta)) * 255);
+                var strokeColor = `rgb(${colorVal}, 100, ${255 - colorVal})`;
+
+                g.append("line")
+                 .attr("x1", xScale(x - dx/2)).attr("y1", yScale(y - dy/2))
+                 .attr("x2", xScale(x + dx/2)).attr("y2", yScale(y + dy/2))
+                 .attr("stroke", strokeColor)
+                 .attr("stroke-width", 2.5)
+                 .attr("stroke-linecap", "round");
+            }
+        }
+    } else {
+        container.innerHTML = "<div style='color:#ef4444; padding:20px; font-weight:bold;'>D3.js kütüphanesi yüklenmemiş!</div>";
+    }
+}
+
+// --- 3. GEOGEBRA YÖN ALANI VE DİNAMİK ÇÖZÜM EĞRİSİ ---
+else if (grafikId === "s4-ggb-canvas") {
+    document.getElementById(grafikId).innerHTML = "";
+    let ggbParam4 = {
+        "appName": "graphing", 
+        "width": document.getElementById(grafikId).offsetWidth || 600, 
+        "height": 350,
+        "showToolBar": false, "showAlgebraInput": false, "showMenuBar": false,
+        "appletOnLoad": function(api) { 
+            api.evalCommand("f(x,y) = sin(x) + cos(y)"); 
+            
+            api.evalCommand("sf = SlopeField[f, 20]"); 
+            api.evalCommand('SetColor[sf, "#94a3b8"]'); // Arka plandaki oklar gri kalsın
+            
+            api.evalCommand("A = Point({0, 0})");
+            api.evalCommand('SetColor[A, "#ef4444"]');
+            api.evalCommand("SetPointSize[A, 6]"); // Noktayı büyüttük ki kolay tutulsun
+            
+            api.evalCommand("sol = SolveODE[f, x(A), y(A)]");
+            api.evalCommand('SetColor[sol, "#2563eb"]');
+            api.evalCommand("SetLineThickness[sol, 4]"); // Çözüm eğrisi çok daha belirgin
+        }
+    };
+    new GGBApplet(ggbParam4, true).inject(grafikId);
+}
+
+// --- 4. THREE.JS 3 BOYUTLU VEKTÖR ALANI (ÇÖKME KORUMALI) ---
+else if (grafikId === "s4-three-canvas") {
+    var container = document.getElementById(grafikId);
+    container.innerHTML = "";
+    
+    if (typeof THREE !== 'undefined') {
+        var w = container.offsetWidth || 600; // Sekme gizliyse çökmeyi önler
+        var h = 350;
+        var scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x0f172a); 
+        
+        var camera = new THREE.PerspectiveCamera(50, w/h, 0.1, 100);
+        camera.position.set(0, -8, 10); // Kamerayı biraz daha geriye aldık
+        
+        var renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setSize(w, h);
+        container.appendChild(renderer.domElement);
+
+        var grid = new THREE.GridHelper(14, 14, 0x334155, 0x1e293b);
+        grid.rotation.x = Math.PI / 2;
+        scene.add(grid);
+
+        for(let x = -5.5; x <= 5.5; x += 0.8) {
+            for(let y = -5.5; y <= 5.5; y += 0.8) {
+                let slope = diffEq(x, y);
+                let dir = new THREE.Vector3(1, slope, 0).normalize();
+                let origin = new THREE.Vector3(x, y, 0);
+                
+                let colorHex = slope > 0 ? 0x2563eb : 0x06b6d4; 
+                let arrow = new THREE.ArrowHelper(dir, origin, 0.65, colorHex, 0.2, 0.15);
+                scene.add(arrow);
+            }
+        }
+
+        // ÖNCEKİ ANİMASYONU İPTAL ET (Sekme değiştirince RAM şişmesini önler)
+        if(window.t3Anim) cancelAnimationFrame(window.t3Anim);
+        
+        let angle = 0;
+        function animateThree() {
+            window.t3Anim = requestAnimationFrame(animateThree);
+            angle += 0.005; // Daha zarif, yavaş bir dönüş
+            camera.position.x = Math.sin(angle) * 12;
+            camera.position.z = Math.cos(angle) * 12;
+            camera.lookAt(0, 0, 0);
+            renderer.render(scene, camera);
+        }
+        animateThree();
+    } else {
+        container.innerHTML = "<div style='color:#ef4444; padding:20px; text-align:center; font-weight:bold;'>Three.js kütüphanesi yüklenmemiş!</div>";
+    }
+}
+
+// --- 5. JSXGRAPH %100 GARANTİLİ YÖN ALANI MOTORU ---
+else if (grafikId === "s4-jxg-canvas") {
+    var container = document.getElementById(grafikId);
+    container.innerHTML = "";
+    var boardK4 = JXG.JSXGraph.initBoard(grafikId, {boundingbox: [-6, 6, 6, -6], axis: true, showNavigation: false});
+
+    // Hazır komut kullanmak yerine kendi Curve (Eğri) motorumuzu yazdık. Asla hata vermez.
+    var alan = boardK4.create('curve', [[],[]], {strokeColor: '#2563eb', strokeWidth: 2});
+    
+    alan.updateDataArray = function() {
+        var xArr = [], yArr = [];
+        var len = 0.35;
+        for(var i = -5.5; i <= 5.5; i += 0.5) {
+            for(var j = -5.5; j <= 5.5; j += 0.5) {
+                var m = diffEq(i, j);
+                var theta = Math.atan(m);
+                var dx = len * Math.cos(theta);
+                var dy = len * Math.sin(theta);
+                // Çizgileri NaN ile bölerek Plotly mantığıyla inanılmaz hızlı çizdiriyoruz
+                xArr.push(i - dx, i + dx, NaN);
+                yArr.push(j - dy, j + dy, NaN);
+            }
+        }
+        this.dataX = xArr;
+        this.dataY = yArr;
+    };
+    
+    boardK4.update(); // Grafiği ekrana bas
+    boardK4.create('text', [-5.5, 5.5, "y' = sin(x) + cos(y)"], {fontSize: 16, color: '#ef4444', fontWeight: 'bold'});
+}
+
+// ==========================================
+// 5. UYGULAMA: PARAMETRİK VE KUTUPSAL EĞRİLER (ULTİMATE VERSİYON)
+// ==========================================
+
+else if (grafikId === "s5-mpl-canvas") {
+    // Matplotlib uyarı ekranında kalacak.
+}
+
+// --- 1. PLOTLY KUTUPSAL ÇİZİM (SABİT BIRAKILDI - KUSURSUZ) ---
+else if (grafikId === "s5-plot-canvas") {
+    document.getElementById(grafikId).innerHTML = "";
+
+    var frames5 = [];
+    var sliderSteps5 = [];
+    
+    for (var k = 1; k <= 12; k++) {
+        var r_vals = [], theta_vals = [];
+        for (var i = 0; i <= 360 * 2; i += 1) {
+            var rad = i * (Math.PI / 180);
+            var yariCap = Math.sin(k * rad) * Math.cos(k * rad) * 2; 
+            r_vals.push(yariCap);
+            theta_vals.push(i); 
+        }
+
+        frames5.push({ name: k.toString(), data: [{r: r_vals, theta: theta_vals}] });
+        sliderSteps5.push({ method: 'animate', label: 'k = ' + k, args: [[k.toString()], { mode: 'immediate', transition: {duration: 400}, frame: {duration: 400, redraw: true} }] });
+    }
+
+    var tracePolar = { 
+        type: 'scatterpolar', mode: 'lines', r: frames5[0].data[0].r, theta: frames5[0].data[0].theta, 
+        line: {color: '#ec4899', width: 3}, fill: 'toself', fillcolor: 'rgba(236, 72, 153, 0.3)' 
+    };
+
+    var layoutPolar = { 
+        title: { text: "Kutupsal Gül Eğrisi: r = sin(kθ)·cos(kθ)", font: {color: '#be185d', size: 16} }, 
+        margin: {l:40, r:40, b:40, t:60}, 
+        polar: { radialaxis: {visible: true, range: [-1, 1], color: '#94a3b8'}, angularaxis: {color: '#94a3b8', tickfont: {size: 10}} },
+        showlegend: false,
+        sliders: [{ pad: {t: 20}, currentvalue: { visible: true, prefix: 'k Çarpanı: ', xanchor: 'right', font: {color: '#ec4899'} }, steps: sliderSteps5 }]
+    };
+
+    Plotly.newPlot(grafikId, [tracePolar], layoutPolar).then(function() { Plotly.addFrames(grafikId, frames5); });
+}
+
+// --- 2. D3.JS PARLAYAN KELEBEK EĞRİSİ (NEON GLOW) ---
+else if (grafikId === "s5-d3-canvas") {
+    var container = document.getElementById(grafikId);
+    container.style.display = "block"; 
+    container.innerHTML = `
+        <div style="text-align:center; padding-top:10px; height: 60px; font-family:sans-serif; background:#0f172a; border-radius:8px 8px 0 0;">
+            <label style="font-weight:bold; color:#38bdf8; font-size:15px;">Kelebek Çarpanı (k): <span id="d3-k-label">4</span></label><br>
+            <input type="range" id="d3-k-slider" min="1" max="12" step="1" value="4" style="width: 50%; cursor:pointer;">
+        </div>
+        <div id="d3-polar-box" style="width:100%; height:290px; background:#0f172a;"></div>
+    `;
+
+    var width = container.offsetWidth || 600;
+    var height = 290;
+
+    if (typeof d3 !== 'undefined') {
+        var svg = d3.select("#d3-polar-box").append("svg").attr("width", width).attr("height", height);
+        
+        // Neon parlama efekti (Drop Shadow)
+        var defs = svg.append("defs");
+        var filter = defs.append("filter").attr("id", "neon-glow");
+        filter.append("feGaussianBlur").attr("stdDeviation", "3").attr("result", "coloredBlur");
+        var feMerge = filter.append("feMerge");
+        feMerge.append("feMergeNode").attr("in", "coloredBlur");
+        feMerge.append("feMergeNode").attr("in", "SourceGraphic");
+
+        var g = svg.append("g").attr("transform", "translate(" + width/2 + "," + height/2 + ")");
+        var scale = Math.min(width, height) / 12;
+
+        // Parametrik Kelebek Eğrisi Formülü
+        var getButterflyData = function(k_val) {
+            var points = [];
+            for (var t = 0; t <= Math.PI * 12; t += 0.05) {
+                var r = Math.exp(Math.cos(t)) - 2 * Math.cos(k_val * t) + Math.pow(Math.sin((2 * t - Math.PI) / 24), 5);
+                points.push({ x: r * Math.sin(t) * scale, y: -r * Math.cos(t) * scale });
+            }
+            return points;
+        };
+
+        var lineGen = d3.line().x(function(d){ return d.x; }).y(function(d){ return d.y; }).curve(d3.curveCardinalClosed);
+        
+        var path = g.append("path")
+            .datum(getButterflyData(4))
+            .attr("fill", "rgba(56, 189, 248, 0.1)")
+            .attr("stroke", "#0ea5e9")
+            .attr("stroke-width", 2.5)
+            .style("filter", "url(#neon-glow)")
+            .attr("d", lineGen);
+
+        d3.select("#d3-k-slider").on("input", function() {
+            var k_val = +this.value;
+            d3.select("#d3-k-label").text(k_val);
+            path.datum(getButterflyData(k_val))
+                .transition().duration(800).ease(d3.easeElasticOut) // Kelebek çırpınış efekti
+                .attr("d", lineGen);
+        });
+    } else {
+        document.getElementById("d3-polar-box").innerHTML = "<p style='color:red; text-align:center;'>D3.js yüklü değil!</p>";
+    }
+}
+
+// --- 3. GEOGEBRA KARMAŞIK KUTUPSAL MANDALA ---
+else if (grafikId === "s5-ggb-canvas") {
+    document.getElementById(grafikId).innerHTML = "";
+    var ggbParam5 = {
+        "appName": "graphing", "width": document.getElementById(grafikId).offsetWidth || 600, "height": 350,
+        "showToolBar": false, "showAlgebraInput": false, "showMenuBar": false,
+        "appletOnLoad": function(api) { 
+            api.evalCommand("k = Slider[1, 10, 1]"); 
+            api.evalCommand("SetValue[k, 7]"); 
+            
+            // Rasyonel katsayılı (k/5) karmaşık gül eğrisi (Üst üste binen yapraklar)
+            api.evalCommand("c = Curve[sin(k*t/5)*cos(t), sin(k*t/5)*sin(t), t, 0, 10pi]"); 
+            api.evalCommand('SetColor[c, "#10b981"]'); // Zümrüt Yeşili
+            api.evalCommand("SetLineThickness[c, 3]"); 
+            
+            api.evalCommand('txt = Text["Karmaşık Gül: r(t) = sin(k·t / 5)", (-5, 5)]');
+        }
+    };
+    new GGBApplet(ggbParam5, true).inject(grafikId);
+}
+
+// --- 4. THREE.JS METALİK STÜDYO RENDERI (SİNEMATİK) ---
+else if (grafikId === "s5-three-canvas") {
+    var container = document.getElementById(grafikId);
+    container.innerHTML = "";
+    
+    if (typeof THREE !== 'undefined') {
+        var w = container.offsetWidth || 600;
+        var h = 350;
+        var scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x000000); // Tam siyah arka plan kontrastı patlatır
+        
+        var camera = new THREE.PerspectiveCamera(45, w/h, 0.1, 100);
+        camera.position.set(0, 0, 35);
+        
+        var renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setSize(w, h);
+        container.appendChild(renderer.domElement);
+
+        // Sinematik Stüdyo Işıkları
+        var ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+        scene.add(ambientLight);
+        
+        var light1 = new THREE.PointLight(0xf97316, 3, 100); // Turuncu Işık
+        light1.position.set(15, 15, 15);
+        scene.add(light1);
+        
+        var light2 = new THREE.PointLight(0x38bdf8, 3, 100); // Mavi Işık
+        light2.position.set(-15, -15, -10);
+        scene.add(light2);
+
+        // Fotogerçekçi Metalik Materyal
+        var geometry = new THREE.TorusKnotGeometry(8, 2.2, 300, 40, 3, 5); // Daha kalın ve pürüzsüz
+        var material = new THREE.MeshStandardMaterial({ 
+            color: 0xffffff, 
+            metalness: 0.9,  // Gerçek metal yansıması
+            roughness: 0.15  // Hafif matlık
+        }); 
+        
+        var mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
+
+        if(window.t5Anim) cancelAnimationFrame(window.t5Anim);
+        
+        var animateThree5 = function() {
+            window.t5Anim = requestAnimationFrame(animateThree5);
+            mesh.rotation.x += 0.004;
+            mesh.rotation.y += 0.007;
+            renderer.render(scene, camera);
+        };
+        animateThree5();
+    } else {
+        container.innerHTML = "<p style='color:red; text-align:center; padding-top:150px;'>Three.js yüklü değil!</p>";
+    }
+}
+
+// --- 5. JSXGRAPH MAURER GÜLÜ (İPLİK SANATI) ---
+else if (grafikId === "s5-jxg-canvas") {
+    var container = document.getElementById(grafikId);
+    container.innerHTML = "";
+    var boardK5 = JXG.JSXGraph.initBoard(grafikId, {boundingbox: [-3, 3, 3, -3], axis: true, showNavigation: false});
+
+    // n: Yaprak sayısı, d: Açısal kayma (Maurer parametresi)
+    var nSlider = boardK5.create('slider', [[-2.5, 2.5], [-0.5, 2.5], [1, 6, 12]], {name: 'n', snapWidth: 1});
+    var dSlider = boardK5.create('slider', [[0.5, 2.5], [2.5, 2.5], [1, 71, 100]], {name: 'd', snapWidth: 1});
+    
+    // Dıştaki Ana Gül Eğrisi
+    boardK5.create('curve', [
+        function(t) { return 2.5 * Math.sin(nSlider.Value() * t) * Math.cos(t); },
+        function(t) { return 2.5 * Math.sin(nSlider.Value() * t) * Math.sin(t); },
+        0, 2 * Math.PI
+    ], {strokeColor: '#ef4444', strokeWidth: 3}); // Kırmızı Çerçeve
+
+    // İçerideki Matematiksel İplik Örgüsü (Maurer Rose Ağı)
+    var maurer = boardK5.create('curve', [[], []], {strokeColor: '#06b6d4', strokeWidth: 1.2, fillOpacity: 0});
+    maurer.updateDataArray = function() {
+        var n = nSlider.Value();
+        var d = dSlider.Value();
+        var xArr = [], yArr = [];
+        for (var i = 0; i <= 360; i++) {
+            var k = i * d * (Math.PI / 180);
+            var r = 2.5 * Math.sin(n * k);
+            xArr.push(r * Math.cos(k));
+            yArr.push(r * Math.sin(k));
+        }
+        this.dataX = xArr;
+        this.dataY = yArr;
+    };
+    boardK5.update();
+}
+
+// ==========================================
+// 6. UYGULAMA: TAYLOR SERİLERİ (SİNÜS YAKLAŞIMI)
+// ==========================================
+
+// Faktöriyel Hesaplayıcı
+var faktoriyel = function(n) {
+    if (n === 0 || n === 1) return 1;
+    var sonuc = 1;
+    for (var i = 2; i <= n; i++) sonuc *= i;
+    return sonuc;
+};
+
+// Taylor Serisi Değer Hesaplayıcı (15 Terime Kadar)
+var taylorSin = function(x, terimSayisi) {
+    var toplam = 0;
+    for (var k = 0; k <= terimSayisi; k++) {
+        var isaret = (k % 2 === 0) ? 1 : -1;
+        toplam += isaret * Math.pow(x, 2 * k + 1) / faktoriyel(2 * k + 1);
+    }
+    return toplam;
+};
+
+// Ekrana Basılacak Dinamik Matematiksel Formül Metni
+var getTaylorString = function(terimSayisi) {
+    if (terimSayisi === 0) return "T(x) = x";
+    var str = "x";
+    for (var k = 1; k <= terimSayisi; k++) {
+        var isaret = (k % 2 === 0) ? " + " : " - ";
+        var us = 2 * k + 1;
+        str += isaret + "x^" + us + "/" + us + "!";
+    }
+    return "T(x) = " + str;
+};
+
+if (grafikId === "s6-mpl-canvas") {
+    // Matplotlib uyarısı.
+}
+
+// --- 1. PLOTLY AÇIKLAYICI TAYLOR YAKLAŞIMI ---
+else if (grafikId === "s6-plot-canvas") {
+    document.getElementById(grafikId).innerHTML = "";
+
+    var x_vals = [], sin_vals = [];
+    for (var i = -15; i <= 15; i += 0.1) {
+        x_vals.push(i);
+        sin_vals.push(Math.sin(i));
+    }
+
+    var frames6 = [];
+    var sliderSteps6 = [];
+    
+    for (var k = 0; k <= 14; k++) {
+        var taylor_vals = [];
+        for (var j = 0; j < x_vals.length; j++) {
+            taylor_vals.push(taylorSin(x_vals[j], k));
+        }
+
+        var formulMetni = getTaylorString(k);
+
+        frames6.push({
+            name: k.toString(),
+            data: [{x: x_vals, y: sin_vals}, {x: x_vals, y: taylor_vals}],
+            layout: { title: { text: formulMetni, font: {color: '#dc2626', size: 12} } }
+        });
+
+        sliderSteps6.push({
+            method: 'animate', label: (k+1) + " Terim",
+            args: [[k.toString()], { mode: 'immediate', transition: {duration: 300}, frame: {duration: 300, redraw: true} }]
+        });
+    }
+
+    var traceAsil = { x: x_vals, y: sin_vals, mode: 'lines', name: 'Gerçek: sin(x)', line: {color: '#94a3b8', width: 3, dash: 'dash'} };
+    var traceTaylor = { x: x_vals, y: frames6[0].data[1].y, mode: 'lines', name: 'Yaklaşım (Taylor)', line: {color: '#dc2626', width: 4} };
+
+    var layout6 = { 
+        title: { text: getTaylorString(0), font: {color: '#dc2626', size: 12} }, 
+        margin: {l:40, r:40, b:40, t:60}, 
+        xaxis: {range: [-15, 15], zeroline: true}, 
+        yaxis: {range: [-4, 4], zeroline: true}, 
+        showlegend: true, 
+        legend: { x: 0.05, y: 0.95, bgcolor: 'rgba(255,255,255,0.8)' },
+        sliders: [{ pad: {t: 20}, currentvalue: { visible: false }, steps: sliderSteps6 }]
+    };
+
+    Plotly.newPlot(grafikId, [traceAsil, traceTaylor], layout6).then(function() { Plotly.addFrames(grafikId, frames6); });
+}
+
+// --- 2. D3.JS DİNAMİK FORMÜLLÜ ANİMASYON ---
+else if (grafikId === "s6-d3-canvas") {
+    var container = document.getElementById(grafikId);
+    container.style.display = "block"; 
+    container.innerHTML = `
+        <div style="text-align:center; padding-top:10px; height: 80px; font-family:sans-serif; background:#f8fafc; border-bottom:1px solid #e2e8f0;">
+            <label style="font-weight:bold; color:#0f172a; font-size:14px;">Terim Sayısı: <span id="d3-t-label">1</span> / 15</label><br>
+            <input type="range" id="d3-t-slider" min="0" max="14" step="1" value="0" style="width: 50%; cursor:pointer;"><br>
+            <div id="d3-formula-text" style="color:#dc2626; font-weight:bold; font-size:13px; margin-top:5px; font-family:monospace; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; padding: 0 10px;">T(x) = x</div>
+        </div>
+        <div id="d3-taylor-box" style="position:relative; width:100%; height:270px;">
+            <div style="position:absolute; top:10px; left:20px; font-size:12px; font-family:sans-serif; background:rgba(255,255,255,0.8); padding:5px; border-radius:4px; border:1px solid #ccc;">
+                <div style="color:#94a3b8; font-weight:bold;">-- sin(x)</div>
+                <div style="color:#dc2626; font-weight:bold;">— Taylor Polinomu</div>
+            </div>
+        </div>
+    `;
+
+    var width = container.offsetWidth || 600;
+    var height = 270;
+
+    if (typeof d3 !== 'undefined') {
+        var svg = d3.select("#d3-taylor-box").append("svg").attr("width", width).attr("height", height);
+        var g = svg.append("g").attr("transform", "translate(" + width/2 + "," + height/2 + ")");
+
+        var xScale = d3.scaleLinear().domain([-20, 20]).range([-width/2, width/2]);
+        var yScale = d3.scaleLinear().domain([-5, 5]).range([height/2, -height/2]);
+
+        var sinData = d3.range(-20, 20, 0.1).map(function(x) { return {x: x, y: Math.sin(x)}; });
+        var lineGen = d3.line().x(function(d){ return xScale(d.x); }).y(function(d){ return yScale(d.y); }).curve(d3.curveMonotoneX);
+        
+        g.append("path").datum(sinData).attr("fill", "none").attr("stroke", "#94a3b8").attr("stroke-width", 3).attr("stroke-dasharray", "5,5").attr("d", lineGen);
+
+        var getTaylorPath = function(terim) {
+            return d3.range(-20, 20, 0.1).map(function(x) {
+                var y = taylorSin(x, terim);
+                if(y > 25) y = 25; if(y < -25) y = -25;
+                return {x: x, y: y};
+            });
+        };
+
+        var taylorPath = g.append("path").datum(getTaylorPath(0)).attr("fill", "none").attr("stroke", "#dc2626").attr("stroke-width", 3.5).attr("d", lineGen);
+
+        d3.select("#d3-t-slider").on("input", function() {
+            var val = +this.value;
+            d3.select("#d3-t-label").text(val + 1);
+            d3.select("#d3-formula-text").text(getTaylorString(val)); 
+            taylorPath.datum(getTaylorPath(val)).transition().duration(400).ease(d3.easeCubicOut).attr("d", lineGen);
+        });
+    }
+}
+
+// --- 3. GEOGEBRA (KUSURSUZ API VE CLASSIC MOTOR) ---
+else if (grafikId === "s6-ggb-canvas") {
+    document.getElementById(grafikId).innerHTML = "";
+    var ggbParam6 = {
+        "appName": "classic", 
+        "width": document.getElementById(grafikId).offsetWidth || 600, 
+        "height": 350,
+        "showToolBar": false, "showAlgebraInput": false, "showMenuBar": false,
+        "language": "en", 
+        "appletOnLoad": function(api) { 
+            api.evalCommand("f(x) = sin(x)");
+            api.setColor("f", 148, 163, 184); // Güvenli API
+            
+            api.evalCommand("n = Slider[1, 29, 2]"); 
+            api.evalCommand("SetValue[n, 3]"); 
+            
+            api.evalCommand("T = TaylorPolynomial[f, 0, n]"); 
+            api.setColor("T", 220, 38, 38); 
+            api.setLineThickness("T", 5); 
+            
+            api.evalCommand("text1 = FormulaText[T]");
+            api.evalCommand("SetCoords[text1, -12, 4]");
+            
+            api.evalCommand('text2 = Text["-- sin(x) (Orijinal)", (-12, -3)]');
+            api.setColor("text2", 148, 163, 184);
+            
+            api.evalCommand('text3 = Text["— Taylor Polinomu", (-12, -4)]');
+            api.setColor("text3", 220, 38, 38);
+        }
+    };
+    new GGBApplet(ggbParam6, true).inject(grafikId);
+}
+
+// --- 4. THREE.JS AKADEMİK MATEMATİKSEL ÇİZİM ---
+else if (grafikId === "s6-three-canvas") {
+    var container = document.getElementById(grafikId);
+    container.innerHTML = `
+        <div style="position:absolute; top:10px; left:10px; color:#334155; z-index:10; font-family:sans-serif; background:rgba(255,255,255,0.9); padding:10px; border-radius:8px; border: 1px solid #cbd5e1;">
+            <div style="margin-bottom:8px; font-weight:bold;">
+                <span style="color:#64748b;">— sin(x) Dalga</span> | <span style="color:#dc2626;">— Taylor Polinomu</span>
+            </div>
+            Terim Sayısı (1-15): <input type="range" id="t6-slider" min="0" max="14" step="1" value="0" style="width:120px; vertical-align:middle;"><br>
+            <div id="t6-formula" style="color:#dc2626; font-family:monospace; margin-top:10px; font-size:13px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; width: 350px;">T(x) = x</div>
+        </div>
+        <div id="t6-render-box" style="width:100%; height:100%;"></div>
+    `;
+    
+    if (typeof THREE !== 'undefined') {
+        var w = container.offsetWidth || 600;
+        var h = 350;
+        var scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xf1f5f9); 
+        
+        var camera = new THREE.PerspectiveCamera(40, w/h, 0.1, 100);
+        camera.position.set(0, -25, 35);
+        
+        var renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setSize(w, h);
+        document.getElementById("t6-render-box").appendChild(renderer.domElement);
+
+        var grid = new THREE.GridHelper(50, 50, 0x94a3b8, 0xe2e8f0);
+        grid.rotation.x = Math.PI / 2;
+        scene.add(grid);
+
+        var axesHelper = new THREE.AxesHelper( 20 );
+        scene.add( axesHelper );
+
+        var sinPoints = [];
+        for(var i = -25; i <= 25; i += 0.1) {
+            sinPoints.push(new THREE.Vector3(i, Math.sin(i), 0));
+        }
+        var sinGeo = new THREE.BufferGeometry().setFromPoints(sinPoints);
+        var sinMat = new THREE.LineBasicMaterial({ color: 0x64748b });
+        var sinLine = new THREE.Line(sinGeo, sinMat);
+        scene.add(sinLine);
+
+        var taylorMat = new THREE.LineBasicMaterial({ color: 0xdc2626 });
+        var taylorLine = new THREE.Line(new THREE.BufferGeometry(), taylorMat);
+        scene.add(taylorLine);
+
+        var drawThreeTaylor = function(terim) {
+            var tPoints = [];
+            for(var i = -25; i <= 25; i += 0.1) {
+                var y = taylorSin(i, terim);
+                if (y > 25) y = 25; if (y < -25) y = -25;
+                tPoints.push(new THREE.Vector3(i, y, 0.1)); 
+            }
+            taylorLine.geometry.dispose(); 
+            taylorLine.geometry = new THREE.BufferGeometry().setFromPoints(tPoints);
+        };
+        
+        drawThreeTaylor(0);
+        document.getElementById("t6-slider").addEventListener("input", function(e) { 
+            var val = +e.target.value;
+            drawThreeTaylor(val); 
+            document.getElementById("t6-formula").innerText = getTaylorString(val);
+        });
+
+        if(window.t6Anim) cancelAnimationFrame(window.t6Anim);
+        var angle = 0;
+        var animateThree6 = function() {
+            window.t6Anim = requestAnimationFrame(animateThree6);
+            angle += 0.001; 
+            camera.position.x = Math.sin(angle) * 15;
+            camera.lookAt(0, 0, 0);
+            renderer.render(scene, camera);
+        };
+        animateThree6();
+    }
+}
+
+// --- 5. JSXGRAPH KUSURSUZ METİNLİ MOTOR (15 TERİM) ---
+else if (grafikId === "s6-jxg-canvas") {
+    var container = document.getElementById(grafikId);
+    container.innerHTML = "";
+    var boardK6 = JXG.JSXGraph.initBoard(grafikId, {boundingbox: [-15, 6, 15, -6], axis: true, showNavigation: false});
+
+    boardK6.create('functiongraph', [function(x){ return Math.sin(x); }], {strokeColor: '#94a3b8', strokeWidth: 3, dash: 2});
+
+    var tSlider = boardK6.create('slider', [[-13, -4], [-5, -4], [0, 2, 14]], {name: 'Terim Sayısı (Max 15)', snapWidth: 1});
+    
+    boardK6.create('functiongraph', [
+        function(x) { return taylorSin(x, tSlider.Value()); }
+    ], {strokeColor: '#dc2626', strokeWidth: 3}); 
+
+    boardK6.create('text', [-14, 4.5, function(){ return getTaylorString(tSlider.Value()); }], {fontSize: 14, color: '#dc2626', fontWeight: 'bold'});
+    
+    boardK6.create('text', [5, -4, '-- sin(x) (Orijinal)'], {fontSize: 14, color: '#94a3b8', fontWeight: 'bold'});
+    boardK6.create('text', [5, -5, '— Taylor Polinomu'], {fontSize: 14, color: '#dc2626', fontWeight: 'bold'});
+}
+
+// ==========================================
+// 7. UYGULAMA: DÖNEL CİSİMLER VE HACİM (KATI CİSİM)
+// ==========================================
+
+else if (grafikId === "s7-mpl-canvas") {
+    // Matplotlib uyarısı ekranda kalacak
+}
+
+// --- 1. PLOTLY KESİTLİ (CUTAWAY) 3D HACİM ---
+else if (grafikId === "s7-plot-canvas") {
+    document.getElementById(grafikId).innerHTML = "";
+
+    var x_data = [], y_data = [], z_data = [];
+    var adimX = 0.1; 
+    var adimAci = Math.PI / 20;
+
+    // Cismin içini göstermek için 360 derece yerine 270 derece döndürüyoruz
+    for (var i = 0; i <= 4; i += adimX) {
+        var r = Math.sqrt(i);
+        var x_row = [], y_row = [], z_row = [];
+        
+        for (var t = 0; t <= 1.5 * Math.PI; t += adimAci) {
+            x_row.push(i); 
+            y_row.push(r * Math.cos(t)); 
+            z_row.push(r * Math.sin(t));
+        }
+        x_data.push(x_row);
+        y_data.push(y_row);
+        z_data.push(z_row);
+    }
+
+    var traceSurface = {
+        x: x_data, y: y_data, z: z_data,
+        type: 'surface', 
+        colorscale: 'Plasma', 
+        showscale: false,
+        lighting: {roughness: 0.5, ambient: 0.6, specular: 0.2}
+    };
+
+    var layout7 = {
+        title: { text: "İçi Dolu Katı Cisim (Çeyrek Kesit Görünümü)", font: {color: '#be185d', size: 14} },
+        margin: {l:10, r:10, b:10, t:40},
+        scene: {
+            xaxis: {title: 'X', range: [0, 4], backgroundcolor: "rgb(241, 245, 249)", showbackground: true},
+            yaxis: {title: 'Y', range: [-2.5, 2.5], backgroundcolor: "rgb(241, 245, 249)", showbackground: true},
+            zaxis: {title: 'Z', range: [-2.5, 2.5], backgroundcolor: "rgb(241, 245, 249)", showbackground: true},
+            camera: { eye: {x: 1.5, y: -1.5, z: 1.2} }
+        }
+    };
+
+    Plotly.newPlot(grafikId, [traceSurface], layout7);
+}
+
+// --- 2. D3.JS GERÇEK 3D DÖNEN TEL KAFES (WİREFRAME) ---
+else if (grafikId === "s7-d3-canvas") {
+    var container = document.getElementById(grafikId);
+    container.style.display = "block"; 
+    container.innerHTML = `
+        <div style="text-align:center; padding-top:10px; height: 40px; font-family:sans-serif; background:#f8fafc; border-bottom:1px solid #e2e8f0;">
+            <label style="font-weight:bold; color:#0ea5e9; font-size:14px;">D3.js ile Matematiksel 3D Projeksiyon</label>
+        </div>
+        <div id="d3-hacim-box" style="width:100%; height:310px; background:#0f172a;"></div>
+    `;
+
+    var width = container.offsetWidth || 600;
+    var height = 310;
+
+    if (typeof d3 !== 'undefined') {
+        var svg = d3.select("#d3-hacim-box").append("svg").attr("width", width).attr("height", height);
+        var g = svg.append("g").attr("transform", "translate(" + width/2 + "," + height/2 + ")");
+
+        var lines = [];
+        var numX = 25, numTheta = 24;
+        
+        for(var i=1; i<=numX; i++) {
+            var x = (i/numX) * 4;
+            lines.push(d3.range(0, Math.PI*2 + 0.1, 0.1).map(t => ({x: x, r: Math.sqrt(x), theta: t})));
+        }
+        for(var j=0; j<numTheta; j++) {
+            var t = (j/numTheta) * Math.PI * 2;
+            lines.push(d3.range(0, 4.1, 0.2).map(x => ({x: x, r: Math.sqrt(x), theta: t})));
+        }
+
+        var pathGen = d3.line().x(function(d){ return d.px; }).y(function(d){ return d.py; });
+        
+        var paths = g.selectAll("path").data(lines).enter().append("path")
+            .attr("fill", "none").attr("stroke", "#38bdf8").attr("stroke-width", 0.6).attr("opacity", 0.7);
+
+        // Kendi 3D izometrik dönüş animasyonumuz
+        d3.timer(function(elapsed) {
+            var angle = elapsed * 0.0015; 
+            
+            lines.forEach(function(line) {
+                line.forEach(function(p) {
+                    var y_rot = p.r * Math.cos(p.theta + angle);
+                    var z_rot = p.r * Math.sin(p.theta + angle);
+                    
+                    p.px = (p.x - 2) * 50 - z_rot * 15;
+                    p.py = y_rot * 40 - (p.x - 2) * 15;
+                });
+            });
+            paths.attr("d", pathGen); 
+        });
+    }
+}
+
+// --- 3. GEOGEBRA (KUSURSUZ 3D MOTOR - DİL ÇÖKME KORUMALI) ---
+else if (grafikId === "s7-ggb-canvas") {
+    document.getElementById(grafikId).innerHTML = "";
+    var ggbParam7 = {
+        "appName": "3d", 
+        "width": document.getElementById(grafikId).offsetWidth || 600, 
+        "height": 350,
+        "showToolBar": false, "showAlgebraInput": false, "showMenuBar": false,
+        "language": "en", 
+        "appletOnLoad": function(api) { 
+            api.evalCommand("f(x) = If[0 <= x <= 4, sqrt(x)]");
+            api.setColor("f", 59, 130, 246);
+            
+            api.evalCommand("aci = Slider[0, 2pi, 0.1]"); 
+            api.evalCommand("SetValue[aci, 4]"); 
+            
+            api.evalCommand("S = Surface[f, aci, xAxis]"); 
+            api.setColor("S", 16, 185, 129); 
+        }
+    };
+    new GGBApplet(ggbParam7, true).inject(grafikId);
+}
+
+// --- 4. THREE.JS AKADEMİK BUZLU CAM (GLASS) MODELİ ---
+else if (grafikId === "s7-three-canvas") {
+    var container = document.getElementById(grafikId);
+    container.innerHTML = `
+        <div style="position:absolute; top:10px; left:10px; color:#334155; z-index:10; font-family:sans-serif; background:rgba(255,255,255,0.9); padding:10px; border-radius:8px; border:1px solid #cbd5e1;">
+            Dönme Açısı: <input type="range" id="t7-slider" min="0" max="6.28" step="0.1" value="4.71" style="width:120px; vertical-align:middle;">
+        </div>
+        <div id="t7-render-box" style="width:100%; height:100%;"></div>
+    `;
+    
+    if (typeof THREE !== 'undefined') {
+        var w = container.offsetWidth || 600;
+        var h = 350;
+        var scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xf1f5f9); 
+        
+        var camera = new THREE.PerspectiveCamera(45, w/h, 0.1, 100);
+        camera.position.set(6, 5, 7);
+        
+        var renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setSize(w, h);
+        document.getElementById("t7-render-box").appendChild(renderer.domElement);
+
+        var ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+        scene.add(ambientLight);
+        var dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+        dirLight.position.set(5, 10, 7);
+        scene.add(dirLight);
+
+        // İçerideki asıl eğri
+        var curvePoints = [];
+        for ( var i = 0; i <= 4; i += 0.05 ) { curvePoints.push( new THREE.Vector3( i, Math.sqrt(i), 0 ) ); }
+        scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(curvePoints), new THREE.LineBasicMaterial({ color: 0xdc2626, linewidth: 3 })));
+        scene.add( new THREE.AxesHelper( 5 ) );
+
+        var lathePoints = [];
+        for ( var i = 0; i <= 4; i += 0.1 ) { lathePoints.push( new THREE.Vector2( Math.sqrt(i), i ) ); }
+
+        var latheMesh;
+        var drawLathe = function(angle) {
+            if(latheMesh) scene.remove(latheMesh);
+            var geometry = new THREE.LatheGeometry( lathePoints, 40, 0, angle );
+            // Şeffaf cam görünümü
+            var material = new THREE.MeshPhysicalMaterial({ color: 0x0ea5e9, metalness: 0.1, roughness: 0.1, transparent: true, opacity: 0.4, side: THREE.DoubleSide });
+            latheMesh = new THREE.Mesh( geometry, material );
+            latheMesh.rotation.z = -Math.PI / 2;
+            scene.add( latheMesh );
+        };
+        
+        drawLathe(4.71); 
+        document.getElementById("t7-slider").addEventListener("input", function(e) { drawLathe(+e.target.value); });
+
+        if(window.t7Anim) cancelAnimationFrame(window.t7Anim);
+        var camAngle = 0;
+        var animateThree7 = function() {
+            window.t7Anim = requestAnimationFrame(animateThree7);
+            camAngle += 0.003;
+            camera.position.z = Math.cos(camAngle) * 7;
+            camera.position.x = Math.sin(camAngle) * 7 + 2;
+            camera.lookAt(2, 0, 0);
+            renderer.render(scene, camera);
+        };
+        animateThree7();
+    }
+}
+
+// --- 5. JSXGRAPH: SENİN TEKNİĞİNLE DİSK YÖNTEMİ (DİĞERLERİYLE AYNI FONKSİYON) ---
+else if (grafikId === "s7-jxg-canvas") {
+    var container = document.getElementById(grafikId);
+    container.innerHTML = "";
+    
+    // Temiz, pan/zoom kapalı tahtamız
+    var board7 = JXG.JSXGraph.initBoard(grafikId, {
+        boundingbox: [-1, 3.5, 5, -3.5], axis: true, showCopyright: false, showNavigation: false, keepaspectratio: false,
+        pan: {enabled: false}, zoom: {enabled: false} 
+    });
+
+    var p_x = 0.15; // X ekseni perspektif derinliği (Elipsin şişkinliği)
+
+    // Diğer araçlarla ortak fonksiyon: f(x) = sqrt(x)
+    var f7 = function(x){ return Math.sqrt(x); };
+    
+    // Üstteki asıl eğri (Katı mavi) ve Alttaki ayna eğrisi (Noktalı mavi)
+    board7.create('functiongraph', [f7, 0, 4], { strokeColor: '#1e40af', strokeWidth: 3, fixed: true, highlight: false });
+    board7.create('functiongraph', [function(x){ return -f7(x); }, 0, 4], { strokeColor: '#1e40af', strokeWidth: 2, dash: 2, fixed: true, highlight: false });
+
+    // Hacmin en sağdaki bitiş kapağı (x=4'teki elips)
+    // Ön yüzü katı, arka yüzü noktalı çizerek 3D algısı veriyoruz
+    board7.create('curve', [ function(t){ return 4 + 2 * p_x * Math.sin(t); }, function(t){ return 2 * Math.cos(t); }, 0, Math.PI ], { strokeColor: '#1e40af', strokeWidth: 2, fixed: true, highlight: false });
+    board7.create('curve', [ function(t){ return 4 + 2 * p_x * Math.sin(t); }, function(t){ return 2 * Math.cos(t); }, Math.PI, 2*Math.PI ], { strokeColor: '#1e40af', strokeWidth: 1, dash: 2, fixed: true, highlight: false });
+
+    // İntegral boyunca hareket eden x sürgüsü
+    var x_slider = board7.create('slider', [[0.5, -2.8], [3.5, -2.8], [0.1, 2.0, 4.0]], { name: 'Kesit (x)', snapWidth: 0.05, strokeColor: '#ef4444', fillColor: '#ef4444' });
+    var x_val = function() { return x_slider.Value(); };
+    var r_val = function() { return f7(x_val()); };
+
+    // Senin yönteminle Dinamik İntegral Diski (Şeffaf Kırmızı)
+    board7.create('curve', [ 
+        function(t){ return x_val() + r_val() * p_x * Math.sin(t); }, 
+        function(t){ return r_val() * Math.cos(t); }, 
+        0, 2*Math.PI 
+    ], { fillColor: '#ef4444', fillOpacity: 0.3, strokeColor: '#ef4444', strokeWidth: 2, fixed: true, highlight: false });
+
+    // Yarıçapı (r) gösteren merkezden yukarı çıkan çizgi
+    board7.create('segment', [
+        function(){ return [x_val(), 0]; }, 
+        function(){ return [x_val(), r_val()]; }
+    ], { strokeColor: '#991b1b', strokeWidth: 2, fixed: true, highlight: false });
+
+    // Canlı Matematiksel Etiketler
+    board7.create('text', [0.2, 3.0, function(){ return 'Yarıçap (r) = ' + r_val().toFixed(2); }], {fontSize: 15, fontFamily: 'Times New Roman', color: '#ef4444', fixed: true, highlight: false });
+    board7.create('text', [0.2, 2.5, function(){ return 'Kesit Alanı (πr²) = ' + (Math.PI * Math.pow(r_val(), 2)).toFixed(2); }], {fontSize: 15, fontFamily: 'Times New Roman', color: '#1e40af', fixed: true, highlight: false });
+    
+    // İntegral formülü: pi * (x^2 / 2)
+    board7.create('text', [0.2, 2.0, function(){ return 'Hacim (∫πr²dx) = ' + (Math.PI * Math.pow(x_val(), 2) / 2).toFixed(2); }], {fontSize: 15, fontFamily: 'Times New Roman', color: '#10b981', fixed: true, highlight: false });
+}
+
+// ==========================================
+// 8. UYGULAMA: ÇOK DEĞİŞKENLİ FONKSİYONLAR (GRADYAN VE TEĞET DÜZLEM)
+// ==========================================
+
+if (grafikId === "s8-mpl-canvas") {
+    // Matplotlib uyarısı
+}
+
+// --- 1. PLOTLY: 3D YÜZEY VE ZEMİN İZDÜŞÜMÜ (CONTOUR) ---
+else if (grafikId === "s8-plot-canvas") {
+    document.getElementById(grafikId).innerHTML = "";
+
+    var x_arr8 = [], y_arr8 = [], z_arr8 = [];
+    var step = 0.25;
+    
+    // X ve Y eksenleri için -3'ten 3'e diziler
+    for(var i = -3; i <= 3; i += step) { 
+        x_arr8.push(i); 
+        y_arr8.push(i); 
+    }
+    
+    // Z ekseni (f(x,y) = x^2 + y^2) hesaplaması
+    for(var j = 0; j < y_arr8.length; j++) {
+        var z_row = [];
+        for(var k = 0; k < x_arr8.length; k++) {
+            z_row.push(x_arr8[k]*x_arr8[k] + y_arr8[j]*y_arr8[j]);
+        }
+        z_arr8.push(z_row);
+    }
+
+    var traceSurface8 = {
+        x: x_arr8, y: y_arr8, z: z_arr8,
+        type: 'surface',
+        colorscale: 'Viridis', showscale: false,
+        contours: {
+            z: { show: true, usecolormap: true, highlightcolor: "#ef4444", project: { z: true } }
+        }
+    };
+
+    var layout8 = {
+        title: { text: "f(x,y) = x² + y² Paraboloidi", font: {color: '#2563eb', size: 14} },
+        margin: {l:10, r:10, b:10, t:40},
+        scene: { camera: { eye: {x: 1.5, y: -1.5, z: 1.2} } }
+    };
+
+    Plotly.newPlot(grafikId, [traceSurface8], layout8);
+}
+
+// --- 2. D3.JS: TOPOGRAFİK KESİT ÇİZİMİ (EŞ YÜKSELTİ EĞRİLERİ) ---
+else if (grafikId === "s8-d3-canvas") {
+    var container = document.getElementById(grafikId);
+    container.style.display = "block"; 
+    container.innerHTML = "<div id='d3-grad-box' style='width:100%; height:350px;'></div>";
+
+    var width = container.offsetWidth || 600;
+    var height = 350;
+
+    if (typeof d3 !== 'undefined') {
+        var svg = d3.select("#d3-grad-box").append("svg").attr("width", width).attr("height", height);
+        var g = svg.append("g").attr("transform", "translate(" + width/2 + "," + height/2 + ")");
+
+        var radii = [20, 45, 75, 110, 150];
+        
+        g.selectAll("circle").data(radii).enter().append("circle")
+            .attr("r", 0) 
+            .attr("fill", "none").attr("stroke", "#3b82f6").attr("stroke-width", 2)
+            .transition().duration(1000).delay(function(d, i){ return i * 200; })
+            .attr("r", function(d){ return d; });
+            
+        g.append("text").attr("x", -100).attr("y", -140).attr("fill", "#0f172a").attr("font-weight", "bold").text("Eş Yükselti (Contour) Eğrileri");
+    }
+}
+
+// --- 3. GEOGEBRA: HATASIZ 3D TEĞET DÜZLEM HESAPLAYICI ---
+else if (grafikId === "s8-ggb-canvas") {
+    document.getElementById(grafikId).innerHTML = "";
+    var ggbParam8 = {
+        "appName": "3d", 
+        "width": document.getElementById(grafikId).offsetWidth || 600, 
+        "height": 350,
+        "showToolBar": false, "showAlgebraInput": false, "showMenuBar": false,
+        "language": "en", 
+        "appletOnLoad": function(api) { 
+            api.evalCommand("f(x,y) = x^2 + y^2");
+            api.evalCommand('SetColor[f, "#3b82f6"]');
+            
+            // Çakışmayı önlemek için değişken isimlerini u_nok ve v_nok yaptık
+            api.evalCommand("u_nok = Slider[-2, 2, 0.1]"); 
+            api.evalCommand("SetValue[u_nok, 1]");
+            api.evalCommand("v_nok = Slider[-2, 2, 0.1]"); 
+            api.evalCommand("SetValue[v_nok, 1]");
+            
+            // Yüzeydeki Nokta
+            api.evalCommand("P_nokta = (u_nok, v_nok, f(u_nok, v_nok))");
+            api.evalCommand('SetColor[P_nokta, "#dc2626"]');
+            api.evalCommand("SetPointSize[P_nokta, 5]");
+            
+            // Teğet Düzlem
+            api.evalCommand("T_duzlem = TangentPlane[P_nokta, f]");
+            api.evalCommand('SetColor[T_duzlem, "#10b981"]');
+        }
+    };
+    new GGBApplet(ggbParam8, true).inject(grafikId);
+}
+
+// --- 4. THREE.JS: PÜRÜZSÜZ PARABOLOID (GÜNCELLENME HATASI ÇÖZÜLDÜ) ---
+else if (grafikId === "s8-three-canvas") {
+    var container = document.getElementById(grafikId);
+    container.innerHTML = "<div id='t8-render-box' style='width:100%; height:100%;'></div>";
+    
+    if (typeof THREE !== 'undefined') {
+        var w = container.offsetWidth || 600;
+        var h = 350;
+        var scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xf1f5f9); 
+        
+        var camera = new THREE.PerspectiveCamera(45, w/h, 0.1, 100);
+        camera.position.set(0, 6, 10);
+        
+        var renderer = new THREE.WebGLRenderer({antialias: true});
+        renderer.setSize(w, h);
+        document.getElementById("t8-render-box").appendChild(renderer.domElement);
+
+        scene.add(new THREE.AxesHelper(4));
+        var dirLight = new THREE.DirectionalLight(0xffffff, 1);
+        dirLight.position.set(5, 10, 5);
+        scene.add(dirLight);
+        scene.add(new THREE.AmbientLight(0x404040, 2));
+
+        var geometry = new THREE.PlaneGeometry(6, 6, 30, 30);
+        var pos = geometry.attributes.position;
+        
+        for (var i = 0; i < pos.count; i++) {
+            var vx = pos.getX(i);
+            var vy = pos.getY(i);
+            var vz = (vx*vx + vy*vy) * 0.25; // f(x,y)
+            pos.setZ(i, vz);
+        }
+        
+        // HATA BURADAYDI: Noktaların yerini değiştirdikten sonra motoru uyarmak şarttır.
+        geometry.attributes.position.needsUpdate = true;
+        geometry.computeVertexNormals();
+
+        var material = new THREE.MeshStandardMaterial({ color: 0x3b82f6, wireframe: true, side: THREE.DoubleSide });
+        var mesh = new THREE.Mesh(geometry, material);
+        mesh.rotation.x = -Math.PI / 2; // Yüzeyi ayağa kaldır
+        scene.add(mesh);
+
+        if(window.t8Anim) cancelAnimationFrame(window.t8Anim);
+        var camAngle = 0;
+        var animateThree8 = function() {
+            window.t8Anim = requestAnimationFrame(animateThree8);
+            camAngle += 0.005;
+            camera.position.x = Math.sin(camAngle) * 8;
+            camera.position.z = Math.cos(camAngle) * 8;
+            camera.lookAt(0, 1.5, 0);
+            renderer.render(scene, camera);
+        };
+        animateThree8();
+    }
+}
+
+// --- 5. JSXGRAPH: ETKİLEŞİMLİ GRADYAN VEKTÖRÜ ---
+else if (grafikId === "s8-jxg-canvas") {
+    var container = document.getElementById(grafikId);
+    container.innerHTML = "";
+    
+    var board8 = JXG.JSXGraph.initBoard(grafikId, {
+        boundingbox: [-4, 4, 4, -4], axis: true, showCopyright: false, showNavigation: false, keepaspectratio: true
+    });
+
+    // Eş Yükselti Çemberleri
+    for(var i=1; i<=3; i++) {
+        board8.create('circle', [[0,0], i], {strokeColor: '#94a3b8', strokeWidth: 2, dash: 2, highlight: false});
+    }
+
+    // Harita üzerinde gezinen P noktası
+    var p8 = board8.create('point', [1, 1], {name: 'P', color: '#2563eb', size: 5});
+
+    // Gradyan Vektörü (Daima çemberlere dik)
+    var gradP = board8.create('point', [
+        function(){ return p8.X() + 0.5 * (2 * p8.X()); },
+        function(){ return p8.Y() + 0.5 * (2 * p8.Y()); }
+    ], {visible: false});
+    
+    board8.create('arrow', [p8, gradP], {strokeColor: '#ef4444', strokeWidth: 3});
+
+    // Canlı Matematiksel Etiketler
+    board8.create('text', [-3.8, 3.5, 'f(x,y) = x² + y²'], {fontSize: 15, color: '#1e40af', fontWeight: 'bold'});
+    board8.create('text', [-3.8, 3.0, function(){ 
+        return 'Gradyan (∇f) = ⟨' + (2*p8.X()).toFixed(2) + ', ' + (2*p8.Y()).toFixed(2) + '⟩'; 
+    }], {fontSize: 15, color: '#ef4444', fontWeight: 'bold'});
+    
+    board8.create('text', [0.5, -3.5, 'Mavi noktayı (P) sürükleyin'], {fontSize: 13, color: '#64748b'});
+}
+
+
+
+
+
+
+
+
 
 
 
