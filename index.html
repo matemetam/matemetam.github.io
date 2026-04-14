@@ -31356,13 +31356,9 @@ else if (grafikId === "s8-jxg-canvas") {
 
 
 
-
-
-
-
-
-
 }
+
+
 
 
 // --- SİNEMA MODU (AKILLI VİDEO OYNATICI) FONKSİYONU ---
@@ -31374,18 +31370,31 @@ function openVideoModal(topicTitle) {
         "7. İntegrasyon Teknikleri": "bbljPYHcVDs",
         "8. İntegral Uygulamaları": "BQ49nqoQpc0",
         "9. Sonsuz Diziler ve Seriler": "j374btcOrAs",
-"12.Kısmi Türevler": "zK1AFZQusSI",
-"13.Katlı İntegraller": "mN9hihali5E",
-"14.Vektör Alanlarında İntegral": "1CvxNv8314Q",
-        // İleride yeni video ürettikçe buraya alt alta ekleyeceksin
+        "12.Kısmi Türevler": "zK1AFZQusSI",
+        "13.Katlı İntegraller": "mN9hihali5E",
+        "14.Vektör Alanlarında İntegral": "1CvxNv8314Q",
     };
     
-    // 2. Tıklanan konunun Video ID'sini katalogdan çek
-    let videoId = videoKatalogu[topicTitle];
+    // 2. KESİN ÇÖZÜM: AKILLI EŞLEŞTİRME
+    let videoId = null;
+    
+    // Gelen başlığın içindeki sayıları ve noktaları temizleyip küçük harfe çeviriyoruz
+    let temizGelen = topicTitle.replace(/[0-9.]/g, '').trim().toLocaleLowerCase('tr-TR');
 
-    // 3. EĞER VİDEO YOKSA HATA VERİP İŞLEMİ DURDUR (Siyah ekran açılmasını önler)
+    for (let key in videoKatalogu) {
+        // Katalogdaki anahtarın da sayılarını ve noktalarını temizleyip küçük harfe çeviriyoruz
+        let temizKatalog = key.replace(/[0-9.]/g, '').trim().toLocaleLowerCase('tr-TR');
+        
+        // Eğer kelimeler eşleşiyorsa (Boşluk, numara, büyük/küçük harf hatası olsa bile) ID'yi al
+        if (temizGelen.includes(temizKatalog) || temizKatalog.includes(temizGelen)) {
+            videoId = videoKatalogu[key];
+            break;
+        }
+    }
+
+    // 3. EĞER VİDEO YOKSA HATA VERİP İŞLEMİ DURDUR
     if (!videoId) {
-        alert("Bu konu için yapay zeka destekli video anlatımı henüz hazırlanmaktadır. Lütfen daha sonra tekrar kontrol edin!");
+        alert("Bu konu (" + topicTitle + ") için yapay zeka destekli video anlatımı henüz hazırlanmaktadır. Lütfen daha sonra tekrar kontrol edin!");
         return; 
     }
 
@@ -31408,8 +31417,7 @@ function openVideoModal(topicTitle) {
     
     // Modalı (Sinema ekranını) sayfaya ekle
     document.body.insertAdjacentHTML('beforeend', modalHTML);
-}
-                    
+}                    
 
 
 
