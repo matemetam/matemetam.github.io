@@ -715,13 +715,13 @@ header.kapali {
             
 { id: 5, title: " İntegral", topics: ["5.1 Riemann", "5.2 Sigma", "5.3 Belirli İntegral", "5.4 Temel Teorem", "5.5 Yerine Koyma", "5.6 Alan"] },
 
-{ id: 6, title: " Transandant Fonksiyonlar", topics: ["6.1 Ters Fonksiyonlar", "6.2 Doğal Logaritma", "6.3 Üstel Fonksiyonlar", "6.4 Belirsiz Şekiller (L'Hôpital)", "6.5 Ters Trigonometrik", "6.6 Hiperbolik Fonksiyonlar", "6.7 Üstel Değişim Problemleri"] },
+{ id: 6, title: " Transandant Fonksiyonlar", topics: ["6.1 Ters Fonksiyonlar", "6.2 Doğal Logaritma", "6.3 Üstel Fonksiyonlar", "6.4 Belirsiz Şekiller (L'Hôpital)", "6.5 Ters Trigonometrik", "6.6 Hiperbolik Fonksiyonlar", "6.7 Üstel Değişim Problemleri", "6.8 Değerlendirme Testi"] },
             
-{ id: 7, title: " İntegrasyon Teknikleri", topics: ["7.1 Kısmi İntegrasyon", "7.2 Trigonometrik İntegraller", "7.3 Trigonometrik Dönüşüm", "7.4 Basit Kesirlere Ayırma","7.5 Sayısal İntegrasyon", "7.6 Genelleştirilmiş İntegraller"] },
+{ id: 7, title: " İntegrasyon Teknikleri", topics: ["7.1 Kısmi İntegrasyon", "7.2 Trigonometrik İntegraller", "7.3 Trigonometrik Dönüşüm", "7.4 Basit Kesirlere Ayırma","7.5 Sayısal İntegrasyon", "7.6 Genelleştirilmiş İntegraller", "7.7 Değerlendirme Testi"] },
                       
-{ id: 8, title: " İntegral Uygulamaları", topics: ["8.1 Dik-Kesitler Kullanarak Hacim Bulmak", "8.2 Silindirik Kabuklarla Hacim Bulmak", "8.3 Yay Uzunluğu", "8.4 Dönel Yüzeylerin Alanları", "8.5 İş ve Akış Kuvvetleri", "8.6 Momentler ve Ağırlık Merkezi"] },
+{ id: 8, title: " İntegral Uygulamaları", topics: ["8.1 Dik-Kesitler Kullanarak Hacim Bulmak", "8.2 Silindirik Kabuklarla Hacim Bulmak", "8.3 Yay Uzunluğu", "8.4 Dönel Yüzeylerin Alanları", "8.5 İş ve Akış Kuvvetleri", "8.6 Momentler ve Ağırlık Merkezi", "8.7 Değerlendirme Testi"] },
         
-{ id: 9, title: " Sonsuz Diziler ve Seriler", topics: ["9.1 Diziler", "9.2 Sonsuz Seriler", "9.3 İntegral Testi", "9.4 Karşılaştırma Testleri", "9.5 Oran ve Kök Testi", "9.6 Alterne Seriler", "9.7 Kuvvet Serileri", "9.8 Taylor ve Maclaurin Serileri", "9.9 Taylor Serisinin Yakınsaklığı", "9.10 Binom Serisi"] },
+{ id: 9, title: " Sonsuz Diziler ve Seriler", topics: ["9.1 Diziler", "9.2 Sonsuz Seriler", "9.3 İntegral Testi", "9.4 Karşılaştırma Testleri", "9.5 Oran ve Kök Testi", "9.6 Alterne Seriler", "9.7 Kuvvet Serileri", "9.8 Taylor ve Maclaurin Serileri", "9.9 Taylor Serisinin Yakınsaklığı", "9.10 Binom Serisi", "9.11 Değerlendirme Testi"] },
           
             { 
                 id: 10, 
@@ -762,6 +762,7 @@ header.kapali {
                     "12.8 Lagrange Çarpanları",
                     "12.9 İki Değişkenli Fonksiyonlar İçin Taylor Formülü",
                     "12.10 Kısıtlanmış Değişkenlerle Kısmi Türevler",
+"12.11 Değerlendirme Testi",
                 ] 
             },
 
@@ -778,6 +779,7 @@ header.kapali {
                     "13.6 Momentler ve Merkezleri",
                     "13.7 Silindirik ve Küresel Koordinatlarda Üç Katlı İntegraller",
                     "13.8 Katlı İntegrallerde Değişken Dönüşümü",
+"13.9 Değerlendirme Testi",
                 ] 
             },
 
@@ -793,6 +795,7 @@ header.kapali {
                     "14.6 Yüzey İntegralleri",
                     "14.7 Stokes Teoremi",
                     "14.8 Diverjans Teoremi ve Birleştirilmiş Teori",
+"14.9 Değerlendirme Testi",
                 ] 
             },
 
@@ -31365,21 +31368,28 @@ else if (grafikId === "s8-jxg-canvas") {
 // --- SİNEMA MODU (AKILLI VİDEO OYNATICI) FONKSİYONU ---
 function openVideoModal(topicTitle) {
     
-    // 1. MATEVERSE VİDEO KATALOĞU (15 videoyu buraya ekleyeceğiz)
+    // 1. MATEVERSE VİDEO KATALOĞU
     const videoKatalogu = {
-        // Sol tarafa konunun tam adını, sağ tarafa YouTube linkinin sonundaki ID'yi yazıyoruz.
-        "1.1 Fonksiyonlar ve Grafikleri": "ehl5mVOaXH4",
-        "1.2 Fonksiyonları Birleştirmek": "ehl5mVOaXH4", // Şimdilik test için aynı videoyu koyduk
-        "6. Transandant Fonksiyonlar": "ehl5mVOaXH4",
-        
-        // İleride yeni video ürettikçe buraya alt alta ekleyeceksin:
-        // "2.1 Değişim Oranları ve Eğrilerin Teğetleri": "YENI_VIDEO_ID_BURAYA",
+        "6. Transandant Fonksiyonlar": "eaGchaqYuf8",
+        "7. İntegrasyon Teknikleri": "bbljPYHcVDs",
+        "8. İntegral Uygulamaları": "BQ49nqoQpc0",
+        "9. Sonsuz Diziler ve Seriler": "j374btcOrAs",
+"12.Kısmi Türevler": "zK1AFZQusSI",
+"13.Katlı İntegraller": "mN9hihali5E",
+"14.Vektör Alanlarında İntegral": "1CvxNv8314Q",
+        // İleride yeni video ürettikçe buraya alt alta ekleyeceksin
     };
-
-    // 2. Tıklanan konunun videosunu katalogdan bul (Yoksa varsayılan olarak ilk videoyu aç)
-    let videoId = videoKatalogu[topicTitle] || "ehl5mVOaXH4"; 
     
-    // YouTube Gömme (Embed) Linkini oluştur (autoplay=1 otomatik başlatır, rel=0 alakasız önerileri kapatır)
+    // 2. Tıklanan konunun Video ID'sini katalogdan çek
+    let videoId = videoKatalogu[topicTitle];
+
+    // 3. EĞER VİDEO YOKSA HATA VERİP İŞLEMİ DURDUR (Siyah ekran açılmasını önler)
+    if (!videoId) {
+        alert("Bu konu için yapay zeka destekli video anlatımı henüz hazırlanmaktadır. Lütfen daha sonra tekrar kontrol edin!");
+        return; 
+    }
+
+    // 4. YouTube Gömme (Embed) Linkini oluştur
     let videoUrl = "https://www.youtube.com/embed/" + videoId; 
     
     const modalHTML = `
@@ -31399,7 +31409,6 @@ function openVideoModal(topicTitle) {
     // Modalı (Sinema ekranını) sayfaya ekle
     document.body.insertAdjacentHTML('beforeend', modalHTML);
 }
-
                     
 
 
