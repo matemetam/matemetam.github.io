@@ -207,10 +207,42 @@ window.MathJax = {
         .home-btn:hover { background: var(--border); }
 
         .nav-wrapper { display: flex; align-items: center; flex: 1; justify-content: flex-start; overflow: hidden; margin: 0 10px; height: 55px; }
-        .chapter-nav { display: flex; gap: 10px; overflow-x: auto; padding: 0 5px; max-width: 1100px; width: 100%; scrollbar-width: none; align-items: center; scroll-behavior: smooth; white-space: nowrap; height: 100%; }
+        .chapter-nav { 
+            display: flex; 
+            gap: 10px; 
+            overflow-x: auto !important; /* Kaydırmayı zorunlu kıl */
+            overflow-y: hidden !important;
+            padding: 0 5px; 
+            max-width: 1100px; 
+            width: 100%; 
+            scrollbar-width: none; 
+            align-items: center; 
+            scroll-behavior: smooth; 
+            white-space: nowrap !important; /* Kelimelerin alt satıra geçmesini kesinlikle engelle */
+            height: 100%;
+            -webkit-overflow-scrolling: touch; /* Mobilde pürüzsüz kaydırma sağlar */
+        }
+        
+        /* Chrome, Safari ve Edge için menü scrollbar'ını gizleme */
+        .chapter-nav::-webkit-scrollbar {
+            display: none;
+        }
         .nav-arrow { background: transparent; border: none; color: var(--text-main); font-size: 1.2rem; cursor: pointer; padding: 0 10px; font-weight: bold; opacity: 0.5; }
         .nav-arrow:hover { opacity: 1; color: var(--accent); }
-        .chap-btn { background: transparent; color: var(--text-main); border: 1px solid transparent; padding: 8px 16px; border-radius: var(--radius); font-size: 0.9rem; font-weight: 600; cursor: pointer; white-space: nowrap; opacity: 0.7; transition: 0.2s; }
+       .chap-btn { 
+            background: transparent; 
+            color: var(--text-main); 
+            border: 1px solid transparent; 
+            padding: 8px 16px; 
+            border-radius: var(--radius); 
+            font-size: 0.9rem; 
+            font-weight: 600; 
+            cursor: pointer; 
+            white-space: nowrap !important; /* Buton içi metinler de tek satır kalsın */
+            opacity: 0.7; 
+            transition: 0.2s; 
+            flex-shrink: 0 !important; /* Ekran daraldığında butonların ezilmesini engeller. En kritik kod bu! */
+        }
         .chap-btn:hover { background: var(--border); opacity: 1; }
         .chap-btn.active { background: var(--accent); color: white; opacity: 1; }
 
