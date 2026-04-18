@@ -723,7 +723,7 @@ mjx-container[display="true"] {
             
 { id: 5, title: " İntegral", topics: ["5.1 Riemann", "5.2 Sigma", "5.3 Belirli İntegral", "5.4 Temel Teorem", "5.5 Yerine Koyma", "5.6 Alan"] },
 
-{ id: 6, title: " Transandant Fonksiyonlar", topics: ["6.1 Ters Fonksiyonlar", "6.2 Doğal Logaritma", "6.3 Üstel Fonksiyonlar", "6.4 Belirsiz Şekiller (L'Hôpital)", "6.5 Ters Trigonometrik", "6.6 Hiperbolik Fonksiyonlar", "6.7 Üstel Değişim Problemleri", "6.8 Değerlendirme Testi"] },
+{ id: 6, title: " Transandant Fonksiyonlar", topics: ["6.1 Ters Fonksiyonlar", "6.2 Doğal Logaritma", "6.3 Üstel Fonksiyonlar", "6.4 Belirsiz Şekiller (L'Hôpital)", "6.5 Ters Trigonometrik", "6.6 Hiperbolik Fonksiyonlar", "6.7 Üstel Değişim Problemleri", "6.8 Değerlendirme Testi", "6.9 İleri Düzey Alıştırmalar"] },
             
 { id: 7, title: " İntegrasyon Teknikleri", topics: ["7.1 Kısmi İntegrasyon", "7.2 Trigonometrik İntegraller", "7.3 Trigonometrik Dönüşüm", "7.4 Basit Kesirlere Ayırma","7.5 Sayısal İntegrasyon", "7.6 Genelleştirilmiş İntegraller", "7.7 Değerlendirme Testi", "7.8 İleri İntegral"] },
                       
@@ -7958,8 +7958,305 @@ else if (id === "6.7" || id === "Üstel Değişim Problemleri") {
 
 
 }
+// === 6.9 İLERİ TRANSANDANT FONKSİYON ANALİZİ (İLERİ DÜZEY) ===
+else if (id === "6.9") {
 
+    html += createQuestion("Soru 1", "Genelleştirilmiş Ortalama Limiti (Transandant Form)", 
+        "\\( a_1, a_2, \\dots, a_n > 0 \\) sabit sayılar olmak üzere;<br>\\( \\lim_{x \\to 0} \\left( \\frac{a_1^x + a_2^x + \\dots + a_n^x}{n} \\right)^{1/x} \\) limitinin değerini hesaplayınız.", 
+        `<p><i>Çözüm:</i></p>
+        <p>Bu limit \\( [1^\\infty] \\) belirsizliği formundadır. Çözüm için fonksiyonu \\( e \\) tabanına taşıyıp logaritmik limit tekniklerini kullanacağız.</p>
+        $$\\begin{aligned}
+        L &= \\lim_{x \\to 0} \\left( \\frac{\\sum_{i=1}^n a_i^x}{n} \\right)^{1/x} \\\\
+        \\ln L &= \\lim_{x \\to 0} \\frac{\\ln(\\sum a_i^x) - \\ln n}{x} && (\\text{Logaritma alınarak } [0/0] \\text{ formuna geçiş}) \\\\
+        \\ln L &= \\lim_{x \\to 0} \\frac{\\frac{d}{dx} \\ln(\\sum a_i^x)}{1} && (\\text{L'Hôpital Kuralı uygulaması}) \\\\
+        &= \\lim_{x \\to 0} \\frac{\\sum_{i=1}^n a_i^x \\ln a_i}{\\sum_{i=1}^n a_i^x} && (\\text{Üstel fonksiyon türev kuralı: } (a^x)' = a^x \\ln a) \\\\
+        x \\to 0 &\\implies a_i^x \\to 1 \\text{ olduğundan:} \\\\
+        \\ln L &= \\frac{\\ln a_1 + \\ln a_2 + \\dots + \\ln a_n}{n} = \\frac{\\ln(a_1 a_2 \\dots a_n)}{n} \\\\
+        \\ln L &= \\ln(a_1 a_2 \\dots a_n)^{1/n} \\\\
+        L &= \\sqrt[n]{a_1 a_2 \\dots a_n} && (\\text{Sonuç: Aritmetik ortalamanın limiti geometrik ortalamaya eşittir})
+        \\end{aligned}$$`
+    );
 
+    html += createQuestion("Soru 2", "Özel Üstel-Rasyonel İntegral Formu", 
+        "\\( \\int e^x \\frac{x^2+1}{(x+1)^2} \\, dx \\) belirsiz integralini hesaplayınız.", 
+        `<p><i>Çözüm:</i></p>
+        <p>Bu tip integrallerde \\( \\int e^x [f(x) + f'(x)] \\, dx = e^x f(x) + C \\) kalıbı aranmalıdır. Pay kısmındaki ifadeyi paydaya benzeterek parçalayalım.</p>
+        $$\\begin{aligned}
+        I &= \\int e^x \\frac{x^2 - 1 + 2}{(x+1)^2} \\, dx && (\\text{Payın } x^2-1+2 \\text{ şeklinde manipüle edilmesi}) \\\\
+        &= \\int e^x \\left( \\frac{(x-1)(x+1)}{(x+1)^2} + \\frac{2}{(x+1)^2} \\right) dx && (\\text{Kesrin iki rasyonel parçaya ayrılması}) \\\\
+        &= \\int e^x \\left( \\frac{x-1}{x+1} + \\frac{2}{(x+1)^2} \\right) dx && (\\text{Sadeleştirme}) \\\\
+        f(x) &= \\frac{x-1}{x+1} \\implies f'(x) = \\frac{1(x+1) - 1(x-1)}{(x+1)^2} = \\frac{2}{(x+1)^2} && (\\text{Bölüm türevi ile kalıbın doğrulanması}) \\\\
+        I &= \\int e^x [f(x) + f'(x)] \\, dx = e^x \\frac{x-1}{x+1} + C && (\\text{Karakteristik özellik kullanılarak nihai sonuç})
+        \\end{aligned}$$`
+    );
+
+    html += createQuestion("Soru 3", "Lambert W Benzeri Transandant Ters Türev", 
+        "\\( f(x) = x \\ln x \\) fonksiyonu \\( x > 1/e \\) aralığında birebirdir. \\( f(x) \\)'in tersi \\( g(x) \\) olduğuna göre, \\( g'(e) \\) değerini ve genel türev ifadesi olan \\( g'(x) \\)'i \\( g(x) \\) cinsinden bulunuz.", 
+        `<p><i>Çözüm:</i></p>
+        <p>Lambert W fonksiyonu ile doğrudan ilişkili olan bu yapıda, Ters Fonksiyon Türev Teoremi ve kapalı türev tekniklerini birleştireceğiz.</p>
+        $$\\begin{aligned}
+        f(g(x)) &= x \\implies g(x) \\ln(g(x)) = x && (\\text{Ters fonksiyon tanımı}) \\\\
+        f(a) &= e \\implies a \\ln a = e \\implies a = e && (\\text{Ters görüntü noktası tespiti}) \\\\
+        f'(x) &= 1 \\cdot \\ln x + x \\cdot \\frac{1}{x} = \\ln x + 1 && (\\text{Orijinal fonksiyonun türevi}) \\\\
+        g'(e) &= \\frac{1}{f'(e)} = \\frac{1}{\\ln e + 1} = \\frac{1}{2} && (\\text{Noktasal türev değeri}) \\\\
+        \\text{Genel Türev İçin:} & \\\\
+        \\frac{d}{dx} [g(x) \\ln(g(x))] &= \\frac{d}{dx} [x] && (\\text{Tanım denkleminin her iki tarafının türevi}) \\\\
+        g'(x) \\ln(g(x)) + g(x) \\frac{g'(x)}{g(x)} &= 1 && (\\text{Çarpım ve zincir kuralı uygulaması}) \\\\
+        g'(x) [ \\ln(g(x)) + 1 ] &= 1 \\\\
+        g'(x) &= \\frac{1}{1 + \\ln(g(x))} && (\\text{Türev ifadesinin } g(x) \\text{ cinsinden formu})
+        \\end{aligned}$$`
+    );
+// SORU 4: Belirsiz Şekillerin Karmaşık Analizi (1^Sonsuz ve Ters Trig)
+                html += createQuestion("Soru 4", "Belirsiz Üslü Formların Transandant Limiti", 
+                    "\\( \\lim_{x \\to 0^+} (1 + \\arcsin^2 x)^{1/(1 - \\cos x)} \\) limitinin değerini, L'Hôpital kuralı ve transandant fonksiyon özelliklerini kullanarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu limit \\( [1^\\infty] \\) belirsizliği formundadır. Bu tür belirsizlikleri çözmek için fonksiyonu \\( e \\) tabanına taşıyarak logaritmik limit analizine dönüştürmemiz gerekir.</p>
+                    $$\\begin{aligned}
+                    L &= \\lim_{x \\to 0^+} (1 + \\arcsin^2 x)^{1/(1 - \\cos x)} && (\\text{Verilen limit}) \\\\
+                    \\ln L &= \\lim_{x \\to 0^+} \\ln \\left( (1 + \\arcsin^2 x)^{1/(1 - \\cos x)} \\right) && (\\text{Her iki tarafın doğal logaritmasının alınması}) \\\\
+                    \\ln L &= \\lim_{x \\to 0^+} \\frac{\\ln(1 + \\arcsin^2 x)}{1 - \\cos x} && (\\text{Logaritma kuralı ile üssün katsayıya dönüşmesi}) \\\\
+                    x \\to 0^+ &\\implies \\frac{\\ln(1+0)}{1-1} = \\left[ \\frac{0}{0} \\right] && (\\text{L'Hôpital kuralı uygulanabilir formun teyidi}) \\\\
+                    \\ln L &= \\lim_{x \\to 0^+} \\frac{\\frac{d}{dx} [\\ln(1 + \\arcsin^2 x)]}{\\frac{d}{dx} [1 - \\cos x]} && (\\text{L'Hôpital kuralının tatbik edilmesi}) \\\\
+                    &= \\lim_{x \\to 0^+} \\frac{\\frac{1}{1 + \\arcsin^2 x} \\cdot 2\\arcsin x \\cdot \\frac{1}{\\sqrt{1-x^2}}}{\\sin x} && (\\text{Zincir kuralı ile türevlerin alınması}) \\\\
+                    &= \\lim_{x \\to 0^+} \\left( \\frac{2}{1 + \\arcsin^2 x} \\cdot \\frac{1}{\\sqrt{1-x^2}} \\cdot \\frac{\\arcsin x}{\\sin x} \\right) && (\\text{İfadenin çarpanlarına ayrıştırılarak düzenlenmesi}) \\\\
+                    &= \\left( \\lim_{x \\to 0^+} \\frac{2}{1 + \\arcsin^2 x} \\right) \\cdot \\left( \\lim_{x \\to 0^+} \\frac{1}{\\sqrt{1-x^2}} \\right) \\cdot \\left( \\lim_{x \\to 0^+} \\frac{\\arcsin x}{\\sin x} \\right) && (\\text{Limitin çarpım özelliğinin kullanılması}) \\\\
+                    \\lim_{x \\to 0^+} \\frac{\\arcsin x}{\\sin x} &\\xrightarrow{L'H} \\lim_{x \\to 0^+} \\frac{1/\\sqrt{1-x^2}}{\\cos x} = \\frac{1}{1} = 1 && (\\text{Son çarpan için ek L'Hôpital uygulaması}) \\\\
+                    \\ln L &= \\left( \\frac{2}{1+0} \\right) \\cdot (1) \\cdot (1) = 2 && (\\text{Limit değerlerinin yerleştirilmesi}) \\\\
+                    L &= e^2 && (\\text{Ters logaritmik işlemle nihai limitin bulunması})
+                    \\end{aligned}$$`
+                );
+
+                // SORU 5: Kapalı Transandant Denklemlerin Diferansiyel Analizi
+                html += createQuestion("Soru 5", "Karmaşık Üstel-Logaritmik Yapıda Kapalı Türev", 
+                    "\\( e^{x/y} + \\ln(x^2 + y^2) = \\arctan(y/x) \\) denklemiyle tanımlanan fonksiyon için \\( \\frac{dy}{dx} \\) türev ifadesini elde ediniz.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu problemde hem üstel, hem logaritmik hem de ters trigonometrik fonksiyonlar iç içe geçmiştir. Değişkenlerin ayrılması imkansız olduğundan her iki tarafın \\( x \\)'e göre kapalı türevi (implicit differentiation) alınmalıdır.</p>
+                    $$\\begin{aligned}
+                    \\frac{d}{dx} [e^{x/y}] + \\frac{d}{dx} [\\ln(x^2 + y^2)] &= \\frac{d}{dx} [\\arctan(y/x)] && (\\text{Denklemin her iki tarafının diferansiyellenmesi}) \\\\
+                    e^{x/y} \\cdot \\frac{y - xy'}{y^2} + \\frac{2x + 2yy'}{x^2 + y^2} &= \\frac{(y'x - y)/x^2}{1 + (y/x)^2} && (\\text{Zincir ve bölüm kurallarının uygulanması}) \\\\
+                    \\frac{e^{x/y}}{y} - \\frac{xe^{x/y}}{y^2}y' + \\frac{2x}{x^2+y^2} + \\frac{2y}{x^2+y^2}y' &= \\frac{y'x - y}{x^2 + y^2} && (\\text{Sağ taraftaki payda sadeleştirmesi ve terimlerin açılması}) \\\\
+                    \\text{Terimleri } y' \\text{ parantezine alalım:} & \\\\
+                    y' \\left( \\frac{2y}{x^2+y^2} - \\frac{xe^{x/y}}{y^2} - \\frac{x}{x^2+y^2} \\right) &= -\\frac{y}{x^2+y^2} - \\frac{e^{x/y}}{y} - \\frac{2x}{x^2+y^2} && (y' \\text{ içeren ve içermeyenlerin ayrılması}) \\\\
+                    y' \\left( \\frac{y-x}{x^2+y^2} - \\frac{xe^{x/y}}{y^2} \\right) &= - \\left( \\frac{y+2x}{x^2+y^2} + \\frac{e^{x/y}}{y} \\right) && (\\text{Cebirsel gruplandırma}) \\\\
+                    y' &= \\frac{- \\left( \\frac{y(y+2x) + (x^2+y^2)e^{x/y}}{y(x^2+y^2)} \\right)}{\\frac{y^2(y-x) - x(x^2+y^2)e^{x/y}}{y^2(x^2+y^2)}} && (\\text{Payda eşitleyerek oranlama işlemi}) \\\\
+                    \\frac{dy}{dx} &= \\frac{-y [y^2 + 2xy + (x^2+y^2)e^{x/y}]}{y^2(y-x) - x(x^2+y^2)e^{x/y}} && (\\text{En sade kapalı türev ifadesi})
+                    \\end{aligned}$$`
+                );
+
+                // SORU 6: Hiperbolik Ters Dönüşümlü Diferansiyel ve İntegral
+                html += createQuestion("Soru 6", "Hiperbolik-Logaritmik İlişki ve İleri İntegrasyon", 
+                    "\\( f(x) = \\frac{\\cosh x}{1 + \\sinh^2 x} \\) fonksiyonunu göz önüne alarak;<br>a) \\( F(0) = 0 \\) olacak şekilde \\( \\int f(x) \\, dx \\) belirsiz integralini (ters türev) bulunuz.<br>b) Elde ettiğiniz sonucu hiperbolik tanımları kullanarak logaritmik bir formda yazınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p><b>a) Ters Türevin Bulunması:</b></p>
+                    $$\\begin{aligned}
+                    I &= \\int \\frac{\\cosh x}{1 + \\sinh^2 x} \\, dx && (\\text{Verilen integral}) \\\\
+                    u &= \\sinh x \\implies du = \\cosh x \\, dx && (\\text{Hiperbolik diferansiyel dönüşümü}) \\\\
+                    I &= \\int \\frac{1}{1 + u^2} \\, du && (\\text{Dönüşüm sonrası oluşan rasyonel form}) \\\\
+                    I &= \\arctan(u) + C = \\arctan(\\sinh x) + C && (\\text{Arctan integral kuralı ve geri dönüşüm}) \\\\
+                    F(0) &= \\arctan(\\sinh 0) + C = 0 \\implies C = 0 && (F(0)=0 \\text{ başlangıç koşulunun uygulanması}) \\\\
+                    F(x) &= \\arctan(\\sinh x) && (\\text{Bulunan özel ters türev})
+                    \\end{aligned}$$
+                    <p><b>b) Logaritmik Formda İfade:</b></p>
+                    $$\\begin{aligned}
+                    \\text{Bilgi: } & \\sinh x = \\frac{e^x - e^{-x}}{2} && (\\text{Hiperbolik sinüsün üstel tanımı}) \\\\
+                    F(x) &= \\arctan \\left( \\frac{e^x - e^{-x}}{2} \\right) && (\\text{Üstel formun yerine yazılması}) \\\\
+                    \\theta &= \\arctan \\left( \\frac{e^{2x} - 1}{2e^x} \\right) && (\\text{Tanjant değerinin üslü biçimde düzenlenmesi}) \\\\
+                    \\text{Arctan tanımından: } & \\tan \\theta = \\frac{e^{2x}-1}{2e^x} \\\\
+                    \\text{Bu ifade aynı zamanda: } & F(x) = \\text{gd}(x) && (\\text{Gudermannian fonksiyonu ilişkisi}) \\\\
+                    F(x) &= 2\\arctan(e^x) - \\frac{\\pi}{2} && (\\text{Logaritmik/Üstel forma alternatif bir geçiş})
+                    \\end{aligned}$$`
+                );
+
+                // SORU 7: Hiperbolik Ters Fonksiyon ve Logaritmik Diferansiyel
+                html += createQuestion("Soru 7", "Arccosh Türevi ve Logaritmik İlişki", 
+                    "$y = \\text{arcosh } x$ (veya $\\cosh^{-1} x$) fonksiyonunun logaritmik tanımını kullanarak, $\\frac{d}{dx}(\\text{arcosh } x) = \\frac{1}{\\sqrt{x^2-1}}$ olduğunu ispatlayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    y &= \\text{arcosh } x \\implies x = \\cosh y = \\frac{e^y + e^{-y}}{2} && (\\text{Ters fonksiyon tanımı}) \\\\
+                    e^y - 2x + e^{-y} &= 0 \\implies (e^y)^2 - 2x(e^y) + 1 = 0 && (e^y \\text{ cinsinden kuadratik form}) \\\\
+                    e^y &= \\frac{2x \\pm \\sqrt{4x^2 - 4}}{2} = x + \\sqrt{x^2 - 1} && (x \\ge 1 \\text{ için pozitif kök}) \\\\
+                    y &= \\ln(x + \\sqrt{x^2 - 1}) && (\\text{Fonksiyonun logaritmik formu}) \\\\
+                    \\frac{dy}{dx} &= \\frac{1}{x + \\sqrt{x^2 - 1}} \\cdot \\frac{d}{dx}(x + \\sqrt{x^2 - 1}) && (\\text{Zincir kuralı}) \\\\
+                    &= \\frac{1}{x + \\sqrt{x^2 - 1}} \\left( 1 + \\frac{2x}{2\\sqrt{x^2 - 1}} \\right) \\\\
+                    &= \\frac{1}{x + \\sqrt{x^2 - 1}} \\left( \\frac{\\sqrt{x^2 - 1} + x}{\\sqrt{x^2 - 1}} \\right) && (\\text{Payda eşitleme}) \\\\
+                    &= \\frac{1}{\\sqrt{x^2 - 1}} && (\\text{Ortak terimlerin sadeleşmesiyle ispat tamamlanır})
+                    \\end{aligned}$$`
+                );
+// SORU 8: Leibniz Kuralı ve Transandant Limit Analizi
+                html += createQuestion("Soru 8", "İntegral Sınırlarında Transandant Limit ve Leibniz Analizi", 
+                    "\\( f(x) = \\int_{0}^{x^2} e^{t} \\ln(1+t) \\, dt \\) fonksiyonu veriliyor. Buna göre;<br>\\( \\lim_{x \\to 0^+} \\frac{f(x)}{x^4} \\) limitinin değerini Kalkülüsün Temel Teoremi ve L'Hôpital kuralını kullanarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu problem, bir integral fonksiyonunun sıfır civarındaki değişim hızını analiz etmemizi gerektirir. Payda \\( x^4 \\) olduğundan, belirsizliği gidermek için integralin türevini doğru almamız kritiktir.</p>
+                    $$\\begin{aligned}
+                    L &= \\lim_{x \\to 0^+} \\frac{\\int_{0}^{x^2} e^{t} \\ln(1+t) \\, dt}{x^4} && (\\text{Pay ve payda } 0 \\text{ olduğundan } [0/0] \\text{ belirsizliği}) \\\\
+                    L &= \\lim_{x \\to 0^+} \\frac{\\frac{d}{dx} \\left[ \\int_{0}^{x^2} e^{t} \\ln(1+t) \\, dt \\right]}{\\frac{d}{dx} [x^4]} && (\\text{L'Hôpital Kuralı uygulaması}) \\\\
+                    \\text{Leibniz Kuralı: } & \\frac{d}{dx} \\int_{0}^{g(x)} h(t) \\, dt = h(g(x)) \\cdot g'(x) && (\\text{İntegral türev kuralı}) \\\\
+                    \\text{Payın Türevi} &= e^{x^2} \\ln(1+x^2) \\cdot (2x) && (t \\text{ yerine } x^2 \\text{ yazılıp sınırın türeviyle çarpıldı}) \\\\
+                    L &= \\lim_{x \\to 0^+} \\frac{2x \\cdot e^{x^2} \\ln(1+x^2)}{4x^3} && (\\text{Türevlerin yerine yazılması}) \\\\
+                    &= \\lim_{x \\to 0^+} \\frac{e^{x^2} \\ln(1+x^2)}{2x^2} && (x \\text{ terimlerinin sadeleştirilmesi, hala } [0/0]) \\\\
+                    &= \\frac{1}{2} \\left( \\lim_{x \\to 0^+} e^{x^2} \\right) \\cdot \\left( \\lim_{x \\to 0^+} \\frac{\\ln(1+x^2)}{x^2} \\right) && (\\text{Limitin çarpım özelliğine göre ayrıştırma}) \\\\
+                    \\lim_{x \\to 0^+} e^{x^2} &= e^0 = 1 && (\\text{Birinci çarpanın limiti}) \\\\
+                    \\lim_{x \\to 0^+} \\frac{\\ln(1+x^2)}{x^2} &\\xrightarrow{L'H} \\lim_{x \\to 0^+} \\frac{\\frac{2x}{1+x^2}}{2x} = 1 && (\\text{İkinci çarpan için standart logaritmik limit}) \\\\
+                    L &= \\frac{1}{2} \\cdot 1 \\cdot 1 = \\frac{1}{2} && (\\text{Nihai sonucun birleştirilmesi})
+                    \\end{aligned}$$`
+                );
+
+                // SORU 9: Logaritmik Diferansiyellemenin En Üst Seviyesi
+                html += createQuestion("Soru 9", "Çok Katlı Transandant Çarpımların Diferansiyel Analizi", 
+                    "\\( y = \\frac{(x^2+1)^{\\sinh x} \\cdot \\sqrt[3]{x+1}}{\\arctan(x) \\cdot 2^x} \\) fonksiyonunun \\( x=1 \\) noktasındaki logaritmik türevini (yani \\( y'/y \\) değerini) hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu kadar karmaşık bir yapıda doğrudan bölüm veya çarpım türevi uygulamak imkansıza yakındır. Logaritmik türev (Logarithmic Differentiation) yöntemiyle ifadeyi lineer toplam ve farklara ayıracağız.</p>
+                    $$\\begin{aligned}
+                    \\ln y &= \\ln \\left( \\frac{(x^2+1)^{\\sinh x} (x+1)^{1/3}}{\\arctan(x) \\cdot 2^x} \\right) && (\\text{Doğal logaritmanın her iki tarafa uygulanması}) \\\\
+                    \\ln y &= \\ln((x^2+1)^{\\sinh x}) + \\ln((x+1)^{1/3}) - \\ln(\\arctan x) - \\ln(2^x) && (\\text{Logaritma özelliklerinin işletilmesi}) \\\\
+                    \\ln y &= \\sinh x \\ln(x^2+1) + \\frac{1}{3}\\ln(x+1) - \\ln(\\arctan x) - x \\ln 2 && (\\text{Kuvvetlerin başa katsayı olarak indirilmesi}) \\\\
+                    \\frac{y'}{y} &= \\frac{d}{dx} [\\sinh x \\ln(x^2+1)] + \\frac{d}{dx} [\\frac{1}{3}\\ln(x+1)] - \\dots && (\\text{Terim terim türev alma işlemi}) \\\\
+                    \\frac{y'}{y} &= \\left( \\cosh x \\ln(x^2+1) + \\sinh x \\frac{2x}{x^2+1} \\right) + \\frac{1}{3(x+1)} - \\frac{1}{\\arctan x (1+x^2)} - \\ln 2 \\\\
+                    \\text{Şimdi } x=1 & \\text{ değerini yerleştirelim:} \\\\
+                    \\frac{y'(1)}{y(1)} &= \\left( \\cosh(1) \\ln(2) + \\sinh(1) \\frac{2}{2} \\right) + \\frac{1}{3(2)} - \\frac{1}{\\frac{\\pi}{4}(1+1)} - \\ln 2 \\\\
+                    &= \\cosh(1) \\ln 2 + \\sinh(1) + \\frac{1}{6} - \\frac{2}{\\pi} - \\ln 2 \\\\
+                    &= (\\cosh 1 - 1)\\ln 2 + \\sinh 1 + \\frac{1}{6} - \\frac{2}{\\pi} && (\\text{Nizami ve en sadeleştirilmiş form})
+                    \\end{aligned}$$`
+                );
+
+                // SORU 10: Hiperbolik ve Ters Hiperbolik Fonksiyon Bileşkesi
+                html += createQuestion("Soru 10", "Transandant Fonksiyonların Ters Türev İspatı ve Karakterizasyonu", 
+                    "\\( f(x) = \\sinh(x) + \\text{arsinh}(x) + x \\) fonksiyonu veriliyor. \\( f(x) \\)'in birebir ve örten olduğunu göstererek, \\( (f^{-1})'(0) \\) değerini tam olarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p><b>a) Monotonluk ve Birebirlik:</b></p>
+                    $$\\begin{aligned}
+                    f'(x) &= \\frac{d}{dx} [\\sinh x + \\text{arsinh } x + x] \\\\
+                    &= \\cosh x + \\frac{1}{\\sqrt{x^2+1}} + 1 && (\\text{Hiperbolik ve ters hiperbolik türevlerin alımı}) \\\\
+                    \\forall x \\in \\mathbb{R} \\text{ için: } & \\cosh x \\ge 1 \\text{ ve } \\frac{1}{\\sqrt{x^2+1}} > 0 \\\\
+                    f'(x) &\\ge 1 + 0 + 1 = 2 > 0 && (\\text{Türev daima pozitiftir, fonksiyon kesin artandır ve tersi vardır})
+                    \\end{aligned}$$
+                    <p><b>b) Ters Fonksiyonun Türevi:</b></p>
+                    $$\\begin{aligned}
+                    f(a) &= 0 \\implies \\sinh(a) + \\text{arsinh}(a) + a = 0 && (\\text{Ters görüntü denklemi}) \\\\
+                    \\text{Gözlem: } & \\sinh(0) = 0, \\text{ arsinh}(0) = 0 \\implies a = 0 && (\\text{Denklemin tek kökü sıfırdır}) \\\\
+                    (f^{-1})'(0) &= \\frac{1}{f'(a)} = \\frac{1}{f'(0)} && (\\text{Ters fonksiyon türev teoremi}) \\\\
+                    f'(0) &= \\cosh(0) + \\frac{1}{\\sqrt{0^2+1}} + 1 && (\\text{Türev fonksiyonunda } x=0 \\text{ yazılması}) \\\\
+                    &= 1 + 1 + 1 = 3 && (\\text{Noktasal türev değeri}) \\\\
+                    (f^{-1})'(0) &= \\frac{1}{3} && (\\text{Teoremin sonucu})
+                    \\end{aligned}$$`
+                );
+
+html += createQuestion("Soru 11", "Doğal Logaritmanın Fonksiyonel Özelliklerinin İntegral Tanımıyla İspatı", 
+                    "Doğal logaritma fonksiyonu \\( \\ln x = \\int_1^x \\frac{1}{t} \\, dt \\) (\\( x > 0 \\)) olarak tanımlanmaktadır. Bu tanımı ve Kalkülüsün Temel Teoremi'ni kullanarak, logaritmanın en temel transandant özelliği olan \\( \\ln(ab) = \\ln a + \\ln b \\) (\\( a, b > 0 \\)) özdeşliğini diferansiyel analiz yöntemiyle ispatlayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu ispatta, değişken bir üst sınıra sahip integral fonksiyonunun türevsel sabitliğini kullanarak iki fonksiyonun birbirine eşit olduğunu göstereceğiz. Bu yöntem, transandant fonksiyonların analitik karakterizasyonunda en güçlü ispat araçlarından biridir.</p>
+                    $$\\begin{aligned}
+                    \\text{1. Adım: } & \\text{Sabit bir } a > 0 \\text{ seçelim ve } f(x) = \\ln(ax) \\text{ fonksiyonunu tanımlayalım.} \\\\
+                    \\text{2. Adım: } & \\text{Logaritmanın integral tanımını kullanarak fonksiyonu yazalım:} \\\\
+                    f(x) &= \\int_1^{ax} \\frac{1}{t} \\, dt \\\\
+                    \\text{3. Adım: } & \\text{Kalkülüsün Temel Teoremi ve Zincir Kuralı (Leibniz Kuralı) ile } f(x) \\text{'in türevini alalım:} \\\\
+                    f'(x) &= \\frac{d}{dx} \\left[ \\int_1^{ax} \\frac{1}{t} \\, dt \\right] \\\\
+                    f'(x) &= \\frac{1}{ax} \\cdot \\frac{d}{dx}(ax) && (\\text{Üst sınır olan } ax \\text{'in türevi ile çarpılır}) \\\\
+                    f'(x) &= \\frac{1}{ax} \\cdot a = \\frac{1}{x} \\\\
+                    \\text{4. Adım: } & \\text{Şimdi } g(x) = \\ln a + \\ln x \\text{ fonksiyonunu ele alalım ve türevini alalım:} \\\\
+                    g'(x) &= \\frac{d}{dx}(\\ln a) + \\frac{d}{dx}(\\ln x) \\\\
+                    g'(x) &= 0 + \\frac{1}{x} = \\frac{1}{x} && (\\ln a \\text{ sabit olduğundan türevi sıfırdır}) \\\\
+                    \\text{5. Adım: } & f'(x) = g'(x) \\text{ olduğu için, bu iki fonksiyon sadece bir } C \\text{ sabiti kadar farklı olabilir:} \\\\
+                    \\ln(ax) &= \\ln a + \\ln x + C \\\\
+                    \\text{6. Adım: } & C \\text{ sabitini bulmak için } x = 1 \\text{ yazalım:} \\\\
+                    \\ln(a \\cdot 1) &= \\ln a + \\ln 1 + C \\\\
+                    \\ln a &= \\ln a + 0 + C \\implies C = 0 \\\\
+                    \\text{Sonuç: } & \\ln(ax) = \\ln a + \\ln x \\text{ özdeşliği her } a, x > 0 \\text{ için ispatlanmış olur.}
+                    \\end{aligned}$$`
+                );
+                // SORU 12: Ters Hiperbolik Fonksiyonların Logaritmik Türetimi (Teorik/Hesaplamalı)
+                html += createQuestion("Soru 12", "Ters Hiperbolik Sinüsün Diferansiyel ve Logaritmik Karakterizasyonu", 
+                    "\\( f(x) = \\text{arsinh}(x) \\) fonksiyonunu ele alalım.<br>a) \\( y = \\text{arsinh}(x) \\) ifadesini üstel fonksiyonlar cinsinden (logaritmik formda) ifade ediniz.<br>b) Elde ettiğiniz bu logaritmik formun türevini alarak, ters hiperbolik türev formülü olan \\( f'(x) = \\frac{1}{\\sqrt{x^2+1}} \\) ifadesine ulaştığınızı gösteriniz.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p><b>a) Logaritmik Formun Türetilmesi:</b></p>
+                    $$\\begin{aligned}
+                    y &= \\text{arsinh}(x) \\implies x = \\sinh y && (\\text{Ters fonksiyon tanımı}) \\\\
+                    x &= \\frac{e^y - e^{-y}}{2} && (\\sinh y \\text{ üstel tanımı}) \\\\
+                    2x &= e^y - \\frac{1}{e^y} && (\\text{Eşitliğin düzenlenmesi}) \\\\
+                    2xe^y &= (e^y)^2 - 1 \\implies (e^y)^2 - 2x(e^y) - 1 = 0 && (e^y \\text{ değişkenine bağlı kuadratik denklem}) \\\\
+                    \\text{İkinci derece denklem } & \\text{çözüm formülü (Diskriminant) ile:} \\\\
+                    e^y &= \\frac{2x \\pm \\sqrt{(-2x)^2 - 4(1)(-1)}}{2} = \\frac{2x \\pm \\sqrt{4x^2 + 4}}{2} \\\\
+                    e^y &= x \\pm \\sqrt{x^2 + 1} && (\\text{Sadeleştirme}) \\\\
+                    \\forall x \\in \\mathbb{R} \\text{ için } & \\sqrt{x^2+1} > |x| \\text{ olduğundan, } x - \\sqrt{x^2+1} < 0 \\text{ olur.} \\\\
+                    \\text{Üstel fonksiyon negatif } & \\text{olamayacağı için sadece pozitif kök alınır:} \\\\
+                    e^y &= x + \\sqrt{x^2 + 1} \\implies y = \\ln(x + \\sqrt{x^2 + 1}) && (\\text{Logaritmik karakterizasyon})
+                    \\end{aligned}$$
+                    <p><b>b) Logaritmik Form Üzerinden Türev:</b></p>
+                    $$\\begin{aligned}
+                    f'(x) &= \\frac{d}{dx} [\\ln(x + \\sqrt{x^2 + 1})] && (\\text{Zincir kuralı uygulaması}) \\\\
+                    &= \\frac{1}{x + \\sqrt{x^2 + 1}} \\cdot \\frac{d}{dx} (x + (x^2 + 1)^{1/2}) \\\\
+                    &= \\frac{1}{x + \\sqrt{x^2 + 1}} \\cdot \\left( 1 + \\frac{1}{2}(x^2 + 1)^{-1/2} \\cdot 2x \\right) && (\\text{Kuvvet türev kuralı}) \\\\
+                    &= \\frac{1}{x + \\sqrt{x^2 + 1}} \\cdot \\left( 1 + \\frac{x}{\\sqrt{x^2 + 1}} \\right) \\\\
+                    &= \\frac{1}{x + \\sqrt{x^2 + 1}} \\cdot \\left( \\frac{\\sqrt{x^2 + 1} + x}{\\sqrt{x^2 + 1}} \\right) && (\\text{Payda eşitleme}) \\\\
+                    &= \\frac{1}{\\sqrt{x^2 + 1}} && (\\text{Paydaki parantez ile paydanın ilk teriminin sadeleşmesi})
+                    \\end{aligned}$$`
+                );
+
+               // SORU 13: Üstel-Logaritmik Değişim Hızının Limit Analizi (Final Düzenleme)
+                html += createQuestion("Soru 13", "Üstel-Logaritmik Değişim Hızının Limit Analizi", 
+                    "\\( \\lim_{x \\to 0} \\frac{e - (1+x)^{1/x}}{x} \\) limitinin değerini hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    L &= \\lim_{x \\to 0} \\frac{e - (1+x)^{1/x}}{x} && (\\text{Verilen limit, } [0/0] \\text{ belirsizliği}) \\\\
+                      &= \\lim_{x \\to 0} \\frac{e - e^{\\frac{\\ln(1+x)}{x}}}{x} && (\\text{Üstel-logaritmik özdeşliğin uygulanması}) \\\\
+                      &\\xrightarrow{L'H} \\lim_{x \\to 0} \\frac{0 - e^{\\frac{\\ln(1+x)}{x}} \\cdot \\frac{d}{dx} \\left[ \\frac{\\ln(1+x)}{x} \\right]}{1} && (\\text{L'Hôpital kuralı ve zincir kuralı}) \\\\
+                      &= - \\lim_{x \\to 0} e^{\\frac{\\ln(1+x)}{x}} \\cdot \\lim_{x \\to 0} \\frac{\\frac{1}{1+x} \\cdot x - 1 \\cdot \\ln(1+x)}{x^2} && (\\text{Limitin çarpım özelliği ve bölüm türevi}) \\\\
+                      &= -e \\cdot \\lim_{x \\to 0} \\frac{x - (1+x)\\ln(1+x)}{x^2(1+x)} && (\\lim_{x \\to 0} (1+x)^{1/x} = e \\text{ tanımı}) \\\\
+                      &= -e \\cdot \\lim_{x \\to 0} \\frac{x - (1+x)\\ln(1+x)}{x^2} && (\\lim_{x \\to 0} (1+x) = 1 \\text{ çarpanı}) \\\\
+                      &\\xrightarrow{L'H} -e \\cdot \\lim_{x \\to 0} \\frac{1 - [1 \\cdot \\ln(1+x) + (1+x) \\cdot \\frac{1}{1+x}]}{2x} && (\\text{Pay kısmında çarpım türevi uygulaması}) \\\\
+                      &= -e \\cdot \\lim_{x \\to 0} \\frac{1 - \\ln(1+x) - 1}{2x} && (\\text{Sabitlerin sadeleştirilmesi}) \\\\
+                      &= -e \\cdot \\lim_{x \\to 0} \\frac{-\\ln(1+x)}{2x} && (\\text{Düzenleme, hala } [0/0] \\text{ formu}) \\\\
+                      &\\xrightarrow{L'H} -e \\cdot \\lim_{x \\to 0} \\frac{-1/(1+x)}{2} && (\\text{Son kez L'Hôpital kuralının uygulanması}) \\\\
+                      &= -e \\cdot \\left( -\\frac{1}{2} \\right) && (x=0 \\text{ yazılarak belirsizliğin giderilmesi}) \\\\
+                      &= \\frac{e}{2} && (\\text{Nihai limit değerinin elde edilmesi})
+                    \\end{aligned}$$`
+                );
+// SORU 14: Çok Katmanlı Transandant Bileşke ve Ters Türev Analizi
+                html += createQuestion("Soru 14", "Transandant Fonksiyonların Operatör Analizi ve Ters Türev Karakterizasyonu", 
+                    "\\( f(x) = x^x + \\ln(x) \\cdot \\sinh(x-1) + \\arctan(x-1) \\) fonksiyonu veriliyor.<br>a) \\( f(1) = 1 \\) olduğunu göstererek, \\( x=1 \\) civarında fonksiyonun yerel olarak birebir olduğunu ispatlayınız.<br>b) \\( (f^{-1})'(1) \\) değerini, transandant türev tekniklerini kullanarak tam değer olarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p><b>a) Değer Tespiti ve Monotonluk İspatı:</b></p>
+                    $$\\begin{aligned}
+                    f(1) &= 1^1 + \\ln(1) \\cdot \\sinh(0) + \\arctan(0) && (\\text{Fonksiyonda } x=1 \\text{ yazılması}) \\\\
+                         &= 1 + 0 \\cdot 0 + 0 = 1 && (\\text{Fonksiyonun noktadan geçtiği teyit edildi}) \\\\
+                    f'(x) &= \\frac{d}{dx}[x^x] + \\frac{d}{dx}[\\ln x \\sinh(x-1)] + \\frac{d}{dx}[\\arctan(x-1)] && (\\text{Doğrusallık özelliği ile türevin dağıtılması}) \\\\
+                    \\text{1. Terim: } & \\frac{d}{dx}[x^x] = x^x(1 + \\ln x) && (\\text{Logaritmik türev uygulaması}) \\\\
+                    \\text{2. Terim: } & \\frac{d}{dx}[\\ln x \\sinh(x-1)] = \\frac{\\sinh(x-1)}{x} + \\ln x \\cosh(x-1) && (\\text{Çarpım kuralı uygulaması}) \\\\
+                    \\text{3. Terim: } & \\frac{d}{dx}[\\arctan(x-1)] = \\frac{1}{1 + (x-1)^2} && (\\text{Ters trigonometrik türev kuralı}) \\\\
+                    f'(1) &= 1^1(1 + \\ln 1) + \\frac{\\sinh 0}{1} + \\ln 1 \\cosh 0 + \\frac{1}{1+0} && (\\text{Türev bileşenlerinin } x=1 \\text{ için hesabı}) \\\\
+                          &= 1(1) + 0 + 0 + 1 = 2 && (\\text{Noktasal türev değeri } 2 > 0 \\text{ olduğu için yerel artandır})
+                    \\end{aligned}$$
+                    <p><b>b) Ters Fonksiyonun Türevi:</b></p>
+                    $$\\begin{aligned}
+                    (f^{-1})'(1) &= \\frac{1}{f'(f^{-1}(1))} && (\\text{Ters fonksiyon türev teoremi}) \\\\
+                    f(1) = 1 &\\implies f^{-1}(1) = 1 && (\\text{Ters görüntü ilişkisi}) \\\\
+                    (f^{-1})'(1) &= \\frac{1}{f'(1)} && (\\text{Teoremin noktaya indirgenmesi}) \\\\
+                    (f^{-1})'(1) &= \\frac{1}{2} && (\\text{Hesaplanan türev değerinin yerine yazılmasıyla nihai sonuç})
+                    \\end{aligned}$$`
+                );
+
+                // SORU 15: Hiperbolik ve Ters Trigonometrik Karmaşada Limit Zirvesi
+                html += createQuestion("Soru 15", "Karmaşık Belirsiz Yapıların Transandant Limit Analizi", 
+                    "\\( \\lim_{x \\to 0} \\left( \\frac{\\arctan x}{x} \\right)^{\\frac{1}{\\cosh x - 1}} \\) limitinin değerini, logaritmik dönüşüm ve ardışık L'Hôpital analizleri ile hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu limit \\( [1^\\infty] \\) formunda bir belirsizliktir. Tabanın limiti \\( 1 \\) (standart limit), üssün limiti ise sonsuzdur. Analiz için fonksiyonu \\( e \\) tabanına taşıyalım.</p>
+                    $$\\begin{aligned}
+                    L &= \\lim_{x \\to 0} \\left( \\frac{\\arctan x}{x} \\right)^{\\frac{1}{\\cosh x - 1}} && (\\text{Verilen limit ifadesi}) \\\\
+                    \\ln L &= \\lim_{x \\to 0} \\frac{\\ln\\left(\\frac{\\arctan x}{x}\\right)}{\\cosh x - 1} && (\\text{Logaritma alınarak } [0/0] \\text{ formuna geçiş}) \\\\
+                    &\\xrightarrow{L'H} \\lim_{x \\to 0} \\frac{\\frac{d}{dx} [\\ln(\\arctan x) - \\ln x]}{\\sinh x} && (\\text{L'Hôpital uygulaması ve logaritma parçalaması}) \\\\
+                    &= \\lim_{x \\to 0} \\frac{\\frac{1}{\\arctan x (1+x^2)} - \\frac{1}{x}}{\\sinh x} && (\\text{Transandant türevlerin alınması}) \\\\
+                    &= \\lim_{x \\to 0} \\frac{x - \\arctan x (1+x^2)}{x (1+x^2) \\arctan x \\sinh x} && (\\text{Payda eşitleyerek ifadenin düzenlenmesi}) \\\\
+                    \\text{Sadeleştirme: } & \\lim_{x \\to 0} \\frac{\\arctan x}{x} = 1, \\, \\lim_{x \\to 0} \\frac{\\sinh x}{x} = 1 && (\\text{Standart transandant limitlerin izolasyonu}) \\\\
+                    \\ln L &= \\lim_{x \\to 0} \\frac{x - \\arctan x - x^2 \\arctan x}{x^3} && (\\text{Paydayı } x^2 \\text{ ile sadeleştirip ana belirsizliğe odaklanma}) \\\\
+                    &\\xrightarrow{L'H} \\lim_{x \\to 0} \\frac{1 - \\frac{1}{1+x^2} - [2x \\arctan x + \\frac{x^2}{1+x^2}]}{3x^2} && (\\text{Ardışık L'Hôpital uygulaması}) \\\\
+                    &= \\lim_{x \\to 0} \\frac{\\frac{x^2}{1+x^2} - 2x \\arctan x - \\frac{x^2}{1+x^2}}{3x^2} && (\\text{Terimlerin cebirsel olarak gruplandırılması}) \\\\
+                    &= \\lim_{x \\to 0} \\frac{-2x \\arctan x}{3x^2} = -\\frac{2}{3} \\lim_{x \\to 0} \\frac{\\arctan x}{x} && (\\text{Sadeleşme ve katsayı izolasyonu}) \\\\
+                    \\ln L &= -\\frac{2}{3} \\cdot 1 = -\\frac{2}{3} && (\\text{Logaritmik limit değerinin bulunması}) \\\\
+                    L &= e^{-2/3} = \\frac{1}{\\sqrt[3]{e^2}} && (\\text{Eşitliğin üstel forma taşınmasıyla nihai sonuç})
+                    \\end{aligned}$$`
+                );
+
+}
 
          // === 7.1 KISMİ İNTEGRASYON ===
             if (id === "7.1") {
