@@ -196,8 +196,7 @@ window.MathJax = {
             font-family: var(--font-main);
             font-size: 1rem; font-weight: 600; color: #e2e8f0; text-transform: uppercase; letter-spacing: 1px;
         }
-
-    /* --- UYGULAMA YAPISI --- */
+  /* --- UYGULAMA YAPISI --- */
         #app-container { width: 100%; height: 100vh; display: none; flex-direction: column; overflow: hidden; }
 
         header { height: 70px; background: var(--bg-header); border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; padding: 0 20px; flex-shrink: 0; box-shadow: var(--shadow); z-index: 50; }
@@ -206,49 +205,17 @@ window.MathJax = {
         .home-btn { background: transparent; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; font-size: 1.1rem; padding: 6px 10px; transition: 0.2s; display: flex; align-items: center; justify-content: center; }
         .home-btn:hover { background: var(--border); }
 
-        .nav-wrapper { display: flex; align-items: center; flex: 1; justify-content: flex-start; overflow: hidden; margin: 0 10px; height: 55px; }
-        .chapter-nav { 
-            display: flex; 
-            gap: 10px; 
-            overflow-x: auto !important; /* Kaydırmayı zorunlu kıl */
-            overflow-y: hidden !important;
-            padding: 0 5px; 
-            max-width: 1100px; 
-            width: 100%; 
-            scrollbar-width: none; 
-            align-items: center; 
-            scroll-behavior: smooth; 
-            white-space: nowrap !important; /* Kelimelerin alt satıra geçmesini kesinlikle engelle */
-            height: 100%;
-            -webkit-overflow-scrolling: touch; /* Mobilde pürüzsüz kaydırma sağlar */
-        }
-        
-        /* Chrome, Safari ve Edge için menü scrollbar'ını gizleme */
-        .chapter-nav::-webkit-scrollbar {
-            display: none;
-        }
+        .nav-wrapper { display: flex; align-items: center; flex: 1; justify-content: center; overflow: hidden; margin: 0 10px; height: 55px; }
+        .chapter-nav { display: flex; gap: 10px; overflow-x: auto; padding: 0 5px; max-width: 1000px; width: 100%; scrollbar-width: none; align-items: center; scroll-behavior: smooth; white-space: nowrap; height: 100%; }
         .nav-arrow { background: transparent; border: none; color: var(--text-main); font-size: 1.2rem; cursor: pointer; padding: 0 10px; font-weight: bold; opacity: 0.5; }
         .nav-arrow:hover { opacity: 1; color: var(--accent); }
-       .chap-btn { 
-            background: transparent; 
-            color: var(--text-main); 
-            border: 1px solid transparent; 
-            padding: 8px 16px; 
-            border-radius: var(--radius); 
-            font-size: 0.9rem; 
-            font-weight: 600; 
-            cursor: pointer; 
-            white-space: nowrap !important; /* Buton içi metinler de tek satır kalsın */
-            opacity: 0.7; 
-            transition: 0.2s; 
-            flex-shrink: 0 !important; /* Ekran daraldığında butonların ezilmesini engeller. En kritik kod bu! */
-        }
+        .chap-btn { background: transparent; color: var(--text-main); border: 1px solid transparent; padding: 8px 16px; border-radius: var(--radius); font-size: 0.9rem; font-weight: 600; cursor: pointer; white-space: nowrap; opacity: 0.7; transition: 0.2s; }
         .chap-btn:hover { background: var(--border); opacity: 1; }
         .chap-btn.active { background: var(--accent); color: white; opacity: 1; }
 
         .theme-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: var(--bg-body); border: 1px solid var(--border); padding: 4px; border-radius: 6px; flex-shrink: 0; }
         .theme-box { width: 18px; height: 18px; border-radius: 2px; cursor: pointer; border: 1px solid rgba(0,0,0,0.1); }
-        .t-modern { background: #2563eb; } .t-dark { background: #0f172a; } .t-academic { background: #b91c1c; } .t-future { background: #c5a059; }
+        .t-modern { background: #2563eb; } .t-dark { background: #0f172a; } .t-academic { background: #b91c1c; } .t-future { background: #d946ef; }
 
         .layout { display: flex; flex: 1; overflow: hidden; }
         #sidebar { width: 320px; background: var(--bg-sidebar); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; }
@@ -257,7 +224,9 @@ window.MathJax = {
         .sidebar-title { padding: 15px 20px 5px; font-size: 0.8rem; font-weight: 800; color: var(--accent); border-bottom: 1px solid var(--border); margin-bottom: 10px; letter-spacing: 1px; }
         #sidebarList { overflow-y: auto; flex: 1; padding-bottom: 40px; }
 
-        .accordion-item { border-bottom: 1px solid var(--border); }
+
+
+                .accordion-item { border-bottom: 1px solid var(--border); }
         .accordion-header {
             width: 100%; padding: 15px 20px; background: var(--bg-sidebar); border: none;
             text-align: left; font-weight: 700; font-size: 0.95rem; color: var(--text-header);
@@ -318,6 +287,7 @@ window.MathJax = {
             .question-container, .lecture-box { border: 1px solid #000 !important; margin-bottom: 20px; page-break-inside: avoid; }
             a { text-decoration: none !important; color: #000 !important; }
         }
+
 
 /* --- MODERN KAYDIRMA ÇUBUĞU (SCROLLBAR) --- */
     
@@ -686,7 +656,9 @@ mjx-container[display="true"] {
          alt="Mateverse Logo" 
          class="nav-logo-custom">
 </a>
-                          
+           <button class="home-btn" onclick="returnToLanding()" title="Giriş Ekranına Dön">🏠</button>
+            </div>
+                
             <div class="nav-wrapper">
                 <button class="nav-arrow" onclick="scrollNav('left')">❮</button>
                 <div class="chapter-nav" id="chapterNav"></div>
