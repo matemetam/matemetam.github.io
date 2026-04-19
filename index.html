@@ -16998,17 +16998,16 @@ html += createQuestion("Soru 19", "Büyük Sentez: Karma Karakter Analizi (6 Ön
 
  // KONU ANLATIMI KONU ANLATIMI KONU ANLATIMI KONU ANLATIMI KONU ANLATIMI KONU ANLATIMI KONU ANLATIMI KONU ANLATIMI KONU ANLATIMI
                         
-if (id === "1" || id === "1.") {
-    html += `
+            if (id === "1" || id === "1.") {
+                html += `
     <div style="font-family: 'Times New Roman', Times, serif; color: inherit; line-height: 1.6;">
         
-        <div style="border-bottom: 2px solid currentColor; margin-bottom: 20px; padding-bottom: 10px;">
+        <div style="margin-bottom: 20px; padding-bottom: 10px;">
             <p>
                 Bu bölüm, kalkülüsün temel taşı olan fonksiyonların tanımını, özelliklerini, bir niceliğin diğerine nasıl bağlı olduğunu ve bu matematiksel ilişkilerin analitik düzlemde nasıl modellendiğini incelemektedir.
             </p>
         </div>
 
-        <br>
 
         <h3 style="margin-top: 30px;">1.1. Fonksiyonlar ve Grafikleri</h3>
 
@@ -17087,8 +17086,8 @@ if (id === "1" || id === "1.") {
     </div>
     `;
 
-    html += `
-    <br><br><hr><br>
+                html += `
+
 
     <div style="font-family: 'Times New Roman', Times, serif; color: inherit; line-height: 1.6;">
 
@@ -17162,8 +17161,8 @@ if (id === "1" || id === "1.") {
     </div>
     `;
 
-    html += `
-    <br><br><hr><br>
+                html += `
+    
 
     <div style="font-family: 'Times New Roman', Times, serif; color: inherit; line-height: 1.6;">
 
@@ -17231,58 +17230,18 @@ if (id === "1" || id === "1.") {
     </div>
     `;
 
-    html += `
-    <br><br><hr><br>
-
-    <div style="font-family: 'Times New Roman', Times, serif; color: inherit; line-height: 1.6;">
-
-        <h3 style="margin-top: 30px;">1.4. Hesap Makineleri ve Bilgisayarlarla Grafik Çizimi</h3>
-
-        <p>
-            Günümüzde karmaşık fonksiyonların analizinde grafik yazılımları vazgeçilmezdir. Ancak bilgisayarlar sürekli eğriler çizmez; sadece ayrık noktaları hesaplayıp aralarını doğrusal olarak birleştirir. Bu nedenle, yazılımların ürettiği görseller her zaman matematiksel gerçekliği yansıtmayabilir.
-        </p>
-
-        <h4 style="margin-top: 20px;">Görüntüleme Penceresi</h4>
-        <p>
-            Grafiğin doğru yorumlanabilmesi için x ve y eksenlerindeki sınırların (pencerenin) iyi seçilmesi gerekir. Yanlış bir \\( [x_{min}, x_{max}] \\times [y_{min}, y_{max}] \\) penceresi, fonksiyonun yerel maksimumlarını, asimptotlarını veya sıfır noktalarını ekranın dışında bırakabilir.
-        </p>
-
-        <br>
-
-        <div style="border: 1px solid currentColor; padding: 15px; margin: 20px 0;">
-            <strong style="text-transform: uppercase; display: block; margin-bottom: 10px; border-bottom: 1px solid currentColor; width: max-content;">ÖNEMLİ KAVRAM: Dijital Çizim Tuzakları</strong>
-            <p>
-                Yazılımların noktasal örnekleme mantığından kaynaklanan yaygın hatalar şunlardır:
-            </p>
-            <ul style="margin-top: 10px; list-style-type: square; margin-left: 20px;">
-                <li style="margin-bottom: 8px;"><b>Gizli Dalgalanmalar:</b> Çok geniş bir pencere seçildiğinde, grafikteki küçük tepe ve çukurlar birkaç piksele sıkışıp kaybolabilir.</li>
-                <li style="margin-bottom: 8px;"><b>Asimptotların Yanlış Birleştirilmesi:</b> Örneğin \\( y = \\frac{1}{x-1} \\) grafiğinde, \\( x = 1 \\) tanımsızdır. Ancak basit yazılımlar \\( x = 0.99 \\) ile \\( x = 1.01 \\) değerlerini düz bir çizgiyle birleştirerek ekranda sanki dik bir duvar varmış gibi sahte bir doğru oluşturur.</li>
-                <li style="margin-bottom: 8px;"><b>Örtüşme ve Yetersiz Çözünürlük:</b> \\( y = \\sin(100x) \\) gibi çok hızlı salınım yapan fonksiyonlarda, ekran piksel sayısından daha fazla tepe noktası varsa, yazılım noktaları atlayarak birleştirir ve grafiği yanlış, çok yavaş bir dalga gibi gösterir.</li>
-            </ul>
-        </div>
-
-        <br>
-
-        <div style="background-color: transparent; border-left: 4px solid currentColor; padding-left: 15px; margin: 20px 0;">
-            <strong style="display: block; margin-bottom: 5px;">Analitik Kalkülüs Yaklaşımının Gerekliliği:</strong>
-            <p>
-                Bir grafiğin nerede artıp nerede azaldığını, tam tepe noktasının veya kopma yerinin nerede olduğunu kesin olarak bilmenin tek yolu kalkülüs araçlarını (türev, limit, asimptot analizi) kullanmaktır. Teknoloji sadece hesaplanmış bu analitik bulguları doğrulamak ve görselleştirmek için kullanılmalıdır.
-            </p>
-        </div>
-
-        <br><br>
-        <div style="text-align: center; font-style: italic; opacity: 0.8;">
+                html += `
             — 1. BÖLÜM SONU —
         </div>
 
     </div>
     `;
-}            
-               else if (id === "2" || id === "2.") {
-                    html += `
+            }
+            else if (id === "2" || id === "2.") {
+                html += `
     <div style="font-family: 'Times New Roman', Times, serif; color: inherit; line-height: 1.6;">
         
-        <div style="border-bottom: 2px solid currentColor; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="margin-bottom: 20px; padding-bottom: 10px;">                 
 
         <p>
             Bu bölüm, Kalkülüs'ün kalbi olan "Limit" kavramına sezgisel bir giriş yaparak, hareket eden cisimlerin anlık hızlarını ve eğrilerin belirli bir noktadaki teğetlerinin eğimini nasıl hesaplayacağımızı inceler. Türevin temelleri bu bölümde atılmaktadır.
@@ -17290,7 +17249,7 @@ if (id === "1" || id === "1.") {
         
         </div>
 
-        <br>
+        
 
         <h3 style="margin-top: 30px;">2.1. Değişim Oranları ve Eğrilere Çizilen Teğetler</h3>
 
@@ -17342,16 +17301,16 @@ if (id === "1" || id === "1.") {
     `;
                 // --- 2.2 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
-            <h3 style="margin-top: 10px;">2.2. Bir Fonksiyonun Limiti ve Limit Kuralları</h3>
-        </div>
+        <div style="font-family: 'Times New Roman', Times, serif; color: inherit; line-height: 1.6;">
+            <h3 style="margin-top: 10px;font-family: 'Times New Roman', Times, serif">2.2. Bir Fonksiyonun Limiti ve Limit Kuralları</h3>
+        
 
         <p>
             Bu bölüm, limit kavramının sezgisel tanımını yapar ve karmaşık fonksiyonların limitlerini adım adım hesaplamamızı sağlayan temel cebirsel kuralları (Limit Kuralları) sunar.
         </p>
-
-        <div style="border: 1px solid currentColor; padding: 15px; margin: 20px 0;">
-            <strong style="text-transform: uppercase; display: block; margin-bottom: 10px; border-bottom: 1px solid currentColor; width: max-content;">TANIM 2: Limit (Sezgisel Tanım)</strong>
+        
+        <div style="font-family: 'Times New Roman', Times, serif; border: 1px solid currentColor; padding: 15px; margin: 20px 0;">
+            <strong style="text-transform: uppercase; display: block;font-family: 'Times New Roman', Times, serif; margin-bottom: 10px; border-bottom: 1px solid currentColor; width: max-content;">TANIM 2: Limit (Sezgisel Tanım)</strong>
             <p>
                 \\( x \\) değişkeni \\( c \\) değerine (\\( c \\)'ye eşit olmadan) yeterince yaklaştığında, \\( f(x) \\) değerleri de tek bir \\( L \\) reel sayısına istenildiği kadar yaklaşıyorsa, "\\( x \\), \\( c \\)'ye yaklaşırken \\( f(x) \\)'in limiti \\( L \\)'dir" denir ve şu şekilde yazılır:
                 \\[ \\lim_{x \\to c} f(x) = L \\]
@@ -17360,16 +17319,16 @@ if (id === "1" || id === "1.") {
 
         <br>
 
-        <h4 style="margin-top: 20px;">Limit Kuralları (Limit Laws)</h4>
-        <p>
-            Eğer \\( \\lim_{x \\to c} f(x) = L \\) ve \\( \\lim_{x \\to c} g(x) = M \\) ise (\\( L \\) ve \\( M \\) reel sayı), limit işlemleri temel cebirsel işlemlerle uyumludur:
+        <h4 style="margin-top: 20px;font-family: 'Times New Roman', Times, serif;">Limit Kuralları (Limit Laws)</h4>
+        <p style="font-family: 'Times New Roman', Times, serif;">
+             Eğer \\( \\lim_{x \\to c} f(x) = L \\) ve \\( \\lim_{x \\to c} g(x) = M \\) ise (\\( L \\) ve \\( M \\) reel sayı), limit işlemleri temel cebirsel işlemlerle uyumludur:
         </p>
         <ul style="list-style-type: square; margin-left: 20px;">
-            <li style="margin-bottom: 10px;"><b>Toplam ve Fark Kuralı:</b> \\( \\lim_{x \\to c} (f(x) \\pm g(x)) = L \\pm M \\)</li>
-            <li style="margin-bottom: 10px;"><b>Çarpım Kuralı:</b> \\( \\lim_{x \\to c} (f(x) \\cdot g(x)) = L \\cdot M \\)</li>
-            <li style="margin-bottom: 10px;"><b>Sabit Çarpan Kuralı:</b> Herhangi bir \\( k \\) sabiti için \\( \\lim_{x \\to c} (k \\cdot f(x)) = k \\cdot L \\)</li>
-            <li style="margin-bottom: 10px;"><b>Bölüm Kuralı:</b> Eğer \\( M \\neq 0 \\) ise, \\( \\lim_{x \\to c} \\frac{f(x)}{g(x)} = \\frac{L}{M} \\)</li>
-            <li style="margin-bottom: 10px;"><b>Kuvvet ve Kök Kuralı:</b> \\( n \\) bir pozitif tam sayı olmak üzere; \\( \\lim_{x \\to c} [f(x)]^n = L^n \\) ve \\( \\lim_{x \\to c} \\sqrt[n]{f(x)} = \\sqrt[n]{L} \\) <small>(Eğer \\( n \\) çift ise \\( L > 0 \\) olmalıdır.)</small></li>
+            <li style="font-family: 'Times New Roman', Times, serif;margin-bottom: 10px;"><b>Toplam ve Fark Kuralı:</b> \\( \\lim_{x \\to c} (f(x) \\pm g(x)) = L \\pm M \\)</li>
+            <li style="font-family: 'Times New Roman', Times, serif;margin-bottom: 10px;"><b>Çarpım Kuralı:</b> \\( \\lim_{x \\to c} (f(x) \\cdot g(x)) = L \\cdot M \\)</li>
+            <li style="font-family: 'Times New Roman', Times, serif;margin-bottom: 10px;"><b>Sabit Çarpan Kuralı:</b> Herhangi bir \\( k \\) sabiti için \\( \\lim_{x \\to c} (k \\cdot f(x)) = k \\cdot L \\)</li>
+            <li style="font-family: 'Times New Roman', Times, serif;margin-bottom: 10px;"><b>Bölüm Kuralı:</b> Eğer \\( M \\neq 0 \\) ise, \\( \\lim_{x \\to c} \\frac{f(x)}{g(x)} = \\frac{L}{M} \\)</li>
+            <li style="font-family: 'Times New Roman', Times, serif;margin-bottom: 10px;"><b>Kuvvet ve Kök Kuralı:</b> \\( n \\) bir pozitif tam sayı olmak üzere; \\( \\lim_{x \\to c} [f(x)]^n = L^n \\) ve \\( \\lim_{x \\to c} \\sqrt[n]{f(x)} = \\sqrt[n]{L} \\) <small>(Eğer \\( n \\) çift ise \\( L > 0 \\) olmalıdır.)</small></li>
         </ul>
 
         <br>
@@ -17403,14 +17362,15 @@ if (id === "1" || id === "1.") {
                 \\[ \\lim_{x \\to c} f(x) = L \\]
             </p>
         </div>
+        </div>
         
         `;
                 // --- 2.2 BÖLÜMÜ SONU ---
                 // --- 2.3 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">2.3. Limitin Kesin Tanımı (Epsilon-Delta Tanımı)</h3>
-        </div>
+       
 
         <p>
             Önceki bölümlerde limiti tanımlarken kullandığımız "yaklaşma" veya "istenildiği kadar yakın olma" gibi ifadeler sezgiseldir, ancak kesin matematiksel ispatlar yapmak için yeterince katı değildir. Bu bölümde, analizin temel taşı olan ve limit kavramını mutlak bir kesinliğe kavuşturan meşhur <b>Epsilon-Delta (\\( \\epsilon - \\delta \\))</b> tanımını ele alıyoruz.
@@ -17450,13 +17410,14 @@ if (id === "1" || id === "1.") {
             <strong>Mutlak Değerlerin Anlamı:</strong><br>
             \\( 0 < |x - c| < \\delta \\) eşitsizliği iki şey söyler: Birincisi, \\( x \\) ile \\( c \\) arasındaki mesafe \\( \\delta \\)'dan küçüktür (yatay tolerans). İkincisi ve en önemlisi, <b>\\( 0 < \\)</b> kısmı sayesinde \\( x \\) ile \\( c \\) arasındaki mesafenin kesinlikle sıfırdan büyük olduğu, yani \\( x \\)'in asla \\( c \\)'ye eşit olmadığı garanti edilir. Bu durum, limitin sadece "yaklaşma" ile ilgilendiğini ve fonksiyonun o noktadaki değerinden bağımsız olduğunu kesin olarak vurgular.
         </div>
+         </div>
         `;
                 // --- 2.3 BÖLÜMÜ SONU ---
                 // --- 2.4 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">2.4. Tek Yönlü Limitler (One-Sided Limits)</h3>
-        </div>
+        
 
         <p>
             Bir fonksiyonun belirli bir noktada genel (iki yönlü) limitinin olmaması, o noktanın etrafında hiçbir düzenli davranış sergilemediği anlamına gelmez. Fonksiyon, bir noktaya sadece sağdan veya sadece soldan yaklaşırken belirli bir değere yöneliyor olabilir. Bu bölümde grafikteki kopmaları ve "Tek Yönlü Limitler" kavramını inceliyoruz.
@@ -17505,13 +17466,14 @@ if (id === "1" || id === "1.") {
             \\[ \\lim_{\\theta \\to 0} \\frac{\\cos \\theta - 1}{\\theta} = 0 \\]
             eşitliği de sıklıkla kullanılır.
         </div>
+        </div>
         `;
                 // --- 2.4 BÖLÜMÜ SONU ---
                 // --- 2.5 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">2.5. Süreklilik (Continuity)</h3>
-        </div>
+        
 
         <p>
             Limit kavramını kullanarak, grafiğinde hiçbir kopma, delik veya sıçrama olmayan "kesintisiz" fonksiyonları matematiksel olarak tanımlayabiliriz. Süreklilik, doğadaki birçok fiziksel sürecin (örneğin zaman içindeki sıcaklık değişimi veya bir aracın hareketi) modellenmesinde temel varsayımdır.
@@ -17570,13 +17532,14 @@ if (id === "1" || id === "1.") {
             <strong>Ara Değer Teoreminin Geometrik Anlamı ve Kök Bulma:</strong><br>
             Sürekli bir fonksiyonun grafiğini kalemi kağıttan kaldırmadan çizdiğimiz için, grafik \\( y = f(a) \\) yüksekliğinden \\( y = f(b) \\) yüksekliğine geçerken aradaki <b>tüm yatay çizgileri</b> (yani \\( y_0 \\) değerlerini) en az bir kere kesmek zorundadır. Bu teorem özellikle bir denklemin kökünün varlığını kanıtlamak için kullanılır. Örneğin, sürekli bir fonksiyon bir aralığın başında negatif, sonunda pozitif bir değer alıyorsa, grafik o aralıkta x-eksenini (\\( y=0 \\)) kesinlikle kesmiştir; yani fonksiyonun en az bir kökü vardır.
         </div>
+        </div>
         `;
                 // --- 2.5 BÖLÜMÜ SONU ---
                 // --- 2.6 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">2.6. Sonsuz İçeren Limitler ve Grafiklerin Asimptotları</h3>
-        </div>
+        
 
         <p>
             Bu bölüm, bağımsız değişkenin (\\( x \\)) sonsuza gitmesi durumunda fonksiyonun uzun vadedeki davranışını (yatay asimptotlar) ve fonksiyonun değerinin sonsuza patlaması durumunu (düşey asimptotlar) inceler. Grafikleri doğru çizebilmek için bu sınır çizgilerinin belirlenmesi şarttır.
@@ -17644,15 +17607,18 @@ if (id === "1" || id === "1.") {
         <p>
             <i>Pratik Bilgi:</i> Rasyonel fonksiyonlarda düşey asimptotlar, genellikle paydayı sıfır yapan ancak payı sıfır <b>yapmayan</b> \\( x \\) değerlerinde ortaya çıkar. Hem payı hem de paydayı sıfır yapan noktalarda (\\( 0/0 \\) belirsizliği) sadeleştirme sonucu delik (kaldırılabilir süreksizlik) oluşabilir; bu yüzden asimptot kararı vermeden önce mutlaka limit analizi yapılmalıdır.
         </p>
+        </div>
         `;
                 // --- 2.6 BÖLÜMÜ SONU ---
-            
+
             }
             else if (id === "3" || id === "3.") {
+
                 html += `
+                
     <div style="font-family: 'Times New Roman', Times, serif; color: inherit; line-height: 1.6;">
         
-        <div style="border-bottom: 2px solid currentColor; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style=" margin-bottom: 20px; padding-bottom: 10px;">                 
 
         <p>
             Bu bölüm, limit kavramını kullanarak kalkülüsün en güçlü araçlarından biri olan "Türev" kavramına giriş yapar. Hareket eden bir cismin anlık hızını hesaplamak veya bir eğrinin herhangi bir noktasındaki teğetini bulmak, özünde aynı matematiksel işleme dayanır.
@@ -17660,7 +17626,7 @@ if (id === "1" || id === "1.") {
         
         </div>
 
-        <br>
+        
 
         <h3 style="margin-top: 30px;">3.1. Teğetler ve Bir Noktadaki Türev</h3>
 
@@ -17724,9 +17690,9 @@ if (id === "1" || id === "1.") {
     `;
                 // --- 3.2 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">3.2. Bir Fonksiyon Olarak Türev</h3>
-        </div>
+        
 
         <p>
             Önceki bölümde türevi sadece sabit bir \\( x_0 \\) noktasındaki teğet eğimi olarak hesaplamıştık. Bu bölümde ise \\( x_0 \\) sabitini bağımsız bir \\( x \\) değişkeni ile değiştirerek, orijinal fonksiyonun her noktasındaki eğimi bize çıktı olarak veren yepyeni bir "türev fonksiyonu" inşa ediyoruz.
@@ -17789,14 +17755,14 @@ if (id === "1" || id === "1.") {
             <li style="margin-bottom: 8px;"><b>Düşey Teğet (Vertical Tangent):</b> Teğet doğrusu tamamen dikleşir, eğim sonsuz olur (\\( \\lim h \\to 0 \\) iken payda sıfıra gider). (Örn: \\( y = \\sqrt[3]{x} \\))</li>
             <li style="margin-bottom: 8px;"><b>Süreksizlik (Discontinuity):</b> Kopma veya sıçrama olan yerlerde zaten teğet tanımlanamaz. Teorem 1 gereği süreksizse türev de yoktur.</li>
         </ul>
-        
+        </div>
         `;
                 // --- 3.2 BÖLÜMÜ SONU ---
                 // --- 3.3 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">3.3. Türev Alma Kuralları</h3>
-        </div>
+        
 
         <p>
             Türevi her seferinde limit tanımıyla hesaplamak oldukça uzun ve zahmetlidir. Bu bölümde, polinomlardan rasyonel fonksiyonlara kadar birçok ifadenin türevini pratik bir şekilde almamızı sağlayan temel cebirsel kuralları inceliyoruz.
@@ -17862,15 +17828,14 @@ if (id === "1" || id === "1.") {
             Bir \\( f(x) \\) fonksiyonunun türevi olan \\( f'(x) \\) de bir fonksiyon olduğu için, onun da türevi alınabilir. Buna <b>İkinci Türev</b> denir ve \\( f''(x) \\) veya \\( \\frac{d^2y}{dx^2} \\) ile gösterilir. Fiziksel olarak, birinci türev hızı (velocity) verirken, ikinci türev ivmeyi (acceleration) verir. Bu işlem istenildiği kadar devam ettirilerek \\( n. \\) mertebeden türev (\\( y^{(n)} \\)) elde edilebilir.
         </div>
         
-
+        </div>
         `;
                 // --- 3.3 BÖLÜMÜ SONU ---
                 // --- 3.4 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">3.4. Değişim Oranı Olarak Türev</h3>
-        </div>
-
+       
         <p>
             Türev, sadece geometrik olarak bir eğrinin teğetinin eğimi değil, aynı zamanda doğadaki ve bilimdeki herhangi bir niceliğin (konum, sıcaklık, nüfus, maliyet) <b>anlık değişim oranını</b> ifade eder. Bu bölümde türevin fizikteki (özellikle kinematik) ve ekonomideki uygulamalarını inceliyoruz.
         </p>
@@ -17916,13 +17881,15 @@ if (id === "1" || id === "1.") {
             <li style="margin-bottom: 8px;"><b>Ekonomide Marjinal Maliyet (Marginal Cost):</b> Üretilen ürün miktarı \\( x \\), toplam maliyet \\( c(x) \\) ise; marjinal maliyet olan \\( \\frac{dc}{dx} \\), üretimi tam o anda bir birim daha artırmanın anlık maliyetini ifade eder. İşletmeler üretimi nerede durduracaklarına türev yardımıyla karar verir.</li>
             <li style="margin-bottom: 8px;"><b>Biyolojide Büyüme Hızı:</b> Bir bakteri kolonisinin nüfusu \\( p(t) \\) ise, \\( \\frac{dp}{dt} \\) bakterilerin o anki üreme hızını verir.</li>
         </ul>
+         </div>
+
         `;
                 // --- 3.4 BÖLÜMÜ SONU ---
                 // --- 3.5 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">3.5. Trigonometrik Fonksiyonların Türevleri</h3>
-        </div>
+       
 
         <p>
             Doğadaki birçok olay (ses dalgaları, ışık, mevsimsel sıcaklık değişimleri, kalp atışları) periyodik bir yapıya sahiptir. Bu tür dalgalanmaları ve titreşimleri modellemek için trigonometrik fonksiyonlar kullanılır. Bu bölümde, altı temel trigonometrik fonksiyonun anlık değişim oranlarını (türevlerini) inceliyoruz.
@@ -17940,7 +17907,7 @@ if (id === "1" || id === "1.") {
         </div>
         
 
-        <br>
+        
 
         <h4 style="margin-top: 20px;">Diğer Dört Trigonometrik Fonksiyonun Türevi</h4>
         <p>
@@ -17966,13 +17933,14 @@ if (id === "1" || id === "1.") {
             <strong>Kritik Uyarı: Radyan Ölçüsünün Zorunluluğu</strong><br>
             Kalkülüste trigonometrik fonksiyonların türev formüllerinin (örneğin \\( \\sin' x = \\cos x \\)) doğru çıkabilmesi için, \\( x \\) açısının <b>kesinlikle radyan</b> cinsinden ölçülmüş olması gerekir. Eğer açılar derece cinsinden alınırsa, limit hesaplamalarındaki çarpanlar değişeceği için formüller karmaşıklaşır. Bu yüzden tüm modern hesaplamalarda ve yazılımlarda (MathJax veya grafik çizerken) radyan kullanılır.
         </div>
+         </div>
         `;
                 // --- 3.5 BÖLÜMÜ SONU ---
                 // --- 3.6 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">3.6. Zincir Kuralı (The Chain Rule)</h3>
-        </div>
+      
 
         <p>
             Daha önce öğrendiğimiz kurallar \\( x^2 \\) veya \\( \\sin(x) \\) gibi basit fonksiyonlar için geçerliydi. Peki ya \\( \\sin(x^2) \\) veya \\( (3x+1)^5 \\) gibi iç içe geçmiş (bileşke) fonksiyonların türevini nasıl alacağız? Kalkülüsün en çok kullanılan türev kuralı olan <b>Zincir Kuralı</b>, bu tür karmaşık yapıları çözmemizi sağlar.
@@ -18025,13 +17993,14 @@ if (id === "1" || id === "1.") {
             <li style="margin-bottom: 8px;">\\( \\frac{d}{dx}(\\cos u) = -\\sin u \\cdot \\frac{du}{dx} \\)</li>
             <li style="margin-bottom: 8px;">\\( \\frac{d}{dx}(\\tan u) = \\sec^2 u \\cdot \\frac{du}{dx} \\)</li>
         </ul>
+          </div>
         `;
                 // --- 3.6 BÖLÜMÜ SONU ---
                 // --- 3.7 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">3.7. Kapalı Fonksiyonların Türevi (Implicit Differentiation)</h3>
-        </div>
+      
 
         <p>
             Şimdiye kadar karşılaştığımız fonksiyonlar genellikle \\( y = f(x) \\) formunda "açık" (explicit) olarak verilmişti (Örn: \\( y = x^2 \\)). Ancak bazen \\( x \\) ve \\( y \\) değişkenleri \\( x^2 + y^2 = 25 \\) veya \\( y^2 - x = 0 \\) örneklerinde olduğu gibi bir denklem içinde "kapalı" (implicit) olarak birbirine bağlıdır ve \\( y \\)'yi yalnız bırakmak çok zordur veya imkansızdır. Bu tür eğrilerin teğet eğimlerini bulmak için <b>Kapalı Türev Alma</b> yöntemini kullanırız.
@@ -18073,13 +18042,14 @@ if (id === "1" || id === "1.") {
             <li style="margin-bottom: 8px;">Elde edilen rasyonel ifadenin tekrar \\( x \\)'e göre (genellikle Bölüm Kuralı kullanılarak) türevi alınır.</li>
             <li style="margin-bottom: 8px;">Sonuçta ortaya çıkan ifadede tekrar bir \\( y' \\) belirecektir. Bu \\( y' \\) yerine, ilk adımda bulduğumuz oransal ifade yazılarak sonuç sadece \\( x \\) ve \\( y \\) cinsinden bırakılır.</li>
         </ul>
+          </div>
         `;
                 // --- 3.7 BÖLÜMÜ SONU ---
                 // --- 3.10 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">3.8. Bağımlı Değişim Oranları (Related Rates)</h3>
-        </div>
+        
 
         <p>
             Bu bölümde, birbiriyle ilişkili olan ve <b>zamanla</b> değişen niceliklerin anlık değişim oranlarını (hızlarını) inceliyoruz. Örneğin, bir balonu şişirirken yarıçapın artış hızı ile hacmin artış hızı birbiriyle bağlantılıdır. Zincir kuralı ve kapalı türev alma yöntemlerini kullanarak, bilinen bir değişim oranından bilinmeyen bir değişim oranını hesaplamayı öğreneceğiz.
@@ -18115,13 +18085,14 @@ if (id === "1" || id === "1.") {
             <li style="margin-bottom: 8px;"><b>Benzer Üçgenler:</b> Sokak lambasından uzaklaşan kişinin gölge boyu veya koni şeklindeki su tanklarının içindeki su seviyesi problemlerinde değişkenleri azaltmak (oran-orantı kurmak) için hayat kurtarır.</li>
             <li style="margin-bottom: 8px;"><b>Küre, Silindir ve Koni Formülleri:</b> Hacim (\\( V \\)) ve Yüzey Alanı (\\( A \\)) formülleri. Şişen balon veya eriyen kar topu problemlerinin temelini oluşturur.</li>
         </ul>
+        </div>
         `;
                 // --- 3.10 BÖLÜMÜ SONU ---
                 // --- 3.11 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">3.9. Doğrusallaştırma ve Diferansiyeller</h3>
-        </div>
+        
 
         <p>
             Herhangi bir pürüzsüz eğriye yeterince yakından bakarsanız (zoom yaparsanız), eğrinin o noktadaki teğet doğrusuna giderek daha fazla benzediğini görürsünüz. Bu özelliğe <b>yerel doğrusallık (local linearity)</b> denir. Doğrusallaştırma, hesaplanması zor olan bir fonksiyonun değerini, bilinen bir teğet doğrusu yardımıyla yaklaşık olarak bulmamızı sağlar.
@@ -18167,6 +18138,7 @@ if (id === "1" || id === "1.") {
             </ul>
             Eğer \\( dx = \\Delta x \\) çok küçükse, diferansiyel \\( dy \\), gerçek değişim \\( \\Delta y \\)'ye çok yakın olur (\\( \\Delta y \\approx dy \\)). Bu mantık, üretimdeki ölçüm hatalarının veya fiziksel toleransların (örneğin bir kürenin yarıçapındaki \%1'lik hatanın hacimde yaratacağı hata) hesaplanmasında yaygın olarak kullanılır.
         </div>
+        </div>
         `;
                 // --- 3.11 BÖLÜMÜ SONU ---
 
@@ -18176,7 +18148,7 @@ if (id === "1" || id === "1.") {
                 html += `
     <div style="font-family: 'Times New Roman', Times, serif; color: inherit; line-height: 1.6;">
         
-        <div style="border-bottom: 2px solid currentColor; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style=" margin-bottom: 20px; padding-bottom: 10px;">                 
 
         <p>
             Bu bölüm, türevi bir araç olarak kullanarak eğrilerin şekillerini (artan/azalan olduğu yerler, büküm noktaları) analiz etmeye ve doğadaki veya ekonomideki süreçleri optimize etmeye (maksimum kâr, minimum maliyet, en kısa mesafe vb.) odaklanır.
@@ -18184,7 +18156,7 @@ if (id === "1" || id === "1.") {
         
         </div>
 
-        <br>
+       
 
         <h3 style="margin-top: 30px;">4.1. Fonksiyonların Ekstremum Değerleri</h3>
 
@@ -18257,9 +18229,9 @@ if (id === "1" || id === "1.") {
     `;
                 // --- 4.2 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">4.2. Ortalama Değer Teoremi (The Mean Value Theorem)</h3>
-        </div>
+        
 
         <p>
             Ortalama Değer Teoremi, kalkülüsün en önemli teorik yapı taşlarından biridir. Bir aralıktaki <b>ortalama değişim oranı</b> (kesen doğrusunun eğimi) ile o aralıktaki bir noktada gerçekleşen <b>anlık değişim oranı</b> (teğet doğrusunun eğimi) arasında doğrudan bir bağ kurar.
@@ -18312,13 +18284,14 @@ if (id === "1" || id === "1.") {
             <li style="margin-bottom: 10px;"><b>Sonuç 1:</b> Bir \\( (a,b) \\) aralığındaki her \\( x \\) için \\( f'(x) = 0 \\) ise, fonksiyon o aralıkta sabittir (\\( f(x) = C \\)). Eğimi her yerde sıfır olan tek şekil yatay bir doğrudur.</li>
             <li style="margin-bottom: 10px;"><b>Sonuç 2:</b> Bir \\( (a,b) \\) aralığındaki her \\( x \\) için iki farklı fonksiyonun türevi eşitse (\\( f'(x) = g'(x) \\)), bu iki fonksiyon birbirinden sadece sabit bir sayı kadar farklıdır: \\( f(x) = g(x) + C \\). <i>(Bu kural, belirsiz integrallerin sonuna neden her zaman "+ C" sabiti koyduğumuzun teorik ispatıdır!)</i></li>
         </ul>
+        </div>
         `;
                 // --- 4.2 BÖLÜMÜ SONU ---
                 // --- 4.3 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">4.3. Monoton Fonksiyonlar ve Birinci Türev Testi</h3>
-        </div>
+        
 
         <p>
             Bir fonksiyonun grafiğinin ne zaman yukarı doğru tırmandığını (artan) veya aşağı doğru indiğini (azalan) bilmek, o fonksiyonun davranışını anlamak için kritiktir. Bir aralık boyunca sadece artan veya sadece azalan fonksiyonlara <b>monoton fonksiyonlar</b> denir. Bu bölümde birinci türevin işaretini kullanarak fonksiyonun artış/azalış yönünü ve yerel ekstremum noktalarını (tepe ve çukurları) tam olarak nasıl tespit edeceğimizi göreceğiz.
@@ -18362,13 +18335,14 @@ if (id === "1" || id === "1.") {
             <strong>Pratik İpucu (İşaret Tablosu Yöntemi):</strong><br>
             Bir fonksiyonun ekstremumlarını bulurken en garantili yol bir <b>işaret tablosu</b> oluşturmaktır. Sayı doğrusuna sadece kritik noktalar işaretlenir ve aralıklar bölünür. Her aralıktan rastgele bir "test noktası" seçilerek birinci türevde (\\( f' \\)) yerine yazılır ve o aralıktaki türevin işareti (+ veya -) belirlenir. Bu işaretlerin altına fonksiyonun yönünü belirten yukarı (↗) veya aşağı (↘) oklar çizildiğinde, tepe ve çukurlar görsel olarak kendiliğinden ortaya çıkar.
         </div>
+        </div>
         `;
                 // --- 4.3 BÖLÜMÜ SONU ---
                 // --- 4.4 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">4.4. Konkavlık ve Eğri Çizimi</h3>
-        </div>
+        
 
         <p>
             Birinci türev (\\( y' \\)) bize bir eğrinin ne zaman yükselip ne zaman alçaldığını söyler. Ancak eğrinin "nasıl" büküldüğünü söyleyemez. Eğri yukarı doğru kavis çizerek mi artıyor, yoksa aşağı doğru kavis çizerek mi? İşte fonksiyonun eğrilik yönüne <b>Konkavlık (İçe Bükeylik)</b> denir ve bunu ölçmek için ikinci türeve (\\( y'' \\)) başvururuz.
@@ -18435,13 +18409,14 @@ if (id === "1" || id === "1.") {
                 <li><b>Birleştirme:</b> Bulunan tüm bu kilit noktaları koordinat sistemine yerleştirin ve eğriyi asimptotlara, artış yönüne ve konkavlığına dikkat ederek pürüzsüzce çizin.</li>
             </ol>
         </div>
+        </div>
         `;
                 // --- 4.4 BÖLÜMÜ SONU ---
                 // --- 4.6 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">4.5. Uygulamalı Optimizasyon (Applied Optimization)</h3>
-        </div>
+        
 
         <p>
             Mühendislikte, ekonomide ve günlük hayatta sıkça karşılaştığımız "en az malzeme ile en büyük hacimli kutuyu nasıl yaparız?", "kârı maksimize etmek için üretim seviyesi ne olmalıdır?" veya "iki nokta arasındaki en kısa yol hangisidir?" gibi soruların çözümü <b>Optimizasyon</b> problemleridir. Bu problemlerde amaç, belirli kısıtlamalar altında bir fonksiyonun mutlak maksimum veya mutlak minimum değerini bulmaktır.
@@ -18486,13 +18461,14 @@ if (id === "1" || id === "1.") {
             <strong>Kritik Uyarı: Uç Noktaları Asla Unutmayın!</strong><br>
             Birçok optimizasyon probleminde mutlak maksimum veya minimum, türevin sıfır olduğu tepe noktalarında değil, aralığın fiziksel olarak izin verilen <b>uç noktalarında (endpoints)</b> ortaya çıkabilir. Örneğin, bir kartonun tamamını kesmeden kullanmak bazen en büyük hacmi verebilir. Bu yüzden \\( [a, b] \\) aralığı belirlendikten sonra \\( f(a) \\) ve \\( f(b) \\) değerleri kesinlikle kontrol edilmelidir.
         </div>
+        </div>
         `;
                 // --- 4.6 BÖLÜMÜ SONU ---
                 // --- 4.7 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">4.6. Newton Yöntemi (Newton's Method)</h3>
-        </div>
+        
 
         <p>
             Bazen \\( \\cos x = x \\) veya \\( x^5 - x + 1 = 0 \\) gibi denklemlerin köklerini cebirsel olarak tam ve kesin bir şekilde bulmak imkansızdır. Böyle durumlarda kökün yaklaşık değerini bulmak için <b>sayısal (nümerik) yöntemlere</b> başvururuz. Newton Yöntemi, bir fonksiyonun köklerine (x-eksenini kestiği noktalara) çok hızlı bir şekilde yaklaşmak için teğet doğrularını (doğrusallaştırmayı) kullanan kusursuz bir algoritmadır.
@@ -18532,13 +18508,14 @@ if (id === "1" || id === "1.") {
             <li style="margin-bottom: 8px;"><b>Sonsuz Döngü (Salınım):</b> Bazen tahminler birbirini izleyen iki değer arasında (örn. \\( x_1 \\) ve \\( x_2 \\) arasında) sürekli gidip gelir, teğetler sizi gerçek köke asla götürmez.</li>
             <li style="margin-bottom: 8px;"><b>Kötü İlk Tahmin (Uzaklaşma - Divergence):</b> Eğer ilk tahmininiz \\( x_0 \\) gerçek köke yeterince yakın değilse veya eğrinin "tümsek" bir kısmına denk geldiyse, teğet sizi kökten çok uzak bir yere fırlatabilir. Bu yüzden Newton Yöntemi'nin başarısı, <b>iyi bir ilk tahmin (\\( x_0 \\))</b> yapılmasına bağlıdır.</li>
         </ul>
+        </div>
         `;
                 // --- 4.7 BÖLÜMÜ SONU ---
                 // --- 4.8 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">4.7. Ters Türevler (Antiderivatives)</h3>
-        </div>
+        
 
         <p>
             Türev alarak bir cismin konumundan hızını ve ivmesini bulmayı öğrendik. Peki ya sadece ivmeyi biliyorsak (örneğin yerçekimi ivmesi) ve cismin konumunu bulmak istiyorsak ne yapacağız? Bu tür problemler, türev alma işlemini geriye doğru sarmamızı, yani bir fonksiyonun <b>Ters Türevini (İlkel Fonksiyonunu)</b> bulmamızı gerektirir. Bu konu, İntegral hesabının giriş kapısıdır.
@@ -18600,6 +18577,7 @@ if (id === "1" || id === "1.") {
                 3. Sonuç: Özel (Spesifik) Konum Fonksiyonu \\( s(t) = t^3 + 10 \\)'dur.
             </p>
         </div>
+        </div>
         `;
                 // --- 4.8 BÖLÜMÜ SONU ---
 
@@ -18608,7 +18586,7 @@ if (id === "1" || id === "1.") {
                 html += `
     <div style="font-family: 'Times New Roman', Times, serif; color: inherit; line-height: 1.6;">
         
-        <div style="border-bottom: 2px solid currentColor; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style=" margin-bottom: 20px; padding-bottom: 10px;">                 
 
         <p>
             Bu bölüm, kalkülüsün ikinci büyük dalı olan "İntegral" (Tümlev) kavramına giriş yapar. Türev bir değişimin anlık hızını ölçerken, integral bu değişimlerin birikimini (örneğin hızdan yola çıkarak alınan toplam yolu) hesaplar. Düzensiz eğrilerin altında kalan alanları bulma problemi, integralin temel çıkış noktasıdır.
@@ -18616,7 +18594,7 @@ if (id === "1" || id === "1.") {
         
         </div>
 
-        <br>
+       
 
         <h3 style="margin-top: 30px;">5.1. Alan ve Sonlu Toplamlarla Tahmin</h3>
 
@@ -18666,9 +18644,9 @@ if (id === "1" || id === "1.") {
 
                 // --- 5.2 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">5.2. Sigma Notasyonu ve Sonlu Toplamların Limitleri</h3>
-        </div>
+        
 
         <p>
             Önceki bölümde eğri altındaki alanı bulmak için çok sayıda dikdörtgenin alanını alt alta yazıp toplamıştık. Bu kadar uzun toplama işlemlerini matematiksel olarak kısa ve zarif bir şekilde ifade etmek için <b>Sigma Notasyonu (Toplam Sembolü)</b> kullanılır. Bu notasyon, Riemann toplamlarının limitini alırken hayat kurtaran bir araçtır.
@@ -18728,15 +18706,15 @@ if (id === "1" || id === "1.") {
                 \\[ \\text{Gerçek Alan} = \\lim_{n \\to \\infty} \\sum_{k=1}^{n} f(c_k) \\Delta x \\]
             </div>
         </div>
-        
+        </div>
 
         `;
                 // --- 5.2 BÖLÜMÜ SONU ---
                 // --- 5.3 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">5.3. Belirli İntegral (The Definite Integral)</h3>
-        </div>
+        
 
         <p>
             Önceki bölümde, bir eğrinin altındaki alanı bulmak için dikdörtgen sayısını sonsuza götürdüğümüz (\\( n \\to \\infty \\)) Riemann toplamlarının limitini incelemiştik. Eğer bu limit var ve sabit bir reel sayıya eşitse, fonksiyona o aralıkta <b>integrallenebilir (integrable)</b> denir ve bu limit işlemi çok daha zarif özel bir sembolle gösterilir.
@@ -18791,13 +18769,14 @@ if (id === "1" || id === "1.") {
                 </li>
             </ul>
         </div>
+        </div>
         `;
                 // --- 5.3 BÖLÜMÜ SONU ---
                 // --- 5.4 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">5.4. Kalkülüsün Temel Teoremi (The Fundamental Theorem of Calculus)</h3>
-        </div>
+        
 
         <p>
             Kalkülüsün Temel Teoremi, matematiğin iki büyük dalı olan Diferansiyel (Türev) ve İntegral hesaplarını tek bir çatı altında birleştirir. Bu teorem sayesinde, alan hesaplamak için artık sonsuz Riemann toplamlarıyla uğraşmak yerine, sadece fonksiyonun <b>ters türevini</b> kullanarak sonucu saniyeler içinde bulabiliriz. Teorem iki ana parçadan oluşur.
@@ -18852,13 +18831,14 @@ if (id === "1" || id === "1.") {
             \\[ \\frac{d}{dx} \\left( \\int_{a}^{g(x)} f(t) \\, dt \\right) = f(g(x)) \\cdot g'(x) \\]
             Bu kural, özellikle ileri matematik derslerinde ve diferansiyel denklemlerde karşınıza çok sık çıkacaktır.
         </div>
+        </div>
         `;
                 // --- 5.4 BÖLÜMÜ SONU ---
                 // --- 5.5 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">5.5. Belirsiz İntegraller ve Değişken Değiştirme Yöntemi</h3>
-        </div>
+       
 
         <p>
             Belirli integrallerin aksine, <b>Belirsiz İntegrallerin</b> sınırları yoktur ve sonuç sayısal bir değer değil, bir fonksiyon ailesidir. Bu bölüm, integral alma işlemini daha esnek hale getiren notasyonları ve türevdeki zincir kuralını tersine çeviren "Değişken Değiştirme" (u-substitution) tekniğini inceler.
@@ -18918,14 +18898,15 @@ if (id === "1" || id === "1.") {
                 <li>\\( f \\) <b>Tek</b> fonksiyon ise (\\( f(-x) = -f(x) \\)): \\( \\int_{-a}^{a} f(x) \\, dx = 0 \\)</li>
             </ul>
         </div>
+         </div>
         
         `;
                 // --- 5.5 BÖLÜMÜ SONU ---
                 // --- 5.6 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">5.6. Eğriler Arasındaki Alan</h3>
-        </div>
+       
 
         <p>
             Belirli integralin tek bir eğri ile x-ekseni arasındaki "net alanı" verdiğini biliyoruz. Ancak gerçek hayatta ve mühendislikte genellikle iki farklı eğri (örneğin bir talep eğrisi ve bir arz eğrisi) arasında kalan kapalı bölgenin alanını bulmamız gerekir. Bu bölüm, "üstteki eğri eksi alttaki eğri" mantığıyla bu alanları nasıl hesaplayacağımızı gösterir.
@@ -18982,6 +18963,7 @@ if (id === "1" || id === "1.") {
             <strong>Fiziksel Yorum:</strong><br>
             Eğer \\( v_A(t) \\) ve \\( v_B(t) \\) iki farklı aracın hız fonksiyonlarıysa, bu iki hız eğrisi arasında kalan alan, belirli bir zaman aralığında iki aracın birbirine attığı <b>mesafe farkını</b> temsil eder.
         </div>
+         </div>
         `;
                 // --- 5.6 BÖLÜMÜ SONU ---
 
@@ -19002,7 +18984,7 @@ if (id === "1" || id === "1.") {
         
        
 
-        <br>
+        
 
         <h3 style="margin-top: 30px;">10.1. Düzlem Eğrilerinin Parametrizasyonu</h3>
 
@@ -19073,9 +19055,9 @@ if (id === "1" || id === "1.") {
 
                 // --- 11.2 BÖLÜMÜ BAŞLANGICI (HATA DÜZELTİLMİŞ VERSİYON) ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">10.2. Parametrik Eğrilerle Kalkülüs</h3>
-        </div>
+        
 
         <p>
             Bir eğrinin parametrik denklemlerine sahip olduğumuzda, parametreyi yok edip Kartezyen forma dönüştürmeden de türev ve integral işlemlerini gerçekleştirebiliriz. Bu, özellikle karmaşık yörüngelerin teğetlerini veya uzunluklarını hesaplamak için çok daha pratik bir yoldur.
@@ -19131,13 +19113,14 @@ if (id === "1" || id === "1.") {
                 \\[ S = \\int_{a}^{b} 2\\pi x \\sqrt{\\left(\\frac{dx}{dt}\\right)^2 + \\left(\\frac{dy}{dt}\\right)^2} \\, dt \\]
             </li>
         </ul>
+        </div>
                 `;
 
                 // --- 11.3 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">10.3. Kutupsal Koordinatlar (Polar Coordinates)</h3>
-        </div>
+        
 
         <p>
             Şimdiye kadar noktaları \\( (x, y) \\) şeklinde bir ızgara üzerinde tanımladık. Kutupsal koordinatlarda ise bir noktayı, başlangıç noktasına (kutba) olan uzaklığı (\\( r \\)) ve başlangıç ekseniyle yaptığı açı (\\( \\theta \\)) ile tanımlarız. Bu sistem, dairesel simetriye sahip şekilleri ifade etmeyi çok kolaylaştırır.
@@ -19202,13 +19185,14 @@ if (id === "1" || id === "1.") {
                 <li><b>Orijine göre simetri:</b> \\( (r, \\theta) \\) yerine \\( (-r, \\theta) \\) yazıldığında denklem değişmiyorsa.</li>
             </ul>
         </div>
+        </div>
         `;
                 // --- 11.3 BÖLÜMÜ SONU ---
                 // --- 11.4 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">10.4. Kutupsal Koordinatlarda Grafik Çizimi</h3>
-        </div>
+        
 
         <p>
             Kutupsal denklemlerin (\\( r = f(\\theta) \\)) grafiklerini çizmek, Kartezyen sistemdeki gibi sadece nokta işaretlemekten daha fazlasını gerektirir. Fonksiyonun periyodu, simetrisi ve \\( r \\)'nin sıfır olduğu noktalar (orijinden geçişler), grafiğin karakterini belirler.
@@ -19263,13 +19247,14 @@ if (id === "1" || id === "1.") {
             Kutupsal bir eğrinin teğet eğimini (\\( dy/dx \\)) bulmak için \\( x = r \\cos \\theta \\) ve \\( y = r \\sin \\theta \\) dönüşümlerini kullanarak parametrik türev formülünü uygularız:
             \\[ \\frac{dy}{dx} = \\frac{\\frac{dr}{d\\theta} \\sin \\theta + r \\cos \\theta}{\\frac{dr}{d\\theta} \\cos \\theta - r \\sin \\theta} \\]
         </div>
+        </div>
         `;
                 // --- 11.4 BÖLÜMÜ SONU ---
                 // --- 11.5 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">10.5. Kutupsal Koordinatlarda Alan ve Uzunluklar</h3>
-        </div>
+        
 
         <p>
             Kartezyen koordinatlarda alan hesaplarken dikdörtgenleri kullanıyorduk. Kutupsal koordinatlarda ise eğrinin altında kalan bölgeyi küçük <b>daire dilimlerine (sektörlere)</b> bölerek alanı hesaplarız. Bu yaklaşım, merkezden yayılan şekillerin alanını bulmak için çok daha pratiktir.
@@ -19319,6 +19304,7 @@ if (id === "1" || id === "1.") {
             <strong>Kritik Uyarı: İntegral Sınırları ve Kesişimler</strong><br>
             Kutupsal alan hesaplarken en sık yapılan hata sınırları yanlış belirlemektir. Eğrilerin kesişim noktalarını bulurken sadece \\( r_1 = r_2 \\) denklemini çözmek yetmeyebilir; grafiği çizerek orijinden geçişleri (\\( r=0 \\)) ve simetriyi kontrol etmek, bölgenin tam olarak hangi açı aralığında tarandığını görmek için hayati önem taşır.
         </div>
+        </div>
         `;
                 // --- 11.5 BÖLÜMÜ SONU ---
             }
@@ -19333,7 +19319,7 @@ if (id === "1" || id === "1.") {
             </p>
        
 
-        <br>
+        
 
         <h3 style="margin-top: 30px;">11.1. Uzay Eğrileri ve Teğetleri</h3>
 
@@ -19403,9 +19389,9 @@ if (id === "1" || id === "1.") {
     `;
                 // --- 13.2 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">11.2. Vektör Fonksiyonlarının İntegralleri ve Eğik Atış Hareketi</h3>
-        </div>
+        
 
         <p>
             Türev alırken her bir bileşene (\\( \\mathbf{i}, \\mathbf{j}, \\mathbf{k} \\)) ayrı ayrı işlem yaptığımız gibi, vektör değerli fonksiyonların integralini alırken de aynı mantığı izleriz. Bu basit matematiksel işlemin en büyüleyici uygulaması, fizik ve mühendislikteki <b>Eğik Atış (Projectile Motion)</b> problemleridir.
@@ -19454,13 +19440,14 @@ if (id === "1" || id === "1.") {
             <strong>Etkileşimli Sorular İçin İpucu:</strong><br>
             Maksimum yükseklik, uçuş süresi veya menzil gibi uzun ezber formüller, aslında doğrudan yukarıdaki konum vektöründen çıkarılır. Öğrencilerin ezberlemek yerine mantığı kavramaları için, yörüngenin tepe noktasını bulurken hız vektörünün y-bileşenini (\\( v_0 \\sin \\alpha - gt \\)) sıfıra eşitlemeleri gerektiğini sorular üzerinde yönlendirebilirsin. Açı (\\( \\alpha \\)) ve ilk hız (\\( v_0 \\)) değerlerinin bir kaydırıcı (slider) ile değiştirilebildiği ve grafiğin anlık güncellendiği bir görselleştirme, bu konu için muazzam öğretici olacaktır.
         </div>
+        </div>
         `;
                 // --- 13.2 BÖLÜMÜ SONU ---
                 // --- 13.3 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">11.3. Uzayda Yay Uzunluğu ve Birim Teğet Vektör</h3>
-        </div>
+        
 
         <p>
             Parçacıkların uzayda izlediği yörüngeleri vektörlerle tanımladık ve hızlarını bulduk. Peki, bir parçacık \\( t=a \\) anından \\( t=b \\) anına kadar bu eğri üzerinde hareket ettiğinde <b>toplam ne kadar yol (yay uzunluğu)</b> kat eder? Bu bölümde, hız vektörünün büyüklüğünü (sürati) kullanarak uzay eğrilerinin uzunluğunu hesaplamayı öğreneceğiz.
@@ -19504,15 +19491,15 @@ if (id === "1" || id === "1.") {
                 Bu vektör, eğrinin uzayda nasıl büküldüğünü (Curvature) ölçmek için kullanacağımız en temel araçtır.
             </p>
         </div>
-        
+        </div>
 
         `;
                 // --- 13.3 BÖLÜMÜ SONU ---
                 // --- 13.4 BÖLÜMÜ BAŞLANGICI (RENDER HATALARI GİDERİLDİ) ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">11.4. Eğrilik ve Normal Vektörler</h3>
-        </div>
+        
 
         <p>
             Uzayda bir yörüngede ilerlerken sadece hızımız ve yönümüz değil, aynı zamanda döndüğümüz virajların ne kadar keskin olduğu da hayati önem taşır. Bu bölüm, eğrilerin bükülme miktarını ölçen <b>Eğrilik (Curvature)</b> ve her zaman virajın merkezini (içeriği) işaret eden <b>Temel Normal Vektör</b> kavramlarını inceler. 
@@ -19554,13 +19541,14 @@ if (id === "1" || id === "1.") {
             <li style="margin-bottom: 8px;"><b>Eğrilik Yarıçapı (\\( \\rho \\)):</b> Bu çemberin yarıçapı, eğriliğin tam tersidir: \\( \\rho = 1/\\kappa \\). Yani eğrilik ne kadar büyükse, oraya sığacak çember o kadar küçüktür.</li>
             <li style="margin-bottom: 8px;"><b>Merkez:</b> Eğri üzerindeki noktadan, normal vektör (\\( \\mathbf{N} \\)) yönünde tam \\( \\rho \\) kadar ilerlendiğinde bu çemberin merkezi bulunur.</li>
         </ul>
+        </div>
                 `;
                 // --- 13.4 BÖLÜMÜ SONU ---
                 // --- 13.5 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">11.5. İvmenin Teğetsel ve Normal Bileşenleri</h3>
-        </div>
+        
 
         <p>
             Bir arabayla viraja girdiğinizi düşünün. Gaza basarsanız koltuğa yapışırsınız (çünkü süratiniz artar), virajı dönerken ise kapıya doğru savrulursunuz (çünkü yönünüz değişir). İşte tek bir ivme vektörünün (\\( \\mathbf{a} \\)) bu iki farklı fiziksel etkisini birbirinden ayırmak için onu <b>Teğetsel (Tangential)</b> ve <b>Normal</b> bileşenlerine ayırırız.
@@ -19609,13 +19597,14 @@ if (id === "1" || id === "1.") {
             <strong>Fiziksel Yorum (Neden \\( \\mathbf{B} \\) bileşeni yok?):</strong><br>
             Fark ettiyseniz ivme vektörü sadece \\( \\mathbf{T} \\) ve \\( \\mathbf{N} \\)'nin oluşturduğu düzlemin (Oskülatör Düzlem) içindedir. Üçüncü boyut olan Binormal vektör (\\( \\mathbf{B} = \\mathbf{T} \\times \\mathbf{N} \\)) yönünde hiçbir ivme bileşeni yoktur. Yani bir parçacığı kendi yörünge düzleminden "dışarı" iten bir kuvvet oluşmaz; ivme her zaman hareketin teğetine ve virajın içine doğru etki eder.
         </div>
+        </div>
         `;
                 // --- 13.5 BÖLÜMÜ SONU ---
                 // --- 13.6 BÖLÜMÜ BAŞLANGICI ---
                 html += `
-        <div style="border-bottom: 2px solid currentColor; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">                 
+        <div style="font-family: 'Times New Roman', Times, serif; margin-top: 40px; margin-bottom: 20px; padding-bottom: 10px;">
             <h3 style="margin-top: 10px;">11.6. Kutupsal Koordinatlarda Hız ve İvme</h3>
-        </div>
+        
 
         <p>
             13. Bölümün bu son kısmında, hareketi standart Kartezyen (\\( x, y \\)) veya Teğet-Normal (\\( \\mathbf{T}, \\mathbf{N} \\)) eksenlerinde değil; orijine olan uzaklık ve açı değişimi üzerinden modelliyoruz. Özellikle gezegen yörüngeleri, dönen mekanizmalar veya radarlar gibi merkeze bağlı hareketlerde kutupsal koordinatlar çok daha doğal bir fiziksel çerçeve sunar.
@@ -19666,6 +19655,7 @@ if (id === "1" || id === "1.") {
                 <li>\\( r\\ddot{\\theta} \\): Açısal ivmeden kaynaklanan teğetsel ivme.</li>
                 <li>\\( 2\\dot{r}\\dot{\\theta} \\): <b>Coriolis İvmesi</b> (Dönen bir sistemde merkeze yaklaşıp uzaklaşırken hissedilen ekstra saptırıcı ivme).</li>
             </ul>
+        </div>
         </div>
         `;
                 // --- 13.6 BÖLÜMÜ SONU ---
