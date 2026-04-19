@@ -713,7 +713,7 @@ mjx-container[display="true"] {
             
 
 
-{ id: 1, title: " Fonksiyonlar", topics: ["1.1 Fonksiyonlar ve Grafikleri", "1.2 Fonksiyonları Birleştirmek", "1.3 Trigonometrik Fonksiyonlar", "1.4 Grafik Çizimi", "1.5 Değerlendirme Testi"] },
+{ id: 1, title: " Fonksiyonlar", topics: ["1.1 Fonksiyonlar ve Grafikleri", "1.2 Fonksiyonları Birleştirmek", "1.3 Trigonometrik Fonksiyonlar",  "1.4 Değerlendirme Testi"] },
             
 { id: 2, title: " Limit ve Süreklilik", topics: ["2.1 Değişim Oranları ve Eğrilerin Teğetleri", "2.2 Limit Kuralları", "2.3 Limitin Kesin Tanımı", "2.4 Tek-Taraflı Limitler", "2.5 Süreklilik", "2.6 Asimptotlar", "2.7 Değerlendirme Testi"] },
           
@@ -1044,476 +1044,349 @@ main.scrollTop = 0;
 // =========================================
             // 1. BÖLÜM: FONKSİYONLAR
             // =========================================
-       if (id === ("1.1")) {
-                html += createQuestion("Soru 1", "Grafik Analizi (Yarım Çember)", 
-                    "\\(f(x)=\\sqrt{9-x^{2}}\\) fonksiyonu için aşağıdaki analizleri yapınız:<br><br>a) Grafiğini çizip dikey doğru testini yorumlayınız.<br><br>b) Tanım ve görüntü kümesini bulunuz.<br><br>c) Simetri durumunu (Tek/Çift) inceleyiniz.<br><br>d) Artan ve azalan olduğu aralıkları belirleyiniz.", 
-                    `<p><b><i>Çözüm:</i></b></p>
-                    <i>a) Grafik ve Dikey Doğru Testi:</i><br>
-                    1. Denklem: \\(y=\\sqrt{9-x^{2}}\\) ifadesinin karesini alırsak \\(y^{2}=9-x^{2} \\implies x^{2}+y^{2}=3^{2}\\) elde ederiz. Bu, merkezi (0,0) ve yarıçapı 3 olan bir çemberdir.<br>
-                    2. Kısıtlama: Orijinal fonksiyonda karekök sonucu negatif olamayacağı için (\\(y \\ge 0\\)), grafik çemberin sadece x-ekseninin üstünde kalan yarısıdır (üst yarım çember).<br>
-                    3. Dikey Doğru Testi: Tanım kümesi üzerinden çizilen herhangi bir dikey doğru, grafiği en fazla bir noktada kestiği için bu bağıntı bir fonksiyondur.<br><br>
-                   
-   <div id="grafik-yarim-cember" class="grafik-alani jxgbox" style="width: 100%; max-width: 450px; height: 350px; margin: 20px auto; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1);"></div>                                  
-                    <i>b) Tanım ve Görüntü Kümesi:</i><br>
-                    <i>Tanım Kümesi:</i> Kök içi negatif olamaz. \\(9-x^{2} \\ge 0 \\implies x^{2} \\le 9 \\implies -3 \\le x \\le 3\\).<br>
-                    Tanım Kümesi: \\([-3, 3]\\).<br>
-                    <i>Görüntü Kümesi:</i> Fonksiyonun alabileceği minimum değer \\(x=\\pm 3\\) için 0'dır. Maksimum değer \\(x=0\\) için \\(\\sqrt{9}=3\\)'tür.<br>
-                    Görüntü Kümesi: \\([0, 3]\\).<br><br>
-                    
-                    <i>c) Simetri (Tek/Çift Fonksiyon):</i><br>
-                    \\(f(-x)\\) değerini hesaplayalım: \\[ f(-x)=\\sqrt{9-(-x)^{2}}=\\sqrt{9-x^{2}} \\]<br>
-                    Sonuçta \\(f(-x)=f(x)\\) olduğu görülür.<br>
-                    Bu eşitlik sağlandığı için fonksiyon <i>Çift Fonksiyondur</i>. Geometrik olarak grafiği <i>y-eksenine göre simetriktir</i>.<br><br>
-                    
-                    <i>d) Artan ve Azalan Aralıklar:</i><br>
-                    Grafik üzerinden analiz edildiğinde:<br>
-                    - \\(x\\) değeri -3'ten 0'a giderken grafik yükselir (y değerleri artar). Bu nedenle \\([-3, 0]\\) aralığında <i>Artandır</i>.<br>
-                    - \\(x\\) değeri 0'dan 3'e giderken grafik alçalır (y değerleri düşer). Bu nedenle \\([0, 3]\\) aralığında <i>Azalandır</i>.`
-           );
-           // SORU 1 - Tanım ve Görüntü Kümesi
-           html += createQuestion("Soru 2", "Tanım ve Görüntü Kümesi",
-               `\\(f(x) = \\sqrt{16 - x^2}\\) fonksiyonunun doğal tanım kümesini ve görüntü kümesini bulunuz.`,
-               `<p><i>Çözüm:</i><br></p>
-    <b>Tanım Kümesi:</b> Karekök fonksiyonunun reel sayılarda tanımlı olabilmesi için kök içinin negatif olmaması gerekir.<br>
-    \\[ 16 - x^2 \\ge 0 \\implies x^2 \\le 16 \\implies \\sqrt{x^2} \\le 4 \\implies |x| \\le 4 \\]<br>
-    Buradan \\(-4 \\le x \\le 4\\) bulunur. Tanım Kümesi: <b>[-4, 4]</b>.<br><br>
-    
-    <b>Görüntü Kümesi:</b> \\(x\\), \\([-4, 4]\\) aralığındayken \\(x^2\\) değeri \\([0, 16]\\) aralığındadır.<br>
-    - En küçük değer için \\(x^2=16\\) alırsak: \\(f(x) = \\sqrt{16-16} = 0\\).<br>
-    - En büyük değer için \\(x^2=0\\) alırsak: \\(f(x) = \\sqrt{16-0} = 4\\).<br>
-    Görüntü Kümesi: <b>[0, 4]</b>.`
-           );
-
-           // SORU 2 - Parçalı Fonksiyonlar
-           html += createQuestion("Soru 3", "Parçalı Fonksiyonlar",
-               `Aşağıda verilen parçalı fonksiyon için istenen değerleri hesaplayınız ve grafiğini kabataslak çiziniz:<br>
-    \\[ f(x) = \\begin{cases} -x, & x < 0 \\\\ x^2, & 0 \\le x \\le 2 \\\\ 2, & x > 2 \\end{cases} \\]<br>
-    a) \\(f(-3)\\), \\(f(1)\\) ve \\(f(4)\\) değerleri nedir?<br>
-    b) Grafiğin şeklini çiziniz.`,
-               `<p><i>Çözüm:</i><br></p>
-    <b>a) Değer Hesaplama:</b><br>
-    - \\(x = -3\\) için (\\(x < 0\\) kuralı): \\(f(-3) = -(-3) = 3\\).<br>
-    - \\(x = 1\\) için (\\(0 \\le x \\le 2\\) kuralı): \\(f(1) = 1^2 = 1\\).<br>
-    - \\(x = 4\\) için (\\(x > 2\\) kuralı): \\(f(4) = 2\\).<br><br>
-    
-    <b>b) Grafik Yorumu:</b><br>
-     <br>
-    Grafik, sol tarafta (2. bölgede) y-eksenine doğru inen azalan bir doğru parçası, ortada (0 ile 2 arasında) yukarı doğru açılan bir parabol parçası ve sağ tarafta (x>2 için) y=2 seviyesinde yatay bir doğrudan oluşur.`
-           );
-
-           // SORU 3 - Tek ve Çift Fonksiyonlar
-           html += createQuestion("Soru 4", "Tek ve Çift Fonksiyonlar",
-               `\\(g(x) = x^3 + \\frac{1}{x}\\) fonksiyonunun tek mi, çift mi yoksa hiçbiri mi olduğunu cebirsel olarak gösteriniz. (Grafiğin simetrisinden bahsediniz).`,
-               `<p><i>Çözüm:</i><br></p>
-    Bir fonksiyonun simetrisini test etmek için \\(x\\) yerine \\(-x\\) yazarız.<br>
-    \\[ g(-x) = (-x)^3 + \\frac{1}{(-x)} = -x^3 - \\frac{1}{x} \\]<br>
-    Eksi parantezine alırsak:<br>
-    \\[ g(-x) = -\\left(x^3 + \\frac{1}{x}\\right) = -g(x) \\]<br>
-    \\(g(-x) = -g(x)\\) olduğu için bu fonksiyon <b>Tek Fonksiyon</b>dur. Grafiği <b>orijine göre</b> simetriktir.`
-           );
-
-           // SORU 4 - Modelleme
-           html += createQuestion("Soru 5", "Fonksiyon Modelleme",
-               `Alanı \\(36 \\text{ m}^2\\) olan bir dikdörtgenin çevresini (\\(P\\)), kenar uzunluklarından biri olan \\(x\\)'in bir fonksiyonu olarak, yani \\(P(x)\\) şeklinde ifade ediniz ve bu fonksiyonun tanım kümesini (\\(x > 0\\) olmak şartıyla) belirtiniz.`,
-               `<p><i>Çözüm:</i><br></p>
-    Dikdörtgenin kenarları \\(x\\) ve \\(y\\) olsun.<br>
-    - Alan: \\(x \\cdot y = 36 \\implies y = \\frac{36}{x}\\).<br>
-    - Çevre Formülü: \\(P = 2x + 2y\\).<br>
-    - \\(y\\) yerine \\(36/x\\) yazarsak:<br>
-    \\[ P(x) = 2x + 2\\left(\\frac{36}{x}\\right) = 2x + \\frac{72}{x} \\]<br>
-    - <b>Tanım Kümesi:</b> Uzunluk negatif veya sıfır olamaz (\\(x > 0\\)). Ayrıca \\(y\\) de pozitif olmalıdır (\\(36/x > 0\\)), bu da \\(x>0\\) ile sağlanır. Tanım Kümesi: <b>\\((0, \\infty)\\)</b>.`
-           );
-
-           // SORU 5 - Mutlak Değer
-           html += createQuestion("Soru 6", "Mutlak Değer Fonksiyonu",
-               `\\(h(x) = |x + 3| - 2\\) fonksiyonunu, mutlak değer sembolü kullanmadan parçalı fonksiyon şeklinde yazınız.`,
-               `<p><i>Çözüm:</i><br></p>
-    Mutlak değerin içi (\\(x+3\\)), \\(x = -3\\) noktasında işaret değiştirir.<br>
-    - <b>Durum 1 (\\(x < -3\\)):</b> İçerisi negatiftir, eksi ile çarpılarak çıkar.<br>
-    \\(|x+3| = -(x+3) = -x-3\\).<br>
-    Fonksiyon: \\((-x-3) - 2 = -x - 5\\).<br>
-    - <b>Durum 2 (\\(x \\ge -3\\)):</b> İçerisi pozitiftir, olduğu gibi çıkar.<br>
-    \\(|x+3| = x+3\\).<br>
-    Fonksiyon: \\((x+3) - 2 = x + 1\\).<br><br>
-    Parçalı Yazım:<br>
-    \\[ h(x) = \\begin{cases} -x - 5, & x < -3 \\\\ x + 1, & x \\ge -3 \\end{cases} \\]`
-           );
-
-           // SORU 6 - Rasyonel Fonksiyon
-           html += createQuestion("Soru 7", "Rasyonel Fonksiyonlar",
-               `\\(F(t) = 1 + \\frac{1}{t^2}\\) fonksiyonunun tanım ve görüntü kümelerini bulunuz.`,
-               `<p><i>Çözüm:</i><br></p>
-    <b>Tanım Kümesi:</b> Payda sıfır olamaz. \\(t^2 = 0 \\implies t = 0\\).<br>
-    Bu nedenle \\(t \\neq 0\\). Tanım Kümesi: <b>\\((-\\infty, 0) \\cup (0, \\infty)\\)</b> veya <b>\\(\\mathbb{R} \\setminus \\{0\\}\\)</b>.<br><br>
-    
-    <b>Görüntü Kümesi:</b><br>
-    \\(t \\neq 0\\) olduğu için \\(t^2 > 0\\)'dır. Dolayısıyla \\(1/t^2 > 0\\)'dır.<br>
-    Pozitif bir sayıya 1 eklendiğinde sonuç kesinlikle 1'den büyük olacaktır.<br>
-    Görüntü Kümesi: <b>\\((1, \\infty)\\)</b>.`
-           );
-
-           // SORU 7 - Fonksiyon Testi
-           html += createQuestion("Soru 8", "Fonksiyon Testi (Dikey Doğru)",
-               `\\(x = y^2\\) denklemi, \\(y\\)'yi \\(x\\)'in bir fonksiyonu olarak tanımlar mı? Nedenini açıklayınız ve grafiğini düşünerek Dikey Doğru Testi açısından yorumlayınız.`,
-               `<p><i>Çözüm:</i><br></p>
-    Bir denklemin \\(y\\)'yi \\(x\\)'in fonksiyonu olarak tanımlaması için, her \\(x\\) girdisine karşılık <i>yalnızca bir</i> \\(y\\) çıktısı olması gerekir.<br>
-    - \\(x = y^2\\) denkleminde örneğin \\(x=4\\) alalım.<br>
-    - \\(4 = y^2 \\implies y = 2\\) veya \\(y = -2\\).<br>
-    - Tek bir \\(x\\) girdisi (4), iki farklı \\(y\\) çıktısına gittiği için bu bir <b>fonksiyon değildir</b>.<br>
-    - <b>Dikey Doğru Testi:</b> \\(x=y^2\\) grafiği, kolları sağa bakan (yatay) bir paraboldür. Grafiğe dikey bir doğru çizdiğimizde (örneğin \\(x=4\\)), grafiği iki noktada keser. Bu da fonksiyon olmadığını gösterir.`
-           );
-            }
-
-if (id ===("1.2") || id ===("Birleştirmek")) {
-                // --- SORU 1: BİLEŞKE VE TANIM KÜMELERİ ---
-                html += createQuestion("Soru 1", "Bileşke Fonksiyonlar", 
-                    "\\(f(x)=\\frac{1}{x-1}\\) ve \\(g(x)=\\sqrt{x-2}\\) fonksiyonları veriliyor.<br><br>a) \\((\\frac{f}{g})(x)\\) kuralını ve tanım kümesini bulunuz.<br><br>b) \\((f \\circ g)(x)\\) kuralını ve tanım kümesini bulunuz.<br><br>c) \\((g \\circ f)(x)\\) kuralını ve tanım kümesini bulunuz.", 
-                    `<p><i>Çözüm:</i><br></p>
-                    Verilenler: \\(f(x)=\\frac{1}{x-1}\\) (\\(x \\ne 1\\)) ve \\(g(x)=\\sqrt{x-2}\\) (\\(x \\ge 2\\)).<br><br>
-                    
-                    <i>a) \\((f/g)(x)\\) Fonksiyonu:</i><br>
-                    Kural: \\[ (\\frac{f}{g})(x) = \\frac{f(x)}{g(x)} = \\frac{1/(x-1)}{\\sqrt{x-2}} = \\frac{1}{(x-1)\\sqrt{x-2}} \\]<br>
-                    Tanım Kümesi Şartları:<br>
-                    1. \\(f(x)\\) tanımlı olmalı: \\(x \\ne 1\\).<br>
-                    2. \\(g(x)\\) tanımlı olmalı: \\(x-2 \\ge 0 \\implies x \\ge 2\\).<br>
-                    3. Payda \\(g(x) \\ne 0\\) olmalı: \\(\\sqrt{x-2} \\ne 0 \\implies x \\ne 2\\).<br>
-                    Kesişim: \\(x > 2\\).<br>
-                    Tanım Kümesi: \\((2, \\infty)\\).<br><br>
-                    
-                    <i>b) \\((f \\circ g)(x)\\) Fonksiyonu:</i><br>
-                    Kural: \\[ (f \\circ g)(x) = f(g(x)) = f(\\sqrt{x-2}) = \\frac{1}{\\sqrt{x-2}-1} \\]<br>
-                    Tanım Kümesi Şartları:<br>
-                    1. İçteki \\(g\\) tanımlı olmalı: \\(x \\ge 2\\).<br>
-                    2. Sonuç \\(f\\)'in tanımında olmalı: \\(g(x) \\ne 1\\).<br>
-                    \\(\\sqrt{x-2} \\ne 1 \\implies x-2 \\ne 1 \\implies x \\ne 3\\).<br>
-                    Kesişim: \\([2, 3) \\cup (3, \\infty)\\).<br><br>
-                    
-                    <i>c) \\((g \\circ f)(x)\\) Fonksiyonu:</i><br>
-                    Kural: \\[ (g \\circ f)(x) = g(f(x)) = g\\left(\\frac{1}{x-1}\\right) = \\sqrt{\\frac{1}{x-1}-2} \\]<br>
-                    Tanım Kümesi Şartları:<br>
-                    1. İçteki \\(f\\) tanımlı olmalı: \\(x \\ne 1\\).<br>
-                    2. Sonuç \\(g\\)'nin tanımında olmalı (kök içi \\(\\ge 0\\)):<br>
-                    \\(\\frac{1}{x-1} - 2 \\ge 0 \\implies \\frac{1-2(x-1)}{x-1} \\ge 0 \\implies \\frac{3-2x}{x-1} \\ge 0\\).<br>
-                    İşaret tablosu (Kökler 1 ve 3/2):<br>
-                    - \\(x < 1\\): (-)/( -) = + (Yanlış, 3-2x pozitif, x-1 negatif -> Sonuç negatif)<br>
-                    * Düzeltme: \\(x < 1\\) için pay (+), payda (-) \\(\\to\\) (-).<br>
-                    - \\(1 < x \\le 3/2\\): (+)/(+) = (+). (Çözüm burası)<br>
-                    - \\(x > 3/2\\): (-)/(+) = (-).<br>
-                    Tanım Kümesi: \\((1, 3/2]\\).`
+            if (id === "1.1") {
+                html += createQuestion("Soru 1", "Grafik Analizi (Yarım Çember)",
+                    "\\(f(x)=\\sqrt{9-x^{2}}\\) fonksiyonu için aşağıdaki analizleri yapınız:<br>a) Grafiğini çizip dikey doğru testini yorumlayınız.<br>b) Tanım ve görüntü kümesini bulunuz.<br>c) Simetri durumunu (Tek/Çift) inceleyiniz.<br>d) Artan ve azalan olduğu aralıkları belirleyiniz.",
+                    `<p><i>Çözüm:</i></p>
+                    <p><b>a) Grafik ve Dikey Doğru Testi:</b></p>
+                    $$\\begin{aligned}
+                    y &= \\sqrt{9-x^2} && (\\text{Verilen fonksiyon denklemi}) \\\\
+                    y^2 &= 9-x^2 \\implies x^2+y^2=3^2 && (\\text{Merkezi } (0,0) \\text{ yarıçapı 3 olan çember denklemi}) \\\\
+                    y &\\ge 0 && (\\text{Karekök sonucu negatif olamayacağından üst yarım çember}) \\\\
+                    &\\text{Dikey Doğru Testi} && (\\text{Her x için en fazla bir y olduğundan fonksiyondur})
+                    \\end{aligned}$$
+                    <div id="grafik-yarim-cember" class="grafik-alani jxgbox" style="width: 100%; max-width: 450px; height: 350px; margin: 20px auto; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1);"></div>
+                    <p><b>b) Tanım ve Görüntü Kümesi:</b></p>
+                    $$\\begin{aligned}
+                    9-x^2 &\\ge 0 \\implies x^2 \\le 9 && (\\text{Kök içinin negatif olmama şartı}) \\\\
+                    -3 &\\le x \\le 3 && (\\text{Tanım Kümesi: } [-3, 3]) \\\\
+                    0 &\\le \\sqrt{9-x^2} \\le 3 && (\\text{Maksimum değer } x=0 \\text{ için } 3, \\text{ minimum } x=\\pm 3 \\text{ için } 0) \\\\
+                    y &\\in [0, 3] && (\\text{Görüntü Kümesi: } [0, 3])
+                    \\end{aligned}$$
+                    <p><b>c) Simetri (Tek/Çift Fonksiyon):</b></p>
+                    $$\\begin{aligned}
+                    f(-x) &= \\sqrt{9-(-x)^2} && (x \\text{ yerine } -x \\text{ yazılması}) \\\\
+                    f(-x) &= \\sqrt{9-x^2} = f(x) && (\\text{Sonucun değişmemesi}) \\\\
+                    f(-x) &= f(x) && (\\text{Fonksiyon Çift Fonksiyondur, y-eksenine göre simetriktir})
+                    \\end{aligned}$$
+                    <p><b>d) Artan ve Azalan Aralıklar:</b></p>
+                    $$\\begin{aligned}
+                    x \\in [-3, 0] &\\implies \\text{Grafik yükselir} && (\\text{Bu aralıkta fonksiyon Artandır}) \\\\
+                    x \\in [0, 3] &\\implies \\text{Grafik alçalır} && (\\text{Bu aralıkta fonksiyon Azalandır})
+                    \\end{aligned}$$`
                 );
 
-                // --- SORU 2: GRAFİK DÖNÜŞÜMLERİ (ESKİ d ŞIKKI) ---
-                html += createQuestion("Soru 2", "Grafik Dönüşümleri", 
-                    "\\(h(x)=-3\\sqrt{x-2}+4\\) fonksiyonunun grafiğini, temel \\(y=\\sqrt{x}\\) grafiğinden adım adım elde ediniz. Her bir dönüşümün etkisini açıklayınız.", 
-                    `<p><i>Çözüm:</i><br></p>
-                    Temel grafik \\(y=\\sqrt{x}\\) üzerine sırasıyla şu işlemler uygulanır:<br><br>
-                    1. <i>Yatay Kaydırma (Horizontal Shift):</i><br>
-                    \\(y=\\sqrt{x-2}\\)<br>
-                    Grafik 2 birim <i>sağa</i> ötelenir. (Tanım kümesi \\([0,\\infty)\\)'dan \\([2,\\infty)\\)'a kayar).<br><br>
-                    
-                    2. <i>Dikey Genişletme (Vertical Stretch):</i><br>
-                    \\(y=3\\sqrt{x-2}\\)<br>
-                    Grafiğin y-değerleri 3 ile çarpılır. Grafik dikey olarak 3 kat uzar/dikleşir.<br><br>
-                    
-                    3. <i>Yansıtma (Reflection):</i><br>
-                    \\(y=-3\\sqrt{x-2}\\)<br>
-                    Negatif işaret nedeniyle grafik <i>x-eksenine göre</i> yansıtılır (ters çevrilir). Artık grafik aşağıya doğru bakar.<br><br>
-                    
-                    4. <i>Dikey Kaydırma (Vertical Shift):</i><br>
-                    \\(y=-3\\sqrt{x-2}+4\\)<br>
-                    Grafik 4 birim <i>yukarı</i> ötelenir. Başlangıç noktası \\((2,0)\\)'dan \\((2,4)\\)'e taşınmış olur.`
-    );
-    // SORU 1 - Fonksiyonlarda Cebirsel İşlemler
-    html += createQuestion("Soru 3", "Fonksiyonlarda Toplama ve Bölme",
-        `\\(f(x) = \\sqrt{x+1}\\) ve \\(g(x) = \\sqrt{3-x}\\) fonksiyonları veriliyor.<br>
-    a) \\((f+g)(x)\\) fonksiyonunu bulunuz ve tanım kümesini belirtiniz.<br>
-    b) \\((f/g)(x)\\) fonksiyonunu bulunuz ve tanım kümesini belirtiniz.`,
-        `<p><i>Çözüm:</i><br></p>
-    <b>a) Toplam:</b><br>
-    \\[ (f+g)(x) = f(x) + g(x) = \\sqrt{x+1} + \\sqrt{3-x} \\]<br>
-    Tanım kümesi, her iki fonksiyonun tanım kümesinin kesişimidir:<br>
-    - \\(f(x)\\) için: \\(x+1 \\ge 0 \\implies x \\ge -1\\).<br>
-    - \\(g(x)\\) için: \\(3-x \\ge 0 \\implies x \\le 3\\).<br>
-    Kesişim: <b>[-1, 3]</b>.<br><br>
-    
-    <b>b) Bölüm:</b><br>
-    \\[ (f/g)(x) = \\frac{\\sqrt{x+1}}{\\sqrt{3-x}} = \\sqrt{\\frac{x+1}{3-x}} \\]<br>
-    Tanım kümesi için payda sıfır olamaz (\\(g(x) \\neq 0\\)).<br>
-    Bu nedenle \\(3-x > 0\\) olmalıdır (eşitlik yok).<br>
-    Kesişim: <b>[-1, 3)</b>.`
-    );
-
-    // SORU 2 - Bileşke Fonksiyonlar
-    html += createQuestion("Soru 4", "Bileşke Fonksiyonlar",
-        `\\(f(x) = x^2 + 1\\) ve \\(g(x) = \\sqrt{x}\\) fonksiyonları için aşağıdaki bileşke fonksiyonları ve tanım kümelerini bulunuz:<br>
-    a) \\((f \\circ g)(x)\\)<br>
-    b) \\((g \\circ f)(x)\\)`,
-        `<p><i>Çözüm:</i><br></p>
-    <b>a) \\((f \\circ g)(x)\\):</b><br>
-    \\[ f(g(x)) = f(\\sqrt{x}) = (\\sqrt{x})^2 + 1 = x + 1 \\]<br>
-    Tanım kümesi: Önce \\(g(x)\\) tanımlı olmalı (\\(x \\ge 0\\)), sonra \\(f(g(x))\\) tanımlı olmalı.<br>
-    Sonuç \\(x+1\\) olsa da, başlangıçta karekök olduğu için Tanım Kümesi: <b>\\([0, \\infty)\\)</b>.<br><br>
-    
-    <b>b) \\((g \\circ f)(x)\\):</b><br>
-    \\[ g(f(x)) = g(x^2+1) = \\sqrt{x^2+1} \\]<br>
-    Tanım kümesi: \\(x^2+1 \\ge 0\\) olmalıdır. \\(x^2\\) en az 0 olduğu için \\(x^2+1\\) her zaman pozitiftir.<br>
-    Tanım Kümesi: <b>\\((-\\infty, \\infty)\\)</b> yani <b>\\(\\mathbb{R}\\)</b>.`
-    );
-
-    // SORU 3 - Bileşkeyi Ayrıştırma
-    html += createQuestion("Soru 5", "Bileşke Fonksiyonu Ayrıştırma",
-        `\\(h(x) = \\sqrt[3]{1 + x^4}\\) fonksiyonu, \\(f(x)\\) ve \\(g(x)\\) fonksiyonlarının bileşkesi (\\(h(x) = (f \\circ g)(x)\\)) olarak yazılmak isteniyor. Buna uygun bir \\(f(x)\\) ve \\(g(x)\\) belirleyiniz.`,
-        `<p><i>Çözüm:</i><br></p>
-    \\(h(x) = \\sqrt[3]{1 + x^4}\\) fonksiyonuna baktığımızda, içeride bir polinom ve dışarıda bir kök alma işlemi görüyoruz.<br>
-    - İç fonksiyon (\\(g(x)\\)): Parantezin içi veya kökün içi olarak <b>\\(g(x) = 1 + x^4\\)</b>.<br>
-    - Dış fonksiyon (\\(f(x)\\)): İçerideki ifadeye \\(u\\) dersek yapılan işlem \\(\\sqrt[3]{u}\\). Yani <b>\\(f(x) = \\sqrt[3]{x}\\)</b>.<br><br>
-    Kontrol: \\(f(g(x)) = f(1+x^4) = \\sqrt[3]{1+x^4}\\). Doğru.`
-    );
-
-    // SORU 4 - Grafik Öteleme
-    html += createQuestion("Soru 6", "Grafiklerde Öteleme (Parabol)",
-        `\\(y = x^2\\) parabolünün grafiğinden yola çıkarak, \\(y = (x-2)^2 + 3\\) fonksiyonunun grafiğinin nasıl elde edileceğini adım adım açıklayınız ve tepe noktasının yeni koordinatlarını yazınız.`,
-        `<p><i>Çözüm:</i><br></p>
-    \\(y = x^2\\) temel parabolünden \\(y = (x-2)^2 + 3\\) elde etmek için:<br>
-    1) \\(x\\) yerine \\((x-2)\\) gelmiş. Bu, grafiği <b>2 birim sağa</b> öteler. (Yatay kayma).<br>
-    2) Fonksiyona \\(+3\\) eklenmiş. Bu, grafiği <b>3 birim yukarı</b> öteler. (Dikey kayma).<br><br>
-    Orijindeki \\((0,0)\\) tepe noktası, bu işlemlerle <b>\\((2, 3)\\)</b> noktasına taşınır.`
-    );
-
-    // SORU 5 - Grafik Dönüşümleri (Denklem Bulma)
-    html += createQuestion("Soru 7", "Grafik Dönüşümleri ile Yeni Denklem",
-        `\\(y = \\sqrt{x}\\) fonksiyonunun grafiği üzerinde sırasıyla aşağıdaki işlemler uygulanıyor:<br>
-    a) x-eksenine göre yansıtma,<br>
-    b) 2 birim sağa öteleme,<br>
-    c) Dikey olarak 3 kat genişletme.<br>
-    Elde edilen yeni fonksiyonun denklemini yazınız.`,
-        `<p><i>Çözüm:</i><br></p>
-    Adım adım ilerleyelim. Başlangıç: \\(y = \\sqrt{x}\\).<br>
-    1) x-eksenine göre yansıtma: Fonksiyon \\(-1\\) ile çarpılır.<br>
-    \\[ y = -\\sqrt{x} \\]<br>
-    2) 2 birim sağa öteleme: \\(x\\) yerine \\((x-2)\\) yazılır.<br>
-    \\[ y = -\\sqrt{x-2} \\]<br>
-    3) Dikey olarak 3 kat genişletme: Tüm fonksiyon 3 ile çarpılır.<br>
-    \\[ y = -3\\sqrt{x-2} \\]<br><br>
-    <b>Cevap: \\(y = -3\\sqrt{x-2}\\)</b>`
-    );
-
-    // SORU 6 - Mutlak Değer Dönüşümleri
-    html += createQuestion("Soru 8", "Mutlak Değer Grafiği Dönüşümleri",
-        `\\(y = |x|\\) fonksiyonunun grafiğini referans alarak, \\(y = 1 - |x+3|\\) fonksiyonunun grafiğini çizmek için gereken dönüşüm adımlarını sıralayınız.`,
-        `<p><i>Çözüm:</i><br></p>
-    \\(y = 1 - |x+3|\\) fonksiyonunu analiz edelim. Standart \\(y=|x|\\) grafiğine sırasıyla:<br>
-    1) <b>Sola Öteleme:</b> \\(|x+3|\\) ifadesi grafiği 3 birim sola kaydırır. Köşe \\((-3, 0)\\) olur.<br>
-    2) <b>Yansıtma:</b> \\(-|x+3|\\) ifadesi (x-eksenine göre yansıma), grafiğin kollarının aşağı bakmasını sağlar. (Ters V şekli).<br>
-    3) <b>Yukarı Öteleme:</b> \\(+1\\) eklenmesi (baştaki 1), grafiği 1 birim yukarı taşır.<br><br>
-    Sonuç: Tepe noktası <b>\\((-3, 1)\\)</b> olan ve kolları aşağı inen bir grafik oluşur.`
-    );
-
-    // SORU 7 - Kümelerde Dönüşüm
-    html += createQuestion("Soru 9", "Tanım ve Görüntü Kümesinde Dönüşüm",
-        `\\(y = f(x)\\) fonksiyonunun tanım kümesi \\([-2, 2]\\) ve görüntü kümesi \\([0, 5]\\) aralığıdır. Buna göre, \\(y = 3f(x-1) + 2\\) fonksiyonunun tanım ve görüntü kümelerini bulunuz.`,
-        `<p><i>Çözüm:</i><br></p>
-    \\(y = 3f(x-1) + 2\\) için;<br>
-    - <b>Tanım Kümesi (x değerleri):</b> \\(f(x)\\) için tanım kümesi \\([-2, 2]\\) idi. Burada \\(f(x-1)\\) kullanılmış. Fonksiyonun içinin yine \\([-2, 2]\\) aralığında olması gerekir.<br>
-    \\(-2 \\le x-1 \\le 2 \\implies -1 \\le x \\le 3\\).<br>
-    (Grafik 1 birim sağa kaydığı için tanım kümesi de 1 arttı).<br>
-    Yeni Tanım Kümesi: <b>[-1, 3]</b>.<br><br>
-    
-    - <b>Görüntü Kümesi (y değerleri):</b> \\(f(x)\\)'in çıktıları \\([0, 5]\\) arasındaydı.<br>
-    Fonksiyon önce 3 ile çarpılıyor: \\(3 \\cdot [0, 5] = [0, 15]\\).<br>
-    Sonra 2 ekleniyor: \\([0+2, 15+2] = [2, 17]\\).<br>
-    Yeni Görüntü Kümesi: <b>[2, 17]</b>.`
-    );
-
-
-            }
-
-if (id ===("1.3")) {
-                html += createQuestion("Soru 1", "Trigonometrik Grafik ve Dönüşüm", 
-                    "\\(f(x)=8 \\sin^{2}\\left(\\frac{x}{2}\\right)-4\\) fonksiyonu veriliyor.<br><br>a) Fonksiyonu, \\(\\cos(x)\\) formunda daha basit bir ifadeye dönüştürün.<br><br>b) Genliğini ve periyodunu belirleyin. Dönüşümleri (yansıtma, ölçekleme) açıklayın.<br><br>c) Grafiğini bir tam periyot boyunca çiziniz.", 
-                    `<p><i>Çözüm:</i><br></p>
-                    <i>a) Özdeşlik Kullanımı</i><br>
-                    Verilen fonksiyon \\(f(x)=8 \\sin^{2}\\left(\\frac{x}{2}\\right)-4\\) tür. Kuvvet düşürme formülü \\(\\sin^{2}(\\theta)= \\frac{1-\\cos(2\\theta)}{2}\\) dir. Bu problemde \\(\\theta=\\frac{x}{2}\\) olarak alacağız. Bu durumda \\(2\\theta=2(\\frac{x}{2})=x\\) olur.<br>
-                    Şimdi \\(\\sin^{2}(\\frac{x}{2})\\) yerine özdeşliğini yazalım:<br>
-                    \\[ f(x)=8\\left[\\frac{1-\\cos(x)}{2}\\right]-4 \\]<br>
-                    İfadeyi sadeleştirelim:<br>
-                    \\[ f(x)=4(1-\\cos(x))-4 = 4-4\\cos(x)-4 = -4\\cos(x) \\]<br>
-                    Fonksiyonun basitleştirilmiş formu \\(f(x)=-4\\cos(x)\\) tir. Bu, \\(A=-4\\) ve \\(k=1\\) olan \\(A\\cos(kx)\\) formundadır.<br><br>
-
-                    <i>b) Periyot ve Dönüşüm Analizi</i><br>
-                    Basitleştirilmiş formumuz \\(f(x)=-4\\cos(x)\\).<br>
-                    <i>Genlik:</i> Genlik, \\(|A|\\)'dır.<br>
-                    Genlik \\(=|-4|=4\\)<br>
-                    Fonksiyonun değerleri -4 ile 4 arasında değişecektir.<br>
-                    <i>Periyot:</i> Periyot, \\(T=\\frac{2\\pi}{|k|}\\) formülüyle bulunur. Burada \\(k=1\\) dir.<br>
-                    Periyot \\(=\\frac{2\\pi}{1}=2\\pi\\)<br>
-                    Fonksiyonun grafiği her \\(2\\pi\\) birimde kendini tekrar edecektir.<br>
-                    <i>Dönüşümler:</i> Grafiği \\(y=\\cos(x)\\) temel grafiğinden elde etmek için iki dönüşüm uygulanır:<br>
-                    (a) Dikey Genişletme: Grafik, \\(y=\\cos(x)\\) in 4 katı genliğe sahip olacak şekilde dikey olarak 4 ile çarpılır \\((y=4\\cos(x))\\).<br>
-                    (b) Yansıtma: Negatif işaret nedeniyle, \\(y=4\\cos(x)\\) grafiği x-eksenine göre yansıtılır \\((y=-4\\cos(x))\\).<br><br>
-
-                    <i>c) Grafik Çizimi</i><br>
-                    \\(f(x)=-4\\cos(x)\\) fonksiyonunun bir periyotluk ([0, \\(2\\pi\\)] aralığı) grafiğini çizmek için anahtar noktaları buluruz.<br>
-                    Bu, x-eksenine göre yansıtılmış bir kosinüs grafiğidir, yani maksimum yerine minimumdan başlar.<br>
-                    • \\(x=0\\): \\(f(0)=-4\\cos(0)=-4(1)=-4.\\) Minimum nokta: (0,-4).<br>
-                    • \\(x=\\pi/2\\): \\(f(\\pi/2)=-4\\cos(\\pi/2)=-4(0)=0\\) (x-eksenini keser).<br>
-                    • \\(x=\\pi\\): \\(f(\\pi)=-4\\cos(\\pi)=-4(-1)=4.\\) Maksimum nokta: (\\(\\pi\\), 4).<br>
-                    • \\(x=3\\pi/2\\): \\(f(3\\pi/2)=-4\\cos(3\\pi/2)=-4(0)=0.\\) (x-eksenini keser).<br>
-                    • \\(x=2\\pi\\): \\(f(2\\pi) = -4\\cos(2\\pi) = -4(1) = -4.\\) Minimum nokta: (\\(2\\pi\\), -4).<br>
-                    (Grafik, (0,-4) noktasından başlayıp (\\(\\pi\\), 4) noktasına yükselen ve (\\(2\\pi\\), -4) noktasına geri inen bir dalga şeklinde olmalıdır.)`
-    );
-
-    // SORU 1 - Radyan ve Yay Uzunluğu
-    html += createQuestion("Soru 2", "Radyan ve Yay Uzunluğu",
-        `Bir çemberde yarıçap \\(r=5\\) cm ve merkez açı \\(\\theta = 72^\\circ\\) ise;<br>
-    a) Açıyı radyan cinsinden ifade ediniz.<br>
-    b) Bu açının gördüğü yay uzunluğunu (\\(s\\)) hesaplayınız.`,
-        `<p><i>Çözüm:</i><br></p>
-    <b>a) Radyana Dönüşüm:</b><br>
-    \\(180^\\circ = \\pi\\) radyan ise,<br>
-    \\[ 72^\\circ = 72 \\times \\frac{\\pi}{180} = \\frac{72\\pi}{180} = \\frac{2\\pi}{5} \\text{ radyan.} \\]<br><br>
-    
-    <b>b) Yay Uzunluğu:</b><br>
-    Formül \\(s = r\\theta\\) (\\(\\theta\\) radyan olmalı).<br>
-    \\[ s = 5 \\times \\frac{2\\pi}{5} = 2\\pi \\text{ cm.} \\]`
-    );
-
-    // SORU 2 - Trigonometrik Değerler ve Bölgeler
-    html += createQuestion("Soru 3", "Trigonometrik Değerler ve Bölgeler",
-        `\\(\\tan x = -\\frac{3}{4}\\) ve \\(\\sin x > 0\\) olduğu biliniyor.<br>
-    a) \\(x\\) açısı hangi bölgededir?<br>
-    b) \\(\\cos x\\) ve \\(\\csc x\\) değerlerini bulunuz.`,
-        `<p><i>Çözüm:</i><br></p>
-    <b>a) Bölge:</b><br>
-    \\(\\tan x < 0\\) olduğu için \\(x\\) ya 2. ya da 4. bölgededir.<br>
-    \\(\\sin x > 0\\) olduğu için \\(x\\) ya 1. ya da 2. bölgededir.<br>
-    Her iki koşulu sağlayan bölge <b>2. Bölge</b>dir.<br><br>
-    
-    <b>b) Değerler:</b><br>
-    Bir dik üçgen çizelim. Karşı=3, Komşu=4 olsun (işaretlere bakmadan).<br>
-    Hipotenüs: \\(\\sqrt{3^2+4^2} = 5\\). (3-4-5 üçgeni).<br>
-    - \\(\\cos x\\): 2. bölgede kosinüs negatiftir. \\(\\cos x = -\\frac{\\text{Komşu}}{\\text{Hipotenüs}} = -\\frac{4}{5}\\).<br>
-    - \\(\\csc x\\): \\(\\csc x = \\frac{1}{\\sin x}\\). 2. bölgede sinüs pozitiftir. \\(\\sin x = \\frac{3}{5} \\implies \\csc x = \\frac{5}{3}\\).`
-    );
-
-    // SORU 3 - Periyot ve Genlik
-    html += createQuestion("Soru 4", "Periyot, Genlik ve Faz Kayması",
-        `\\(f(x) = -3 \\cos(2x + \\pi)\\) fonksiyonunun genliğini, periyodunu ve faz kaymasını bulunuz.`,
-        `<p><i>Çözüm:</i><br></p>
-    \\(f(x) = A \\cos(Bx + C) + D\\) formunda;<br>
-    - <b>Genlik:</b> \\(|A| = |-3| = 3\\).<br>
-    - <b>Periyot:</b> \\(T = \\frac{2\\pi}{|B|} = \\frac{2\\pi}{2} = \\pi\\).<br>
-    - <b>Faz Kayması:</b> \\(-C/B = -\\pi/2\\). (Sola \\(\\pi/2\\) kayma).`
-    );
-
-    // SORU 4 - Trigonometrik Denklem
-    html += createQuestion("Soru 5", "Trigonometrik Denklem Çözümü",
-        `\\(2\\sin^2 x - \\sin x - 1 = 0\\) denkleminin \\([0, 2\\pi)\\) aralığındaki tüm çözüm kümesini bulunuz.`,
-        `<p><i>Çözüm:</i><br></p>
-    \\(2\\sin^2 x - \\sin x - 1 = 0\\) denklemini \\(\\sin x\\)'e göre ikinci dereceden denklem gibi düşünelim. \\(\\sin x = u\\) olsun.<br>
-    \\[ 2u^2 - u - 1 = 0 \\implies (2u+1)(u-1) = 0 \\]<br>
-    - \\(u = 1 \\implies \\sin x = 1\\). \\([0, 2\\pi)\\) aralığında \\(x = \\frac{\\pi}{2}\\).<br>
-    - \\(u = -1/2 \\implies \\sin x = -1/2\\). Sinüsün negatif olduğu bölgeler 3 ve 4.<br>
-    Referans açısı \\(\\pi/6\\).<br>
-    3. Bölge: \\(\\pi + \\pi/6 = \\frac{7\\pi}{6}\\).<br>
-    4. Bölge: \\(2\\pi - \\pi/6 = \\frac{11\\pi}{6}\\).<br><br>
-    Çözüm Kümesi: <b>\\(\\{ \\frac{\\pi}{2}, \\frac{7\\pi}{6}, \\frac{11\\pi}{6} \\}\\)</b>.`
-    );
-
-    // SORU 5 - Grafik Çizimi
-    html += createQuestion("Soru 6", "Trigonometrik Grafik Çizimi",
-        `\\(y = 1 + \\sin x\\) fonksiyonunun grafiğini \\([0, 2\\pi]\\) aralığında çiziniz ve x-eksenini kestiği noktaları belirtiniz.`,
-        `<p><i>Çözüm:</i><br></p>
-     <br>
-    \\(y = \\sin x\\) grafiği standart dalgadır (\\(0 \\to 1 \\to 0 \\to -1 \\to 0\\)).<br>
-    \\(y = 1 + \\sin x\\) grafiği, bu dalganın 1 birim yukarı ötelenmiş halidir.<br>
-    - Başlangıç (\\(x=0\\)): \\(y = 1+0=1\\).<br>
-    - Maksimum (\\(x=\\pi/2\\)): \\(y = 1+1=2\\).<br>
-    - Orta (\\(x=\\pi\\)): \\(y = 1+0=1\\).<br>
-    - Minimum (\\(x=3\\pi/2\\)): \\(y = 1-1=0\\). (x-eksenini kestiği tek nokta).<br>
-    - Bitiş (\\(x=2\\pi\\)): \\(y = 1+0=1\\).<br><br>
-    x-eksenini kestiği nokta: <b>\\(\\left(\\frac{3\\pi}{2}, 0\\right)\\)</b>.`
-    );
-
-    // SORU 6 - Özdeşlik Kullanımı
-    html += createQuestion("Soru 7", "Trigonometrik Özdeşlikler",
-        `\\(\\frac{1}{1-\\sin x} + \\frac{1}{1+\\sin x}\\) ifadesini sadeleştirerek \\(\\sec x\\) cinsinden yazınız.`,
-        `<p><i>Çözüm:</i><br></p>
-    Payda eşitleyelim:<br>
-    \\[ \\frac{1(1+\\sin x) + 1(1-\\sin x)}{(1-\\sin x)(1+\\sin x)} = \\frac{1+\\sin x+1-\\sin x}{1-\\sin^2 x} \\]<br>
-    Pay kısmı 2 olur.<br>
-    Payda kısmı \\(\\cos^2 x\\) (\\(\\sin^2 x + \\cos^2 x = 1\\) özdeşliğinden).<br>
-    \\[ \\frac{2}{\\cos^2 x} = 2 \\sec^2 x \\]<br><br>
-    <b>Sonuç: \\(2\\sec^2 x\\)</b>`
-    );
-
-    // SORU 7 - Geometrik Uygulama
-    html += createQuestion("Soru 8", "Geometrik Uygulama (Dik Üçgen)",
-        `Bir dik üçgende hipotenüs uzunluğu 10 birim ve bir dar açısı \\(\\theta\\) dır. Karşı dik kenar uzunluğu \\(x\\) ise, \\(x\\)'i \\(\\theta\\) cinsinden ifade ediniz ve \\(\\theta = \\pi/6\\) için \\(x\\) değerini bulunuz.`,
-        `<p><i>Çözüm:</i><br></p>
-    - \\(\\sin \\theta = \\frac{\\text{Karşı}}{\\text{Hipotenüs}} = \\frac{x}{10}\\).<br>
-    - Buradan \\(x = 10 \\sin \\theta\\) bulunur.<br>
-    - \\(\\theta = \\pi/6\\) için:<br>
-    \\[ x = 10 \\sin(\\pi/6) = 10 \\times \\frac{1}{2} = 5 \\text{ birim.} \\]<br><br>
-    <b>Sonuç: \\(x = 10 \\sin \\theta\\), \\(x = 5\\)</b>`
-    );
-            }
-// =========================================
-            // 1.4 GRAFİK ÇİZİMİ (Proje 14)
-            // =========================================
-            else if (id ===("1.4")) {
-                // --- SORU 1: GÖRÜNTÜLEME PENCERESİ ---
-                html += createQuestion("Soru 1", "Görüntüleme Penceresi (Windowing)", 
-                    "\\(f(x)=x^{3}-20x+5\\) fonksiyonunu standart bir görüntüleme penceresinde (x: [-10, 10] ve y: [-10,10]) çizdirdiğinizde grafik dik çizgiler gibi durmaktadır. Fonksiyonun kıvrımlarını (dönüş yaptığı yerleri) net görebilmek için nasıl bir pencere ayarı önerirsiniz?", 
-                    `<p><i>Çözüm:</i><br></p>
-                    <strong>a) Görsel Analiz:</strong><br>
-                    Standart pencere ([-10, 10]), fonksiyonun y değerlerindeki hızlı artışı göstermek için çok dardır. Tepe ve çukur noktaları ekranın dışında kaldığı için grafik yanlış yorumlanabilir.<br><br>
-                    <strong>b) Pencere Ayarlama:</strong><br>
-                    Fonksiyonun yerel maksimum ve minimum noktalarını tahmin etmek için türev alabilir veya deneme yanılma yapabiliriz.<br>
-                    Deneme Yoluyla:<br>
-                    • \\(x=3\\) için: \\(y = 3^3 - 20(3) + 5 = 27 - 60 + 5 = -28\\).<br>
-                    • \\(x=-3\\) için: \\(y = (-3)^3 - 20(-3) + 5 = -27 + 60 + 5 = 38\\).<br>
-                    <strong>Sonuç:</strong> Grafiğin y değerleri en az -28'e inip +38'e çıkmaktadır. Standart [-10,10] aralığı yetersizdir. Rahat bir görünüm için <strong>Y: [-50, 50]</strong> aralığı önerilir.`
+                html += createQuestion("Soru 2", "Tanım ve Görüntü Kümesi",
+                    `\\(f(x) = \\sqrt{16 - x^2}\\) fonksiyonunun doğal tanım kümesini ve görüntü kümesini bulunuz.`,
+                    `<p><i>Çözüm:</i></p>
+                <p><b>Tanım Kümesi:</b></p>
+                $$\\begin{aligned}
+                16 - x^2 &\\ge 0 && (\\text{Karekök fonksiyonunun reel sayılarda tanımlı olma şartı}) \\\\
+                x^2 &\\le 16 \\implies \\sqrt{x^2} \\le 4 && (\\text{Eşitsizliğin çözümü}) \\\\
+                |x| &\\le 4 \\implies -4 \\le x \\le 4 && (\\text{Mutlak değer açılımı}) \\\\
+                &[-4, 4] && (\\text{Tanım Kümesi})
+                \\end{aligned}$$
+                <p><b>Görüntü Kümesi:</b></p>
+                $$\\begin{aligned}
+                x \\in [-4, 4] &\\implies x^2 \\in [0, 16] && (x \\text{ değerlerine karşılık } x^2 \\text{ değer aralığı}) \\\\
+                f(x)_{min} &= \\sqrt{16-16} = 0 && (x^2=16 \\text{ için en küçük değer}) \\\\
+                f(x)_{max} &= \\sqrt{16-0} = 4 && (x^2=0 \\text{ için en büyük değer}) \\\\
+                &[0, 4] && (\\text{Görüntü Kümesi})
+                \\end{aligned}$$`
                 );
 
-                // --- SORU 2: ALIASING (ÖRTÜŞME) ---
-                html += createQuestion("Soru 2", "Periyot ve Örtüşme (Aliasing)", 
-                    "\\(g(x)=\\cos(60x)\\) fonksiyonunu standart pencerede ([-10, 10]) çizdiğimizde grafik neden karmaşık/dolgulu görünür? Tek bir tam salınımı net görmek için pencere aralığı ne olmalıdır?", 
-                    `<p><i>Çözüm:</i><br></p>
-                    <strong>a) Periyot Hesabı:</strong><br>
-                    \\(\\cos(Bx)\\) fonksiyonunun periyodu \\(T = \\frac{2\\pi}{B}\\) dir. Burada \\(B=60\\).<br>
-                    \\[ T = \\frac{2\\pi}{60} = \\frac{\\pi}{30} \\approx 0.105 \\]<br><br>
-                    <strong>b) Aliasing Sorunu:</strong><br>
-                    Standart pencere genişliği 20 birimdir. Periyodumuz ise 0.1 birimdir. Bu pencerede yaklaşık \\(\\frac{20}{0.1} = 200\\) adet dalga vardır. Ekranın piksel çözünürlüğü bu kadar sıkışık dalgayı çizmeye yetmediği için grafik rastgele çizgiler (aliasing) gibi görünür.<br><br>
-                    <strong>c) Doğru Pencere:</strong><br>
-                    Tek bir dalgayı görmek için pencere genişliği periyot kadar olmalıdır.<br>
-                    <strong>\\(X_{min}=0, X_{max}=\\frac{\\pi}{30}\\)</strong> (yaklaşık 0.11) seçilirse düzgün bir kosinüs dalgası görülür.`
+                html += createQuestion("Soru 3", "Parçalı Fonksiyonlar",
+                    `\\[ f(x) = \\begin{cases} -x, & x < 0 \\\\ x^2, & 0 \\le x \\le 2 \\\\ 2, & x > 2 \\end{cases} \\]Verilen parçalı fonksiyon için istenen değerleri hesaplayınız ve grafiğini kabataslak çiziniz:<br>
+                
+                a) \\(f(-3)\\), \\(f(1)\\) ve \\(f(4)\\) değerleri nedir?<br>
+                b) Grafiğin şeklini çiziniz.`,
+                    `<p><i>Çözüm:</i></p>
+                <p><b>a) Değer Hesaplama:</b></p>
+                $$\\begin{aligned}
+                f(-3) &= -(-3) = 3 && (x < 0 \\text{ olduğu için } f(x) = -x \\text{ kuralı uygulanır}) \\\\
+                f(1) &= 1^2 = 1 && (0 \\le x \\le 2 \\text{ olduğu için } f(x) = x^2 \\text{ kuralı uygulanır}) \\\\
+                f(4) &= 2 && (x > 2 \\text{ olduğu için } f(x) = 2 \\text{ kuralı uygulanır})
+                \\end{aligned}$$
+                <p><b>b) Grafik Yorumu:</b></p>
+                <p>Grafik; sol tarafta (2. bölgede) azalan bir doğru parçası, orijin ile x=2 arasında yukarı açılan bir parabol parçası ve sağ tarafta (x>2 için) y=2 seviyesinde yatay bir doğrudan oluşur.</p>`
                 );
 
-                // --- SORU 3: EN-BOY ORANI ---
-                html += createQuestion("Soru 3", "En-Boy Oranı (Aspect Ratio)", 
-                    "\\(y_{1}=2x\\) ve \\(y_{2}=-0.5x\\) doğruları matematiksel olarak diktir (\\(m_1 \\cdot m_2 = -1\\)). Ancak standart pencerede ([-10, 10]) çizildiğinde neden dik görünmezler? Nasıl düzeltilir?", 
-                    `<p><i>Çözüm:</i><br></p>
-                    <strong>a) Görsel Bozulma:</strong><br>
-                    Grafik ekranları kare değil, dikdörtgendir (genellikle yatayda daha geniştir). Standart [-10, 10] ayarında, x eksenindeki birimler arası fiziksel mesafe, y eksenindekilerden daha geniştir. Bu "yayılma" etkisi açıları bozar.<br><br>
-                    <strong>b) Çözüm (Zoom Square):</strong><br>
-                    Ekranda "gerçek" bir dik açı görebilmek için x ve y birimlerinin fiziksel uzunluklarını eşitlemeliyiz. Grafik çizicilerdeki <strong>"Zoom Square" (Kare Pencere)</strong> özelliği kullanılır. Bu özellik genellikle y aralığını sabit tutup, x aralığını ekran oranına göre (örneğin [-15, 15] gibi) genişleterek görüntüyü düzeltir.`
+                html += createQuestion("Soru 4", "Tek ve Çift Fonksiyonlar",
+                    `\\(g(x) = x^3 + \\frac{1}{x}\\) fonksiyonunun tek mi, çift mi yoksa hiçbiri mi olduğunu cebirsel olarak gösteriniz. (Grafiğin simetrisinden bahsediniz).`,
+                    `<p><i>Çözüm:</i></p>
+                $$\\begin{aligned}
+                g(-x) &= (-x)^3 + \\frac{1}{(-x)} && (\\text{Simetri testi için } x \\text{ yerine } -x \\text{ yazılması}) \\\\
+                &= -x^3 - \\frac{1}{x} && (\\text{Kuvvetlerin hesaplanması}) \\\\
+                &= -\\left(x^3 + \\frac{1}{x}\\right) && (\\text{Eksi parantezine alınması}) \\\\
+                g(-x) &= -g(x) && (\\text{Eşitlik sağlandığı için Tek Fonksiyondur}) \\\\
+                &\\text{Orijine göre simetrik} && (\\text{Tek fonksiyonların grafiksel özelliği})
+                \\end{aligned}$$`
                 );
 
-                // --- SORU 4: ASİMPTOTLAR VE HATALAR ---
-                html += createQuestion("Soru 4", "Asimptotlar ve Çizim Hataları", 
-                    "\\(h(x)=\\frac{x^{2}+1}{x-2}\\) fonksiyonunu çizerken:<br>a) \\(x=2\\)'de beliren dikey çizgi nedir?<br>b) Grafiğe çok uzaktan (Zoom Out) bakıldığında şekil neye benzer?", 
-                    `<p><i>Çözüm:</i><br></p>
-                    <strong>a) Sahte Dikey Çizgi (Connected Mode Hatası):</strong><br>
-                    Fonksiyon \\(x=2\\)'de tanımsızdır (Düşey Asimptot). Ancak "Nokta Birleştirme" (Connected Mode) açıkken, makine \\(x=2\\)'nin solundaki (sonsuza giden) nokta ile sağındaki noktayı birleştirmeye çalışır. Bu dikey çizgi fonksiyonun bir parçası değil, bir çizim hatasıdır.<br><br>
-                    <strong>b) Uzak Davranış (Eğik Asimptot):</strong><br>
-                    Payı paydaya bölelim (Polinom Bölmesi):<br>
-                    \\[ \\frac{x^{2}+1}{x-2} = x + 2 + \\frac{5}{x-2} \\]<br>
-                    \\(x\\) çok büyüdüğünde (sonsuza gittiğinde), \\(\\frac{5}{x-2}\\) terimi sıfıra yaklaşır.<br>
-                    Geriye sadece <strong>\\(y \\approx x+2\\)</strong> kalır. Bu nedenle grafiğe çok uzaktan bakıldığında eğri düzleşir ve \\(y=x+2\\) doğrusuna benzer.`
+                html += createQuestion("Soru 5", "Fonksiyon Modelleme",
+                    `Alanı \\(36 \\text{ m}^2\\) olan bir dikdörtgenin çevresini (\\(P\\)), kenar uzunluklarından biri olan \\(x\\)'in bir fonksiyonu olarak, yani \\(P(x)\\) şeklinde ifade ediniz ve bu fonksiyonun tanım kümesini (\\(x > 0\\) olmak şartıyla) belirtiniz.`,
+                    `<p><i>Çözüm:</i></p>
+                $$\\begin{aligned}
+                x \\cdot y &= 36 \\implies y = \\frac{36}{x} && (\\text{Dikdörtgenin alan denklemi ve y'nin yalnız bırakılması}) \\\\
+                P &= 2x + 2y && (\\text{Çevre formülü}) \\\\
+                P(x) &= 2x + 2\\left(\\frac{36}{x}\\right) && (\\text{y yerine } x \\text{ cinsinden değerinin yazılması}) \\\\
+                P(x) &= 2x + \\frac{72}{x} && (\\text{Çevreyi veren fonksiyon modeli}) \\\\
+                x &> 0 \\text{ ve } y > 0 \\implies \\frac{36}{x} > 0 && (\\text{Fiziksel uzunluk negatif veya sıfır olamaz}) \\\\
+                &x \\in (0, \\infty) && (\\text{Fonksiyonun Tanım Kümesi})
+                \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 6", "Mutlak Değer Fonksiyonu",
+                    `\\(h(x) = |x + 3| - 2\\) fonksiyonunu, mutlak değer sembolü kullanmadan parçalı fonksiyon şeklinde yazınız.`,
+                    `<p><i>Çözüm:</i></p>
+                $$\\begin{aligned}
+                x+3 &= 0 \\implies x = -3 && (\\text{Mutlak değerin içini sıfır yapan kritik noktanın bulunması}) \\\\
+                |x+3| &= -(x+3) = -x-3 && (x < -3 \\text{ durumu: İçerisi negatif olduğundan eksi ile çarpılarak çıkar}) \\\\
+                h(x) &= (-x-3) - 2 = -x-5 && (x < -3 \\text{ için nihai fonksiyon kuralı}) \\\\
+                |x+3| &= x+3 && (x \\ge -3 \\text{ durumu: İçerisi pozitif olduğundan aynen çıkar}) \\\\
+                h(x) &= (x+3) - 2 = x+1 && (x \\ge -3 \\text{ için nihai fonksiyon kuralı}) \\\\
+                h(x) &= \\begin{cases} -x - 5, & x < -3 \\\\ x + 1, & x \\ge -3 \\end{cases} && (\\text{Fonksiyonun parçalı şeklinde yazımı})
+                \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 7", "Rasyonel Fonksiyonlar",
+                    `\\(F(t) = 1 + \\frac{1}{t^2}\\) fonksiyonunun tanım ve görüntü kümelerini bulunuz.`,
+                    `<p><i>Çözüm:</i></p>
+                <p><b>Tanım Kümesi:</b></p>
+                $$\\begin{aligned}
+                t^2 &= 0 \\implies t = 0 && (\\text{Rasyonel ifadede paydanın sıfır olamayacağı kuralı}) \\\\
+                t &\\neq 0 && (\\text{0 haricindeki tüm reel sayılar}) \\\\
+                &\\mathbb{R} \\setminus \\{0\\} \\text{ veya } (-\\infty, 0) \\cup (0, \\infty) && (\\text{Tanım Kümesi})
+                \\end{aligned}$$
+                <p><b>Görüntü Kümesi:</b></p>
+                $$\\begin{aligned}
+                t^2 &> 0 && (t \\neq 0 \\text{ olduğu için her zaman pozitiftir}) \\\\
+                \\frac{1}{t^2} &> 0 && (\\text{Pozitif bir sayının çarpmaya göre tersi de pozitiftir}) \\\\
+                1 + \\frac{1}{t^2} &> 1 && (\\text{Eşitsizliğin her iki tarafına 1 eklenmesi}) \\\\
+                &(1, \\infty) && (\\text{Görüntü Kümesi})
+                \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 8", "Fonksiyon Testi (Dikey Doğru)",
+                    `\\(x = y^2\\) denklemi, \\(y\\)'yi \\(x\\)'in bir fonksiyonu olarak tanımlar mı? Nedenini açıklayınız ve grafiğini düşünerek Dikey Doğru Testi açısından yorumlayınız.`,
+                    `<p><i>Çözüm:</i></p>
+                $$\\begin{aligned}
+                x &= 4 \\implies 4 = y^2 && (\\text{Teste başlamak için örnek bir pozitif } x \\text{ değeri verilmesi}) \\\\
+                y &= 2 \\text{ veya } y = -2 && (\\text{Tek bir } x \\text{ girdisi için iki farklı } y \\text{ çıktısı oluşması}) \\\\
+                &\\text{Fonksiyon değildir} && (\\text{Her } x \\text{ için yalnızca bir } y \\text{ olma kuralına aykırı durum}) \\\\
+                &\\text{Dikey Doğru Testi} && (x=4 \\text{ dikey doğrusu parabolü iki noktada keser, dolayısıyla fonksiyon değildir})
+                \\end{aligned}$$`
                 );
             }
-else if (id === "1.5") {
+
+            if (id === ("1.2") || id === ("Birleştirmek")) {
+                html += createQuestion("Soru 1", "Fonksiyonlarda Aritmetik İşlemler",
+                    "\\(f(x) = \\sqrt{x}\\) ve \\(g(x) = \\sqrt{1-x}\\) fonksiyonları veriliyor. Bu fonksiyonların toplamını, farkını, çarpımını ve bölümünü bularak her birinin tanım kümesini belirleyiniz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    D_f &= [0, \\infty) && (\\sqrt{x} \\text{ için } x \\ge 0) \\\\
+                    D_g &= (-\\infty, 1] && (\\sqrt{1-x} \\text{ için } 1-x \\ge 0) \\\\
+                    D_{f} \\cap D_{g} &= [0, 1] && (\\text{Ortak tanım kümesi}) \\\\
+                    (f+g)(x) &= \\sqrt{x} + \\sqrt{1-x} && (D = [0, 1]) \\\\
+                    (f-g)(x) &= \\sqrt{x} - \\sqrt{1-x} && (D = [0, 1]) \\\\
+                    (f \\cdot g)(x) &= \\sqrt{x(1-x)} = \\sqrt{x-x^2} && (D = [0, 1]) \\\\
+                    \\left(\\frac{f}{g}\\right)(x) &= \\frac{\\sqrt{x}}{\\sqrt{1-x}} && (g(x) \\neq 0 \\implies x \\neq 1 \\text{ olmalı, } D = [0, 1))
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 2", "Bileşke Fonksiyon Hesaplama",
+                    "\\(f(x) = x^2\\) ve \\(g(x) = x-7\\) olduğuna göre aşağıdaki bileşkeleri ve tanım kümelerini bulunuz:<br>a) \\((f \\circ g)(x)\\)<br>b) \\((g \\circ f)(x)\\)",
+                    `<p><i>Çözüm:</i></p>
+                    <p><b>a) f ve g'nin bileşkesi:</b></p>
+                    $$\\begin{aligned}
+                    (f \\circ g)(x) &= f(g(x)) && (\\text{Bileşke tanımı}) \\\\
+                    &= f(x-7) && (g(x) \\text{ yerine yazılır}) \\\\
+                    &= (x-7)^2 && (f(x) \\text{ kuralı uygulanır}) \\\\
+                    &D = (-\\infty, \\infty) && (\\text{Polinom fonksiyon, kısıtlama yok})
+                    \\end{aligned}$$
+                    <p><b>b) g ve f'nin bileşkesi:</b></p>
+                    $$\\begin{aligned}
+                    (g \\circ f)(x) &= g(f(x)) && (\\text{Bileşke tanımı}) \\\\
+                    &= g(x^2) && (f(x) \\text{ yerine yazılır}) \\\\
+                    &= x^2 - 7 && (g(x) \\text{ kuralı uygulanır}) \\\\
+                    &D = (-\\infty, \\infty) && (\\text{Tanım kümesi tüm reel sayılardır})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 3", "İç İçe Bileşkeler",
+                    "\\(f(x) = x+1\\), \\(g(x) = 2x\\) ve \\(h(x) = x-3\\) fonksiyonları için \\((f \\circ g \\circ h)(x)\\) ifadesini bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    (f \\circ g \\circ h)(x) &= f(g(h(x))) && (\\text{İşlem sırası içeriden dışarıya doğrudur}) \\\\
+                    &= f(g(x-3)) && (h(x) \\text{ yerine yazılır}) \\\\
+                    &= f(2(x-3)) && (g \\text{ kuralı uygulanır: } 2 \\cdot \\text{girdi}) \\\\
+                    &= f(2x-6) && (\\text{Dağılma özelliği}) \\\\
+                    &= (2x-6) + 1 && (f \\text{ kuralı uygulanır: girdi } + 1) \\\\
+                    &= 2x - 5 && (\\text{Sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 4", "Bileşke Fonksiyonun Tanım Kümesi",
+                    "\\(f(x) = \\sqrt{x}\\) ve \\(g(x) = x^2-1\\) veriliyor. \\((f \\circ g)(x)\\) fonksiyonunun tanım kümesini bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    (f \\circ g)(x) &= f(g(x)) = \\sqrt{x^2-1} && (\\text{Bileşke fonksiyonun ifadesi}) \\\\
+                    x^2 - 1 &\\ge 0 && (\\text{Karekökün tanımlı olması için gereken şart}) \\\\
+                    x^2 &\\ge 1 && (\\text{Eşitsizliğin düzenlenmesi}) \\\\
+                    |x| &\\ge 1 && (\\text{Kök alınması}) \\\\
+                    x \\in (-\\infty, -1] &\\cup [1, \\infty) && (\\text{Tanım Kümesi})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 5", "Fonksiyonu Bileşenlerine Ayırma",
+                    "\\(H(x) = \\sin(x^2)\\) fonksiyonunu \\(f \\circ g\\) formunda iki fonksiyonun bileşkesi olarak yazınız.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    H(x) &= \\sin(x^2) && (\\text{Verilen bileşke yapı}) \\\\
+                    g(x) &= x^2 && (\\text{İçteki fonksiyon - ilk uygulanan}) \\\\
+                    f(u) &= \\sin(u) && (\\text{Dıştaki fonksiyon}) \\\\
+                    (f \\circ g)(x) &= f(g(x)) = \\sin(x^2) && (\\text{Sağlama: } f(x^2) = \\sin(x^2))
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 6", "Öteleme ve Değişim",
+                    "\\(y = f(x)\\) grafiği verildiğinde, \\(y = f(x-2) + 3\\) grafiğinin nasıl elde edileceğini açıklayınız.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    f(x) &\\rightarrow f(x-2) && (x \\text{'den 2 çıkarılması: Grafiği 2 birim sağa öteler}) \\\\
+                    f(x-2) &\\rightarrow f(x-2) + 3 && (\\text{Fonksiyona 3 eklenmesi: Grafiği 3 birim yukarı öteler}) \\\\
+                    &\\text{Sonuç Değişim} && (\\text{Orijinal grafik 2 birim sağa ve 3 birim yukarı kaydırılır})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 7", "Ölçekleme ve Yansıma",
+                    "\\(y = \\sqrt{x}\\) grafiğinden yararlanarak \\(y = -2\\sqrt{x}\\) grafiğinin nasıl değişeceğini analiz ediniz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    \\sqrt{x} &\\rightarrow 2\\sqrt{x} && (2 \\text{ ile çarpım: Grafik y-ekseni boyunca 2 kat dikey genişler}) \\\\
+                    2\\sqrt{x} &\\rightarrow -2\\sqrt{x} && (\\text{Eksi ile çarpım: Grafik x-eksenine göre yansıtılır (takla atar)}) \\\\
+                    &\\text{Nihai Durum} && (\\text{Dikey olarak uzatılmış ve aşağı doğru çevrilmiş bir grafik oluşur})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 8", "Uygulama: Birim Dönüşümü",
+                    "Bir mağazada fiyatlar üzerinden önce \\(20\\text{ TL}\\) indirim, sonra kalan tutar üzerinden \\(\\%10\\) vergi uygulanıyor. \\(x\\) ham fiyat ise, son fiyatı bir bileşke fonksiyon olarak ifade ediniz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    f(x) &= x - 20 && (\\text{İndirim fonksiyonu}) \\\\
+                    g(x) &= 1.10x && (\\text{Vergi ekleme fonksiyonu: } x + 0.10x) \\\\
+                    \\text{Son Fiyat} &= (g \\circ f)(x) && (\\text{Önce indirim, sonra vergi uygulanması}) \\\\
+                    (g \\circ f)(x) &= g(x-20) && (\\text{İçteki fonksiyon yerine yazılır}) \\\\
+                    &= 1.10(x-20) && (\\text{Vergi kuralı uygulanır}) \\\\
+                    &= 1.1x - 22 && (\\text{Nihai fiyat modeli})
+                    \\end{aligned}$$`
+                );
+            }
+
+            if (id === "1.3") {
+                html += createQuestion("Soru 1", "Radyan ve Derece Dönüşümü",
+                    "Aşağıdaki açı dönüşümlerini yapınız:<br>a) \\(210^\\circ\\) kaç radyandır?<br>b) \\(\\frac{5\\pi}{3}\\) radyan kaç derecedir?",
+                    `<p><i>Çözüm:</i></p>
+                    <p><b>a) Dereceden Radyana:</b></p>
+                    $$\\begin{aligned}
+                    \\theta_{rad} &= \\theta_{deg} \\cdot \\frac{\\pi}{180} && (\\text{Dönüşüm formülü}) \\\\
+                    &= 210 \\cdot \\frac{\\pi}{180} && (\\text{Değerin yerine yazılması}) \\\\
+                    &= \\frac{21 \\pi}{18} && (\\text{Sıfırların sadeleştirilmesi}) \\\\
+                    &= \\frac{7\\pi}{6} && (\\text{3 ile sadeleştirme sonucu})
+                    \\end{aligned}$$
+                    <p><b>b) Radyandan Dereceye:</b></p>
+                    $$\\begin{aligned}
+                    \\theta_{deg} &= \\theta_{rad} \\cdot \\frac{180}{\\pi} && (\\text{Dönüşüm formülü}) \\\\
+                    &= \\frac{5\\pi}{3} \\cdot \\frac{180}{\\pi} && (\\pi \\text{ değerlerinin sadeleşmesi}) \\\\
+                    &= 5 \\cdot 60 && (180/3 \\text{ işleminin yapılması}) \\\\
+                    &= 300^\\circ && (\\text{Sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 2", "Dik Üçgende Trigonometrik Oranlar",
+                    "Bir dik üçgende \\(\\theta\\) dar açısı için \\(\\sin \\theta = \\frac{3}{5}\\) olduğu biliniyor. \\(\\cos \\theta\\) ve \\(\\tan \\theta\\) değerlerini bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    \\sin \\theta &= \\frac{\\text{Karşı}}{\\text{Hipotenüs}} = \\frac{3}{5} && (\\text{Sinüs tanımı}) \\\\
+                    a^2 + b^2 &= c^2 \\implies x^2 + 3^2 = 5^2 && (\\text{Pisagor teoremi ile komşu kenar hesabı}) \\\\
+                    x^2 &= 25 - 9 = 16 \\implies x = 4 && (\\text{Komşu kenar uzunluğu}) \\\\
+                    \\cos \\theta &= \\frac{\\text{Komşu}}{\\text{Hipotenüs}} = \\frac{4}{5} && (\\text{Kosinüs oranı}) \\\\
+                    \\tan \\theta &= \\frac{\\text{Karşı}}{\\text{Komşu}} = \\frac{3}{4} && (\\text{Tanjant oranı})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 3", "Temel Özdeşliklerin Kullanımı",
+                    "\\(\\cos^2 \\theta (1 + \\tan^2 \\theta)\\) ifadesini en sade hale getiriniz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    1 + \\tan^2 \\theta &= \\sec^2 \\theta && (\\text{Pisagor özdeşliği: } 1 + \\frac{\\sin^2}{\\cos^2} = \\frac{\\cos^2+\\sin^2}{\\cos^2}) \\\\
+                    \\cos^2 \\theta (1 + \\tan^2 \\theta)\ &= \\cos^2 \\theta \\cdot \\sec^2 \\theta && (\\text{Özdeşliğin yerine yazılması}) \\\\
+                    \\sec \\theta &= \\frac{1}{\\cos \\theta} && (\\text{Sekantın kosinüs cinsinden tanımı}) \\\\
+                    &= \\cos^2 \\theta \\cdot \\frac{1}{\\cos^2 \\theta} && (\\text{Çarpma işlemi}) \\\\
+                    &= 1 && (\\text{Sadeleşme sonucu})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 4", "Periyot Hesaplama",
+                    "\\(f(x) = 3 \\cos(4x - \\pi)\\) fonksiyonunun genliğini ve periyodunu bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    f(x) &= a \\cos(kx + b) && (\\text{Genel trigonometrik form}) \\\\
+                    \\text{Genlik} &= |a| = |3| = 3 && (\\text{Dikey salınım mesafesi}) \\\\
+                    k &= 4 && (x \\text{'in katsayısı}) \\\\
+                    T &= \\frac{2\\pi}{|k|} && (\\text{Kosinüs fonksiyonunun periyot formülü}) \\\\
+                    T &= \\frac{2\\pi}{4} = \\frac{\\pi}{2} && (\\text{Periyot değeri})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 5", "Grafik Dönüşümleri (Faz Kayması)",
+                    "\\(y = \\sin(x + \\frac{\\pi}{4})\\) grafiği, standart \\(y = \\sin x\\) grafiğine göre nasıl bir değişim gösterir?",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    f(x) &= \\sin x && (\\text{Temel fonksiyon}) \\\\
+                    f(x+c) & \\implies c = \\pi/4 && (\\text{Yatay kaydırma parametresi}) \\\\
+                    x + \\frac{\\pi}{4} &= 0 \\implies x = -\\frac{\\pi}{4} && (\\text{Başlangıç noktasının yeni konumu}) \\\\
+                    &\\text{Sola Kayma} && (\\text{Grafik } \\pi/4 \\text{ birim sola ötelenir})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 6", "Birim Çember Üzerinde Değerler",
+                    "\\(\\sin(\\frac{7\\pi}{6})\\) ve \\(\\cos(\\frac{7\\pi}{6})\\) değerlerini birim çemberi düşünerek hesaplayınız.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    \\frac{7\\pi}{6} &= \\pi + \\frac{\\pi}{6} && (\\text{Açının bölgesini belirleme: 3. Bölge}) \\\\
+                    \\text{3. Bölge} & \\implies \\sin(-), \\cos(-) && (\\text{İşaret tayini}) \\\\
+                    \\sin(\\frac{7\\pi}{6}) &= -\\sin(\\frac{\\pi}{6}) = -\\frac{1}{2} && (\\text{Referans açı kullanımı}) \\\\
+                    \\cos(\\frac{7\\pi}{6}) &= -\\cos(\\frac{\\pi}{6}) = -\\frac{\\sqrt{3}}{2} && (\\text{Referans açı kullanımı})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 7", "Kosinüs Teoremi Uygulaması",
+                    "Kenarları \\(a=3\\), \\(b=5\\) ve aralarındaki açısı \\(C=60^\\circ\\) olan bir üçgende \\(c\\) kenarını bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    c^2 &= a^2 + b^2 - 2ab \\cos C && (\\text{Kosinüs Teoremi}) \\\\
+                    c^2 &= 3^2 + 5^2 - 2(3)(5) \\cos(60^\\circ) && (\\text{Değerlerin yerine yazılması}) \\\\
+                    c^2 &= 9 + 25 - 30 \\cdot \\frac{1}{2} && (\\cos 60^\\circ = 0.5 \\text{ değerinin yazılması}) \\\\
+                    c^2 &= 34 - 15 = 19 && (\\text{İşlem sonucu}) \\\\
+                    c &= \\sqrt{19} && (\\text{Kenar uzunluğu})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 8", "Tanjant ve Kotanjant İlişkisi",
+                    "\\(\\tan x + \\cot x = 4\\) ise \\(\\tan^2 x + \\cot^2 x\\) değeri kaçtır?",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    (\\tan x + \\cot x)^2 &= 4^2 && (\\text{Her iki tarafın karesinin alınması}) \\\\
+                    \\tan^2 x + 2\\tan x \\cot x + \\cot^2 x &= 16 && (\\text{Tam kare açılımı}) \\\\
+                    \\tan x \\cdot \\cot x &= 1 && (\\text{Temel trigonometrik özdeşlik}) \\\\
+                    \\tan^2 x + 2(1) + \\cot^2 x &= 16 && (\\text{Çarpımın yerine yazılması}) \\\\
+                    \\tan^2 x + \\cot^2 x &= 14 && (\\text{2'nin karşıya atılması sonucu})
+                    \\end{aligned}$$`
+                );
+            }
+
+else if (id === "1.4") {
     html += '<div class="question-container" style="border-left: 5px solid var(--accent);">';
  
     // SORU 1: Logaritma ve Rasyonel Eşitsizlik Tanım Kümesi
@@ -1645,187 +1518,104 @@ else if (id === "1.5") {
 // =========================================
             // 2.1 DEĞİŞİM ORANLARI (Proje 21)
             // =========================================
-            if (id === ("2.1")) {
-                html += createQuestion("Soru 1", "Anlık Değişim ve Teğet",
-                    "Bir reaktördeki bir maddenin derişimi, \\(t\\) saniye cinsinden (\\(t\\ge0\\)) olmak üzere, \\(C(t)=\\frac{1}{1+\\sqrt{t}}\\) mol/L denklemiyle verilmektedir.<br><br>a) \\(t=1\\) ve \\(t=4\\) arasındaki ortalama değişim oranını bulun.<br><br>b) \\(t=4\\) ve \\(t=4+h\\) arasındaki ortalama değişim oranını h cinsinden bulun.<br><br>c) \\(h\\to0\\) limiti ile \\(t=4\\) anındaki anlık değişim oranını bulun.<br><br>d) \\(t=4\\) teğet doğrusunun denklemini yazın.",
-                    `<p><i>Çözüm:</i><br></p>
-                <i>a) Ortalama Değişim Oranı:</i><br>
-                Ortalama değişim oranı \\(=\\frac{\\Delta C}{\\Delta t}=\\frac{C(4)-C(1)}{4-1}\\). Önce fonksiyon değerlerini hesaplayalım:<br>
-                \\(C(4)=\\frac{1}{1+\\sqrt{4}}=\\frac{1}{1+2}=\\frac{1}{3}\\)<br>
-                \\(C(1)=\\frac{1}{1+\\sqrt{1}}=\\frac{1}{1+1}=\\frac{1}{2}\\)<br>
-                Şimdi bu değerleri formülde yerine koyalım:<br>
-                Ortalama Oran \\(=\\frac{\\frac{1}{3}-\\frac{1}{2}}{3}=\\frac{\\frac{2-3}{6}}{3}=\\frac{-1/6}{3}=-\\frac{1}{18}\\) mol/L/s<br><br>
-
-                <i>b) Ortalama Değişim Oranı Formülü:</i><br>
-                \\(t=4\\) ve \\(t=4+h\\) arasındaki ortalama değişim oranı:<br>
-                \\[ \\frac{\\Delta C}{\\Delta t}=\\frac{C(4+h)-C(4)}{h}=\\frac{\\frac{1}{1+\\sqrt{4+h}}-\\frac{1}{3}}{h} \\]<br><br>
-
-                <i>c) Anlık Değişim Oranı (Limit Hesabı):</i><br>
-                Anlık değişim oranını bulmak için (b) şıkkındaki ifadenin \\(h\\to0\\) iken limitini almalıyız. Önce ifadeyi sadeleştirelim.<br>
-                <i>1. Adım: Payda Eşitleme (Karmaşık Kesri Sadeleştirme)</i><br>
-                \\[ \\frac{\\frac{3-(1+\\sqrt{4+h})}{3(1+\\sqrt{4+h})}}{h}=\\frac{2-\\sqrt{4+h}}{3h(1+\\sqrt{4+h})} \\]<br>
-                <i>2. Adım: Payı Eşleniği ile Çarpma (Rasyonelleştirme)</i><br>
-                Payın eşleniği olan \\((2+\\sqrt{4+h})\\) ile ifadenin payını ve paydasını çarpıyoruz:<br>
-                \\[ \\frac{2-\\sqrt{4+h}}{3h(1+\\sqrt{4+h})}\\cdot\\frac{2+\\sqrt{4+h}}{2+\\sqrt{4+h}} =\\frac{(2)^{2}-(\\sqrt{4+h})^{2}}{3h(1+\\sqrt{4+h})(2+\\sqrt{4+h})} \\]<br>
-                \\[ =\\frac{4-(4+h)}{3h(1+\\sqrt{4+h})(2+\\sqrt{4+h})} =\\frac{-h}{3h(1+\\sqrt{4+h})(2+\\sqrt{4+h})} \\]<br>
-                <i>3. Adım: Sadeleştirme ve Limit Alma</i><br>
-                \\(h\\ne0\\) olduğu için h'leri sadeleştirebiliriz:<br>
-                \\[ \\frac{-1}{3(1+\\sqrt{4+h})(2+\\sqrt{4+h})} \\]<br>
-                Şimdi \\(h\\to0\\) limitini alabiliriz:<br>
-                \\[ \\lim_{h\\to0}\\frac{-1}{3(1+\\sqrt{4+h})(2+\\sqrt{4+h})}=\\frac{-1}{3(1+\\sqrt{4+0})(2+\\sqrt{4+0})} \\]<br>
-                \\[ =\\frac{-1}{3(1+\\sqrt{4})(2+\\sqrt{4})} =\\frac{-1}{3(1+2)(2+2)} =\\frac{-1}{3(3)(4)}=-\\frac{1}{36} \\]<br>
-                \\(t=4\\) anındaki anlık değişim oranı \\(-\\frac{1}{36}\\) mol/L/s'dir.<br><br>
-
-                <i>d) Teğet Doğrusunun Denklemi:</i><br>
-                Teğet doğrusunun denklemini \\(y-y_{0}=m(t-t_{0})\\) formülüyle bulabiliriz.<br>
-                • Nokta: \\((t_{0},y_{0})\\). Burada \\(t_{0}=4\\) ve \\(y_{0}=C(4)=\\frac{1}{3}\\). Noktamız \\((4,\\frac{1}{3})\\).<br>
-                • Eğim: m. Eğim, \\(t=4\\) anındaki anlık değişim oranıdır. \\(m=-\\frac{1}{36}\\)<br>
-                Değerleri yerine koyarsak:<br>
-                \\[ y-\\frac{1}{3}=-\\frac{1}{36}(t-4) \\]<br>
-                Bu, teğet doğrusunun denklemidir.`
-                );
-                // SORU 1 - Ortalama Değişim Oranı
-                html += createQuestion("Soru 2", "Ortalama Değişim Oranı",
-                    "\\(f(x) = x^3 + 1\\) fonksiyonunun \\([2, 3]\\) ve \\([-1, 1]\\) aralıklarındaki ortalama değişim oranını bulun.",
-                    `<p><i>Çözüm:</i><br></p>
-<i>a) [2, 3] aralığı için:</i><br>
-Ortalama değişim oranı \\(=\\frac{\\Delta y}{\\Delta x}=\\frac{f(3)-f(2)}{3-2}\\). Önce fonksiyon değerlerini hesaplayalım:<br>
-\\(f(3) = 3^3 + 1 = 27 + 1 = 28\\)<br>
-\\(f(2) = 2^3 + 1 = 8 + 1 = 9\\)<br>
-Şimdi bu değerleri formülde yerine koyalım:<br>
-Ortalama Oran \\(=\\frac{28 - 9}{1} = \\frac{19}{1} = 19\\)<br><br>
-
-<i>b) [-1, 1] aralığı için:</i><br>
-Ortalama değişim oranı \\(=\\frac{f(1)-f(-1)}{1-(-1)}\\). Fonksiyon değerleri:<br>
-\\(f(1) = 1^3 + 1 = 1 + 1 = 2\\)<br>
-\\(f(-1) = (-1)^3 + 1 = -1 + 1 = 0\\)<br>
-Değerleri formüle yerleştirelim:<br>
-Ortalama Oran \\(=\\frac{2 - 0}{1 + 1} = \\frac{2}{2} = 1\\)`
+            if (id === "2.1") {
+                html += createQuestion("Soru 1", "Ortalama Değişim Oranı",
+                    "\\(f(x) = x^2 + 1\\) fonksiyonunun \\([1, 3]\\) aralığındaki ortalama değişim oranını bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    x_1 &= 1, \\quad x_2 = 3 && (\\text{Aralık sınırları}) \\\\
+                    f(1) &= 1^2 + 1 = 2 && (\\text{Başlangıç değeri}) \\\\
+                    f(3) &= 3^2 + 1 = 10 && (\\text{Bitiş değeri}) \\\\
+                    m_{ort} &= \\frac{f(3) - f(1)}{3 - 1} && (\\text{Değişim oranı formülü}) \\\\
+                    m_{ort} &= \\frac{10 - 2}{2} = 4 && (\\text{İşlem sonucu})
+                    \\end{aligned}$$`
                 );
 
-                // SORU 2 - Eğrinin Eğimi ve Limit
-                html += createQuestion("Soru 3", "Eğrinin Eğimi ve Limit",
-                    "\\(y = x^2 - 2x\\) eğrisinin \\(x=3\\) noktasındaki eğimini, kesen doğrularının eğiminin limitini alarak bulun.",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Kesen Doğrusunun Eğimini (\\(m_{kesen}\\)) Bulma</i><br>
-\\(x=3\\) ve \\(x=3+h\\) noktaları arasındaki eğim formülü: \\(m_{kesen} = \\frac{f(3+h) - f(3)}{h}\\)<br>
-Önce \\(f(3)\\) ve \\(f(3+h)\\) değerlerini hesaplayalım:<br>
-\\(f(3) = 3^2 - 2(3) = 9 - 6 = 3\\)<br>
-\\(f(3+h) = (3+h)^2 - 2(3+h) = (9 + 6h + h^2) - (6 + 2h) = h^2 + 4h + 3\\)<br><br>
-
-<i>Adım 2: Değerleri Yerine Koyma ve Sadeleştirme</i><br>
-\\(m_{kesen} = \\frac{(h^2 + 4h + 3) - 3}{h} = \\frac{h^2 + 4h}{h}\\)<br>
-Pay kısmını \\(h\\) parantezine alalım:<br>
-\\(m_{kesen} = \\frac{h(h + 4)}{h} = h + 4\\)  (Burada \\(h \\neq 0\\))<br><br>
-
-<i>Adım 3: Teğetin Eğimi İçin Limit Alma</i><br>
-\\(m = \\lim_{h \\to 0} (h + 4) = 0 + 4 = 4\\)`
+                html += createQuestion("Soru 2", "Teğetin Eğimi (Limit Tanımı)",
+                    "\\(f(x) = x^2\\) eğrisine \\(P(2, 4)\\) noktasında teğet olan doğrunun eğimini limit tanımını kullanarak bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    m &= \\lim_{h \\to 0} \\frac{f(2+h) - f(2)}{h} && (\\text{Türev/Eğim tanımı: } x_0=2) \\\\
+                    &= \\lim_{h \\to 0} \\frac{(2+h)^2 - 2^2}{h} && (\\text{Fonksiyon kuralının uygulanması}) \\\\
+                    &= \\lim_{h \\to 0} \\frac{4 + 4h + h^2 - 4}{h} && (\\text{Tam kare açılımı}) \\\\
+                    &= \\lim_{h \\to 0} \\frac{4h + h^2}{h} && (\\text{Sadeleştirme}) \\\\
+                    &= \\lim_{h \\to 0} (4 + h) && (h \\text{ parantezine alıp sadeleştirme}) \\\\
+                    m &= 4 && (h=0 \\text{ limit değeri})
+                    \\end{aligned}$$`
                 );
 
-                // SORU 3 - Teğet Doğrusunun Denklemi
-                html += createQuestion("Soru 4", "Teğet Doğrusunun Denklemi",
-                    "\\(f(x) = \\frac{1}{x}\\) eğrisine \\(x=2\\) noktasından çizilen teğet doğrusunun denklemini bulun.",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Teğet Noktasını Bulma</i><br>
-\\(x=2\\) için \\(y = f(2) = \\frac{1}{2}\\). Teğet noktamız: \\((2, \\frac{1}{2})\\).<br><br>
-
-<i>Adım 2: Eğimi (m) Bulma</i><br>
-\\(m = \\lim_{h \\to 0} \\frac{f(2+h) - f(2)}{h}\\)<br>
-\\(f(2+h) = \\frac{1}{2+h}\\) ve \\(f(2) = \\frac{1}{2}\\) yerine yazalım:<br>
-\\(m = \\lim_{h \\to 0} \\frac{\\frac{1}{2+h} - \\frac{1}{2}}{h}\\)<br>
-Pay kısmında payda eşitleyelim (soldakini 2 ile, sağdakini \\(2+h\\) ile genişletelim):<br>
-\\(= \\lim_{h \\to 0} \\frac{\\frac{2 - (2+h)}{2(2+h)}}{h} = \\lim_{h \\to 0} \\frac{\\frac{2 - 2 - h}{4+2h}}{h} = \\lim_{h \\to 0} \\frac{\\frac{-h}{4+2h}}{h}\\)<br>
-\\(h\\)'ları sadeleştirelim:<br>
-\\(= \\lim_{h \\to 0} \\frac{-1}{4+2h} = \\frac{-1}{4+2(0)} = -\\frac{1}{4}\\)<br><br>
-
-<i>Adım 3: Doğru Denklemini Yazma</i><br>
-Formül: \\(y - y_1 = m(x - x_1)\\)<br>
-\\(y - \\frac{1}{2} = -\\frac{1}{4}(x - 2)\\)<br>
-\\(y = -\\frac{1}{4}x + \\frac{2}{4} + \\frac{1}{2} \\implies y = -\\frac{1}{4}x + 1\\)`
+                html += createQuestion("Soru 3", "Teğet Doğrusu Denklemi",
+                    "\\(y = \\frac{1}{x}\\) eğrisine \\(x = 2\\) noktasında teğet olan doğrunun denklemini bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    x_0 &= 2 \\implies y_0 = \\frac{1}{2} && (\\text{Teğet noktasının koordinatları: } (2, 1/2)) \\\\
+                    m &= \\lim_{h \\to 0} \\frac{f(2+h) - f(2)}{h} && (\\text{Eğim tanımı}) \\\\
+                    &= \\lim_{h \\to 0} \\frac{\\frac{1}{2+h} - \\frac{1}{2}}{h} && (\\text{Fonksiyon değerlerinin yazılması}) \\\\
+                    &= \\lim_{h \\to 0} \\frac{\\frac{2 - (2+h)}{2(2+h)}}{h} && (\\text{Payda eşitleme}) \\\\
+                    &= \\lim_{h \\to 0} \\frac{-h}{2h(2+h)} = -\\frac{1}{4} && (\\text{Sadeleştirme ve limit hesabı}) \\\\
+                    y - y_0 &= m(x - x_0) && (\\text{Noktası ve eğimi bilinen doğru denklemi}) \\\\
+                    y - \\frac{1}{2} &= -\\frac{1}{4}(x - 2) && (\\text{Denklemin oluşturulması})
+                    \\end{aligned}$$`
                 );
 
-                // SORU 4 - Serbest Düşme (Ortalama ve Anlık Hız)
-                html += createQuestion("Soru 5", "Ortalama ve Anlık Hız (Serbest Düşme)",
-                    "Yüksek bir binadan bırakılan bir taşın \\(t\\) saniye sonra düştüğü mesafe \\(y = 16t^2\\) (ft) olarak verilmektedir.<br><br>a) Taşın 1. ve 2. saniyeler (\\(t=1\\) ve \\(t=2\\)) arasındaki ortalama hızını bulun.<br>b) Tam \\(t=2\\). saniyedeki anlık hızını bulun.",
-                    `<p><i>Çözüm:</i><br></p>
-<i>a) Ortalama Hız (\\(t=1\\) ile \\(t=2\\) arası):</i><br>
-Ortalama Hız \\(=\\frac{\\Delta y}{\\Delta t}=\\frac{y(2)-y(1)}{2-1}\\)<br>
-Değerleri hesaplayalım:<br>
-\\(y(2) = 16(2^2) = 16(4) = 64\\)<br>
-\\(y(1) = 16(1^2) = 16(1) = 16\\)<br>
-Formülde yerine koyalım:<br>
-Ortalama Hız \\(=\\frac{64 - 16}{1} = 48\\) ft/sn.<br><br>
-
-<i>b) Anlık Hız (\\(t=2\\) anında):</i><br>
-Anlık Hız \\(v = \\lim_{h \\to 0} \\frac{y(2+h) - y(2)}{h}\\)<br>
-\\(y(2+h) = 16(2+h)^2 = 16(4 + 4h + h^2) = 64 + 64h + 16h^2\\)<br>
-\\(y(2) = 64\\)<br>
-Yerine yazalım:<br>
-\\(v = \\lim_{h \\to 0} \\frac{(64 + 64h + 16h^2) - 64}{h} = \\lim_{h \\to 0} \\frac{64h + 16h^2}{h}\\)<br>
-Pay kısmını \\(h\\) parantezine alalım:<br>
-\\(= \\lim_{h \\to 0} \\frac{h(64 + 16h)}{h} = \\lim_{h \\to 0} (64 + 16h) = 64 + 16(0) = 64\\) ft/sn.`
+                html += createQuestion("Soru 4", "Anlık Hız (Fiziksel Uygulama)",
+                    "Serbest düşen bir nesnenin \\(t\\) saniyede aldığı yol \\(s(t) = 4.9t^2\\) metredir. \\(t=2\\) saniyedeki anlık hızını bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    v(2) &= \\lim_{h \\to 0} \\frac{s(2+h) - s(2)}{h} && (\\text{Anlık hız = Konumun değişim oranı}) \\\\
+                    &= \\lim_{h \\to 0} \\frac{4.9(2+h)^2 - 4.9(2)^2}{h} && (\\text{Fonksiyonun yazılması}) \\\\
+                    &= \\lim_{h \\to 0} \\frac{4.9(4 + 4h + h^2) - 19.6}{h} && (\\text{Kare açılımı}) \\\\
+                    &= \\lim_{h \\to 0} \\frac{19.6h + 4.9h^2}{h} && (\\text{Sabitlerin sadeleşmesi}) \\\\
+                    &= \\lim_{h \\to 0} (19.6 + 4.9h) && (h \\text{'lerin sadeleşmesi}) \\\\
+                    &= 19.6 \\text{ m/s} && (\\text{Limit sonucu: Anlık hız})
+                    \\end{aligned}$$`
                 );
 
-                // SORU 5 - Geometrik Değişim Oranı
-                html += createQuestion("Soru 6", "Değişim Oranı Uygulaması (Alan)",
-                    "Bir çemberin alanı \\(A(r) = \\pi r^2\\) formülü ile verilir. Yarıçap \\(r=2\\)'den \\(r=3\\)'e değiştiğinde alanın <b>ortalama değişim oranını</b> ve tam \\(r=2\\) anındaki <b>anlık değişim oranını</b> bulun.",
-                    `<p><i>Çözüm:</i><br></p>
-<i>a) Ortalama Değişim Oranı:</i><br>
-\\(\\frac{\\Delta A}{\\Delta r} = \\frac{A(3) - A(2)}{3 - 2}\\)<br>
-\\(A(3) = \\pi (3^2) = 9\\pi\\)<br>
-\\(A(2) = \\pi (2^2) = 4\\pi\\)<br>
-\\(\\frac{\\Delta A}{\\Delta r} = \\frac{9\\pi - 4\\pi}{1} = 5\\pi\\)<br><br>
-
-<i>b) Anlık Değişim Oranı (\\(r=2\\)):</i><br>
-Anlık Değişim \\(= \\lim_{h \\to 0} \\frac{A(2+h) - A(2)}{h}\\)<br>
-\\(A(2+h) = \\pi(2+h)^2 = \\pi(4 + 4h + h^2) = 4\\pi + 4\\pi h + \\pi h^2\\)<br>
-\\(A(2) = 4\\pi\\)<br>
-Limit işlemine geçelim:<br>
-\\(= \\lim_{h \\to 0} \\frac{(4\\pi + 4\\pi h + \\pi h^2) - 4\\pi}{h} = \\lim_{h \\to 0} \\frac{4\\pi h + \\pi h^2}{h}\\)<br>
-\\(= \\lim_{h \\to 0} \\frac{h(4\\pi + \\pi h)}{h} = \\lim_{h \\to 0} (4\\pi + \\pi h) = 4\\pi + 0 = 4\\pi\\)`
+                html += createQuestion("Soru 5", "Normal Doğrusu Denklemi",
+                    "\\(f(x) = \\sqrt{x}\\) fonksiyonuna \\(x = 4\\) noktasında dik olan (normal) doğrunun eğimini bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    m_{teğet} &= \\lim_{h \\to 0} \\frac{\\sqrt{4+h} - 2}{h} && (\\text{Teğet eğimi tanımı}) \\\\
+                    &= \\lim_{h \\to 0} \\frac{(\\sqrt{4+h}-2)(\\sqrt{4+h}+2)}{h(\\sqrt{4+h}+2)} && (\\text{Eşlenik ile çarpma}) \\\\
+                    &= \\lim_{h \\to 0} \\frac{4+h-4}{h(\\sqrt{4+h}+2)} = \\frac{1}{4} && (\\text{Sadeleştirme ve limit}) \\\\
+                    m_{normal} &= -\\frac{1}{m_{teğet}} && (\\text{Dik doğruların eğimleri çarpımı -1'dir}) \\\\
+                    m_{normal} &= -\\frac{1}{1/4} = -4 && (\\text{Normal doğrusunun eğimi})
+                    \\end{aligned}$$`
                 );
 
-                // SORU 6 - Köklü Fonksiyon Limitleri (Eşlenik Çarpımı)
-                html += createQuestion("Soru 7", "Köklü Fonksiyonlarda Teğet Eğimi",
-                    "\\(y = \\sqrt{x}\\) eğrisinin \\(x=9\\) noktasındaki teğetinin eğimini limit tanımıyla bulun.",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Limit Tanımını Kurma</i><br>
-\\(m = \\lim_{h \\to 0} \\frac{f(9+h) - f(9)}{h}\\)<br>
-\\(f(9+h) = \\sqrt{9+h}\\)<br>
-\\(f(9) = \\sqrt{9} = 3\\)<br>
-Limit: \\(m = \\lim_{h \\to 0} \\frac{\\sqrt{9+h} - 3}{h}\\)<br><br>
-
-<i>Adım 2: Eşlenik ile Çarpma</i><br>
-0/0 belirsizliğinden kurtulmak için pay ve paydayı payın eşleniği olan \\((\\sqrt{9+h} + 3)\\) ile çarparız:<br>
-\\(m = \\lim_{h \\to 0} \\frac{(\\sqrt{9+h} - 3)(\\sqrt{9+h} + 3)}{h(\\sqrt{9+h} + 3)}\\)<br>
-İki kare farkından pay kısmı: \\((\\sqrt{9+h})^2 - 3^2 = 9+h - 9 = h\\) olur.<br><br>
-
-<i>Adım 3: Sadeleştirme ve Sonuç</i><br>
-\\(m = \\lim_{h \\to 0} \\frac{h}{h(\\sqrt{9+h} + 3)}\\)<br>
-\\(h\\)'ları sadeleştirirsek:<br>
-\\(m = \\lim_{h \\to 0} \\frac{1}{\\sqrt{9+h} + 3} = \\frac{1}{\\sqrt{9+0} + 3} = \\frac{1}{3 + 3} = \\frac{1}{6}\\)`
+                html += createQuestion("Soru 6", "Sekant ve Teğet İlişkisi",
+                    "\\(y = x^3\\) eğrisi üzerinde \\(P(1, 1)\\) ve \\(Q(1+h, f(1+h))\\) noktalarından geçen sekant doğrusunun eğimini \\(h\\) cinsinden yazınız.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    m_{sekant} &= \\frac{f(1+h) - f(1)}{(1+h) - 1} && (\\text{İki noktadan geçen doğru eğimi}) \\\\
+                    &= \\frac{(1+h)^3 - 1^3}{h} && (\\text{Küp açılımı uygulanacak}) \\\\
+                    &= \\frac{1 + 3h + 3h^2 + h^3 - 1}{h} && (\\text{Binom açılımı}) \\\\
+                    &= \\frac{3h + 3h^2 + h^3}{h} && (\\text{Sadeleştirme}) \\\\
+                    &= 3 + 3h + h^2 && (h \\text{ ile bölme sonucu})
+                    \\end{aligned}$$`
                 );
 
-                // SORU 7 - Rasyonel Fonksiyon Modellemeleri
-                html += createQuestion("Soru 8", "Rasyonel Fonksiyon Modellemeleri",
-                    "Bir popülasyon modeli \\(P(t) = 50 + \\frac{20}{t}\\) (bin kişi) şeklinde verilmektedir (\\(t \\ge 1\\), gün). \\(t=4\\). gündeki <b>anlık değişim oranını</b> limit ile bulun.",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Formülü Hazırlama</i><br>
-\\(P'(4) = \\lim_{h \\to 0} \\frac{P(4+h) - P(4)}{h}\\)<br>
-\\(P(4+h) = 50 + \\frac{20}{4+h}\\)<br>
-\\(P(4) = 50 + \\frac{20}{4} = 50 + 5 = 55\\)<br><br>
+                html += createQuestion("Soru 7", "Hızlanma ve Ortalama Hız",
+                    "Bir araç \\(t=0\\) ile \\(t=2\\) saatleri arasında \\(100\\text{ km}\\) yol almıştır. Aracın bu süre zarfındaki ortalama hızı nedir?",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    \\Delta s &= 100 \\text{ km} && (\\text{Toplam yer değiştirme}) \\\\
+                    \\Delta t &= 2 - 0 = 2 \\text{ saat} && (\\text{Geçen toplam süre}) \\\\
+                    v_{ort} &= \\frac{\\Delta s}{\\Delta t} && (\\text{Ortalama hız formülü}) \\\\
+                    &= \\frac{100}{2} = 50 \\text{ km/sa} && (\\text{Sonuç})
+                    \\end{aligned}$$`
+                );
 
-<i>Adım 2: Limit İşlemi ve Kesirleri Düzenleme</i><br>
-\\(\\lim_{h \\to 0} \\frac{\\left(50 + \\frac{20}{4+h}\\right) - 55}{h} = \\lim_{h \\to 0} \\frac{\\frac{20}{4+h} - 5}{h}\\)<br>
-Pay kısmında payda eşitleyelim (5'i \\(4+h\\) ile genişletelim):<br>
-\\(= \\lim_{h \\to 0} \\frac{\\frac{20 - 5(4+h)}{4+h}}{h} = \\lim_{h \\to 0} \\frac{\\frac{20 - 20 - 5h}{4+h}}{h}\\)<br>
-\\(= \\lim_{h \\to 0} \\frac{\\frac{-5h}{4+h}}{h}\\)<br><br>
-
-<i>Adım 3: Sadeleştirme</i><br>
-Kesri ters çevirip çarpalım:<br>
-\\(= \\lim_{h \\to 0} \\frac{-5h}{h(4+h)}\\)<br>
-\\(h\\)'ları sadeleştirirsek:<br>
-\\(= \\lim_{h \\to 0} \\frac{-5}{4+h} = \\frac{-5}{4+0} = -\\frac{5}{4}\\) (Yani günde -1.25 bin, 1250 kişi azalma hızı)`
+                html += createQuestion("Soru 8", "Kritik Yorum: Değişim Oranı",
+                    "Bir doğrunun (\\(y = mx + n\\)) üzerindeki herhangi bir aralıkta ortalama değişim oranı nedir?",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    f(x) &= mx + n && (\\text{Doğrusal fonksiyon}) \\\\
+                    \\frac{f(x_2)-f(x_1)}{x_2-x_1} &= \\frac{(mx_2+n)-(mx_1+n)}{x_2-x_1} && (\\text{Değişim oranı tanımı}) \\\\
+                    &= \\frac{m(x_2-x_1)}{x_2-x_1} && (n \\text{'lerin gitmesi ve m parantezi}) \\\\
+                    &= m && (\\text{Sabit değişim oranı}) \\\\
+                    &\\text{Yorum} && (\\text{Doğrusal fonksiyonlarda değişim oranı her zaman sabittir ve eğime eşittir})
+                    \\end{aligned}$$`
                 );
             }
 
@@ -1833,199 +1623,91 @@ Kesri ters çevirip çarpalım:<br>
             // 2.2 LİMİT KURALLARI (Proje 22)
             // =========================================
             else if (id === ("2.2")) {
-                html += createQuestion("Soru 1", "Karmaşık Kesir",
-                    "\\( \\lim_{x\\to-2}\\frac{\\frac{1}{x+1}+1}{x+2} \\) limitini hesaplayınız.",
-                    `<p><i>Çözüm:</i><br></p>
-                \\(x=-2\\) değerini doğrudan yerine koyarsak \\(\\frac{\\frac{1}{-1}+1}{-2+2}=\\frac{0}{0}\\) belirsizliği elde ederiz. Bu nedenle, ifadeyi sadeleştirmemiz gerekir.<br>
-                \\[ \\lim_{x\\to-2}\\frac{\\frac{1}{x+1}+1}{x+2}=\\lim_{x\\to-2}\\frac{\\frac{1+(x+1)}{x+1}}{x+2} \\quad \\text{(Paydaları eşitleme)} \\]<br>
-                \\[ =\\lim_{x\\to-2}\\frac{\\frac{x+2}{x+1}}{x+2} \\]<br>
-                \\[ =\\lim_{x\\to-2}\\frac{x+2}{x+1}\\cdot\\frac{1}{x+2} \\quad \\text{(Ters çevirip çarpma)} \\]<br>
-                \\[ =\\lim_{x\\to-2}\\frac{1}{x+1} \\quad \\text{(x != -2 için (x+2) terimlerini sadeleştirme)} \\]<br>
-                \\[ =\\frac{1}{-2+1}=\\frac{1}{-1}=-1 \\]`
+                html += createQuestion("Soru 1", "Limitin Doğrusallık Kuralları",
+                    "\\(\\lim_{x \\to c} f(x) = 5\\) ve \\(\\lim_{x \\to c} g(x) = -2\\) olduğuna göre, \\(\\lim_{x \\to c} [4f(x) - 3g(x)]\\) limitini bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    L &= 4\\lim f(x) - 3\\lim g(x) && (\\text{Sabit çarpım ve fark kuralı}) \\\\
+                    L &= 4(5) - 3(-2) && (\\text{Verilen değerlerin yerine yazılması}) \\\\
+                    L &= 20 + 6 = 26 && (\\text{İşlem sonucu})
+                    \\end{aligned}$$`
                 );
 
-                html += createQuestion("Soru 2", "Küp Kökü Rasyonelleştirme",
-                    "\\( \\lim_{x\\to8}\\frac{\\sqrt[3]{x}-2}{x-8} \\) limitini hesaplayınız.",
-                    `<p><i>Çözüm:</i><br></p>
-                \\(x=8\\) değerini doğrudan yerine koyarsak \\(\\frac{\\sqrt[3]{8}-2}{8-8}=\\frac{2-2}{0}=\\frac{0}{0}\\) belirsizliği elde ederiz.<br>
-                \\(a^{3}-b^{3}=(a-b)(a^{2}+ab+b^{2})\\) formülünü \\(a=\\sqrt[3]{x}\\) ve \\(b=2\\) için kullanacağız.<br>
-                Paydadaki \\(x-8\\) ifadesini \\((\\sqrt[3]{x})^{3}-2^{3}\\) olarak görebiliriz.<br>
-                \\[ \\lim_{x\\to8}\\frac{\\sqrt[3]{x}-2}{x-8}=\\lim_{x\\to8}\\frac{\\sqrt[3]{x}-2}{(\\sqrt[3]{x})^{3}-2^{3}} \\]<br>
-                \\[ =\\lim_{x\\to8}\\frac{\\sqrt[3]{x}-2}{(\\sqrt[3]{x}-2)((\\sqrt[3]{x})^{2}+2\\sqrt[3]{x}+2^{2})} \\quad \\text{(İki küp farkı)} \\]<br>
-                \\[ =\\lim_{x\\to8}\\frac{1}{(\\sqrt[3]{x})^{2}+2\\sqrt[3]{x}+4} \\quad \\text{(Sadeleştirme)} \\]<br>
-                \\[ =\\frac{1}{(\\sqrt[3]{8})^{2}+2\\sqrt[3]{8}+4} \\quad \\text{(Limiti yerine koyma)} \\]<br>
-                \\[ =\\frac{1}{(2)^{2}+2(2)+4}=\\frac{1}{4+4+4}=\\frac{1}{12} \\]`
+                html += createQuestion("Soru 2", "Çarpım ve Bölüm Kuralı",
+                    "\\(\\lim_{x \\to 1} f(x) = 8\\) ve \\(\\lim_{x \\to 1} g(x) = 2\\) ise \\(\\lim_{x \\to 1} \\frac{f(x) \\cdot g(x)}{f(x) - g(x)}\\) limitini hesaplayınız.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    L &= \\frac{\\lim f(x) \\cdot \\lim g(x)}{\\lim f(x) - \\lim g(x)} && (\\text{Bölüm ve çarpım kuralının uygulanması}) \\\\
+                    L &= \\frac{8 \\cdot 2}{8 - 2} && (\\text{Limit değerlerinin yazılması}) \\\\
+                    L &= \\frac{16}{6} = \\frac{8}{3} && (\\text{Sadeleştirme ve sonuç})
+                    \\end{aligned}$$`
                 );
 
-                html += createQuestion("Soru 3", "Limit Kuralları",
-                    "\\( \\lim_{x\\to1}\\frac{(x^{2}+3)\\sqrt{x+8}}{x-4} \\) limitini hesaplayınız.",
-                    `<p><i>Çözüm:</i><br></p>
-                \\(x=1\\) noktasında, payda \\(\\lim_{x\\to1}(x-4)=-3\\ne0\\) olduğundan, bu bir \\(\\frac{0}{0}\\) belirsizliği değildir. Fonksiyon, tanım kümesi içinde (yani \\(x=1\\)'de) süreklidir.<br>
-                Bu nedenle, limiti bulmak için Limit Kurallarını (Bölüm, Çarpım, Kök) uygulayarak doğrudan yerine koyma yapabiliriz.<br>
-                \\[ \\lim_{x\\to1}\\frac{(x^{2}+3)\\sqrt{x+8}}{x-4}=\\frac{\\lim_{x\\to1}(x^{2}+3)\\cdot\\lim_{x\\to1}\\sqrt{x+8}}{\\lim_{x\\to1}(x-4)} \\]<br>
-                \\[ =\\frac{(1^{2}+3)\\cdot\\sqrt{1+8}}{1-4} \\quad \\text{(Doğrudan Yerine Koyma)} \\]<br>
-                \\[ =\\frac{(4)\\cdot\\sqrt{9}}{-3}=\\frac{4\\cdot3}{-3}=\\frac{12}{-3}=-4 \\]`
+                html += createQuestion("Soru 3", "Polinom Fonksiyonlarda Limit",
+                    "\\(\\lim_{x \\to 3} (2x^2 - 4x + 1)\\) limitini bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    L &= 2(3)^2 - 4(3) + 1 && (\\text{Polinomlarda doğrudan yerine koyma}) \\\\
+                    L &= 2(9) - 12 + 1 && (\\text{Üs alma ve çarpma işlemleri}) \\\\
+                    L &= 18 - 12 + 1 = 7 && (\\text{Toplama işleminin sonucu})
+                    \\end{aligned}$$`
                 );
 
-                html += createQuestion("Soru 4", "Soyut Limit Kuralları",
-                    "\\(f(x)\\) ve \\(g(x)\\) fonksiyonları için \\(\\lim_{x\\to c}f(x)=2\\) ve \\(\\lim_{x\\to c}g(x)=-3\\) olduğu biliniyor.<br>Buna göre \\(\\lim_{x\\to c}\\frac{f(x)^{3}+1}{x\\cdot g(x)-f(x)}\\) limitini bulunuz.",
-                    `<p><i>Çözüm:</i><br></p>
-                Verilenler: \\(\\lim_{x\\to c}f(x)=2\\) ve \\(\\lim_{x\\to c}g(x)=-3\\).<br>
-                \\[ \\lim_{x\\to c}\\frac{f(x)^{3}+1}{x\\cdot g(x)-f(x)}=\\frac{\\lim_{x\\to c}(f(x)^{3}+1)}{\\lim_{x\\to c}(x\\cdot g(x)-f(x))} \\quad \\text{(Bölüm Kuralı)} \\]<br>
-                \\[ =\\frac{\\lim_{x\\to c}f(x)^{3}+\\lim_{x\\to c}1}{\\lim_{x\\to c}(x\\cdot g(x))-\\lim_{x\\to c}f(x)} \\quad \\text{(Toplam/Fark Kuralları)} \\]<br>
-                \\[ =\\frac{(\\lim_{x\\to c}f(x))^{3}+1}{(\\lim_{x\\to c}x\\cdot\\lim_{x\\to c}g(x))-\\lim_{x\\to c}f(x)} \\quad \\text{(Kuvvet/Çarpım Kuralları)} \\]<br>
-                \\[ =\\frac{(2)^{3}+1}{(c\\cdot(-3))-2} \\quad \\text{(Değerleri yerine koyma)} \\]<br>
-                \\[ =\\frac{8+1}{-3c-2}=\\frac{9}{-3c-2} \\text{ veya } -\\frac{9}{3c+2} \\]`
+                html += createQuestion("Soru 4", "Rasyonel Fonksiyon (Yerine Koyma)",
+                    "\\(\\lim_{x \\to -1} \\frac{x^3 + 4x^2 - 3}{x^2 + 5}\\) limitini hesaplayınız.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    P(-1) &= (-1)^3 + 4(-1)^2 - 3 && (\\text{Payın limit hesabı}) \\\\
+                    P(-1) &= -1 + 4 - 3 = 0 && (\\text{Payın değeri}) \\\\
+                    Q(-1) &= (-1)^2 + 5 = 6 && (\\text{Paydanın limit hesabı}) \\\\
+                    L &= \\frac{0}{6} = 0 && (\\text{Bölüm kuralı ile nihai sonuç})
+                    \\end{aligned}$$`
                 );
 
-                html += createQuestion("Soru 5", "Sıkıştırma Teoremi",
-                    "\\( \\lim_{x\\to0}\\frac{x^{2}}{4+\\cos(\\frac{1}{x})} \\) limitini hesaplayınız.",
-                    `<p><i>Çözüm:</i><br></p>
-                Bu limiti hesaplamak için Sıkıştırma (Sandviç) Teoremi'ni kullanacağız.<br>
-                <i>1. Adım: Sınırlı Fonksiyonu Belirleme</i><br>
-                Sınırlı olan kısım \\(\\frac{1}{4+\\cos(1/x)}\\)'dir. Biliyoruz ki, \\(x\\ne0\\) olan tüm x değerleri için:<br>
-                \\[ -1\\le\\cos(\\frac{1}{x})\\le1 \\]<br>
-                Eşitsizliğin her tarafına 4 eklersek:<br>
-                \\[ 4-1\\le4+\\cos(\\frac{1}{x})\\le4+1 \\implies 3\\le4+\\cos(\\frac{1}{x})\\le5 \\]<br>
-                Payda her zaman pozitif ve asla sıfır değil. Eşitsizliğin tersini alırsak (eşitsizlik yön değiştirir):<br>
-                \\[ \\frac{1}{5}\\le\\frac{1}{4+\\cos(\\frac{1}{x})}\\le\\frac{1}{3} \\]<br>
-                <i>2. Adım: Sıkıştırma Teoremi'ni Uygulama</i><br>
-                Eşitsizliğin her tarafını \\(x^{2}\\) ile çarpıyoruz. \\(x\\to0\\) iken \\(x^{2}\\) her zaman \\(\\ge0\\) olduğundan, eşitsizlik yön değiştirmez:<br>
-                \\[ \\frac{x^{2}}{5}\\le\\frac{x^{2}}{4+\\cos(\\frac{1}{x})}\\le\\frac{x^{2}}{3} \\]<br>
-                <i>3. Adım: Kenarların Limitini Alma</i><br>
-                Şimdi sıkıştıran fonksiyonların (alt ve üst sınırların) \\(x\\to0\\) iken limitini alıyoruz:<br>
-                \\[ \\lim_{x\\to0}\\frac{x^{2}}{5}=\\frac{0}{5}=0 \\]<br>
-                \\[ \\lim_{x\\to0}\\frac{x^{2}}{3}=\\frac{0}{3}=0 \\]<br>
-                <i>4. Adım: Sonuç</i><br>
-                Alt limit ve üst limit 0'a eşit olduğundan, Sıkıştırma Teoremi'ne göre ortadaki fonksiyonun limiti de 0 olmalıdır.<br>
-                \\[ \\lim_{x\\to0}\\frac{x^{2}}{4+\\cos(\\frac{1}{x})}=0 \\]`
-                );
-                // SORU 1 - Polinomlarda Limit Kuralları
-                html += createQuestion("Soru 6", "Limit Kuralları ve Doğrudan Yerine Koyma",
-                    "Aşağıdaki limiti hesaplayın:<br>\\[ \\lim_{x \\to 2} (3x^2 - 5x + 4) \\]",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Fonksiyon Türünü Belirleme</i><br>
-\\(f(x) = 3x^2 - 5x + 4\\) bir polinom fonksiyondur. Polinomlarda limit alırken x değerini doğrudan yerine koyabiliriz.<br><br>
-<i>Adım 2: Değeri Yerine Koyma ve Hesaplama</i><br>
-\\(= 3(2)^2 - 5(2) + 4\\)<br>
-\\(= 3(4) - 10 + 4\\)<br>
-\\(= 12 - 10 + 4\\)<br>
-\\(= 6\\)<br><br>
-<b>Sonuç:</b> Limit değeri 6'dır.`
+                html += createQuestion("Soru 5", "Kök ve Kuvvet Kuralı",
+                    "\\(\\lim_{x \\to 4} \\sqrt{x^2 - 7}\\) limitini bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    L &= \\sqrt{\\lim_{x \\to 4} (x^2 - 7)} && (\\text{Kök içi limit kuralı}) \\\\
+                    L &= \\sqrt{4^2 - 7} && (\\text{Polinom kuralı ile doğrudan yerine yazma}) \\\\
+                    L &= \\sqrt{16 - 7} = \\sqrt{9} && (\\text{Karekök içi işlemler}) \\\\
+                    L &= 3 && (\\text{Sonuç})
+                    \\end{aligned}$$`
                 );
 
-                // SORU 2 - Rasyonel Fonksiyon Limitleri (Belirsizlik Yok)
-                html += createQuestion("Soru 7", "Rasyonel Fonksiyonların Limiti",
-                    "Aşağıdaki limiti hesaplayın:<br>\\[ \\lim_{x \\to -1} \\frac{x^3 + 4x^2 - 3}{x^2 + 5} \\]",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Doğrudan Yerine Koyma (Bölüm Kuralı)</i><br>
-Öncelikle paydayı kontrol edelim. Eğer payda sıfır olmuyorsa limiti doğrudan hesaplayabiliriz.<br>
-Payda: \\((-1)^2 + 5 = 1 + 5 = 6 \\neq 0\\). O halde devam edebiliriz.<br><br>
-<i>Adım 2: Değerleri Hesaplama</i><br>
-\\(= \\frac{(-1)^3 + 4(-1)^2 - 3}{(-1)^2 + 5}\\)<br>
-\\(= \\frac{-1 + 4(1) - 3}{1 + 5}\\)<br>
-\\(= \\frac{-1 + 4 - 3}{6}\\)<br>
-\\(= \\frac{0}{6} = 0\\)<br><br>
-<b>Sonuç:</b> Limit değeri 0'dır.`
+                html += createQuestion("Soru 6", "Belirsizlik Giderme (Çarpanlara Ayırma)",
+                    "\\(\\lim_{x \\to 2} \\frac{x^2 - 4}{x - 2}\\) limitini hesaplayınız.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    L &= \\frac{2^2 - 4}{2 - 2} = \\frac{0}{0} && (\\text{Doğrudan koyma ile oluşan belirsizlik}) \\\\
+                    x^2 - 4 &= (x-2)(x+2) && (\\text{İki kare farkı özdeşliği}) \\\\
+                    L &= \\lim_{x \\to 2} \\frac{(x-2)(x+2)}{x-2} && (\\text{İfadenin çarpanlarına ayrılmış hali}) \\\\
+                    L &= \\lim_{x \\to 2} (x+2) && (\\text{Ortak çarpanların sadeleşmesi}) \\\\
+                    L &= 2 + 2 = 4 && (\\text{Belirsizlik kalktıktan sonraki limit hesabı})
+                    \\end{aligned}$$`
                 );
 
-                // SORU 3 - 0/0 Belirsizliği ve Çarpanlara Ayırma (2. Dereceden)
-                html += createQuestion("Soru 8", "0/0 Belirsizliği ve Çarpanlara Ayırma",
-                    "Aşağıdaki limiti hesaplayın:<br>\\[ \\lim_{x \\to 3} \\frac{x^2 - 9}{x^2 - 2x - 3} \\]",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Belirsizliği Kontrol Etme</i><br>
-\\(x = 3\\) yazdığımızda:<br>
-Pay: \\(3^2 - 9 = 9 - 9 = 0\\)<br>
-Payda: \\(3^2 - 2(3) - 3 = 9 - 6 - 3 = 0\\)<br>
-Sonuç \\(\\frac{0}{0}\\) belirsizliğidir. Çarpanlara ayırma yapmalıyız.<br><br>
-
-<i>Adım 2: Çarpanlara Ayırma</i><br>
-Pay (İki Kare Farkı): \\(x^2 - 9 = (x - 3)(x + 3)\\)<br>
-Payda: \\(x^2 - 2x - 3 = (x - 3)(x + 1)\\)<br><br>
-
-<i>Adım 3: Sadeleştirme ve Limiti Yeniden Hesaplama</i><br>
-\\(\\lim_{x \\to 3} \\frac{(x - 3)(x + 3)}{(x - 3)(x + 1)} = \\lim_{x \\to 3} \\frac{x + 3}{x + 1}\\)  (Burada \\(x \\neq 3\\) için sadeleştirme yapıyoruz)<br><br>
-Şimdi \\(x=3\\) değerini tekrar yerine koyalım:<br>
-\\(= \\frac{3 + 3}{3 + 1} = \\frac{6}{4} = \\frac{3}{2}\\)`
+                html += createQuestion("Soru 7", "Belirsizlik Giderme (Payda Eşitleme)",
+                    "\\(\\lim_{x \\to 0} \\frac{\\frac{1}{x+3} - \\frac{1}{3}}{x}\\) limitini bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    \\text{Pay} &= \\frac{3 - (x+3)}{3(x+3)} = \\frac{-x}{3(x+3)} && (\\text{Ana kesrin payında payda eşitleme}) \\\\
+                    L &= \\lim_{x \\to 0} \\frac{-x}{3x(x+3)} && (\\text{Ters çevirip çarpma işlemi}) \\\\
+                    L &= \\lim_{x \\to 0} \\frac{-1}{3(x+3)} && (x \\text{ çarpanlarının sadeleşerek 0/0'ın kalkması}) \\\\
+                    L &= \\frac{-1}{3(0+3)} = -\\frac{1}{9} && (\\text{Son değerin yerine yazılması})
+                    \\end{aligned}$$`
                 );
 
-                // SORU 4 - 0/0 Belirsizliği ve Çarpanlara Ayırma (Küp Açılımı)
-                html += createQuestion("Soru 9", "Küp Farkı ve 0/0 Belirsizliği",
-                    "Aşağıdaki limiti hesaplayın:<br>\\[ \\lim_{t \\to 2} \\frac{t^3 - 8}{t - 2} \\]",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Belirsizlik Kontrolü</i><br>
-\\(t = 2\\) koyarsak \\(\\frac{2^3 - 8}{2 - 2} = \\frac{0}{0}\\) elde ederiz.<br><br>
-
-<i>Adım 2: Küp Farkı Açılımı</i><br>
-\\(a^3 - b^3 = (a - b)(a^2 + ab + b^2)\\) formülünü hatırlayalım.<br>
-\\(t^3 - 8 = t^3 - 2^3 = (t - 2)(t^2 + 2t + 4)\\)<br><br>
-
-<i>Adım 3: Sadeleştirme ve Sonuç</i><br>
-\\(\\lim_{t \\to 2} \\frac{(t - 2)(t^2 + 2t + 4)}{t - 2}\\)<br>
-Ortak çarpanları sadeleştirelim:<br>
-\\(= \\lim_{t \\to 2} (t^2 + 2t + 4)\\)<br>
-Şimdi limiti doğrudan hesaplayalım:<br>
-\\(= 2^2 + 2(2) + 4 = 4 + 4 + 4 = 12\\)`
-                );
-
-                // SORU 5 - Köklü İfadelerde Eşlenik ile Çarpma
-                html += createQuestion("Soru 10", "Köklü İfadelerde Eşlenik ile Çarpma",
-                    "Aşağıdaki limiti hesaplayın:<br>\\[ \\lim_{x \\to 4} \\frac{\\sqrt{x} - 2}{x - 4} \\]",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Belirsizlik Kontrolü</i><br>
-\\(x = 4\\) yazdığımızda \\(\\frac{\\sqrt{4} - 2}{4 - 4} = \\frac{0}{0}\\) elde ederiz.<br><br>
-
-<i>Adım 2: Eşlenik İle Genişletme</i><br>
-Payın eşleniği olan \\((\\sqrt{x} + 2)\\) ile kesri çarpıp bölelim:<br>
-\\(= \\lim_{x \\to 4} \\frac{(\\sqrt{x} - 2)(\\sqrt{x} + 2)}{(x - 4)(\\sqrt{x} + 2)}\\)<br>
-Pay kısmında iki kare farkı oluşur: \\((\\sqrt{x})^2 - 2^2 = x - 4\\)<br><br>
-
-<i>Adım 3: Sadeleştirme ve Limit Hesabı</i><br>
-\\(= \\lim_{x \\to 4} \\frac{x - 4}{(x - 4)(\\sqrt{x} + 2)}\\)<br>
-\\(x - 4\\)'leri sadeleştirelim:<br>
-\\(= \\lim_{x \\to 4} \\frac{1}{\\sqrt{x} + 2}\\)<br>
-Artık \\(x=4\\) yazabiliriz:<br>
-\\(= \\frac{1}{\\sqrt{4} + 2} = \\frac{1}{2 + 2} = \\frac{1}{4}\\)`
-                );
-
-                // SORU 6 - Rasyonel İfadelerde Payda Eşitleme
-                html += createQuestion("Soru 11", "Karmaşık Kesirlerde Limit Hesabı",
-                    "Aşağıdaki limiti hesaplayın:<br>\\[ \\lim_{x \\to 0} \\frac{\\frac{1}{x+2} - \\frac{1}{2}}{x} \\]",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Belirsizlik Kontrolü</i><br>
-\\(x = 0\\) yazarsak \\(\\frac{1/2 - 1/2}{0} = \\frac{0}{0}\\) belirsizliği çıkar.<br><br>
-
-<i>Adım 2: Pay Kısmında Payda Eşitleme</i><br>
-Paydaki ifadeleri düzenleyelim (solu 2 ile, sağı (x+2) ile genişletelim):<br>
-\\(\\frac{1}{x+2} - \\frac{1}{2} = \\frac{2 - (x+2)}{2(x+2)} = \\frac{2 - x - 2}{2(x+2)} = \\frac{-x}{2(x+2)}\\)<br><br>
-
-<i>Adım 3: İfadeyi Yerine Yazma ve Sadeleştirme</i><br>
-Asıl limit ifademiz şuna dönüştü:<br>
-\\(\\lim_{x \\to 0} \\frac{\\frac{-x}{2(x+2)}}{x}\\)<br>
-Kesri ters çevirip çarpalım:<br>
-\\(= \\lim_{x \\to 0} \\left( \\frac{-x}{2(x+2)} \\cdot \\frac{1}{x} \\right)\\)<br>
-\\(x\\)'leri sadeleştirelim:<br>
-\\(= \\lim_{x \\to 0} \\frac{-1}{2(x+2)}\\)<br><br>
-
-<i>Adım 4: Limit Hesabı</i><br>
-\\(x=0\\) yerine koyalım:<br>
-\\(= \\frac{-1}{2(0+2)} = -\\frac{1}{4}\\)`
-                );
-
-                // SORU 7 - Sandviç (Sıkıştırma) Teoremi
-                html += createQuestion("Soru 12", "Sandviç (Sıkıştırma) Teoremi",
-                    "Eğer tüm \\(x \\neq 0\\) değerleri için \\(1 - \\frac{x^2}{4} \\le f(x) \\le 1 + \\frac{x^2}{2}\\) eşitsizliği sağlanıyorsa, \\(\\lim_{x \\to 0} f(x)\\) değerini bulun.",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Sandviç Teoremi'nin Kuralı</i><br>
-Sandviç teoremine göre; \\(g(x) \\le f(x) \\le h(x)\\) ise ve \\(\\lim_{x \\to c} g(x) = \\lim_{x \\to c} h(x) = L\\) oluyorsa, ortadaki fonksiyonun da limiti aynı olmalıdır: \\(\\lim_{x \\to c} f(x) = L\\).<br><br>
-
-<i>Adım 2: Alt ve Üst Sınırların Limitlerini Alma</i><br>
-Alt sınırın limiti: \\(\\lim_{x \\to 0} \\left(1 - \\frac{x^2}{4}\\right) = 1 - \\frac{0^2}{4} = 1 - 0 = 1\\)<br><br>
-Üst sınırın limiti: \\(\\lim_{x \\to 0} \\left(1 + \\frac{x^2}{2}\\right) = 1 + \\frac{0^2}{2} = 1 + 0 = 1\\)<br><br>
-
-<i>Adım 3: Sonucu Belirleme</i><br>
-Her iki uç fonksiyon da \\(x \\to 0\\) iken 1'e yaklaştığına göre, aralarında sıkışan \\(f(x)\\) fonksiyonu da 1'e yaklaşmak zorundadır.<br>
-<b>Sonuç:</b> \\(\\lim_{x \\to 0} f(x) = 1\\)`
+                html += createQuestion("Soru 8", "Belirsizlik Giderme (Eşlenik Çarpımı)",
+                    "\\(\\lim_{x \\to 0} \\frac{\\sqrt{x^2+100} - 10}{x^2}\\) limitini hesaplayınız.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    L &= \\frac{0}{0} && (\\text{İlk durumdaki belirsizlik}) \\\\
+                    L &= \\lim_{x \\to 0} \\frac{(\\sqrt{x^2+100}-10)(\\sqrt{x^2+100}+10)}{x^2(\\sqrt{x^2+100}+10)} && (\\text{Payın eşleniği ile genişletme}) \\\\
+                    L &= \\lim_{x \\to 0} \\frac{x^2+100-100}{x^2(\\sqrt{x^2+100}+10)} && (\\text{Payda iki kare farkının oluşması}) \\\\
+                    L &= \\lim_{x \\to 0} \\frac{1}{\\sqrt{x^2+100}+10} && (x^2 \\text{ çarpanlarının sadeleşmesi}) \\\\
+                    L &= \\frac{1}{\\sqrt{100}+10} = \\frac{1}{20} && (\\text{Limitin nihai hesabı})
+                    \\end{aligned}$$`
                 );
             }
 
@@ -2033,188 +1715,91 @@ Her iki uç fonksiyon da \\(x \\to 0\\) iken 1'e yaklaştığına göre, aralar�
             // 2.3 KESİN TANIM (Proje 23)
             // =========================================
             else if (id === ("2.3")) {
-                html += createQuestion("Soru 1", "Epsilon-Delta İspatı",
-                    "\\(\\lim_{x\\to2}\\frac{x^{3}-8}{x-2}=12\\) olduğunu göz önüne alarak:<br><br>a) Herhangi bir \\(\\epsilon>0\\) için \\(\\delta\\)'yı \\(\\epsilon\\) cinsinden ifade edip ispatlayın.<br><br>b) \\(\\epsilon=0.1\\) için uygun bir \\(\\delta\\) bulun.",
-                    `<p><i>Çözüm:</i><br></p>
-                <i>a) \\(\\epsilon>0\\) için İspat</i><br>
-                <i>1. Adım: \\(\\delta\\)'yı \\(\\epsilon\\) cinsinden bulma (Analiz)</i><br>
-                Verilen herhangi bir \\(\\epsilon>0\\) için, \\(0<|x-2|<\\delta\\) olduğunda \\(|(x^{2}+2x+4)-12|<\\epsilon\\) olmasını sağlayan bir \\(\\delta>0\\) bulmalıyız. (Not: \\(\\frac{x^3-8}{x-2} = x^2+2x+4\\)).<br>
-                İspatlamak istediğimiz: \\(|x^{2}+2x-8|<\\epsilon \\implies |(x-2)(x+4)|<\\epsilon \\implies |x-2|\\cdot|x+4|<\\epsilon\\).<br>
-                \\(|x+4|\\) terimini sınırlamalıyız. Önce \\(\\delta\\le1\\) olduğunu varsayalım. Bu durumda, \\(0<|x-2|<1 \\implies 1<x<3\\).<br>
-                Bu aralıkta, \\(|x+4|\\) terimi \\(5<x+4<7\\) olacağı için, \\(|x+4|<7\\) ile sınırlıdır.<br>
-                İfademize dönersek:<br>
-                \\[ |x-2|\\cdot|x+4| < |x-2|\\cdot7 \\]<br>
-                Bu ifadenin \\(\\epsilon\\)'dan küçük olmasını istiyoruz:<br>
-                \\[ |x-2|\\cdot7<\\epsilon \\implies |x-2|<\\frac{\\epsilon}{7} \\]<br>
-                Bu, \\(\\delta\\)'yı seçmemiz için bize ikinci bir koşul verir. Her iki koşulu da (\\(\\delta\\le1\\) ve \\(\\delta\\le\\frac{\\epsilon}{7}\\)) sağlamak için \\(\\delta\\)'yı bu iki değerin minimumu olarak seçeriz:<br>
-                \\[ \\delta=\\min(1,\\frac{\\epsilon}{7}) \\]<br><br>
-                <i>2. Adım: Resmi İspat</i><br>
-                Verilen herhangi bir \\(\\epsilon>0\\) için, \\(\\delta=\\min(1,\\frac{\\epsilon}{7})\\) olarak seçelim. \\(0<|x-2|<\\delta\\) koşulunu sağlayan bir x alalım.<br>
-                \\(\\delta\\le1\\) olduğu için, \\(|x-2|<1\\) olduğunu biliyoruz. Bu da \\(1<x<3\\) anlamına gelir ve bu aralıkta \\(|x+4|<7\\) olduğunu garantiler.<br>
-                Şimdi, \\(|f(x)-L|\\) ifadesine bakalım:<br>
-                \\[ |(x^{2}+2x+4)-12| = |x^{2}+2x-8| = |(x-2)(x+4)| = |x-2|\\cdot|x+4| \\]<br>
-                \\(|x+4|<7\\) olduğunu bildiğimiz için:<br>
-                \\[ |x-2|\\cdot|x+4| < |x-2|\\cdot7 \\]<br>
-                Ayrıca \\(\\delta\\le\\frac{\\epsilon}{7}\\) olduğu için, \\(|x-2|<\\frac{\\epsilon}{7}\\) olduğunu da biliyoruz. Bu bilgiyi yerine koyarsak:<br>
-                \\[ |x-2|\\cdot7 < \\frac{\\epsilon}{7}\\cdot7 = \\epsilon \\]<br>
-                Böylece, \\(|(x^{2}+2x+4)-12|<\\epsilon\\) olduğunu göstermiş olduk. Sonuç olarak, \\(0<|x-2|<\\delta\\) olduğunda \\(|f(x)-12|<\\epsilon\\) olduğunu kanıtladık.<br><br>
-
-                <i>b) \\(\\epsilon=0.1\\) için \\(\\delta\\) Bulma</i><br>
-                İstediğimiz koşul: \\(|(x^{2}+2x+4)-12|<0.1\\). İfadeyi sadeleştirelim:<br>
-                \\[ |x^{2}+2x-8|<0.1 \\implies |(x-2)(x+4)|<0.1 \\implies |x-2|\\cdot|x+4|<0.1 \\]<br>
-                Bunun için \\(\\delta\\)'ya keyfi bir ön kısıtlama koyalım. \\(\\delta\\le1\\) olsun. Eğer \\(|x-2|<1\\) ise \\(1<x<3\\).<br>
-                Bu aralıkta, \\(|x+4|<7\\).<br>
-                Şimdi asıl eşitsizliğimize dönersek:<br>
-                \\[ |x-2|\\cdot|x+4| < |x-2|\\cdot7 < 0.1 \\implies |x-2| < \\frac{0.1}{7} \\approx 0.0142 \\]<br>
-                Şu an iki koşulumuz var: \\(|x-2|<1\\) ve \\(|x-2|<0.1/7\\). Her ikisinin de sağlanması için \\(\\delta\\)'yı bu iki değerin en küçüğü olarak seçeriz:<br>
-                \\[ \\delta=\\min(1,\\frac{0.1}{7})=\\frac{0.1}{7} \\approx 0.0142 \\]`
-                );
-                // SORU 1 - Spesifik Epsilon için Delta Bulma (Doğrusal)
-                html += createQuestion("Soru 2", "Verilen \\(\\epsilon\\) için \\(\\delta\\) Bulma",
-                    "\\(\\lim_{x \\to 2} (3x + 1) = 7\\) limiti veriliyor. Limit tanımına göre \\(\\epsilon = 0.03\\) için uygun bir \\(\\delta > 0\\) değeri bulun.",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Epsilon-Delta Eşitsizliğini Kurma</i><br>
-Limit tanımına göre, \\(0 < |x - 2| < \\delta\\) iken \\(|f(x) - L| < \\epsilon\\) olmalıdır.<br>
-\\(|(3x + 1) - 7| < 0.03\\)<br><br>
-
-<i>Adım 2: Eşitsizliği x İçin Çözme</i><br>
-\\(|3x - 6| < 0.03\\)<br>
-İfadeyi 3 parantezine alalım:<br>
-\\(3|x - 2| < 0.03\\)<br>
-Her iki tarafı 3'e bölelim:<br>
-\\(|x - 2| < 0.01\\)<br><br>
-
-<i>Adım 3: Sonuç</i><br>
-Elde ettiğimiz bu ifade doğrudan \\(|x - c| < \\delta\\) formatındadır. Bu nedenle uygun delta değeri:<br>
-<b>\\(\\delta = 0.01\\)</b> olarak bulunur.`
+                html += createQuestion("Soru 1", "Doğrusal Fonksiyonun İspatı",
+                    "\\(\\lim_{x \\to 3} (4x - 5) = 7\\) olduğunu limitin kesin tanımını (\\(\\epsilon, \\delta\\)) kullanarak ispatlayınız.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    |f(x) - L| < \\epsilon && (\\text{Hedeflenen eşitsizlik}) \\\\
+                    |(4x - 5) - 7| < \\epsilon && (\\text{Fonksiyon ve limit değerlerinin yazılması}) \\\\
+                    |4x - 12| < \\epsilon && (\\text{İfadenin sadeleştirilmesi}) \\\\
+                    4|x - 3| < \\epsilon && (\\text{4 ortak parantezine alma}) \\\\
+                    |x - 3| < \\frac{\\epsilon}{4} && (\\text{Her iki tarafın 4'e bölünmesi}) \\\\
+                    \\delta = \\frac{\\epsilon}{4} && (\\text{\\(\\delta\\) değerinin seçimi: } 0 < |x - 3| < \\delta)
+                    \\end{aligned}$$`
                 );
 
-                // SORU 2 - Genel Epsilon-Delta İspatı (Doğrusal)
-                html += createQuestion("Soru 3", "Limitin Kesin İspatı",
-                    "\\(\\lim_{x \\to 4} (5x - 3) = 17\\) olduğunu Epsilon-Delta (\\(\\epsilon-\\delta\\)) tanımını kullanarak ispatlayın.",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: İspatın Amacı</i><br>
-Verilen herhangi bir \\(\\epsilon > 0\\) için öyle bir \\(\\delta > 0\\) bulmalıyız ki; \\(0 < |x - 4| < \\delta\\) olduğunda \\(|(5x - 3) - 17| < \\epsilon\\) sağlansın.<br><br>
-
-<i>Adım 2: Geriye Doğru Çalışma (Taslak)</i><br>
-\\(|(5x - 3) - 17| < \\epsilon\\)<br>
-\\(|5x - 20| < \\epsilon\\)<br>
-\\(5|x - 4| < \\epsilon\\)<br>
-\\(|x - 4| < \\frac{\\epsilon}{5}\\)<br><br>
-
-<i>Adım 3: Formel İspat</i><br>
-Verilen herhangi bir \\(\\epsilon > 0\\) için \\(\\delta = \\frac{\\epsilon}{5}\\) seçelim.<br>
-Eğer \\(0 < |x - 4| < \\delta\\) ise,<br>
-\\(|x - 4| < \\frac{\\epsilon}{5}\\) olur.<br>
-Her iki tarafı 5 ile çarparsak: \\(5|x - 4| < \\epsilon \\implies |5x - 20| < \\epsilon \\implies |(5x - 3) - 17| < \\epsilon\\) elde edilir.<br>
-<b>Sonuç:</b> İspat tamamlanmıştır.`
+                html += createQuestion("Soru 2", "Belirli bir Epsilon için Delta Bulma",
+                    "\\(f(x) = 5x - 3\\) fonksiyonu için \\(\\lim_{x \\to 2} f(x) = 7\\) veriliyor. \\(\\epsilon = 0.01\\) için uygun olan en büyük \\(\\delta\\) değerini bulununuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    |f(x) - L| &< 0.01 && (\\text{Verilen } \\epsilon \\text{ değeri}) \\\\
+                    |(5x - 3) - 7| &< 0.01 && (\\text{Fonksiyonun yerine yazılması}) \\\\
+                    |5x - 10| &< 0.01 && (\\text{Çıkarma işleminin yapılması}) \\\\
+                    5|x - 2| &< 0.01 && (\\text{5 parantezine alma}) \\\\
+                    |x - 2| &< 0.002 && (\\text{0.01 / 5 işleminin sonucu}) \\\\
+                    \\delta &= 0.002 && (\\text{İstenen maksimum } \\delta \\text{ değeri})
+                    \\end{aligned}$$`
                 );
 
-                // SORU 3 - Asimetrik Aralıklar (Köklü Fonksiyon)
-                html += createQuestion("Soru 4", "Asimetrik Aralıklar ve Minimum Seçimi",
-                    "\\(\\lim_{x \\to 4} \\sqrt{x} = 2\\) limitinde \\(\\epsilon = 1\\) olarak veriliyor. Bu duruma uygun en büyük \\(\\delta > 0\\) değerini bulun.",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Eşitsizliği Kurma</i><br>
-\\(|\\sqrt{x} - 2| < 1\\) eşitsizliğini sağlayan x aralığını bulmalıyız.<br>
-\\(-1 < \\sqrt{x} - 2 < 1\\)<br><br>
-
-<i>Adım 2: Eşitsizliği Çözme</i><br>
-Her tarafa 2 ekleyelim:<br>
-\\(1 < \\sqrt{x} < 3\\)<br>
-Her tarafın karesini alalım:<br>
-\\(1 < x < 9\\)<br>
-Demek ki x değerleri (1, 9) açık aralığında kalmalıdır.<br><br>
-
-<i>Adım 3: Delta'yı Belirleme (Merkeze Uzaklık)</i><br>
-Limit noktamız \\(c = 4\\). Bu noktanın aralığın uçlarına olan uzaklıklarına bakalım:<br>
-Sol uca uzaklık: \\(4 - 1 = 3\\)<br>
-Sağ uca uzaklık: \\(9 - 4 = 5\\)<br>
-\\(\\delta\\), her iki tarafı da güvenceye alacak şekilde <b>minimum</b> mesafe olarak seçilmelidir.<br>
-<b>\\(\\delta = \\min(3, 5) = 3\\)</b>`
+                html += createQuestion("Soru 3", "Sabit Fonksiyonun Limiti",
+                    "\\(c\\) bir sabit olmak üzere, \\(\\lim_{x \\to a} c = c\\) olduğunu ispatlayınız.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    |f(x) - L| &\\lt \\epsilon && \\qquad (\\text{Kesin tanım şartı}) \\\\
+                    |c - c| &\\lt \\epsilon && \\qquad (f(x)=c \\text{ ve } L=c \\text{ yazılması}) \\\\
+                    0 &\\lt \\epsilon && \\qquad (\\text{Çıkarma sonucu daima doğrudur}) \\\\
+                    \\delta &\\gt 0 \\text{ (Herhangi biri)} && \\qquad (\\text{Eşitsizlik her } x \\text{ için sağlandığından})
+                    \\end{aligned}$$`
                 );
 
-                // SORU 4 - Karesel Fonksiyonlarda Delta
-                html += createQuestion("Soru 5", "Karesel Fonksiyonlarda Aralık Bulma",
-                    "\\(\\lim_{x \\to 3} x^2 = 9\\) limiti için \\(\\epsilon = 1\\) veriliyor. Uygun bir \\(\\delta > 0\\) değeri bulun.",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Eşitsizliği Kurma ve Açma</i><br>
-\\(|x^2 - 9| < 1\\)<br>
-\\(-1 < x^2 - 9 < 1\\)<br><br>
-
-<i>Adım 2: x'in Sınırlarını Bulma</i><br>
-Eşitsizliğin her tarafına 9 ekleyelim:<br>
-\\(8 < x^2 < 10\\)<br>
-Pozitif kökleri alalım (çünkü x, 3'e yaklaşıyor):<br>
-\\(\\sqrt{8} < x < \\sqrt{10}\\)<br><br>
-
-<i>Adım 3: c=3 Noktasına Mesafeleri Kıyaslama</i><br>
-Sol uca mesafe: \\(3 - \\sqrt{8} \\approx 3 - 2.828 = 0.172\\)<br>
-Sağ uca mesafe: \\(\\sqrt{10} - 3 \\approx 3.162 - 3 = 0.162\\)<br>
-Küçük olan mesafe sağ taraftadır. Güvenli aralık için:<br>
-<b>\\(\\delta = \\sqrt{10} - 3\\)</b> seçilmelidir.`
+                html += createQuestion("Soru 4", "Birim Fonksiyonun İspatı",
+                    "\\(\\lim_{x \\to a} x = a\\) olduğunu gösteriniz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    |f(x) - L| &< \\epsilon && (\\text{Tanım başlangıcı}) \\\\
+                    |x - a| &< \\epsilon && (f(x)=x \\text{ ve } L=a \\text{ yazılması}) \\\\
+                    \\delta &= \\epsilon && (\\text{Doğrudan } \\delta \\text{'nın } \\epsilon \\text{'a eşit seçilmesi yeterlidir})
+                    \\end{aligned}$$`
                 );
 
-                // SORU 5 - Rasyonel Fonksiyonlarda Delta
-                html += createQuestion("Soru 6", "Rasyonel Fonksiyon Modellemeleri",
-                    "\\(\\lim_{x \\to 2} \\frac{1}{x} = \\frac{1}{2}\\) limiti için \\(\\epsilon = 0.1\\) verildiğinde, karşılık gelen \\(\\delta > 0\\) değerini hesaplayın.",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Eşitsizliği Yazma</i><br>
-\\(|\\frac{1}{x} - \\frac{1}{2}| < 0.1\\)<br>
-\\(-0.1 < \\frac{1}{x} - 0.5 < 0.1\\)<br><br>
-
-<i>Adım 2: x Aralığını Elde Etme</i><br>
-Her tarafa 0.5 ekleyelim:<br>
-\\(0.4 < \\frac{1}{x} < 0.6\\)<br>
-Kesir olarak yazalım: \\(\\frac{4}{10} < \\frac{1}{x} < \\frac{6}{10}\\) sadeleştirirsek \\(\\frac{2}{5} < \\frac{1}{x} < \\frac{3}{5}\\)<br>
-Eşitsizliği ters çevirirsek eşitsizlik yön değiştirir:<br>
-\\(\\frac{5}{3} < x < \\frac{5}{2}\\)<br><br>
-
-<i>Adım 3: Delta Seçimi</i><br>
-Merkez noktamız \\(c = 2\\).<br>
-Sol sınır mesafesi: \\(2 - \\frac{5}{3} = \\frac{1}{3}\\)<br>
-Sağ sınır mesafesi: \\(\\frac{5}{2} - 2 = \\frac{1}{2}\\)<br>
-Minimum olanı seçmeliyiz: \\(\\min(\\frac{1}{3}, \\frac{1}{2}) = \\frac{1}{3}\\).<br>
-<b>Sonuç: \\(\\delta = \\frac{1}{3}\\)</b>`
+                html += createQuestion("Soru 5", "Karesel Fonksiyonun İspatı (Giriş)",
+                    "\\(\\lim_{x \\to 2} x^2 = 4\\) ispatında, \\(|x-2| < 1\\) kısıtlaması altında \\(|x+2|\\) ifadesinin üst sınırını bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    |x - 2| &< 1 && (\\text{Kritik nokta civarındaki kısıtlama}) \\\\
+                    -1 < x - 2 &< 1 && (\\text{Mutlak değerin açılması}) \\\\
+                    1 < x &< 3 && (\\text{Her tarafa 2 eklenmesi}) \\\\
+                    5 < x + 4 & \\implies \\text{geçersiz} && (\\text{Hata kontrolü}) \\\\
+                    3 < x + 2 &< 5 && (\\text{Eşitsizliğin her tarafına 4 eklenmesi}) \\\\
+                    |x + 2| &< 5 && (\\text{Maksimum üst sınır})
+                    \\end{aligned}$$`
                 );
 
-                // SORU 6 - Sabit Fonksiyon Limit İspatı
-                html += createQuestion("Soru 7", "Sabit Fonksiyonun Limiti",
-                    "\\(f(x) = 5\\) sabit fonksiyonu için, \\(\\lim_{x \\to 3} 5 = 5\\) olduğunu kesin tanım (\\(\\epsilon-\\delta\\)) ile gösterin.",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Tanımı Kurma</i><br>
-Verilen herhangi bir \\(\\epsilon > 0\\) için öyle bir \\(\\delta > 0\\) bulmalıyız ki; \\(0 < |x - 3| < \\delta\\) olduğunda \\(|f(x) - L| < \\epsilon\\) olsun.<br><br>
+                
 
-<i>Adım 2: İfadeyi İnceleme</i><br>
-\\(|f(x) - L| = |5 - 5| = 0\\)'dır.<br>
-Bizden istenen şart: \\(0 < \\epsilon\\) olmasıdır.<br><br>
-
-<i>Adım 3: Sonuçlandırma</i><br>
-Soruda \\(\\epsilon > 0\\) olarak verildiği için, \\(0 < \\epsilon\\) eşitsizliği x'ten veya \\(\\delta\\)'dan bağımsız olarak <b>her zaman</b> doğrudur.<br>
-Bu nedenle \\(\\delta\\)'yı herhangi bir pozitif sayı (örneğin \\(\\delta = 1\\) veya \\(\\delta = 100\\)) olarak seçebiliriz. İspat sağlanmış olur.`
+                html += createQuestion("Soru 6", "Negatif Eğimli Fonksiyon",
+                    "\\(\\lim_{x \\to 1} (10 - 3x) = 7\\) ispatı için \\(\\delta\\) ve \\(\\epsilon\\) ilişkisini bulunuz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    |(10 - 3x) - 7| &< \\epsilon && (\\text{Kesin tanım girişi}) \\\\
+                    |3 - 3x| &< \\epsilon && (\\text{İşlem sadeleştirme}) \\\\
+                    |-3(x - 1)| &< \\epsilon && (\\text{-3 parantezine alma}) \\\\
+                    |-3| \\cdot |x - 1| &< \\epsilon && (\\text{Mutlak değer özelliği: } |a \\cdot b| = |a| \\cdot |b|) \\\\
+                    3|x - 1| &< \\epsilon && (\\text{Sabitin dışarı çıkarılması}) \\\\
+                    \\delta &= \\epsilon/3 && (\\text{Sonuç})
+                    \\end{aligned}$$`
                 );
 
-                // SORU 7 - Grafiksel Tahmin (İç içe fonksiyonlar)
-                html += createQuestion("Soru 8", "Öteleme İçeren Fonksiyonlarda Aralık",
-                    "\\(\\lim_{x \\to 5} \\sqrt{x - 1} = 2\\) limitinde \\(\\epsilon = 1\\) olarak veriliyor. Uygun bir \\(\\delta\\) bulun.",
-                    `<p><i>Çözüm:</i><br></p>
-<i>Adım 1: Mutlak Değer Eşitsizliği</i><br>
-\\(|\\sqrt{x - 1} - 2| < 1\\)<br>
-\\(-1 < \\sqrt{x - 1} - 2 < 1\\)<br><br>
-
-<i>Adım 2: İçeriği Yalnız Bırakma</i><br>
-Her tarafa 2 ekle:<br>
-\\(1 < \\sqrt{x - 1} < 3\\)<br>
-Karesini al:<br>
-\\(1 < x - 1 < 9\\)<br>
-Her tarafa 1 ekle:<br>
-\\(2 < x < 10\\)<br><br>
-
-<i>Adım 3: Delta Belirleme</i><br>
-\\(c = 5\\) noktası için mesafeleri bulalım:<br>
-\\(5 - 2 = 3\\) (Sola doğru mesafe)<br>
-\\(10 - 5 = 5\\) (Sağa doğru mesafe)<br>
-Güvenli (eşitsizliği bozmayan) aralık için küçük olan seçilir:<br>
-<b>\\(\\delta = 3\\)</b>`
+                html += createQuestion("Soru 7", "Genel Doğru Denklemi İspatı",
+                    "\\(m > 0\\) için \\(\\lim_{x \\to a} (mx + b) = ma + b\\) olduğunu gösteriniz.",
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    |(mx + b) - (ma + b)| &< \\epsilon && (\\text{Farkın mutlak değeri}) \\\\
+                    |mx - ma| &< \\epsilon && (b \\text{'lerin sadeleşmesi}) \\\\
+                    |m(x - a)| &< \\epsilon && (m \\text{ parantezine alma}) \\\\
+                    m|x - a| &< \\epsilon && (m > 0 \\text{ olduğu için aynen çıkar}) \\\\
+                    \\delta &= \\epsilon/m && (\\text{Genel } \\delta \\text{ formülü})
+                    \\end{aligned}$$`
                 );
             }
 
