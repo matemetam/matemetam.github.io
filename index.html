@@ -215,7 +215,7 @@ window.MathJax = {
 
         .theme-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px; background: var(--bg-body); border: 1px solid var(--border); padding: 4px; border-radius: 6px; flex-shrink: 0; }
         .theme-box { width: 18px; height: 18px; border-radius: 2px; cursor: pointer; border: 1px solid rgba(0,0,0,0.1); }
-        .t-modern { background: #2563eb; } .t-dark { background: #0f172a; } .t-academic { background: #b91c1c; } .t-future { background: #d946ef; }
+        .t-modern { background: #2563eb; } .t-dark { background: #0f172a; } .t-academic { background: #b91c1c; } .t-future { background: #c5a059; }
 
         .layout { display: flex; flex: 1; overflow: hidden; }
         #sidebar { width: 320px; background: var(--bg-sidebar); border-right: 1px solid var(--border); display: flex; flex-direction: column; flex-shrink: 0; }
@@ -727,9 +727,9 @@ mjx-container[display="true"] {
             
 { id: 7, title: " İntegrasyon Teknikleri", topics: ["7.1 Kısmi İntegrasyon", "7.2 Trigonometrik İntegraller", "7.3 Trigonometrik Dönüşüm", "7.4 Basit Kesirlere Ayırma","7.5 Sayısal İntegrasyon", "7.6 Genelleştirilmiş İntegraller", "7.7 Değerlendirme Testi", "7.8 İleri İntegral"] },
                       
-{ id: 8, title: " İntegral Uygulamaları", topics: ["8.1 Dik-Kesitler Kullanarak Hacim Bulmak", "8.2 Silindirik Kabuklarla Hacim Bulmak", "8.3 Yay Uzunluğu", "8.4 Dönel Yüzeylerin Alanları", "8.5 İş ve Akış Kuvvetleri", "8.6 Momentler ve Ağırlık Merkezi", "8.7 Değerlendirme Testi"] },
+{ id: 8, title: " İntegral Uygulamaları", topics: ["8.1 Dik-Kesitler Kullanarak Hacim Bulmak", "8.2 Silindirik Kabuklarla Hacim Bulmak", "8.3 Yay Uzunluğu", "8.4 Dönel Yüzeylerin Alanları", "8.5 İş ve Akış Kuvvetleri", "8.6 Momentler ve Ağırlık Merkezi", "8.7 Değerlendirme Testi", "8.8 İleri Düzey Alıştırmalar"] },
         
-{ id: 9, title: " Sonsuz Diziler ve Seriler", topics: ["9.1 Diziler", "9.2 Sonsuz Seriler", "9.3 İntegral Testi", "9.4 Karşılaştırma Testleri", "9.5 Oran ve Kök Testi", "9.6 Alterne Seriler", "9.7 Kuvvet Serileri", "9.8 Taylor ve Maclaurin Serileri", "9.9 Taylor Serisinin Yakınsaklığı", "9.10 Binom Serisi", "9.11 Değerlendirme Testi"] },
+{ id: 9, title: " Sonsuz Diziler ve Seriler", topics: ["9.1 Diziler", "9.2 Sonsuz Seriler", "9.3 İntegral Testi", "9.4 Karşılaştırma Testleri", "9.5 Oran ve Kök Testi", "9.6 Alterne Seriler", "9.7 Kuvvet Serileri", "9.8 Taylor ve Maclaurin Serileri", "9.9 Taylor Serisinin Yakınsaklığı", "9.10 Binom Serisi", "9.11 Değerlendirme Testi", "9.12 İleri Düzey Alıştırmalar"] },
           
             { 
                 id: 10, 
@@ -10930,7 +10930,8 @@ html += createQuestion("Soru 7", "Ortak Çarpan Parantezi ve Rasyonel Üsler",
                     \\text{Sentroid} &= \\left(-\\frac{2}{3}, 0\\right) && (\\text{Kütle eksildiği için merkezin ters yöne kaydığının ispatı})
                     \\end{aligned}$$`
                 );
-            }// === 8.7 BÖLÜM 8 DEĞERLENDİRME TESTİ ===
+            }
+// === 8.7 BÖLÜM 8 DEĞERLENDİRME TESTİ ===
             else if (id === "8.7" || id === "Değerlendirme 8") {
                 html += '<div class="question-container" style="border-left: 5px solid var(--accent);">';
                 html += '<h3 style="color: var(--accent); font-family: var(--font-math); border-bottom: 1px solid var(--border); padding-bottom: 10px; margin-bottom: 20px;">Bölüm 8: İntegralin Uygulamaları Değerlendirme Testi</h3>';
@@ -11057,7 +11058,422 @@ html += createQuestion("Soru 7", "Ortak Çarpan Parantezi ve Rasyonel Üsler",
 
                 html += '</div>'; // question-container div kapanışı
             }
+// === 8.8 İLERİ DÜZEY SENTEZ SORULARI (İNTEGRAL UYGULAMALARI) ===
+            else if (id === "8.8") {
 
+                html += createQuestion("Soru 1", "Ters Trigonometrik Kabuk Analizi", 
+                    "\\( y = \\arcsin x \\) eğrisi, \\( x = 1 \\) ve x-ekseni (\\( y = 0 \\)) arasında kalan bölgenin <b>x-ekseni</b> etrafında döndürülmesiyle oluşan hacmi Silindirik Kabuk (Shell) Yöntemi ile hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Dönme ekseni x-ekseni olduğunda, kabuk yöntemi yatay dilimler (\\( dy \\)) kullanılarak kurulmak zorundadır. Bu nedenle fonksiyonu ve sınırları y-eksenine taşımalıyız.</p>
+                    $$\\begin{aligned}
+                    y &= \\arcsin x \\implies x = \\sin y && (\\text{İntegrali y'ye bağlı kurmak için ters dönüşüm}) \\\\
+                    x &= 1 \\implies y = \\frac{\\pi}{2} && (\\text{Bölgenin y-eksenindeki üst sınırı}) \\\\
+                    r(y) &= y && (\\text{Yatay kabuğun x-eksenine olan uzaklığı}) \\\\
+                    h(y) &= 1 - \\sin y && (\\text{Kabuğun uzunluğu: Sağ sınır } - \\text{ Sol sınır}) \\\\
+                    V &= 2\\pi \\int_{0}^{\\pi/2} y(1 - \\sin y) \\, dy && (\\text{Kabuk yönteminin y-ekseni formülü}) \\\\
+                      &= 2\\pi \\int_{0}^{\\pi/2} y \\, dy - 2\\pi \\int_{0}^{\\pi/2} y \\sin y \\, dy && (\\text{İntegralin iki ayrı parçaya ayrıştırılması}) \\\\
+                    \\int y \\sin y \\, dy &= \\sin y - y \\cos y && (u=y, dv=\\sin y \\, dy \\text{ ile Kısmi İntegrasyon}) \\\\
+                    V &= 2\\pi \\bigg[ \\frac{y^2}{2} - (\\sin y - y \\cos y) \\bigg]_0^{\\pi/2} && (\\text{Elde edilen ters türevlerin birleştirilmesi}) \\\\
+                      &= 2\\pi \\bigg[ \\frac{\\pi^2}{8} - \\bigg(1 - 0\\bigg) \\bigg] - 2\\pi(0) && (\\text{Üst sınırın fonksiyona uygulanması}) \\\\
+                      &= \\frac{\\pi^3}{4} - 2\\pi && (\\text{Dağılma işlemi ve nihai transandant hacim})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 2", "Özel Rasyonel Dönüşümlü Yay Uzunluğu", 
+                    "\\( y = \\ln(1-x^2) \\) eğrisinin \\( 0 \\le x \\le \\frac{1}{2} \\) aralığındaki yay uzunluğunu hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu soru, türevin karesinin formüldeki '1' sabiti ile birleşerek mükemmel bir tam kare oluşturduğu klasik bir analiz problemidir.</p>
+                    $$\\begin{aligned}
+                    y' &= \\frac{-2x}{1-x^2} && (\\text{Logaritma fonksiyonunun zincir kuralıyla türevi}) \\\\
+                    (y')^2 &= \\frac{4x^2}{(1-x^2)^2} && (\\text{Türevin karesinin alınıp paydanın açılması}) \\\\
+                    1 + (y')^2 &= 1 + \\frac{4x^2}{(1-x^2)^2} = \\frac{(1+x^2)^2}{(1-x^2)^2} && (\\text{Formül gereği 1 eklenip tam kareye dönüştürülmesi}) \\\\
+                    L &= \\int_0^{1/2} \\frac{1+x^2}{1-x^2} \\, dx && (\\text{Kare ve karekökün mutlak değersiz sadeleşmesi}) \\\\
+                      &= \\int_0^{1/2} \\bigg( -1 + \\frac{2}{1-x^2} \\bigg) \\, dx && (\\text{Payın paydaya bölünmesi ile tam kısımlı forma geçiş}) \\\\
+                      &= \\int_0^{1/2} \\bigg( -1 + \\frac{1}{1-x} + \\frac{1}{1+x} \\bigg) \\, dx && (\\text{Kalan kesrin Basit Kesirlere Ayrılması}) \\\\
+                      &= \\bigg[ -x - \\ln|1-x| + \\ln|1+x| \\bigg]_0^{1/2} && (\\text{Her bir terimin standart integralinin alınması}) \\\\
+                      &= \\bigg[ -x + \\ln\\bigg|\\frac{1+x}{1-x}\\bigg| \\bigg]_0^{1/2} && (\\text{Logaritmanın bölüm kuralı ile birleştirilmesi}) \\\\
+                      &= \\bigg( -\\frac{1}{2} + \\ln\\bigg|\\frac{1.5}{0.5}\\bigg| \\bigg) - (0 + \\ln 1) && (\\text{Sınırların yerleştirilmesi}) \\\\
+                      &= \\ln 3 - \\frac{1}{2} \\text{ birim} && (\\text{Yay uzunluğunun nihai tam değeri})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 3", "Ters Konik Tankta Değişken İş ve Akışkan", 
+                    "Tepe noktası aşağıda olan ters bir koni şeklindeki su deposunun taban yarıçapı \\( R = 4 \\) metre, yüksekliği \\( H = 10 \\) metredir. Deponun içi dipten itibaren \\( 8 \\) metre yüksekliğine kadar su doludur. Bu suyun tamamını, deponun üst kapağından (tabanından) \\( 2 \\) metre <b>daha yukarıdaki</b> bir boruya pompalamak için yapılması gereken iş kaç Joule'dür? (Su yoğunluğu \\( \\rho \\approx 1000 \\text{ kg/m}^3 \\), \\( g = 9.8 \\text{ m/s}^2 \\))", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Konik bir depoda yükseklik değiştikçe su katmanının yarıçapı da değişir. İş integralini kurarken değişken su hacmini benzerlik kuralı ile bulmalıyız.</p>
+                    $$\\begin{aligned}
+                    \\frac{r}{y} &= \\frac{4}{10} \\implies r(y) = 0.4y && (\\text{Dipten y yüksekliğindeki diskin yarıçapı (Benzerlik)}) \\\\
+                    A(y) &= \\pi(0.4y)^2 = 0.16\\pi y^2 && (\\text{Bu su katmanının yatay kesit alanı}) \\\\
+                    dV &= 0.16\\pi y^2 \\, dy && (\\text{İnce su diskinin diferansiyel hacmi}) \\\\
+                    dF &= 9800 (0.16\\pi y^2) \\, dy = 1568\\pi y^2 \\, dy && (\\text{Katmanın yerçekimi kuvveti (ağırlığı)}) \\\\
+                    D(y) &= 12 - y && (\\text{Katmanın pompalanacağı toplam dikey mesafe}) \\\\
+                    dW &= 1568\\pi y^2 (12 - y) \\, dy && (\\text{Bir katmanı taşımak için yapılan diferansiyel iş}) \\\\
+                    W &= \\int_{0}^{8} 1568\\pi (12y^2 - y^3) \\, dy && (\\text{Suyun bulunduğu }[0, 8]\\text{ aralığında entegrasyon}) \\\\
+                      &= 1568\\pi \\bigg[ 4y^3 - \\frac{y^4}{4} \\bigg]_0^8 && (\\text{Polinom integral adımları}) \\\\
+                      &= 1568\\pi \\bigg( 4(512) - \\frac{4096}{4} \\bigg) && (\\text{Üst sınır değeri olan 8'in yerleştirilmesi}) \\\\
+                      &= 1568\\pi (2048 - 1024) && (\\text{Parantez içi işlemlerin tamamlanması}) \\\\
+                      &= 1\\,605\\,632\\pi \\text{ Joule} && (\\text{Pompanın yapması gereken toplam net iş})
+                    \\end{aligned}$$`
+                );
+           html += createQuestion("Soru 4", "Eğik Eksen Etrafında Döndürme (İleri Hacim)", 
+                    "\\( y = \\sqrt{x} \\) eğrisi, \\( y = 0 \\) ve \\( x = 4 \\) doğruları arasında kalan bölgenin, <b>\\( y = x \\)</b> eğik doğrusu etrafında döndürülmesiyle oluşan cismin hacmini integral kullanarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Dönme ekseni yatay veya dikey olmadığında (eğik eksen), bölgedeki her bir noktanın eksene olan dik uzaklığını (yarıçap) ve diferansiyel kalınlığı geometri ile yeniden tanımlamalıyız.</p>
+                    $$\\begin{aligned}
+                    d &= \\frac{|Ax_0 + By_0 + C|}{\\sqrt{A^2 + B^2}} && (\\text{Bir noktanın doğruya dik uzaklık formülü}) \\\\
+                    R(x) &= \\frac{|x - \\sqrt{x}|}{\\sqrt{1^2 + (-1)^2}} = \\frac{x - \\sqrt{x}}{\\sqrt{2}} && (\\text{Eğri üzerindeki } (x,\\sqrt{x}) \\text{ noktasının } y=x \\text{ eksenine uzaklığı (yarıçap)}) \\\\
+                    ds &= \\sqrt{1 + (y')^2} \\, dx = \\sqrt{1 + \\frac{1}{4x}} \\, dx && (\\text{Eğri üzerindeki diferansiyel yay elemanı}) \\\\
+                    dV &= \\pi [R(x)]^2 \\, du \\qquad \\text{(Burada } du \\text{, eğik eksen üzerindeki diferansiyel kalınlıktır)} && (\\text{Disk yönteminin eğik eksene uyarlanması}) \\\\
+                    du &= \\cos(45^\\circ) dx + \\sin(45^\\circ) dy && (\\text{Eksen } y=x \\text{ olduğu için eğim açısı } 45^\\circ \\text{ dir}) \\\\
+                    &= \\frac{1}{\\sqrt{2}} dx + \\frac{1}{\\sqrt{2}} y' \\, dx = \\frac{1}{\\sqrt{2}} \\bigg(1 + \\frac{1}{2\\sqrt{x}}\\bigg) dx && (\\text{Diferansiyel kalınlığın x cinsinden tam ifadesi}) \\\\
+                    V &= \\int_{0}^{4} \\pi \\bigg( \\frac{x - \\sqrt{x}}{\\sqrt{2}} \\bigg)^2 \\frac{1}{\\sqrt{2}} \\bigg(1 + \\frac{1}{2\\sqrt{x}}\\bigg) dx && (\\text{Eğik hacim integralinin tüm bileşenlerle kurulması}) \\\\
+                    &= \\frac{\\pi}{2\\sqrt{2}} \\int_{0}^{4} (x^2 - 2x\\sqrt{x} + x) \\bigg(1 + \\frac{1}{2\\sqrt{x}}\\bigg) dx && (\\text{Sabitlerin dışarı alınıp tam karenin açılması}) \\\\
+                    &= \\frac{\\pi}{2\\sqrt{2}} \\int_{0}^{4} \\bigg( x^2 + \\frac{x^{3/2}}{2} - 2x^{3/2} - x + x + \\frac{\\sqrt{x}}{2} \\bigg) dx && (\\text{Parantezlerin birbiri üzerine dağıtılması}) \\\\
+                    &= \\frac{\\pi}{2\\sqrt{2}} \\int_{0}^{4} \\bigg( x^2 - \\frac{3}{2}x^{3/2} + \\frac{1}{2}x^{1/2} \\bigg) dx && (\\text{Aynı dereceli terimlerin toparlanıp sadeleştirilmesi}) \\\\
+                    &= \\frac{\\pi}{2\\sqrt{2}} \\bigg[ \\frac{x^3}{3} - \\frac{3}{2}\\frac{x^{5/2}}{5/2} + \\frac{1}{2}\\frac{x^{3/2}}{3/2} \\bigg]_0^4 && (\\text{Üslü (rasyonel) integral kurallarının uygulanması}) \\\\
+                    &= \\frac{\\pi}{2\\sqrt{2}} \\bigg[ \\frac{x^3}{3} - \\frac{3}{5}x^{5/2} + \\frac{1}{3}x^{3/2} \\bigg]_0^4 && (\\text{Katsayıların ters çevrilip düzenlenmesi}) \\\\
+                    &= \\frac{\\pi}{2\\sqrt{2}} \\bigg( \\frac{64}{3} - \\frac{3(32)}{5} + \\frac{8}{3} \\bigg) && (\\text{Üst sınır olan 4'ün yerleştirilmesi}) \\\\
+                    &= \\frac{\\pi}{2\\sqrt{2}} \\bigg( \\frac{72}{3} - \\frac{96}{5} \\bigg) = \\frac{\\pi}{2\\sqrt{2}} \\bigg( 24 - \\frac{96}{5} \\bigg) && (\\text{Aritmetik sadeleştirmeler}) \\\\
+                    &= \\frac{\\pi}{2\\sqrt{2}} \\bigg( \\frac{24}{5} \\bigg) = \\frac{12\\pi}{5\\sqrt{2}} = \\frac{6\\sqrt{2}\\pi}{5} && (\\text{Nihai eğik hacim (paydanın rasyonel yapılması)})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 5", "İki Eğri Arasındaki Yüzey Alanı (Zincir Eğrisi Zirvesi)", 
+                    "\\( y = \\cosh x \\) ve \\( y = \\sinh x \\) eğrileri ile \\( x = 0 \\) ve \\( x = \\ln 3 \\) doğruları arasında kalan şerit şeklindeki bölgenin, <b>x-ekseni</b> etrafında döndürülmesiyle oluşan üç boyutlu halkanın (dış yüzey eksi iç yüzey alanları toplamı) toplam yüzey alanını hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Oluşan cismin yüzeyi iki parçadan oluşur: Dışarıdaki katenoid yüzeyi (\\( \\cosh x \\) dönüşü) ve içerideki huni benzeri yüzey (\\( \\sinh x \\) dönüşü). Bu iki alanı ayrı ayrı bulup toplamalıyız.</p>
+                    $$\\begin{aligned}
+                    S_{dış} &= 2\\pi \\int_0^{\\ln 3} \\cosh x \\sqrt{1 + (\\sinh x)^2} \\, dx && (\\text{Dış yüzey: } y=\\cosh x \\text{ fonksiyonunun alan integrali}) \\\\
+                    S_{dış} &= 2\\pi \\int_0^{\\ln 3} \\cosh^2 x \\, dx && (1 + \\sinh^2 x = \\cosh^2 x \\text{ özdeşliği ile kökün kalkması}) \\\\
+                    S_{iç} &= 2\\pi \\int_0^{\\ln 3} \\sinh x \\sqrt{1 + (\\cosh x)^2} \\, dx && (\\text{İç yüzey: } y=\\sinh x \\text{ fonksiyonunun alan integrali}) \\\\
+                    S_{top} &= S_{dış} + S_{iç} && (\\text{Halkanın toplam yüzey alanı iki sınırın alan toplamıdır}) \\\\
+                    &= 2\\pi \\int_0^{\\ln 3} \\bigg( \\cosh^2 x + \\sinh x \\sqrt{1 + \\cosh^2 x} \\bigg) \\, dx && (\\text{İki integralin tek bir parantez altında birleştirilmesi}) \\\\
+                    I_1 &= \\int \\cosh^2 x \\, dx = \\int \\frac{1 + \\cosh 2x}{2} \\, dx = \\frac{x}{2} + \\frac{\\sinh 2x}{4} && (\\text{İlk parçanın hiperbolik yarım açı formülüyle çözümü}) \\\\
+                    I_2 &= \\int \\sinh x \\sqrt{1 + \\cosh^2 x} \\, dx && (\\text{İkinci parça için değişken dönüşümü hazırlığı}) \\\\
+                    u &= \\cosh x \\implies du = \\sinh x \\, dx && (\\text{İkinci integral için hiperbolik u-dönüşümü}) \\\\
+                    I_2 &= \\int \\sqrt{1 + u^2} \\, du = \\frac{u}{2}\\sqrt{1+u^2} + \\frac{1}{2}\\ln(u + \\sqrt{1+u^2}) && (\\text{Standart trigonometrik sekant (veya formül) integrali}) \\\\
+                    I_2 &= \\frac{\\cosh x}{2}\\sqrt{1+\\cosh^2 x} + \\frac{1}{2}\\ln(\\cosh x + \\sqrt{1+\\cosh^2 x}) && (\\text{u yerine tekrar } \\cosh x \\text{ değerinin yazılması}) \\\\
+                    x &= \\ln 3 \\implies \\cosh(\\ln 3) = \\frac{3 + 1/3}{2} = \\frac{5}{3} && (\\text{Üst sınırın hiperbolik değerinin hesaplanması}) \\\\
+                    x &= \\ln 3 \\implies \\sinh(2\\ln 3) = \\frac{9 - 1/9}{2} = \\frac{40}{9} && (\\text{İlk integral için çift açı hiperbolik sınır değeri}) \\\\
+                    x &= 0 \\implies \\cosh(0) = 1, \\quad \\sinh(0) = 0 && (\\text{Alt sınırın hiperbolik değerleri}) \\\\
+                    S_{dış}(\\text{Hesap}) &= 2\\pi \\bigg[ \\frac{\\ln 3}{2} + \\frac{40/9}{4} - 0 \\bigg] = \\pi \\ln 3 + \\frac{20\\pi}{9} && (\\text{Dış yüzey alanının sınırlarla değerlendirilmesi}) \\\\
+                    S_{iç}(\\text{Hesap}) &= 2\\pi \\bigg[ \\bigg(\\frac{5/3}{2}\\sqrt{1+\\frac{25}{9}} + \\frac{1}{2}\\ln\\bigg(\\frac{5}{3} + \\sqrt{1+\\frac{25}{9}}\\bigg)\\bigg) - \\bigg(\\frac{1}{2}\\sqrt{2} + \\frac{1}{2}\\ln(1+\\sqrt{2})\\bigg) \\bigg] && (\\text{İç yüzey alanının sınırlarla değerlendirilmesi}) \\\\
+                    &= 2\\pi \\bigg[ \\frac{5\\sqrt{34}}{18} + \\frac{1}{2}\\ln\\bigg(\\frac{5+\\sqrt{34}}{3}\\bigg) - \\frac{\\sqrt{2}}{2} - \\frac{1}{2}\\ln(1+\\sqrt{2}) \\bigg] && (\\text{İç yüzeyin aritmetik toparlanması}) \\\\
+                    S_{top} &= \\pi \\bigg( \\ln 3 + \\frac{20}{9} + \\frac{5\\sqrt{34}}{9} + \\ln\\bigg(\\frac{5+\\sqrt{34}}{3+3\\sqrt{2}}\\bigg) - \\sqrt{2} \\bigg) && (\\text{Logaritma özellikleri kullanılarak nihai birleştirme})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 6", "Yarım Kürenin Ağırlık Merkezi (Çok Katlı İntegrale Hazırlık)", 
+                    "Yarıçapı \\( R \\) olan, tabanı \\( xy \\)-düzleminde bulunan ve \\( z \\ge 0 \\) bölgesinde yer alan homojen (sabit yoğunluklu) bir katı yarım kürenin ağırlık merkezinin (sentroidinin) \\( z \\)-koordinatını (\\( \\bar{z} \\)) tek katlı integral (disk dilimleme) yöntemiyle ispatlayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Çok katlı integraller kullanmadan, cismi z-eksenine dik, kalınlığı dz olan ince dairesel disklere bölerek tek katlı integral ile ağırlık merkezini bulabiliriz.</p>
+                    $$\\begin{aligned}
+                    x^2 + y^2 + z^2 &= R^2 \\implies r(z) = \\sqrt{R^2 - z^2} && (\\text{z yüksekliğindeki diskin yarıçap denklemi}) \\\\
+                    A(z) &= \\pi [r(z)]^2 = \\pi (R^2 - z^2) && (\\text{Bu diskin kesit alanı}) \\\\
+                    dV &= A(z) \\, dz = \\pi (R^2 - z^2) \\, dz && (\\text{Diferansiyel disk hacmi}) \\\\
+                    V &= \\frac{2}{3}\\pi R^3 && (\\text{Yarım kürenin toplam geometrik hacmi}) \\\\
+                    M_{xy} &= \\int_0^R z \\, dV && (\\text{xy-düzlemine göre (z ekseni yönünde) moment formülü}) \\\\
+                    &= \\int_0^R z \\cdot \\pi(R^2 - z^2) \\, dz && (\\text{Hacim diferansiyelinin denkleme yerleştirilmesi}) \\\\
+                    &= \\pi \\int_0^R (R^2 z - z^3) \\, dz && (\\text{Z değişkeninin parantez içine dağıtılması}) \\\\
+                    &= \\pi \\bigg[ R^2 \\frac{z^2}{2} - \\frac{z^4}{4} \\bigg]_0^R && (\\text{Polinom integral adımı}) \\\\
+                    &= \\pi \\bigg( \\frac{R^4}{2} - \\frac{R^4}{4} \\bigg) = \\frac{\\pi R^4}{4} && (\\text{Üst sınır R değerinin yerleştirilmesi ve momentin hesabı}) \\\\
+                    \\bar{z} &= \\frac{M_{xy}}{V} = \\frac{\\frac{\\pi R^4}{4}}{\\frac{2\\pi R^3}{3}} && (\\text{Sentroid tanımı: Momentin Hacme oranı}) \\\\
+                    \\bar{z} &= \\frac{\\pi R^4}{4} \\cdot \\frac{3}{2\\pi R^3} = \\frac{3R}{8} && (\\text{Kesirlerin bölünmesiyle elde edilen ünlü fiziksel kanıt}) \\\\
+                    \\text{Sentroid} &= \\bigg(0, 0, \\frac{3R}{8}\\bigg) && (\\text{x ve y eksenlerindeki simetri nedeniyle nihai koordinat})
+                    \\end{aligned}$$`
+                ); 
+
+html += createQuestion("Soru 7", "Transandant Eğrilerin Zirvesi: Pseudosfer (Tractricoid) Yüzeyi ve Hacmi", 
+                    "Bir traktriks (çekme eğrisi) parametrik olarak \\( x(t) = t - \\tanh t \\) ve \\( y(t) = \\text{sech } t \\) (\\( t \\ge 0 \\)) denklemleriyle verilir. Bu eğrinin x-ekseni etrafında döndürülmesiyle oluşan ve <b>Pseudosfer (Yalancı Küre)</b> adı verilen yüzeyin toplam alanını ve cismin hacmini hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Pseudosfer, negatif sabit Gauss eğriliğine sahip geometrik bir şaheserdir. Parametrik diferansiyel geometri kurallarını kullanarak integralini kuracağız.</p>
+                    $$\\begin{aligned}
+                    x'(t) &= 1 - \\text{sech}^2 t = \\tanh^2 t && (\\text{x bileşeninin t'ye göre türevi}) \\\\
+                    y'(t) &= -\\text{sech } t \\tanh t && (\\text{y bileşeninin t'ye göre zincir kuralı türevi}) \\\\
+                    ds &= \\sqrt{(\\tanh^2 t)^2 + (-\\text{sech } t \\tanh t)^2} \\, dt && (\\text{Parametrik yay diferansiyeli formülü}) \\\\
+                      &= \\sqrt{\\tanh^4 t + \\text{sech}^2 t \\tanh^2 t} \\, dt && (\\text{Karelerin açılması}) \\\\
+                      &= \\tanh t \\sqrt{\\tanh^2 t + \\text{sech}^2 t} \\, dt && (\\text{Ortak çarpanın kök dışına alınması}) \\\\
+                      &= \\tanh t \\sqrt{1} \\, dt = \\tanh t \\, dt && (\\text{Hiperbolik Pisagor özdeşliğinin mükemmel sadeleştirmesi}) \\\\
+                    S &= \\int_0^\\infty 2\\pi y(t) \\, ds && (\\text{X-ekseni etrafında parametrik dönel yüzey alanı integrali}) \\\\
+                      &= \\int_0^\\infty 2\\pi (\\text{sech } t) (\\tanh t) \\, dt && (\\text{Bileşenlerin fonksiyona yerleştirilmesi}) \\\\
+                      &= 2\\pi \\bigg[ -\\text{sech } t \\bigg]_0^\\infty && (\\text{Standart hiperbolik türev kuralının tersiyle integrasyon}) \\\\
+                      &= 2\\pi \\bigg( (0) - (-1) \\bigg) = 2\\pi \\text{ birimkare} && (\\text{Yarım pseudosferin alanı (Yarıçapı 1 olan yarım küreye eşittir)}) \\\\
+                    V &= \\int_0^\\infty \\pi [y(t)]^2 x'(t) \\, dt && (\\text{Parametrik hacim (Disk Yöntemi) integrali}) \\\\
+                      &= \\pi \\int_0^\\infty (\\text{sech}^2 t) (\\tanh^2 t) \\, dt && (\\text{İfadeye hiperbolik fonksiyonların dahil edilmesi}) \\\\
+                      &= \\pi \\bigg[ \\frac{\\tanh^3 t}{3} \\bigg]_0^\\infty && (\\text{Zincir kuralının tersiyle doğrudan hacim integrasyonu}) \\\\
+                      &= \\pi \\bigg( \\frac{1}{3} - 0 \\bigg) = \\frac{\\pi}{3} \\text{ birimküp} && (\\text{Yarım pseudosfer hacmi (Yarım küre hacminin tam yarısıdır)})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 8", "Katmanlı (Stratifiye) Akışkanda Teorik Hidrostatik Kuvvet", 
+                    "Tabanı \\( B = 10 \\) metre, yüksekliği \\( H = 6 \\) metre olan <b>aşağı doğru sivrilen üçgen</b> şeklindeki bir baraj kapağı tamamen su altındadır (üst taban su yüzeyindedir). Sudaki tuzluluk oranı derine indikçe artmakta olup, suyun yoğunluğu derinliğe (\\( y \\)) bağlı olarak \\( \\rho(y) = \\rho_0(1 + ky) \\) fonksiyonuyla değişmektedir. (\\( \\rho_0 = 1000 \\text{ kg/m}^3, k = 0.1 \\text{ m}^{-1}, g = 9.8 \\text{ m/s}^2 \\)). Bu kapağa etki eden toplam diferansiyel hidrostatik kuvveti teorik olarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Klasik sorularda basınç \\( P = \\rho g y \\) alınır. Ancak yoğunluk değişkense, basınç bizzat yoğunluğun derinliğe göre integralidir. Bu, akışkanlar mekaniğinin ileri teorik bir uygulamasıdır.</p>
+                    $$\\begin{aligned}
+                    w(y) &= \\frac{B}{H}(H - y) = \\frac{10}{6}(6 - y) = \\frac{5}{3}(6 - y) && (\\text{y derinliğindeki üçgen genişliğinin Benzerlik Teoremi ile hesabı}) \\\\
+                    P(y) &= \\int_0^y \\rho(s) g \\, ds = \\int_0^y \\rho_0(1 + ks) g \\, ds && (\\text{Değişken yoğunluklu akışkanda kümülatif hidrostatik basınç integrali}) \\\\
+                      &= \\rho_0 g \\bigg[ s + \\frac{ks^2}{2} \\bigg]_0^y = \\rho_0 g \\bigg( y + \\frac{ky^2}{2} \\bigg) && (\\text{Basınç fonksiyonunun y cinsinden analitik olarak elde edilmesi}) \\\\
+                    dF &= P(y) w(y) \\, dy && (\\text{Diferansiyel yatay şeride etkiyen hidrostatik kuvvet elemanı}) \\\\
+                    F &= \\int_0^6 \\rho_0 g \\bigg( y + \\frac{ky^2}{2} \\bigg) \\frac{5}{3}(6 - y) \\, dy && (\\text{Tüm kapak yüzeyi boyunca toplam kuvvet integrali}) \\\\
+                      &= \\frac{5\\rho_0 g}{3} \\int_0^6 \\bigg( 6y - y^2 + 3ky^2 - \\frac{k}{2}y^3 \\bigg) \\, dy && (\\text{Fiziksel sabitlerin dışarı alınıp polinomların tek paranteze dağıtılması}) \\\\
+                      &= \\frac{5\\rho_0 g}{3} \\bigg[ 3y^2 - \\frac{y^3}{3} + ky^3 - \\frac{k}{8}y^4 \\bigg]_0^6 && (\\text{Polinom integrasyon adımları}) \\\\
+                      &= \\frac{5(9800)}{3} \\bigg( 3(36) - \\frac{216}{3} + (0.1)(216) - \\frac{0.1}{8}(1296) \\bigg) && (\\text{Verilen sayısal sabitlerin ve üst sınır olan 6'nın konulması}) \\\\
+                      &= \\frac{49000}{3} \\bigg( 108 - 72 + 21.6 - 16.2 \\bigg) && (\\text{Parantez içindeki analitik aritmetik terimler}) \\\\
+                      &= \\frac{49000}{3} (41.4) = 49000(13.8) && (\\text{Çarpanların son faza indirgenmesi}) \\\\
+                      &= 676\\,200 \\text{ Newton} && (\\text{Katmanlı (stratifiye) akışkandaki nihai toplam kuvvet})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 9", "Genelleştirilmiş Gabriel Borusu (P-Testi ve Iraksaklık Sentezi)", 
+                    "\\( y = \\frac{1}{x^p} \\) eğrisinin \\( x \\ge 1 \\) aralığındaki parçası x-ekseni etrafında döndürülüyor. Hacmin <b>sonlu (yakınsak)</b>, ancak yüzey alanının <b>sonsuz (ıraksak)</b> olmasını sağlayan \\( p \\) parametresinin aralığını bulunuz ve bu aralık için yüzey alanının sonsuzluğunu <b>Karşılaştırma (Comparison) Testi</b> ile matematiksel olarak ispatlayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu soru, alan ve hacim hesaplamalarını diziler/seriler konusundaki ünlü p-testi ile birleştiren saf teorik bir analiz problemidir.</p>
+                    $$\\begin{aligned}
+                    V &= \\int_1^\\infty \\pi \\bigg(\\frac{1}{x^p}\\bigg)^2 \\, dx = \\pi \\int_1^\\infty x^{-2p} \\, dx && (\\text{Genelleştirilmiş fonksiyon için hacim integrali kurulumu}) \\\\
+                    V \\text{ (Sonlu)} &\\iff 2p > 1 \\implies p > \\frac{1}{2} && (\\text{p-testi uyarınca hacmin integrallenebilir (yakınsak) olma koşulu}) \\\\
+                    S &= \\int_1^\\infty 2\\pi y \\sqrt{1 + (y')^2} \\, dx && (\\text{Dönel yüzey alanı için temel Kalkülüs formülü}) \\\\
+                      &= \\int_1^\\infty 2\\pi \\frac{1}{x^p} \\sqrt{1 + \\bigg(\\frac{-p}{x^{p+1}}\\bigg)^2} \\, dx && (\\text{Fonksiyonun ve türevinin integrale analitik olarak yerleşimi}) \\\\
+                    \\sqrt{1 + \\frac{p^2}{x^{2p+2}}} &> 1 \\qquad (\\text{her } x \\ge 1 \\text{ için}) && (\\text{Kök içi ifadenin daima 1'den büyük olduğu gerçeğinin tespiti}) \\\\
+                    S &> 2\\pi \\int_1^\\infty \\frac{1}{x^p} \\, dx && (\\text{Yukarıdaki eşitsizlik kullanılarak Karşılaştırma Testi kurulumu}) \\\\
+                    \\int_1^\\infty \\frac{1}{x^p} \\, dx &= \\infty \\iff p \\le 1 && (\\text{p-testi uyarınca alt sınır integralinin ıraksama (sonsuz olma) koşulu}) \\\\
+                    S &> \\infty \\implies S = \\infty \\qquad (\\text{Eğer } p \\le 1 \\text{ ise}) && (\\text{Teorem: Daha küçük olan alt integral ıraksıyorsa, büyük olan kesinlikle ıraksar}) \\\\
+                    \\frac{1}{2} < p &\\le 1 && (\\text{Hem hacmin sonlu hem alanın sonsuz paradoksunu sağlayan nihai aralık})
+                    \\end{aligned}$$`
+  
+             );
+html += createQuestion("Soru 10", "Ağır İş Yükü: Kesişen Dört Eğrinin Bölge Analizi ve Kabuk Hacmi", 
+                    "\\( y = \\sin x \\), \\( y = \\cos x \\), \\( x = 0 \\) ve \\( x = \\frac{\\pi}{2} \\) ile sınırlanan, birbirine komşu <b>iki ayrı kapalı bölgenin</b> birleşimi olan toplam alanın, <b>\\( y = -1 \\)</b> doğrusu etrafında döndürülmesiyle oluşan cismin hacmini hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu soru yatay dönme ekseni (\\( y=-1 \\)) içerdiği için Disk/Pul yöntemi daha uygundur. Ancak bölgeler \\( x=\\pi/4 \\) noktasında çaprazlandığı için (üst-alt eğri değişimi), integrali mutlaka iki parçaya bölmeliyiz.</p>
+                    $$\\begin{aligned}
+                    \\sin x &= \\cos x \\implies x = \\frac{\\pi}{4} && (\\text{Bölgelerin birleşim/kesişim noktası}) \\\\
+                    R_1(x) &= \\cos x - (-1) = \\cos x + 1 && (0 \\le x \\le \\pi/4 \\text{ aralığında dış yarıçap: Üstte kosinüs var}) \\\\
+                    r_1(x) &= \\sin x - (-1) = \\sin x + 1 && (0 \\le x \\le \\pi/4 \\text{ aralığında iç yarıçap: Altta sinüs var}) \\\\
+                    R_2(x) &= \\sin x - (-1) = \\sin x + 1 && (\\pi/4 \\le x \\le \\pi/2 \\text{ aralığında dış yarıçap: Üstte sinüs var}) \\\\
+                    r_2(x) &= \\cos x - (-1) = \\cos x + 1 && (\\pi/4 \\le x \\le \\pi/2 \\text{ aralığında iç yarıçap: Altta kosinüs var}) \\\\
+                    V_1 &= \\pi \\int_0^{\\pi/4} \\bigg[ (\\cos x + 1)^2 - (\\sin x + 1)^2 \\bigg] \\, dx && (\\text{Pul yöntemiyle ilk bölgenin hacmi}) \\\\
+                      &= \\pi \\int_0^{\\pi/4} (\\cos^2 x + 2\\cos x + 1 - \\sin^2 x - 2\\sin x - 1) \\, dx && (\\text{Tam karelerin açılması}) \\\\
+                      &= \\pi \\int_0^{\\pi/4} (\\cos 2x + 2\\cos x - 2\\sin x) \\, dx && (\\cos^2 x - \\sin^2 x = \\cos 2x \\text{ özdeşliği}) \\\\
+                      &= \\pi \\bigg[ \\frac{\\sin 2x}{2} + 2\\sin x + 2\\cos x \\bigg]_0^{\\pi/4} && (\\text{Birinci bölgenin integralinin alınması}) \\\\
+                      &= \\pi \\bigg[ \\bigg(\\frac{1}{2} + \\sqrt{2} + \\sqrt{2}\\bigg) - (0 + 0 + 2) \\bigg] = \\pi \\bigg( 2\\sqrt{2} - \\frac{3}{2} \\bigg) && (\\text{Sınırların birinci bölgeye uygulanması}) \\\\
+                    V_2 &= \\pi \\int_{\\pi/4}^{\\pi/2} \\bigg[ (\\sin x + 1)^2 - (\\cos x + 1)^2 \\bigg] \\, dx && (\\text{Pul yöntemiyle ikinci bölgenin hacmi}) \\\\
+                      &= \\pi \\int_{\\pi/4}^{\\pi/2} (\\sin^2 x + 2\\sin x - \\cos^2 x - 2\\cos x) \\, dx && (\\text{Tam karelerin açılıp 1'lerin sadeleşmesi}) \\\\
+                      &= \\pi \\int_{\\pi/4}^{\\pi/2} (-\\cos 2x + 2\\sin x - 2\\cos x) \\, dx && (\\text{Trigonometrik sadeleştirmeler}) \\\\
+                      &= \\pi \\bigg[ -\\frac{\\sin 2x}{2} - 2\\cos x - 2\\sin x \\bigg]_{\\pi/4}^{\\pi/2} && (\\text{İkinci bölgenin integralinin alınması}) \\\\
+                      &= \\pi \\bigg[ \\bigg(0 - 0 - 2\\bigg) - \\bigg(-\\frac{1}{2} - \\sqrt{2} - \\sqrt{2}\\bigg) \\bigg] = \\pi \\bigg( 2\\sqrt{2} - \\frac{3}{2} \\bigg) && (\\text{Simetri nedeniyle iki hacmin de aynı çıkması}) \\\\
+                    V_{top} &= V_1 + V_2 = \\pi (4\\sqrt{2} - 3) \\text{ birimküp} && (\\text{Cismin toplam hacmi})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 11", "Kutupsal Geometri Zirvesi: Lemniskat İçinde Yüzey Alanı", 
+                    "\\( r^2 = 4\\cos(2\\theta) \\) lemniskatının sağ yarı düzlemdeki (\\( -\\frac{\\pi}{4} \\le \\theta \\le \\frac{\\pi}{4} \\)) halkasının, <b>polar eksen (x-ekseni)</b> etrafında döndürülmesiyle oluşan yüzeyin alanını hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Kutupsal koordinatlarda kapalı türev (\\( r^2 \\) üzerinden) ve yay elemanı hesabı yüksek dikkat gerektirir.</p>
+                    $$\\begin{aligned}
+                    2r \\cdot r' &= -8\\sin(2\\theta) \\implies r' = \\frac{-4\\sin(2\\theta)}{r} && (\\text{Lemniskat denkleminin kapalı türevi}) \\\\
+                    (r')^2 &= \\frac{16\\sin^2(2\\theta)}{r^2} = \\frac{16\\sin^2(2\\theta)}{4\\cos(2\\theta)} = \\frac{4\\sin^2(2\\theta)}{\\cos(2\\theta)} && (\\text{Türevin karesinin alınıp r}^2 \\text{ yerine asıl denklemin yazılması}) \\\\
+                    ds &= \\sqrt{r^2 + (r')^2} \\, d\\theta = \\sqrt{4\\cos(2\\theta) + \\frac{4\\sin^2(2\\theta)}{\\cos(2\\theta)}} \\, d\\theta && (\\text{Kutupsal diferansiyel yay elemanı}) \\\\
+                      &= \\sqrt{\\frac{4\\cos^2(2\\theta) + 4\\sin^2(2\\theta)}{\\cos(2\\theta)}} \\, d\\theta = \\frac{2}{\\sqrt{\\cos(2\\theta)}} \\, d\\theta && (\\text{Pisagor özdeşliği ile kök içinin olağanüstü sadeleşmesi}) \\\\
+                    y &= r \\sin\\theta = \\sqrt{4\\cos(2\\theta)} \\sin\\theta = 2\\sin\\theta\\sqrt{\\cos(2\\theta)} && (\\text{Kutupsal koordinatlarda y bileşeninin tanımlanması}) \\\\
+                    S &= \\int_{-\\pi/4}^{\\pi/4} 2\\pi \\big(2\\sin\\theta\\sqrt{\\cos(2\\theta)}\\big) \\bigg( \\frac{2}{\\sqrt{\\cos(2\\theta)}} \\bigg) \\, d\\theta && (\\text{Kutupsal yüzey alanı integralinin tüm bileşenlerle kurulması}) \\\\
+                      &= 8\\pi \\int_{-\\pi/4}^{\\pi/4} \\sin\\theta \\, d\\theta && (\\text{Kök ifadelerinin ve rasyonel terimlerin birbirini yok etmesi}) \\\\
+                    \\int_{-\\pi/4}^{\\pi/4} \\sin\\theta \\, d\\theta &= 0 && (\\text{Sinüs tek fonksiyondur ve simetrik aralıkta integrali SIFIRDIR!}) \\\\
+                    S &= 2 \\int_0^{\\pi/4} 8\\pi \\sin\\theta \\, d\\theta = 16\\pi \\bigg[ -\\cos\\theta \\bigg]_0^{\\pi/4} && (\\text{HATA YAPMAYIN: Yüzey alanı hesabı mutlak dönme gerektirir}) \\\\
+                      &= 16\\pi \\bigg( -\\frac{\\sqrt{2}}{2} - (-1) \\bigg) = 16\\pi \\bigg( 1 - \\frac{\\sqrt{2}}{2} \\bigg) && (\\text{Doğru simetri sınırlarıyla alan hesabı}) \\\\
+                      &= 8\\pi(2 - \\sqrt{2}) \\text{ birimkare} && (\\text{Lemniskat dönüşüyle elde edilen nihai yüzey alanı})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 12", "Transandant Kök Bulma ve Ağır Akışkan İşi", 
+                    "Tamamen su (\\( \\rho = 1000 \\text{ kg/m}^3 \\)) dolu yatay bir silindirik tankın yarıçapı \\( R = 2 \\) metre, uzunluğu \\( L = 10 \\) metredir. Depodaki suyun sadece <b>üst yarısını</b> (yani tank yarı yarıya boşalana kadar) tankın üst kenarından dışarı pompalamak için yapılması gereken işi hesaplayınız. \\( (g = 9.8 \\text{ m/s}^2) \\)", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Yatay silindirlerde kesitler (disklere veya kabuklara değil) uzunluğu tankın boyuna eşit olan ince dikdörtgen şeritlere ayrılır. Derinlik arttıkça şeridin genişliği dairesel olarak daralır.</p>
+                    $$\\begin{aligned}
+                    y &= \\text{Merkezden (0) yukarıya doğru dikey mesafe } (0 \\le y \\le 2) && (\\text{Koordinat sisteminin tankın merkezine yerleştirilmesi}) \\\\
+                    w(y) &= 2\\sqrt{R^2 - y^2} = 2\\sqrt{4 - y^2} && (\\text{y yüksekliğindeki yatay dikdörtgen su tabakasının genişliği}) \\\\
+                    A(y) &= L \\cdot w(y) = 10 \\cdot 2\\sqrt{4 - y^2} = 20\\sqrt{4 - y^2} && (\\text{Su tabakasının yatay düzlemdeki alanı}) \\\\
+                    dV &= A(y) \\, dy = 20\\sqrt{4 - y^2} \\, dy && (\\text{Bu çok ince tabakanın diferansiyel hacmi}) \\\\
+                    dF &= \\rho g \\, dV = 9800 \\big( 20\\sqrt{4 - y^2} \\big) \\, dy = 196\\,000\\sqrt{4 - y^2} \\, dy && (\\text{Tabakanın ağırlık kuvveti}) \\\\
+                    D(y) &= 2 - y && (\\text{Tabakanın pompalanacağı toplam dikey mesafe (2'ye pompalanıyor)}) \\\\
+                    dW &= dF \\cdot D(y) = 196\\,000 (2 - y) \\sqrt{4 - y^2} \\, dy && (\\text{Diferansiyel iş fonksiyonu}) \\\\
+                    W &= \\int_0^2 196\\,000 (2 - y) \\sqrt{4 - y^2} \\, dy && (\\text{Sadece üst yarıdaki su boşaltılacağı için } [0, 2] \\text{ sınırları}) \\\\
+                      &= 196\\,000 \\bigg[ \\int_0^2 2\\sqrt{4 - y^2} \\, dy - \\int_0^2 y\\sqrt{4 - y^2} \\, dy \\bigg] && (\\text{İntegralin iki çözülebilir parçaya bölünmesi}) \\\\
+                    I_1 &= 2 \\int_0^2 \\sqrt{4 - y^2} \\, dy = 2 \\bigg( \\frac{1}{4} \\pi(2)^2 \\bigg) = 2\\pi && (\\text{İlk integral çeyrek daire alanıdır}) \\\\
+                    I_2 &= \\int_0^2 y\\sqrt{4 - y^2} \\, dy && (\\text{İkinci integral için } u = 4 - y^2 \\text{ dönüşümü hazırlığı}) \\\\
+                    du &= -2y \\, dy \\implies y \\, dy = -\\frac{du}{2} && (\\text{Değişken dönüşümü diferansiyeli}) \\\\
+                    I_2 &= \\int_4^0 \\sqrt{u} \\bigg(-\\frac{du}{2}\\bigg) = \\frac{1}{2} \\int_0^4 u^{1/2} \\, du && (\\text{Sınırların değişimi ve integral}) \\\\
+                      &= \\frac{1}{2} \\bigg[ \\frac{2}{3}u^{3/2} \\bigg]_0^4 = \\frac{1}{3} (4^{3/2}) = \\frac{8}{3} && (\\text{İkinci parçanın sonucu}) \\\\
+                    W &= 196\\,000 \\bigg( 2\\pi - \\frac{8}{3} \\bigg) \\text{ Joule} && (\\text{Pompanın üst yarıyı boşaltmak için yaptığı net iş})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 13", "Geometrik Paradoks: Peçete Halkası (Napkin Ring)", 
+                    "Yarıçapı \\( R \\) olan katı bir kürenin tam merkezinden, yarıçapı \\( r \\) olan silindirik bir delik açılarak çıkarılıyor. Geriye kalan halkanın yüksekliği \\( h \\) olarak ölçülüyor. Kalan cismin hacminin \\( R \\) veya \\( r \\)'ye bağlı olmadığını, <b>sadece \\( h \\) yüksekliğine bağlı olduğunu</b> integral (Pul Yöntemi) kullanarak ispatlayınız ve bu hacmi bulunuz.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu problem matematikte ünlü bir sezgi yanılgısıdır. Deliğin boyu (h) aynı kaldığı sürece, küre ister bilardo topu kadar ister Jüpiter kadar büyük olsun, kalan halkanın hacmi hep aynıdır!</p>
+                    $$\\begin{aligned}
+                    x^2 + y^2 &= R^2 \\implies x_{dış} = \\sqrt{R^2 - y^2} && (\\text{Kürenin denklemi ve yatay dış yarıçapı}) \\\\
+                    R^2 - r^2 &= \\bigg(\\frac{h}{2}\\bigg)^2 \\implies r^2 = R^2 - \\frac{h^2}{4} && (\\text{Pisagor teoremi: Silindir yarıçapı ile h yüksekliği ilişkisi}) \\\\
+                    V &= \\pi \\int_{-h/2}^{h/2} \\bigg[ (x_{dış})^2 - (r)^2 \\bigg] \\, dy && (\\text{Pul yöntemi ile halkanın hacim integrali kurulumu}) \\\\
+                      &= \\pi \\int_{-h/2}^{h/2} \\bigg[ \\big(\\sqrt{R^2 - y^2}\\big)^2 - r^2 \\bigg] \\, dy && (\\text{Dış ve iç yarıçapların integrale yerleştirilmesi}) \\\\
+                      &= \\pi \\int_{-h/2}^{h/2} (R^2 - y^2 - r^2) \\, dy && (\\text{Karekökün kalkması}) \\\\
+                      &= \\pi \\int_{-h/2}^{h/2} \\bigg( \\big(R^2 - r^2\\big) - y^2 \\bigg) \\, dy && (\\text{Sabit terimlerin bir araya gruplandırılması}) \\\\
+                      &= \\pi \\int_{-h/2}^{h/2} \\bigg( \\frac{h^2}{4} - y^2 \\bigg) \\, dy && (\\text{Pisagor eşitliğinden faydalanarak R ve r'nin tamamen yok edilmesi}) \\\\
+                      &= 2\\pi \\int_{0}^{h/2} \\bigg( \\frac{h^2}{4} - y^2 \\bigg) \\, dy && (\\text{Çift fonksiyon simetrisi ile integral sınırlarının daraltılması}) \\\\
+                      &= 2\\pi \\bigg[ \\frac{h^2}{4}y - \\frac{y^3}{3} \\bigg]_0^{h/2} && (\\text{y değişkenine göre integrasyon (h burada sabittir)}) \\\\
+                      &= 2\\pi \\bigg( \\frac{h^2}{4}\\bigg(\\frac{h}{2}\\bigg) - \\frac{(h/2)^3}{3} \\bigg) && (\\text{Üst sınırın y yerine yazılması}) \\\\
+                      &= 2\\pi \\bigg( \\frac{h^3}{8} - \\frac{h^3}{24} \\bigg) = 2\\pi \\bigg( \\frac{3h^3 - h^3}{24} \\bigg) && (\\text{Payda eşitleme ve çıkarma işlemleri}) \\\\
+                      &= \\frac{\\pi h^3}{6} \\text{ birimküp} && (\\text{İspat tamamlandı: Hacim R'den tamamen bağımsızdır})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 14", "Ağır Teorik Sentroid: Sikloid Kemerinin Ağırlık Merkezi", 
+                    "Bir tekerleğin yuvarlanmasıyla oluşan \\( x = a(t - \\sin t) \\) ve \\( y = a(1 - \\cos t) \\) (\\( 0 \\le t \\le 2\\pi \\)) parametrik denklemlerine sahip Sikloid eğrisinin tek bir kemeri ile x-ekseni arasında kalan <b>bölgenin ağırlık merkezini (sentroidini)</b> hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Parametrik bölgelerin ağırlık merkezini bulurken, hem alan hem de moment formüllerini parametrik diferansiyele (\\( dx = x'(t)dt \\)) dönüştürmek gerekir. Bu soru trigonometrik integral tekniklerinin zirvesidir.</p>
+                    $$\\begin{aligned}
+                    dx &= a(1 - \\cos t) \\, dt && (\\text{x değişkeninin t'ye göre parametrik diferansiyeli}) \\\\
+                    A &= \\int_0^{2\\pi} y \\, dx = \\int_0^{2\\pi} a(1 - \\cos t) \\cdot a(1 - \\cos t) \\, dt && (\\text{Sikloid kemerinin toplam alan integrali}) \\\\
+                      &= a^2 \\int_0^{2\\pi} (1 - 2\\cos t + \\cos^2 t) \\, dt && (\\text{Tam karenin açılması}) \\\\
+                      &= a^2 \\bigg[ t - 2\\sin t + \\bigg(\\frac{t}{2} + \\frac{\\sin 2t}{4}\\bigg) \\bigg]_0^{2\\pi} = 3\\pi a^2 && (\\text{Trigonometrik integrasyon ile alanın bulunması}) \\\\
+                    M_x &= \\frac{1}{2} \\int y^2 \\, dx = \\frac{1}{2} \\int_0^{2\\pi} a^2(1 - \\cos t)^2 \\cdot a(1 - \\cos t) \\, dt && (\\text{Parametrik x-momenti formülünün kurgulanması}) \\\\
+                      &= \\frac{a^3}{2} \\int_0^{2\\pi} (1 - \\cos t)^3 \\, dt && (\\text{Parantezlerin küp formunda birleşmesi}) \\\\
+                      &= \\frac{a^3}{2} \\int_0^{2\\pi} (1 - 3\\cos t + 3\\cos^2 t - \\cos^3 t) \\, dt && (\\text{Küp açılımının yapılması}) \\\\
+                    \\int_0^{2\\pi} \\cos t \\, dt &= 0, \\quad \\int_0^{2\\pi} \\cos^3 t \\, dt = 0 && (\\text{Tek kuvvetli kosinüslerin tam periyot integralinin sıfırlanması}) \\\\
+                    \\int_0^{2\\pi} 3\\cos^2 t \\, dt &= 3 \\int_0^{2\\pi} \\frac{1 + \\cos 2t}{2} \\, dt = 3\\pi && (\\text{Çift kuvvetli kosinüs teriminin yarım açı ile çözümü}) \\\\
+                    M_x &= \\frac{a^3}{2} \\big( 2\\pi - 0 + 3\\pi - 0 \\big) = \\frac{5\\pi a^3}{2} && (\\text{Sıfırlanmayan terimlerin toplanarak momentin elde edilmesi}) \\\\
+                    \\bar{y} &= \\frac{M_x}{A} = \\frac{5\\pi a^3 / 2}{3\\pi a^2} = \\frac{5a}{6} && (\\text{Y-koordinatının moment/alan oranıyla bulunması}) \\\\
+                    \\bar{x} &= \\pi a && (\\text{Sikloid kemeri x=} \\pi a \\text{ doğrusuna göre simetrik olduğundan}) \\\\
+                    \\text{Sentroid} &= \\bigg(\\pi a, \\frac{5a}{6}\\bigg) && (\\text{Sikloid bölgesinin nihai teorik denge noktası})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 15", "Sonsuzlukta Yüzey Alanı Karşıtlığı (Dönen Üstel Fonksiyon)", 
+                    "\\( y = e^{-x} \\) eğrisinin \\( x \\ge 0 \\) aralığındaki sonsuz parçasının <b>x-ekseni</b> etrafında döndürülmesiyle oluşan yüzeyin alanını hesaplayınız. (Gabriel'in Borusu'nun aksine, bu sonsuz cismin yüzey alanının yakınsak olduğunu göreceksiniz.)", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Gabriel'in Borusu (\\( 1/x \\)) yüzey alanı ıraksaktır, ancak üstel bozunma eğrisi (\\( e^{-x} \\)) o kadar hızlı daralır ki, sonsuza kadar uzansa bile yüzey alanı sonlu (yakınsak) çıkar. Bu durum transandant integrallerle ispatlanır.</p>
+                    $$\\begin{aligned}
+                    y' &= -e^{-x} \\implies ds = \\sqrt{1 + (-e^{-x})^2} \\, dx = \\sqrt{1 + e^{-2x}} \\, dx && (\\text{Üstel fonksiyon türevi ve diferansiyel yay elemanı}) \\\\
+                    S &= \\int_0^\\infty 2\\pi e^{-x} \\sqrt{1 + e^{-2x}} \\, dx && (\\text{Yüzey alanı integralinin genelleştirilmiş sınırlarla kurulumu}) \\\\
+                    u &= e^{-x} \\implies du = -e^{-x} \\, dx \\implies -du = e^{-x} \\, dx && (\\text{İntegrali çözmek için e tabanlı u-dönüşümü}) \\\\
+                    x &= 0 \\implies u = 1, \\quad x \\to \\infty \\implies u \\to 0 && (\\text{İntegral sınırlarının u değişkenine göre güncellenmesi}) \\\\
+                    S &= 2\\pi \\int_1^0 \\sqrt{1 + u^2} \\, (-du) = 2\\pi \\int_0^1 \\sqrt{1 + u^2} \\, du && (\\text{Eksi işareti ile sınırların yer değiştirip düzeltilmesi}) \\\\
+                    u &= \\tan \\theta \\implies du = \\sec^2 \\theta \\, d\\theta && (\\text{Standart kareköklü toplam formu için trigonometrik dönüşüm}) \\\\
+                    S &= 2\\pi \\int_0^{\\pi/4} \\sqrt{1 + \\tan^2 \\theta} \\sec^2 \\theta \\, d\\theta && (\\text{Sınırların açıya dönüştürülmesi } (\\tan(\\pi/4) = 1)) \\\\
+                      &= 2\\pi \\int_0^{\\pi/4} \\sec^3 \\theta \\, d\\theta && (\\text{Trigonometrik özdeşlik ile fonksiyonun sekant küpe dönüşümü}) \\\\
+                    \\int \\sec^3 \\theta \\, d\\theta &= \\frac{1}{2} \\big( \\sec\\theta \\tan\\theta + \\ln|\\sec\\theta + \\tan\\theta| \\big) && (\\text{Kısmi integrasyon döngüsü ile bilinen sekant küp açılımı}) \\\\
+                    S &= 2\\pi \\bigg[ \\frac{1}{2} \\big( \\sec\\theta \\tan\\theta + \\ln|\\sec\\theta + \\tan\\theta| \\big) \\bigg]_0^{\\pi/4} && (\\text{Ters türevin alana uyarlanması}) \\\\
+                      &= \\pi \\bigg( \\big(\\sqrt{2}(1) + \\ln|\\sqrt{2} + 1|\\big) - \\big(1(0) + \\ln|1 + 0|\\big) \\bigg) && (\\text{Trigonometrik sınırların değerlendirilmesi}) \\\\
+                      &= \\pi \\big( \\sqrt{2} + \\ln(\\sqrt{2} + 1) \\big) \\text{ birimkare} && (\\text{Sonsuz uzunluktaki cismin sonlu yüzey alanı değeri})
+                    \\end{aligned}$$`
+                );
+
+
+html += createQuestion("Soru 16", "Zorunlu Karma Yöntem: Pul ve Kabuk Sentezi", 
+                    "Analitik düzlemde birbirine komşu iki farklı bölge verilmiştir:<br><b>Bölge 1:</b> \\( y = e^{x^2} \\) eğrisi, \\( x=0 \\), \\( x=1 \\) ve \\( y=0 \\) arasında kalan alan.<br><b>Bölge 2:</b> \\( x = 1 + \\tan y \\) eğrisi, \\( x=1 \\), \\( y=0 \\) ve \\( y=\\pi/4 \\) arasında kalan alan.<br>Bu birleşik sistemin <b>y-ekseni</b> etrafında döndürülmesiyle oluşan toplam hacmi hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bölge 1'de x'e göre (Kabuk), Bölge 2'de y'ye göre (Pul) entegrasyon yapmak, fonksiyonların tersini alma imkansızlıklarını aşmamızı sağlar.</p>
+                    $$\\begin{aligned}
+                    V_1 &= 2\\pi \\int_0^1 x \\cdot e^{x^2} \\, dx && (\\text{Bölge 1 için y-ekseni Kabuk Yöntemi kurulumu}) \\\\
+                      &= \\pi \\int_0^1 2x e^{x^2} \\, dx && (2 \\text{ katsayısının zincir kuralı için x'in yanına alınması}) \\\\
+                      &= \\pi \\bigg[ e^{x^2} \\bigg]_0^1 && (u=x^2 \\implies du=2x dx \\text{ üstel integrasyonu}) \\\\
+                      &= \\pi (e^1 - e^0) = \\pi(e - 1) && (\\text{Bölge 1'in hacim sonucu}) \\\\
+                    V_2 &= \\pi \\int_0^{\\pi/4} \\bigg[ (1 + \\tan y)^2 - 1^2 \\bigg] \\, dy && (\\text{Bölge 2 için y-ekseni Pul Yöntemi kurulumu}) \\\\
+                      &= \\pi \\int_0^{\\pi/4} (1 + 2\\tan y + \\tan^2 y - 1) \\, dy && (\\text{Tam karenin açılıp 1'lerin sadeleştirilmesi}) \\\\
+                      &= \\pi \\int_0^{\\pi/4} (\\tan^2 y + 2\\tan y) \\, dy && (\\text{Trigonometrik ifadenin toparlanması}) \\\\
+                      &= \\pi \\int_0^{\\pi/4} (\\sec^2 y - 1 + 2\\tan y) \\, dy && (\\tan^2 y = \\sec^2 y - 1 \\text{ temel özdeşliği}) \\\\
+                      &= \\pi \\bigg[ \\tan y - y - 2\\ln|\\cos y| \\bigg]_0^{\\pi/4} && (\\text{Her terimin standart integralinin alınması}) \\\\
+                      &= \\pi \\bigg[ \\bigg(1 - \\frac{\\pi}{4} - 2\\ln\\bigg(\\frac{\\sqrt{2}}{2}\\bigg)\\bigg) - (0 - 0 - 0) \\bigg] && (\\text{Sınırların dikkatlice yerleştirilmesi}) \\\\
+                      &= \\pi \\bigg( 1 - \\frac{\\pi}{4} + \\ln 2 \\bigg) && (-2\\ln(2^{-1/2}) = \\ln 2 \\text{ logaritma kuralı}) \\\\
+                    V_{top} &= V_1 + V_2 = \\pi \\bigg( e - 1 + 1 - \\frac{\\pi}{4} + \\ln 2 \\bigg) && (\\text{İki yöntemin sonuçlarının toplanması}) \\\\
+                      &= \\pi \\bigg( e + \\ln 2 - \\frac{\\pi}{4} \\bigg) \\text{ birimküp} && (\\text{Nihai karma hacim sentezi})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 17", "Astroid Dönel Yüzeyi (Parametrik Hiperyüzey)", 
+                    "\\( x(t) = a\\cos^3 t \\) ve \\( y(t) = a\\sin^3 t \\) parametrik denklemleriyle verilen Astroid eğrisinin x-ekseni etrafında döndürülmesiyle oluşan tam yüzeyin alanını hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Astroidin parametrik diferansiyel yay elemanı ve yüzey integrali trigonometrik dönüşümlerin şaheseridir.</p>
+                    $$\\begin{aligned}
+                    x' &= -3a\\cos^2 t \\sin t, \\quad y' = 3a\\sin^2 t \\cos t && (\\text{Parametrik fonksiyonların t'ye göre türevleri}) \\\\
+                    ds &= \\sqrt{(x')^2 + (y')^2} \\, dt && (\\text{Yay elemanı ana formülü}) \\\\
+                      &= \\sqrt{9a^2\\cos^4 t \\sin^2 t + 9a^2\\sin^4 t \\cos^2 t} \\, dt && (\\text{Karelerin alınması}) \\\\
+                      &= \\sqrt{9a^2\\sin^2 t \\cos^2 t (\\cos^2 t + \\sin^2 t)} \\, dt && (\\text{Ortak çarpan parantezi}) \\\\
+                      &= 3a|\\sin t \\cos t| \\, dt && (\\text{Pisagor özdeşliği ile kökten çıkış}) \\\\
+                    S &= \\int 2\\pi y \\, ds = 2 \\int_0^{\\pi/2} 2\\pi (a\\sin^3 t) (3a\\sin t \\cos t) \\, dt && (\\text{Sadece 1. bölgedeki yayı döndürüp 2 ile çarparak tam alanı bulma}) \\\\
+                      &= 12\\pi a^2 \\int_0^{\\pi/2} \\sin^4 t \\cos t \\, dt && (\\text{Sabitlerin dışarı alınıp ifadenin toparlanması}) \\\\
+                    u &= \\sin t \\implies du = \\cos t \\, dt && (\\text{İntegrali çözmek için basit u-dönüşümü}) \\\\
+                    t &= 0 \\implies u=0, \\quad t=\\frac{\\pi}{2} \\implies u=1 && (\\text{Sınırların u değişkenine uyarlanması}) \\\\
+                    S &= 12\\pi a^2 \\int_0^1 u^4 \\, du && (\\text{Trigonometrik integralin polinom integraline evrimi}) \\\\
+                      &= 12\\pi a^2 \\bigg[ \\frac{u^5}{5} \\bigg]_0^1 && (\\text{Kuvvet kuralının uygulanması}) \\\\
+                      &= \\frac{12\\pi a^2}{5} \\text{ birimkare} && (\\text{Astroid hiperyüzeyinin kusursuz tam alanı})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 18", "Değişken Yoğunluklu Yarım Dairesel Lamina (Ağır Sentroid)", 
+                    "\\( x^2 + y^2 \\le R^2 \\) ve \\( y \\ge 0 \\) ile tanımlanan yarım dairesel bir laminanın alan yoğunluğu, tabana olan dik uzaklığı ile orantılıdır (\\( \\delta(x,y) = ky \\)). Bu laminanın ağırlık merkezinin (\\( \\bar{y} \\)) koordinatını tek katlı integral ile ispatlayarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bölgeyi x-eksenine paralel (yatay), genişliği \\( dy \\) olan dikdörtgen şeritlere bölerek yoğunluğu tek değişkene indirgeyebiliriz.</p>
+                    $$\\begin{aligned}
+                    w(y) &= 2x = 2\\sqrt{R^2 - y^2} && (\\text{y yüksekliğindeki yatay şeridin uzunluğu}) \\\\
+                    dm &= \\delta(y) w(y) \\, dy = (ky) \\big(2\\sqrt{R^2 - y^2}\\big) \\, dy && (\\text{Değişken yoğunluklu diferansiyel kütle elemanı}) \\\\
+                    M &= \\int_0^R 2k y \\sqrt{R^2 - y^2} \\, dy && (\\text{Laminanın toplam kütle integrali}) \\\\
+                      &= k \\int_{R^2}^0 \\sqrt{u} (-du) = k \\int_0^{R^2} u^{1/2} \\, du && (u = R^2 - y^2 \\implies du = -2y dy \\text{ dönüşümü}) \\\\
+                      &= k \\bigg[ \\frac{2}{3}u^{3/2} \\bigg]_0^{R^2} = \\frac{2k R^3}{3} && (\\text{Toplam kütlenin sayısal değeri}) \\\\
+                    M_x &= \\int_0^R y \\, dm = \\int_0^R y \\big( 2ky\\sqrt{R^2 - y^2} \\big) \\, dy && (\\text{X-eksenine göre (y-merkezi için) moment formülü}) \\\\
+                      &= 2k \\int_0^R y^2 \\sqrt{R^2 - y^2} \\, dy && (\\text{Moment integralinin son hali}) \\\\
+                    y &= R\\sin\\theta \\implies dy = R\\cos\\theta \\, d\\theta && (\\text{Kökten kurtulmak için trigonometrik dönüşüm}) \\\\
+                    M_x &= 2k \\int_0^{\\pi/2} (R^2\\sin^2\\theta) (R\\cos\\theta) (R\\cos\\theta) \\, d\\theta && (\\text{Sınırların ve diferansiyelin açıya dönüşümü}) \\\\
+                      &= 2k R^4 \\int_0^{\\pi/2} \\sin^2\\theta \\cos^2\\theta \\, d\\theta && (\\text{R}^4 \\text{ katsayısının dışarı alınması}) \\\\
+                      &= 2k R^4 \\int_0^{\\pi/2} \\frac{1}{4} \\sin^2(2\\theta) \\, d\\theta && (\\sin\\theta\\cos\\theta = \\frac{1}{2}\\sin 2\\theta \\text{ yarım açı özdeşliği}) \\\\
+                      &= \\frac{k R^4}{2} \\int_0^{\\pi/2} \\frac{1 - \\cos(4\\theta)}{2} \\, d\\theta && (\\sin^2 a = \\frac{1-\\cos 2a}{2} \\text{ indirgeme formülü}) \\\\
+                      &= \\frac{k R^4}{4} \\bigg[ \\theta - \\frac{\\sin(4\\theta)}{4} \\bigg]_0^{\\pi/2} = \\frac{k R^4}{4} \\bigg( \\frac{\\pi}{2} - 0 \\bigg) && (\\text{Trigonometrik integralin alınması ve sınırların konması}) \\\\
+                      &= \\frac{k \\pi R^4}{8} && (\\text{Momentin nihai büyüklüğü}) \\\\
+                    \\bar{y} &= \\frac{M_x}{M} = \\frac{k \\pi R^4 / 8}{2k R^3 / 3} && (\\text{Sentroid tanımı: Moment / Kütle}) \\\\
+                      &= \\frac{3\\pi R}{16} && (\\text{Değişken yoğunluklu laminanın teorik ağırlık merkezi})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 19", "İş ve Ağırlık Merkezi Sentezi (Fiziksel Teorem İspatı)", 
+                    "\\( y = x^2 \\) eğrisinin \\( 0 \\le y \\le 4 \\) aralığındaki parçasının y-ekseni etrafında döndürülmesiyle oluşan paraboloid tank tamamen su (\\( \\rho = 1000 \\text{ kg/m}^3 \\)) doludur. Suyu tankın üst kenarından \\( 2 \\) metre yukarıya (\\( y=6 \\) hizasına) pompalamak için gereken toplam işi <b>iki farklı yöntemle</b> bulunuz:<br>a) İntegral (Diferansiyel İş) yöntemiyle.<br>b) Suyun kütle merkezini (sentroidini) bulup, <b>\\( W = M_{toplam} \\cdot g \\cdot d \\)</b> (Tüm kütlenin ağırlık merkezinden hedefe taşınması) teoremini ispatlayarak.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu soru, sonsuz sayıdaki su katmanını pompalamak için yapılan işin, aslında suyun tüm kütlesini tek bir nokta (Ağırlık Merkezi) olarak kabul edip o noktayı yukarı taşımakla <b>birebir aynı</b> olduğunu ispatlar.</p>
+                    $$\\begin{aligned}
+                    y &= x^2 \\implies x^2 = y && (\\text{y yüksekliğindeki dairesel su diskinin yarıçapının karesi}) \\\\
+                    dW &= \\rho g \\, dV \\cdot D(y) = \\rho g (\\pi x^2 \\, dy) (6 - y) && (\\text{Klasik diferansiyel iş denkleminin kurulması}) \\\\
+                    W &= \\int_0^4 9800\\pi y (6 - y) \\, dy && (\\text{Sıvının bulunduğu aralıkta integralin oluşturulması}) \\\\
+                      &= 9800\\pi \\bigg[ 3y^2 - \\frac{y^3}{3} \\bigg]_0^4 && (\\text{Polinomun dağıtılıp integrasyonunun yapılması}) \\\\
+                      &= 9800\\pi \\bigg( 48 - \\frac{64}{3} \\bigg) = 9800\\pi \\bigg( \\frac{80}{3} \\bigg) && (\\text{Üst sınırın değerlendirilmesi}) \\\\
+                      &= \\frac{784\\,000\\pi}{3} \\text{ Joule} && (\\text{a Şıkkı: İntegral yöntemiyle bulunan kesin iş miktarı}) \\\\
+                    V &= \\int_0^4 \\pi y \\, dy = \\pi \\bigg[ \\frac{y^2}{2} \\bigg]_0^4 = 8\\pi && (\\text{Tankın (ve içindeki suyun) toplam hacmi}) \\\\
+                    M_{toplam} &= \\rho \\cdot V = 1000 \\cdot 8\\pi = 8000\\pi \\text{ kg} && (\\text{Suyun toplam kütlesi}) \\\\
+                    M_{xz} &= \\int_0^4 y \\, dm = \\int_0^4 y (\\rho \\pi y) \\, dy && (\\text{Suyun xy-düzlemine göre (z yüksekliğindeki) momenti}) \\\\
+                      &= 1000\\pi \\bigg[ \\frac{y^3}{3} \\bigg]_0^4 = \\frac{64\\,000\\pi}{3} && (\\text{Momentin integral sonucu}) \\\\
+                    \\bar{y} &= \\frac{M_{xz}}{M_{toplam}} = \\frac{64000\\pi / 3}{8000\\pi} = \\frac{8}{3} \\text{ metre} && (\\text{Suyun ağırlık merkezinin (sentroidinin) y-koordinatı}) \\\\
+                    d &= 6 - \\bar{y} = 6 - \\frac{8}{3} = \\frac{10}{3} \\text{ metre} && (\\text{Ağırlık merkezinin pompalama hedefine olan net dikey uzaklığı}) \\\\
+                    W_{teorem} &= M_{toplam} \\cdot g \\cdot d && (\\text{Fiziksel Kütle Merkezi Teoremi}) \\\\
+                      &= (8000\\pi) \\cdot (9.8) \\cdot \\bigg(\\frac{10}{3}\\bigg) = \\frac{784\\,000\\pi}{3} \\text{ Joule} && (\\text{b Şıkkı: Teoremin ispatı ve integral sonucuyla kusursuz eşleşme})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 20", "Kalkülüsün Zirvesi: Sonsuzlukta Denge Paradoksu (Gabriel'in Sentroidi)", 
+                    "<b>Gabriel'in Borusu</b> (\\( y = 1/x, \\, x \\ge 1 \\) eğrisinin x-ekseni etrafında dönmesiyle oluşan cisim) sonlu bir hacme (\\( \\pi \\)) sahip olmasına rağmen, tek tip yoğunlukta ağırlık merkezi <b>yoktur</b> (\\( \\bar{x} \\to \\infty \\) ıraksar).<br>Bu borunun içine, yoğunluğu x derinliğine bağlı olarak <b>hızla azalan</b> gazsal bir akışkan (\\( \\delta(x) = \\frac{1}{x^2} \\)) dolduruluyor. Bu değişken yoğunluklu akışkanın toplam kütlesini ve denge noktasını (\\( \\bar{x} \\)) hesaplayarak, paradoksun nasıl çözüldüğünü matematiksel olarak ispatlayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Hacim sonlu olsa da, boru sonsuza uzandığı için homojen kütle merkezinin "kaldıraç kolu" momenti sonsuza çeker. Ancak yoğunluk \\( 1/x^2 \\) hızıyla azalırsa, sonsuzdaki uzunluğun yarattığı moment sönümlenir ve cisim dengelenebilir.</p>
+                    $$\\begin{aligned}
+                    dV &= \\pi y^2 \\, dx = \\pi \\bigg(\\frac{1}{x}\\bigg)^2 \\, dx = \\pi x^{-2} \\, dx && (\\text{Sonsuz borunun diferansiyel hacim elemanı}) \\\\
+                    dm &= \\delta(x) \\, dV = \\bigg(\\frac{1}{x^2}\\bigg) (\\pi x^{-2}) \\, dx = \\pi x^{-4} \\, dx && (\\text{Değişken yoğunluklu diferansiyel kütle elemanı}) \\\\
+                    M_{kütle} &= \\int_1^\\infty dm = \\pi \\int_1^\\infty x^{-4} \\, dx && (\\text{Akışkanın genelleştirilmiş integral ile toplam kütlesi}) \\\\
+                      &= \\pi \\lim_{b \\to \\infty} \\bigg[ \\frac{x^{-3}}{-3} \\bigg]_1^b && (\\text{İntegrasyon adımı}) \\\\
+                      &= -\\frac{\\pi}{3} \\lim_{b \\to \\infty} \\bigg( \\frac{1}{b^3} - 1 \\bigg) = \\frac{\\pi}{3} && (\\text{Toplam kütle sonlu bir değerdir}) \\\\
+                    M_{yz} &= \\int_1^\\infty x \\, dm = \\int_1^\\infty x (\\pi x^{-4}) \\, dx && (\\text{X-koordinatını bulmak için yz-düzlemine göre kütle momenti}) \\\\
+                      &= \\pi \\int_1^\\infty x^{-3} \\, dx && (\\text{Moment integralinin sadeleştirilmiş hali}) \\\\
+                      &= \\pi \\lim_{b \\to \\infty} \\bigg[ \\frac{x^{-2}}{-2} \\bigg]_1^b && (\\text{Moment integralinin hesabı}) \\\\
+                      &= -\\frac{\\pi}{2} \\lim_{b \\to \\infty} \\bigg( \\frac{1}{b^2} - 1 \\bigg) = \\frac{\\pi}{2} && (\\text{P-testi (p=3 > 1) gereği Momentin de yakınsak (sonlu) çıkması}) \\\\
+                    \\bar{x} &= \\frac{M_{yz}}{M_{kütle}} = \\frac{\\pi / 2}{\\pi / 3} && (\\text{Kütle Merkezi (Sentroid) formülü}) \\\\
+                      &= \\frac{\\pi}{2} \\cdot \\frac{3}{\\pi} = \\frac{3}{2} = 1.5 && (\\text{Paradoksun çözümü: Sonsuz uzunluktaki borunun denge noktası x=1.5'tedir})
+                    \\end{aligned}$$`
+                );
+
+}
             
 
 
@@ -12344,8 +12760,414 @@ html += createQuestion("Soru 7", "Ortak Çarpan Parantezi ve Rasyonel Üsler",
 
                 html += '</div>'; // question-container div kapanışı
             }
+// === 9.12 İLERİ DÜZEY SENTEZ SORULARI (DİZİLER VE SERİLER) ===
+            else if (id === "9.12") {
 
+                html += createQuestion("Soru 1", "İleri Taylor Kompozisyonu ve Limit Sentezi", 
+                    "Maclaurin serilerini kullanarak aşağıdaki limiti hesaplayınız. L'Hôpital kuralını kullanmayınız:<br>\\[ \\lim_{x \\to 0} \\frac{\\sin(\\sin x) - x + \\frac{x^3}{3}}{x^5} \\]", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>İç içe geçmiş trigonometrik fonksiyonların limitlerinde L'Hôpital kuralı çok karmaşık türevlere yol açar. Taylor serilerinin kompozisyonu (yerine koyma) bu tür problemleri cebirsel bir polinom analizine dönüştürür.</p>
+                    $$\\begin{aligned}
+                    \\sin u &= u - \\frac{u^3}{6} + \\frac{u^5}{120} - \\dots && (\\text{Standart sinüs Maclaurin açılımı}) \\\\
+                    u &= \\sin x = x - \\frac{x^3}{6} + \\frac{x^5}{120} - \\dots && (\\text{İçteki sinüs fonksiyonunun açılımı}) \\\\
+                    \\sin(\\sin x) &= (\\sin x) - \\frac{(\\sin x)^3}{6} + \\frac{(\\sin x)^5}{120} - \\dots && (u \\text{ yerine } \\sin x \\text{ serisinin yerleştirilmesi}) \\\\
+                    (\\sin x)^3 &= \\bigg( x - \\frac{x^3}{6} + \\dots \\bigg)^3 = x^3 - 3x^2\\bigg(\\frac{x^3}{6}\\bigg) + \\dots && (\\text{Küp teriminin sadece } x^5 \\text{ derecesine kadar açılması}) \\\\
+                      &= x^3 - \\frac{x^5}{2} + O(x^7) && (\\text{Üçüncü kuvvetin sadeleşmiş hali}) \\\\
+                    (\\sin x)^5 &= \\bigg( x - \\frac{x^3}{6} + \\dots \\bigg)^5 = x^5 + O(x^7) && (\\text{Beşinci kuvvetin ilk teriminin izolasyonu}) \\\\
+                    \\sin(\\sin x) &= \\bigg( x - \\frac{x^3}{6} + \\frac{x^5}{120} \\bigg) - \\frac{1}{6}\\bigg( x^3 - \\frac{x^5}{2} \\bigg) + \\frac{1}{120}\\big( x^5 \\big) && (\\text{Elde edilen kuvvetlerin ana seriye yerleştirilmesi}) \\\\
+                      &= x - \\frac{x^3}{6} + \\frac{x^5}{120} - \\frac{x^3}{6} + \\frac{x^5}{12} + \\frac{x^5}{120} && (\\text{Katsayıların dağıtılması}) \\\\
+                      &= x - \\frac{2x^3}{6} + x^5 \\bigg( \\frac{1}{120} + \\frac{10}{120} + \\frac{1}{120} \\bigg) && (\\text{Aynı dereceli terimlerin ortak paranteze alınması}) \\\\
+                      &= x - \\frac{x^3}{3} + \\frac{12x^5}{120} = x - \\frac{x^3}{3} + \\frac{x^5}{10} && (\\text{Kompozit fonksiyonun nihai Taylor polinomu}) \\\\
+                    L &= \\lim_{x \\to 0} \\frac{\\bigg( x - \\frac{x^3}{3} + \\frac{x^5}{10} \\bigg) - x + \\frac{x^3}{3}}{x^5} && (\\text{Bulunan serinin limit problemine yerleştirilmesi}) \\\\
+                      &= \\lim_{x \\to 0} \\frac{\\frac{x^5}{10}}{x^5} && (1 \\text{ ve } 3\\text{. dereceden terimlerin birbirini sıfırlaması}) \\\\
+                      &= \\frac{1}{10} && (\\text{Nihai limit değeri})
+                    \\end{aligned}$$`
+                );
 
+                html += createQuestion("Soru 2", "Kuvvet Serilerinde İleri Seviye Uç Nokta Analizi", 
+                    "Aşağıdaki kuvvet serisinin yakınsaklık aralığını (interval of convergence) bulunuz. Uç noktalardaki yakınsaklık durumunu analitik testlerle gösteriniz:<br>\\[ \\sum_{n=2}^{\\infty} \\frac{(-1)^n (3x-2)^n}{n \\ln^2 n} \\]", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Serinin yakınsaklık yarıçapını bulduktan sonra, sınırlar logaritmik terimler içerdiği için Integral Testi ve Alterne Seri Testi uygulanmalıdır.</p>
+                    $$\\begin{aligned}
+                    \\rho &= \\lim_{n \\to \\infty} \\bigg| \\frac{(3x-2)^{n+1}}{(n+1)\\ln^2(n+1)} \\cdot \\frac{n\\ln^2 n}{(3x-2)^n} \\bigg| && (\\text{Oran Testi genel mutlak limit kurulumu}) \\\\
+                      &= |3x-2| \\cdot \\lim_{n \\to \\infty} \\frac{n}{n+1} \\cdot \\frac{\\ln^2 n}{\\ln^2(n+1)} && (\\text{Değişkenlerin ve x bağımsız terimlerin gruplanması}) \\\\
+                      &= |3x-2| \\cdot 1 \\cdot 1 = |3x-2| && (\\text{L'Hôpital kuralı gereği rasyonel ve logaritmik limitlerin 1 olması}) \\\\
+                    |3x-2| &< 1 \\implies -1 < 3x - 2 < 1 && (\\text{Mutlak yakınsaklık için temel eşitsizlik}) \\\\
+                    1 &< 3x < 3 \\implies \\frac{1}{3} < x < 1 && (\\text{Serinin mutlak yakınsak olduğu açık aralık}) \\\\
+                    x &= 1 \\implies \\sum_{n=2}^\\infty \\frac{(-1)^n (1)^n}{n \\ln^2 n} = \\sum_{n=2}^\\infty \\frac{(-1)^n}{n \\ln^2 n} && (\\text{Üst uç noktanın seriye yerleştirilmesi}) \\\\
+                    a_n &= \\frac{1}{n \\ln^2 n} \\to 0, \\text{ ve azalandır.} && (\\text{Alterne Seri Testi (AST) şartlarının teyidi}) \\\\
+                    &\\text{AST gereği } x=1 \\text{ noktasında seri Yakınsaktır.} && (\\text{Üst sınırın aralığa dahil edilmesi}) \\\\
+                    x &= \\frac{1}{3} \\implies \\sum_{n=2}^\\infty \\frac{(-1)^n (-1)^n}{n \\ln^2 n} = \\sum_{n=2}^\\infty \\frac{1}{n \\ln^2 n} && (\\text{Alt uç noktanın seriye yerleştirilmesi ile pozitif seriye geçiş}) \\\\
+                    I &= \\int_2^\\infty \\frac{dx}{x \\ln^2 x} = \\int_{\\ln 2}^\\infty \\frac{du}{u^2} && (u = \\ln x \\implies du = dx/x \\text{ dönüşümüyle İntegral Testi}) \\\\
+                      &= \\lim_{b \\to \\infty} \\bigg[ -\\frac{1}{u} \\bigg]_{\\ln 2}^b = 0 - \\bigg(-\\frac{1}{\\ln 2}\\bigg) = \\frac{1}{\\ln 2} && (\\text{İntegralin sonlu bir değere yakınsaması}) \\\\
+                    &\\text{İntegral Testi gereği } x=1/3 \\text{ noktasında seri Yakınsaktır.} && (\\text{Alt sınırın aralığa dahil edilmesi}) \\\\
+                    &\\text{Yakınsaklık Aralığı: } \\bigg[ \\frac{1}{3}, 1 \\bigg] && (\\text{Nihai kapalı aralık})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 3", "Üstel/Faktöriyel Sentezi ve İleri Toplam Analizi", 
+                    "Aşağıdaki serinin tam değerini (toplamını) hesaplayınız:<br>\\[ \\sum_{n=1}^{\\infty} \\frac{n^3}{n!} \\]", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Pay kısmındaki polinomu, paydadaki faktöriyellerle sadeleşebilecek ardışık çarpanlara (düşen faktöriyel formuna) ayırmalıyız. Hedef, seriyi standart e-serisi formatına indirgemektir.</p>
+                    $$\\begin{aligned}
+                    n^3 &= n(n-1)(n-2) + 3n(n-1) + n && (\\text{Küp teriminin ardışık çarpanlar cinsinden analitik parçalanışı}) \\\\
+                    \\frac{n^3}{n!} &= \\frac{n(n-1)(n-2)}{n!} + \\frac{3n(n-1)}{n!} + \\frac{n}{n!} && (\\text{Serinin genel teriminin üç ayrı rasyonel ifadeye bölünmesi}) \\\\
+                      &= \\frac{1}{(n-3)!} + \\frac{3}{(n-2)!} + \\frac{1}{(n-1)!} && (\\text{Paydaki çarpanlar ile paydadaki n! teriminin sadeleştirilmesi}) \\\\
+                    S &= \\sum_{n=3}^\\infty \\frac{1}{(n-3)!} + 3\\sum_{n=2}^\\infty \\frac{1}{(n-2)!} + \\sum_{n=1}^\\infty \\frac{1}{(n-1)!} && (\\text{Negatif faktöriyel olmaması için her toplamın kendi minimum indisinden başlatılması}) \\\\
+                    \\sum_{k=0}^\\infty \\frac{1}{k!} &= e && (\\text{Taylor serisi e tabanı temel tanımı}) \\\\
+                    S &= e + 3(e) + e && (\\text{Değişken dönüşümü yapıldığında her üç serinin de e sayısına eşitlenmesi}) \\\\
+                      &= 5e && (\\text{Nihai mutlak toplam değeri})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 4", "Kuvvet Serileri Operatör Yöntemi (Türev Zinciri)", 
+                    "Sadece temel geometrik seri toplamını (\\( \\sum x^n = \\frac{1}{1-x} \\)) ve türev operatörünü (\\( x \\frac{d}{dx} \\)) ardışık olarak kullanarak, aşağıdaki serinin tam (rasyonel) değerini hesaplayınız:<br>\\[ \\sum_{n=1}^{\\infty} \\frac{n^3}{2^n} \\]", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu seri standart formüllerle çözülemez. Geometrik seriyi fonksiyon kabul edip, "her iki tarafın türevini alıp x ile çarpma" (\\( x \\frac{d}{dx} \\)) işlemini 3 kez art arda uygulamalıyız.</p>
+                    $$\\begin{aligned}
+                    S(x) &= \\sum_{n=0}^\\infty x^n = \\frac{1}{1-x} && (\\text{Temel (Üreteç) geometrik seri fonksiyonu}) \\\\
+                    x S'(x) &= x \\cdot \\frac{d}{dx}\\bigg(\\frac{1}{1-x}\\bigg) = \\frac{x}{(1-x)^2} && (\\text{1. Operatör: } \\sum n x^n \\text{ serisini üretir}) \\\\
+                    x (xS'(x))' &= x \\cdot \\frac{d}{dx}\\bigg(\\frac{x}{(1-x)^2}\\bigg) = x \\bigg( \\frac{1(1-x)^2 - x(-2(1-x))}{(1-x)^4} \\bigg) && (\\text{2. Operatör: Bölüm türevinin açık hali}) \\\\
+                    \\sum_{n=1}^\\infty n^2 x^n &= \\frac{x(1-x+2x)}{(1-x)^3} = \\frac{x(1+x)}{(1-x)^3} && (\\text{Sadeleştirilmiş } \\sum n^2 x^n \\text{ kapalı fonksiyon formu}) \\\\
+                    x \\big(x(xS'(x))'\\big)' &= x \\cdot \\frac{d}{dx}\\bigg(\\frac{x+x^2}{(1-x)^3}\\bigg) && (\\text{3. Operatör: Hedeflenen } n^3 \\text{ çarpanını üretmek için son adım}) \\\\
+                    \\sum_{n=1}^\\infty n^3 x^n &= x \\bigg( \\frac{(1+2x)(1-x)^3 - (x+x^2)(3(1-x)^2(-1))}{(1-x)^6} \\bigg) && (\\text{Ağır bölüm türevinin tatbik edilmesi}) \\\\
+                      &= x \\bigg( \\frac{(1+2x)(1-x) + 3(x+x^2)}{(1-x)^4} \\bigg) && (\\text{Pay ve paydadaki } (1-x)^2 \\text{ çarpanlarının sadeleştirilmesi}) \\\\
+                      &= x \\bigg( \\frac{1 + x - 2x^2 + 3x + 3x^2}{(1-x)^4} \\bigg) = \\frac{x(1+4x+x^2)}{(1-x)^4} && (\\text{Kübik serinin evrensel kapalı formülünün ispatlanması}) \\\\
+                    x &= \\frac{1}{2} \\implies \\sum_{n=1}^\\infty n^3 \\bigg(\\frac{1}{2}\\bigg)^n = \\frac{\\frac{1}{2}(1 + 2 + \\frac{1}{4})}{(1 - \\frac{1}{2})^4} && (\\text{Soruda istenilen değere (x=1/2) geçiş yapılması}) \\\\
+                    Toplam &= \\frac{\\frac{1}{2}(\\frac{13}{4})}{(1/16)} = \\frac{13/8}{1/16} = \\frac{13}{8} \\cdot 16 && (\\text{Aritmetik kesir işlemlerinin sonuçlandırılması}) \\\\
+                      &= 26 && (\\text{Nihai rasyonel toplam değeri})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 5", "Taylor Asimptotiği ile Parametrik Şartlı Yakınsaklık", 
+                    "\\( p \\in \\mathbb{R} \\) olmak üzere, aşağıda verilen alterne serinin <b>Mutlak Yakınsak</b> ve <b>Şartlı Yakınsak</b> olduğu \\( p \\) parametre aralıklarını Maclaurin serisi yaklaşımı (Limit Karşılaştırma Testi) ile bulunuz:<br>\\[ \\sum_{n=1}^{\\infty} (-1)^n n^p \\bigg( 1 - \\cos\\bigg(\\frac{1}{n}\\bigg) \\bigg) \\]", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Serinin genel terimi transandant bir karmaşadır. Kosinüsün asimptotik Taylor açılımını kullanarak terimi bir p-serisine indirgeyeceğiz.</p>
+                    $$\\begin{aligned}
+                    \\cos\\bigg(\\frac{1}{n}\\bigg) &= 1 - \\frac{1}{2!}\\bigg(\\frac{1}{n}\\bigg)^2 + \\frac{1}{4!}\\bigg(\\frac{1}{n}\\bigg)^4 - \\dots && (\\text{Kosinüs fonksiyonunun x=0 (n=}\\infty\\text{) civarında açılımı}) \\\\
+                    1 - \\cos\\bigg(\\frac{1}{n}\\bigg) &= \\frac{1}{2n^2} - \\frac{1}{24n^4} + \\dots \\approx \\frac{1}{2n^2} && (\\text{1'lerin yok olması ve dominant (baskın) terimin izolasyonu}) \\\\
+                    |a_n| &= n^p \\bigg( 1 - \\cos\\bigg(\\frac{1}{n}\\bigg) \\bigg) \\approx n^p \\bigg( \\frac{1}{2n^2} \\bigg) = \\frac{1}{2n^{2-p}} && (\\text{Genel terimin mutlak asimptotik eşdeğeri (b_n)}) \\\\
+                    \\textbf{Mutlak Yakınsaklık} &\\implies \\sum \\frac{1}{n^{2-p}} \\text{ yakınsak olmalıdır.} && (\\text{LCT gereği p-serisi şartının işletilmesi}) \\\\
+                    2 - p &> 1 \\implies p < 1 && (\\text{Mutlak yakınsaklık için gerekli parametre aralığı}) \\\\
+                    \\textbf{Şartlı Yakınsaklık} &\\implies \\text{Mutlak ıraksak olup AST (Alterne Seri) şartlarını sağlamalıdır.} && (\\text{Serinin dalgalanarak sönümlenme koşulu}) \\\\
+                    \\lim_{n \\to \\infty} a_n &= 0 \\implies \\lim_{n \\to \\infty} \\frac{1}{2n^{2-p}} = 0 && (\\text{AST 1. Kural: Terimlerin sıfıra gitme zorunluluğu}) \\\\
+                    2 - p &> 0 \\implies p < 2 && (\\text{Sıfıra gitmesi için paydanın derecesinin pozitif olma şartı}) \\\\
+                    &\\text{Azalanlık Kontrolü:} && \\\\
+                    p &< 2 \\text{ için } \\frac{1}{2n^{2-p}} \\text{ terimi n büyüdükçe sürekli azalır.} && (\\text{AST 2. Kural: Monotonluk teyidi}) \\\\
+                    \\text{Sonuç:} \\quad &\\text{Mutlak Yakınsak: } p \\in (-\\infty, 1) && (\\text{Serinin koşulsuz yakınsadığı bölge}) \\\\
+                    &\\text{Şartlı Yakınsak: } p \\in [1, 2) && (\\text{Sadece işaret değişimi sayesinde yakınsadığı hassas bölge})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 6", "Alternatif Taylor Serileriyle Katı Hata Kontrolü", 
+                    "Maclaurin serilerini kullanarak \\( \\int_0^{0.2} \\frac{\\arctan(x^2)}{x^2} \\, dx \\) integralini tahmin ediniz.<br>Alterne Seri Hata Teoremini kullanarak, yapılan yaklaşımda hatanın <b>kesinlikle \\( 10^{-8} \\)'den küçük olması</b> (\\( |Hata| < 10^{-8} \\)) için seriden <b>en az kaç terim</b> alınarak toplanmalıdır? İstenen bu toplamın sayısal karşılığını yazınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Arctan serisini modifiye edip entegre edeceğiz. Alterne serilerde yapılan hata, seriye <b>dahil edilmeyen ilk terimin</b> mutlak değerinden daima küçüktür (\\( |R_N| \\le |a_{N+1}| \\)).</p>
+                    $$\\begin{aligned}
+                    \\arctan u &= u - \\frac{u^3}{3} + \\frac{u^5}{5} - \\frac{u^7}{7} + \\dots && (\\text{Temel arctanjant Maclaurin açılımı}) \\\\
+                    \\arctan(x^2) &= x^2 - \\frac{x^6}{3} + \\frac{x^{10}}{5} - \\frac{x^{14}}{7} + \\dots && (u = x^2 \\text{ dönüşümünün seriye uygulanması}) \\\\
+                    \\frac{\\arctan(x^2)}{x^2} &= 1 - \\frac{x^4}{3} + \\frac{x^8}{5} - \\frac{x^{12}}{7} + \\dots && (\\text{Serinin integranda tam uyumlu hale getirilmesi}) \\\\
+                    I &= \\int_0^{0.2} \\bigg( 1 - \\frac{x^4}{3} + \\frac{x^8}{5} - \\frac{x^{12}}{7} + \\dots \\bigg) dx && (\\text{Serinin terim terim integrasyonu}) \\\\
+                      &= \\bigg[ x - \\frac{x^5}{15} + \\frac{x^9}{45} - \\frac{x^{13}}{91} + \\dots \\bigg]_0^{0.2} && (\\text{Ters türevlerin alınması}) \\\\
+                    a_0 (1.\\text{ Terim}) &= 0.2 = 2 \\times 10^{-1} && (\\text{Sınırın birinci terimde değerlendirilmesi}) \\\\
+                    a_1 (2.\\text{ Terim}) &= \\frac{(0.2)^5}{15} = \\frac{0.00032}{15} \\approx 2.13 \\times 10^{-5} > 10^{-8} && (\\text{Hata sınırını geçip geçmediğinin test edilmesi}) \\\\
+                    a_2 (3.\\text{ Terim}) &= \\frac{(0.2)^9}{45} = \\frac{5.12 \\times 10^{-7}}{45} \\approx 1.13 \\times 10^{-8} > 10^{-8} && (\\text{Sınır değerine çok yakın, ancak hala hata toleransından büyük!}) \\\\
+                    a_3 (4.\\text{ Terim}) &= \\frac{(0.2)^{13}}{91} = \\frac{8.192 \\times 10^{-10}}{91} \\approx 9 \\times 10^{-12} < 10^{-8} && (\\text{Eşitsizliğin kırıldığı ve hata şartının sağlandığı kritik terim}) \\\\
+                    |R_2| &\\le a_3 < 10^{-8} \\implies \\text{En az 3 terim } (a_0, a_1, a_2) \\text{ alınmalıdır.} && (\\text{Teorem uyarınca ilk 3 terimin toplamının yeterliliği}) \\\\
+                    Toplam &= 0.2 - \\frac{0.00032}{15} + \\frac{0.000000512}{45} && (\\text{Hedeflenen 3 terimli yaklaşık toplam denklemi}) \\\\
+                      &\\approx 0.2 - 0.000021333 + 0.000000011 \\approx 0.199978678 && (\\text{Kusursuz hata kontrollü sayısal entegrasyon sonucu})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 7", "Kök Testi ve İleri Asimptotik Taylor Sentezi", 
+                    "Aşağıdaki serinin karakterini (yakınsaklık/ıraksaklık durumunu) Kök Testi ve Maclaurin serisi yardımıyla inceleyiniz:<br>\\[ \\sum_{n=1}^{\\infty} \\bigg( \\cos\\bigg(\\frac{2}{n}\\bigg) \\bigg)^{n^3} \\]", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Doğrudan limit almak \\( 1^\\infty \\) belirsizliği üretir. Kök testi sonrasında kuvveti indirmek için üstel logaritma (\\( e^{\\ln} \\)) dönüşümü ve Taylor serisi yaklaşımı şarttır.</p>
+                    $$\\begin{aligned}
+                    \\rho &= \\lim_{n \\to \\infty} \\sqrt[n]{ \\bigg| \\bigg( \\cos\\bigg(\\frac{2}{n}\\bigg) \\bigg)^{n^3} \\bigg| } && (\\text{Kök testi mutlak limit kurulumu}) \\\\
+                      &= \\lim_{n \\to \\infty} \\bigg( \\cos\\bigg(\\frac{2}{n}\\bigg) \\bigg)^{n^2} && (\\text{Üssün n'ye bölünmesiyle elde edilen } 1^\\infty \\text{ belirsizliği}) \\\\
+                      &= e^L \\implies L = \\lim_{n \\to \\infty} n^2 \\ln\\bigg( \\cos\\bigg(\\frac{2}{n}\\bigg) \\bigg) && (\\text{Belirsizlik için üstel e-dönüşümü ve logaritma}) \\\\
+                    \\cos x &\\approx 1 - \\frac{x^2}{2} \\implies \\cos\\bigg(\\frac{2}{n}\\bigg) \\approx 1 - \\frac{2}{n^2} && (\\text{Kosinüs fonksiyonunun x=0 (n=}\\infty\\text{) civarında Taylor açılımı}) \\\\
+                    \\ln(1+u) &\\approx u - \\frac{u^2}{2} \\implies \\ln\\bigg( 1 - \\frac{2}{n^2} \\bigg) \\approx -\\frac{2}{n^2} && (\\text{Logaritmanın lineer asimptotik açılımı}) \\\\
+                    L &= \\lim_{n \\to \\infty} n^2 \\bigg( -\\frac{2}{n^2} \\bigg) = -2 && (\\text{Asimptotik ifadelerin çarpılması ve limit}) \\\\
+                    \\rho &= e^{-2} = \\frac{1}{e^2} && (\\text{Kök testinin nihai sayısal limit değeri}) \\\\
+                      &< 1 \\implies \\text{Seri Yakınsaktır.} && (\\text{Kök testi kuralı gereği kesin karar})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 8", "Harmonik Sayılı Kuvvet Serisi (Sınır Uç Analizi)", 
+                    "\\( H_n = 1 + \\frac{1}{2} + \\frac{1}{3} + \\dots + \\frac{1}{n} \\) (n. Harmonik Sayı) olmak üzere, aşağıdaki kuvvet serisinin <b>yakınsaklık aralığını</b> tam olarak belirleyiniz:<br>\\[ \\sum_{n=1}^{\\infty} \\frac{H_n}{n} x^n \\]", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Harmonik sayıların sonsuzdaki logaritmik davranışını (\\( H_n \\approx \\ln n \\)) ve ardışık terimlerin cebirsel farklarını analiz etmeliyiz.</p>
+                    $$\\begin{aligned}
+                    R &= \\lim_{n \\to \\infty} \\bigg| \\frac{H_n}{n} \\cdot \\frac{n+1}{H_{n+1}} \\bigg| && (\\text{Yarıçap için Oran Testi katsayı denklemi}) \\\\
+                      &= \\lim_{n \\to \\infty} \\bigg( \\frac{H_n}{H_{n+1}} \\cdot \\frac{n+1}{n} \\bigg) = 1 \\cdot 1 = 1 && (H_n \\approx \\ln n \\text{ olduğu için ardışık oranları 1'e gider}) \\\\
+                    |x| &< 1 \\implies x \\in (-1, 1) && (\\text{Mutlak yakınsaklığın garanti olduğu açık aralık}) \\\\
+                    x &= 1 \\implies \\sum_{n=1}^\\infty \\frac{H_n}{n} && (\\text{Üst uç noktanın seriye yerleştirilmesi}) \\\\
+                    \\frac{H_n}{n} &> \\frac{1}{n} \\implies \\sum \\frac{H_n}{n} > \\sum \\frac{1}{n} = \\infty && (H_n \\ge 1 \\text{ gerçeği ile Harmonik Seriden DCT ile ıraksama ispatı}) \\\\
+                    x &= -1 \\implies \\sum_{n=1}^\\infty (-1)^n \\frac{H_n}{n} && (\\text{Alt uç noktanın yerleştirilmesi ile Alterne Seriye geçiş}) \\\\
+                    \\lim_{n \\to \\infty} \\frac{H_n}{n} &\\approx \\lim_{n \\to \\infty} \\frac{\\ln n}{n} = 0 && (\\text{AST 1. Kural: Terimlerin limitinin sıfıra gitmesi}) \\\\
+                    \\frac{H_{n+1}}{n+1} - \\frac{H_n}{n} &= \\frac{n H_{n+1} - (n+1) H_n}{n(n+1)} && (\\text{AST 2. Kural için ardışık terimlerin ortak paydada farkı}) \\\\
+                      &= \\frac{n\\big(H_n + \\frac{1}{n+1}\\big) - nH_n - H_n}{n(n+1)} = \\frac{\\frac{n}{n+1} - H_n}{n(n+1)} && (H_{n+1} \\text{ sayısının açılarak } H_n \\text{ terimlerinin sadeleştirilmesi}) \\\\
+                      &< 0 \\implies \\text{Dizi azalandır.} && (H_n \\ge 1 \\text{ ve } n/(n+1) < 1 \\text{ olduğundan pay daima negatiftir}) \\\\
+                      &\\text{AST gereği } x=-1 \\text{ Yakınsaktır.} && (\\text{Alt sınırın aralığa dahil edilmesi}) \\\\
+                      &\\text{Yakınsaklık Aralığı: } [-1, 1) && (\\text{Nihai sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 9", "Stirling Yaklaşımı ile Oran Testinin Çöküşü", 
+                    "\\( p > 0 \\) gerçel bir parametre olmak üzere, genel terimi aşağıda verilen serinin yakınsak olduğu \\( p \\) aralığını bulunuz. <i>(İpucu: Oran testi sonuçsuz kalacaktır. Büyük faktöriyellerin asimptotik davranışı için \\( n! \\approx \\sqrt{2\\pi n} \\big(\\frac{n}{e}\\big)^n \\) Stirling Formülünü kullanınız.)</i><br>\\[ \\sum_{n=1}^{\\infty} \\bigg( \\frac{1 \\cdot 3 \\cdot 5 \\dots (2n-1)}{2 \\cdot 4 \\cdot 6 \\dots (2n)} \\bigg)^p \\]", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Çift ve tek faktöriyel serilerinde Oran Testi daima 1 çıkarak çöker. Raabe Testi veya daha evrensel olan Stirling Yaklaşımı kullanılarak seri bir p-serisine dönüştürülmelidir.</p>
+                    $$\\begin{aligned}
+                    a_n &= \\bigg( \\frac{(2n)!}{2^{2n} (n!)^2} \\bigg)^p && (\\text{Sıralı tek çarpanların pay ve paydayı çiftlerle çarparak faktöriyele dönüşümü}) \\\\
+                    \\lim_{n \\to \\infty} \\frac{a_{n+1}}{a_n} &= \\lim_{n \\to \\infty} \\bigg( \\frac{2n+1}{2n+2} \\bigg)^p = 1^p = 1 && (\\text{Oran Testi BAŞARISIZ (Sonuçsuzdur)}) \\\\
+                    (2n)! &\\approx \\sqrt{4\\pi n} \\bigg(\\frac{2n}{e}\\bigg)^{2n} = 2\\sqrt{\\pi n} \\cdot \\frac{2^{2n} n^{2n}}{e^{2n}} && (\\text{Pay kısmının Stirling formülü ile açılımı}) \\\\
+                    (n!)^2 &\\approx \\bigg( \\sqrt{2\\pi n} \\bigg(\\frac{n}{e}\\bigg)^n \\bigg)^2 = 2\\pi n \\cdot \\frac{n^{2n}}{e^{2n}} && (\\text{Paydadaki faktöriyel karesinin Stirling açılımı}) \\\\
+                    \\frac{(2n)!}{2^{2n} (n!)^2} &\\approx \\frac{2\\sqrt{\\pi n} \\cdot 2^{2n} n^{2n} e^{-2n}}{2^{2n} \\cdot (2\\pi n) n^{2n} e^{-2n}} && (\\text{Açılımların asıl terimde yerlerine konulması}) \\\\
+                      &= \\frac{2\\sqrt{\\pi n}}{2\\pi n} = \\frac{1}{\\sqrt{\\pi n}} && (\\text{Bütün üstel ve n kuvvetli terimlerin kusursuzca sadeleşmesi}) \\\\
+                    a_n &\\approx \\bigg( \\frac{1}{\\sqrt{\\pi n}} \\bigg)^p = \\frac{1}{\\pi^{p/2} \\cdot n^{p/2}} && (\\text{Genel terimin asimptotik davranışı (Limit Karşılaştırma Testi hazırlığı)}) \\\\
+                    b_n &= \\frac{1}{n^{p/2}} \\implies \\sum a_n \\text{ ile } \\sum b_n \\text{ aynı karakterdedir.} && (\\text{Referans p-serisi dizisinin tespiti}) \\\\
+                    \\frac{p}{2} &> 1 \\implies p > 2 && (\\text{P-serisinin yakınsaklık koşulu}) \\\\
+                      &\\text{Seri } p > 2 \\text{ için Yakınsak, } p \\le 2 \\text{ için Iraksaktır.} && (\\text{Stirling analizi ile elde edilen nihai aralık})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 10", "Binom Serisinin İleri Entegrasyonu (Sonsuz Toplam)", 
+                    "Binom serisi açılımını ve terim terim integrasyon yöntemini kullanarak aşağıdaki sonsuz serinin tam (transandant) değerini hesaplayınız:<br>\\[ \\sum_{n=0}^{\\infty} \\frac{(2n)!}{2^{2n} (n!)^2 (2n+1)} \\bigg(\\frac{1}{2}\\bigg)^{2n+1} \\]", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu korkutucu görünen faktöriyelli seri, aslında çok bilinen ters trigonometrik bir fonksiyonun Taylor açılımına ait gizli bir formdur. Önce Binom katsayısını deşifre etmeliyiz.</p>
+                    $$\\begin{aligned}
+                    (1+u)^k &= \\sum_{n=0}^\\infty \\binom{k}{n} u^n && (\\text{Newton'un genelleştirilmiş Binom Teoremi}) \\\\
+                    (1-t)^{-1/2} &= \\sum_{n=0}^\\infty \\binom{-1/2}{n} (-t)^n && (k=-1/2 \\text{ ve } u=-t \\text{ dönüşümü}) \\\\
+                    \\binom{-1/2}{n} &= \\frac{(-1/2)(-3/2)\\dots(-(2n-1)/2)}{n!} && (\\text{Binom katsayısının tanım gereği açılımı}) \\\\
+                      &= (-1)^n \\frac{1 \\cdot 3 \\cdot 5 \\dots (2n-1)}{2^n n!} && (\\text{Eksi işaretlerin ve 2 çarpanlarının toparlanması}) \\\\
+                      &= (-1)^n \\frac{(2n)!}{2^{2n} (n!)^2} && (\\text{Pay ve paydayı ardışık çift sayılarla (} 2^n n! \\text{) çarpma numarası}) \\\\
+                    (1-t)^{-1/2} &= \\sum_{n=0}^\\infty (-1)^n \\frac{(2n)!}{2^{2n} (n!)^2} (-1)^n t^n = \\sum_{n=0}^\\infty \\frac{(2n)!}{2^{2n} (n!)^2} t^n && ((-1)^{2n} = 1 \\text{ çift kuvvet sadeleşmesi}) \\\\
+                    t &= x^2 \\implies \\frac{1}{\\sqrt{1-x^2}} = \\sum_{n=0}^\\infty \\frac{(2n)!}{2^{2n} (n!)^2} x^{2n} && (\\text{İntegrasyona hazırlık için değişken dönüşümü}) \\\\
+                    \\int_0^x \\frac{dw}{\\sqrt{1-w^2}} &= \\int_0^x \\sum_{n=0}^\\infty \\frac{(2n)!}{2^{2n} (n!)^2} w^{2n} \\, dw && (\\text{Her iki tarafın 0'dan x'e terim terim integrali}) \\\\
+                    \\arcsin x &= \\sum_{n=0}^\\infty \\frac{(2n)!}{2^{2n} (n!)^2 (2n+1)} x^{2n+1} && (\\text{Arksinüs fonksiyonunun kusursuz seri açılımı}) \\\\
+                    x &= \\frac{1}{2} \\implies \\arcsin\\bigg(\\frac{1}{2}\\bigg) = \\frac{\\pi}{6} && (\\text{Sorulan serinin x=1/2 değerindeki haline eşitlenmesi}) \\\\
+                    Toplam &= \\frac{\\pi}{6} && (\\text{Nihai transandant toplam sonucu})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 11", "Binom Serisi ile Ağır Limit Analizi (L'Hôpital İptali)", 
+                    "L'Hôpital kuralını <b>kullanmadan</b>, Binom serisi asimptotik yaklaşımı yardımıyla aşağıdaki limiti hesaplayınız:<br>\\[ \\lim_{x \\to 0} \\frac{\\sqrt{1+2x} - \\sqrt[3]{1+3x} - \\frac{x^2}{2}}{x^3} \\]", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu limitte L'Hôpital kuralını uygulamak, kesirli üslerin zincir kuralı türevleriyle birleştiği 3 adımlık bir kabusa dönüşür. Binom açılımı bunu basit bir polinoma indirger.</p>
+                    $$\\begin{aligned}
+                    (1+u)^k &= 1 + ku + \\frac{k(k-1)}{2!}u^2 + \\frac{k(k-1)(k-2)}{3!}u^3 + \\dots && (\\text{Binom serisinin ilk 4 terimi}) \\\\
+                    \\sqrt{1+2x} &= 1 + \\frac{1}{2}(2x) + \\frac{(1/2)(-1/2)}{2}(4x^2) + \\frac{(1/2)(-1/2)(-3/2)}{6}(8x^3) + \\dots && (k=1/2 \\text{ ve } u=2x \\text{ için açılım}) \\\\
+                      &= 1 + x - \\frac{1}{2}x^2 + \\frac{1}{2}x^3 + \\dots && (\\text{Birinci kökün asimptotik polinomu}) \\\\
+                    \\sqrt[3]{1+3x} &= 1 + \\frac{1}{3}(3x) + \\frac{(1/3)(-2/3)}{2}(9x^2) + \\frac{(1/3)(-2/3)(-5/3)}{6}(27x^3) + \\dots && (k=1/3 \\text{ ve } u=3x \\text{ için açılım}) \\\\
+                      &= 1 + x - x^2 + \\frac{5}{3}x^3 + \\dots && (\\text{İkinci kökün asimptotik polinomu}) \\\\
+                    Pay &= \\bigg(1 + x - \\frac{1}{2}x^2 + \\frac{1}{2}x^3\\bigg) - \\bigg(1 + x - x^2 + \\frac{5}{3}x^3\\bigg) - \\frac{x^2}{2} && (\\text{Açılımların limite (pay kısmına) yerleştirilmesi}) \\\\
+                      &= (1-1) + (x-x) + \\bigg(-\\frac{1}{2} + 1 - \\frac{1}{2}\\bigg)x^2 + \\bigg(\\frac{1}{2} - \\frac{5}{3}\\bigg)x^3 && (\\text{Aynı dereceli terimlerin gruplandırılması}) \\\\
+                      &= 0 + 0 + 0x^2 + \\bigg(\\frac{3}{6} - \\frac{10}{6}\\bigg)x^3 = -\\frac{7}{6}x^3 && (\\text{Mucizevi bir şekilde 3. dereceye kadar tüm terimlerin sıfırlanması}) \\\\
+                    L &= \\lim_{x \\to 0} \\frac{-\\frac{7}{6}x^3 + O(x^4)}{x^3} && (\\text{Sadeleştirilmiş ifadenin limite tekrar konulması}) \\\\
+                      &= -\\frac{7}{6} && (\\text{L'Hôpital kullanmadan ulaşılan nihai limit})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 12", "Kombinatorik Kuvvet Serisi ve Uç Nokta Asimptotiği", 
+                    "Aşağıdaki kuvvet serisinin <b>yakınsaklık aralığını (interval of convergence)</b> uç noktaları da analitik olarak inceleyerek bulunuz. <i>(İpucu: Uç noktalarda Oran Testi çökecektir. Büyük faktöriyellerin asimptotik analizi için \\( n! \\approx \\sqrt{2\\pi n} (n/e)^n \\) Stirling Formülünü kullanınız.)</i><br>\\[ \\sum_{n=1}^{\\infty} \\binom{2n}{n} x^n \\]", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Merkezi binom katsayılarından oluşan bu seri, yakınsaklık yarıçapının ötesinde, klasik testlerin yetersiz kaldığı tam bir üniversite final sorusudur.</p>
+                    $$\\begin{aligned}
+                    a_n &= \\binom{2n}{n} x^n = \\frac{(2n)!}{(n!)^2} x^n && (\\text{Kombinasyon formülünün faktöriyele çevrilmesi}) \\\\
+                    \\rho &= \\lim_{n \\to \\infty} \\bigg| \\frac{(2n+2)!}{((n+1)!)^2} \\frac{(n!)^2}{(2n)!} x \\bigg| && (\\text{Yarıçap için Oran Testi kurgusu}) \\\\
+                      &= |x| \\lim_{n \\to \\infty} \\frac{(2n+2)(2n+1)(2n)!}{(n+1)^2 (n!)^2} \\frac{(n!)^2}{(2n)!} && (\\text{Faktöriyellerin ardışık açılımları}) \\\\
+                      &= |x| \\lim_{n \\to \\infty} \\frac{2(n+1)(2n+1)}{(n+1)^2} = |x| \\lim_{n \\to \\infty} \\frac{4n+2}{n+1} && (\\text{Sadeleştirilmiş rasyonel limit}) \\\\
+                    4|x| &< 1 \\implies |x| < \\frac{1}{4} \\implies x \\in \\bigg(-\\frac{1}{4}, \\frac{1}{4}\\bigg) && (\\text{Yakınsaklığın garanti olduğu açık aralık ve } R=1/4) \\\\
+                    x &= \\frac{1}{4} \\implies \\sum_{n=1}^\\infty \\frac{(2n)!}{4^n (n!)^2} && (\\text{Üst uç nokta analizi: Oran testi burada 1 çıkar ve çöker}) \\\\
+                    n! &\\approx \\sqrt{2\\pi n} \\bigg(\\frac{n}{e}\\bigg)^n, \\quad (2n)! \\approx \\sqrt{4\\pi n} \\bigg(\\frac{2n}{e}\\bigg)^{2n} && (\\text{Büyük faktöriyeller için Stirling Asimptotik Yaklaşımı}) \\\\
+                    a_n(\\text{uç}) &\\approx \\frac{\\sqrt{4\\pi n} \\cdot 2^{2n} \\cdot n^{2n} \\cdot e^{-2n}}{4^n (\\sqrt{2\\pi n})^2 (n/e)^{2n}} && (\\text{Stirling formüllerinin genel terime yerleşimi}) \\\\
+                      &= \\frac{2\\sqrt{\\pi n} \\cdot 4^n \\cdot n^{2n} \\cdot e^{-2n}}{4^n \\cdot 2\\pi n \\cdot n^{2n} \\cdot e^{-2n}} = \\frac{1}{\\sqrt{\\pi n}} && (\\text{Üstel ve polinom terimlerin kusursuzca birbirini yok etmesi}) \\\\
+                    b_n &= \\frac{1}{\\sqrt{n}} \\implies \\sum b_n \\text{ Iraksaktır } (p=1/2) && (\\text{Limit Karşılaştırma Testi gereği üst uç nokta Iraksaktır}) \\\\
+                    x &= -\\frac{1}{4} \\implies \\sum_{n=1}^\\infty (-1)^n \\frac{(2n)!}{4^n (n!)^2} \\approx \\sum_{n=1}^\\infty \\frac{(-1)^n}{\\sqrt{\\pi n}} && (\\text{Alt uç nokta analizi: Seri Alterne forma dönüşür}) \\\\
+                    &|a_n| \\to 0 \\text{ ve azalan olduğu için AST gereği Yakınsaktır.} && (\\text{Alterne Seri Testi kararı}) \\\\
+                    &\\text{Yakınsaklık Aralığı: } \\bigg[-\\frac{1}{4}, \\frac{1}{4}\\bigg) && (\\text{Nihai karar})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 13", "Seri Entegrasyonu ve Basel Problemi Uyarlaması", 
+                    "Maclaurin serisi açılımını kullanarak \\( \\int_0^1 \\frac{\\ln(1+x)}{x} \\, dx \\) integralinin tam değerini sonsuz bir toplam (seri) formunda hesaplayınız.<br><i>(BİLGİ: \\( \\sum_{n=1}^{\\infty} \\frac{1}{n^2} = \\frac{\\pi^2}{6} \\) olduğunu bilerek, bulduğunuz alterne serinin sonucunu \\( \\pi \\) cinsinden kapalı formda yazınız.)</i>", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu soru, integrali doğrudan alınamayan (transandant) bir fonksiyonu seriye çevirip, ardından Euler'in meşhur Basel problemi ile sentezlemeyi gerektirir.</p>
+                    $$\\begin{aligned}
+                    \\ln(1+x) &= \\sum_{n=1}^\\infty \\frac{(-1)^{n-1} x^n}{n} = x - \\frac{x^2}{2} + \\frac{x^3}{3} - \\dots && (\\text{Standart logaritmik Maclaurin açılımı}) \\\\
+                    \\frac{\\ln(1+x)}{x} &= \\sum_{n=1}^\\infty \\frac{(-1)^{n-1} x^{n-1}}{n} && (\\text{Serinin x'e bölünerek integranda hazır hale getirilmesi}) \\\\
+                    I &= \\int_0^1 \\sum_{n=1}^\\infty \\frac{(-1)^{n-1} x^{n-1}}{n} \\, dx && (\\text{Serinin terim terim integrasyonu}) \\\\
+                      &= \\sum_{n=1}^\\infty \\frac{(-1)^{n-1}}{n} \\bigg[ \\frac{x^n}{n} \\bigg]_0^1 && (\\text{Ters türevin alınıp n'in paydaya karesi olarak düşmesi}) \\\\
+                    I &= \\sum_{n=1}^\\infty \\frac{(-1)^{n-1}}{n^2} = 1 - \\frac{1}{4} + \\frac{1}{9} - \\frac{1}{16} + \\dots && (\\text{Limitlerin konmasıyla elde edilen Alterne Basel Serisi}) \\\\
+                    S &= \\sum_{n=1}^\\infty \\frac{1}{n^2} = \\frac{\\pi^2}{6} && (\\text{Soruda verilen pozitif (tüm terimler) seri toplamı}) \\\\
+                    I &= S - 2 \\sum_{k=1}^\\infty \\frac{1}{(2k)^2} && (\\text{Alterne seriyi bulmak için pozitif seriden çift terimlerin iki katını çıkarma hilesi}) \\\\
+                      &= S - 2 \\bigg( \\frac{1}{4} \\sum_{k=1}^\\infty \\frac{1}{k^2} \\bigg) && (\\text{Çift çarpanın (} 1/4 \\text{) dışarı alınması}) \\\\
+                      &= S - \\frac{1}{2} S = \\frac{1}{2} S && (\\text{Alterne toplamın, ana toplamın tam yarısı olduğunun ispatı}) \\\\
+                    I &= \\frac{1}{2} \\bigg( \\frac{\\pi^2}{6} \\bigg) = \\frac{\\pi^2}{12} && (\\text{Kusursuz analitik sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 14", "Çarpım Dizilerinde Asimptotik Taylor ve Riemann Sentezi", 
+                    "Aşağıda verilen sonsuz çarpım dizisinin limitini hesaplayınız. L'Hôpital kuralı burada işe yaramaz; logaritmik Taylor asimptotiğini kullanınız:<br>\\[ \\lim_{n \\to \\infty} \\prod_{k=1}^{n} \\bigg( 1 + \\frac{k}{n^2} \\bigg) \\]", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Çarpım (\\( \\prod \\)) sembolü içeren \\( 1^\\infty \\) belirsizliklerinde, önce logaritma alınıp ifade toplama (\\( \\sum \\)) dönüştürülmeli, ardından logaritmik asimptotik açılımla çözülmelidir.</p>
+                    $$\\begin{aligned}
+                    L &= \\lim_{n \\to \\infty} \\prod_{k=1}^n \\bigg( 1 + \\frac{k}{n^2} \\bigg) && (\\text{Limit ana denklemi}) \\\\
+                    \\ln L &= \\lim_{n \\to \\infty} \\sum_{k=1}^n \\ln\\bigg( 1 + \\frac{k}{n^2} \\bigg) && (\\text{Logaritma alınarak çarpımın toplama evrilmesi}) \\\\
+                    \\ln(1+u) &\\approx u - \\frac{u^2}{2} \\implies \\ln\\bigg( 1 + \\frac{k}{n^2} \\bigg) \\approx \\frac{k}{n^2} - \\frac{k^2}{2n^4} && (\\text{Maclaurin serisiyle logaritmanın cebirsel polinomlanması}) \\\\
+                    \\ln L &= \\lim_{n \\to \\infty} \\sum_{k=1}^n \\bigg( \\frac{k}{n^2} - \\frac{k^2}{2n^4} \\bigg) && (\\text{Asimptotik ifadenin toplama yerleştirilmesi}) \\\\
+                    \\sum_{k=1}^n \\frac{k}{n^2} &= \\frac{1}{n^2} \\frac{n(n+1)}{2} = \\frac{n^2+n}{2n^2} = \\frac{1}{2} + \\frac{1}{2n} && (\\text{Gauss toplam formülü (Birinci derece)}) \\\\
+                    \\sum_{k=1}^n \\frac{k^2}{2n^4} &= \\frac{1}{2n^4} \\frac{n(n+1)(2n+1)}{6} \\approx \\frac{2n^3}{12n^4} = \\frac{1}{6n} && (\\text{Kareler toplamı formülü ve dominant terim analizi}) \\\\
+                    \\ln L &= \\lim_{n \\to \\infty} \\bigg( \\frac{1}{2} + \\frac{1}{2n} - \\frac{1}{6n} \\bigg) && (\\text{Toplam sonuçlarının limite taşınması}) \\\\
+                    \\ln L &= \\frac{1}{2} + 0 - 0 = \\frac{1}{2} && (\\text{Sonsuzda n'li terimlerin yutulması}) \\\\
+                    L &= e^{1/2} = \\sqrt{e} && (\\text{Doğal logaritmanın tersinin alınmasıyla nihai sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 15", "Reel Analizde Kompleks Euler Dönüşümü (Sınır Ötesi Sentez)", 
+                    "Sadece gerçel sayılar (reel analiz) yöntemleriyle hesaplanması imkansıza yakın olan aşağıdaki serinin tam (kapalı fonksiyon) değerini, Euler formülü (\\( e^{ix} = \\cos x + i\\sin x \\)) ve Kompleks Geometrik Seri yardımıyla bulunuz:<br>\\[ \\sum_{n=0}^{\\infty} \\frac{\\cos(nx)}{3^n} \\]", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Reel bir trigonometrik seriyi, karmaşık düzlemde bir geometrik serinin gerçel (Reel) kısmı olarak ifade edip sonsuz toplam formülünü (\\( S = \\frac{1}{1-r} \\)) kullanacağız.</p>
+                    $$\\begin{aligned}
+                    e^{inx} &= \\cos(nx) + i\\sin(nx) \\implies \\cos(nx) = \\text{Re}(e^{inx}) && (\\text{Euler formülünün kuvvet kuralı (De Moivre)}) \\\\
+                    S &= \\text{Re} \\bigg[ \\sum_{n=0}^\\infty \\frac{e^{inx}}{3^n} \\bigg] = \\text{Re} \\bigg[ \\sum_{n=0}^\\infty \\bigg( \\frac{e^{ix}}{3} \\bigg)^n \\bigg] && (\\text{Serinin kompleks bir geometrik seriye dönüştürülmesi}) \\\\
+                    r &= \\frac{e^{ix}}{3} \\implies |r| = \\frac{1}{3} < 1 && (\\text{Ortak çarpanın modülü 1'den küçük, seri kesin yakınsaktır}) \\\\
+                    Z &= \\sum_{n=0}^\\infty r^n = \\frac{1}{1 - r} = \\frac{1}{1 - \\frac{\\cos x + i\\sin x}{3}} && (\\text{Geometrik seri formülü ve Eulerin geri açılımı}) \\\\
+                    Z &= \\frac{3}{3 - \\cos x - i\\sin x} && (\\text{Paydanın eşitlenip 3'ün paya atılması}) \\\\
+                    Z &= \\frac{3 \\big( (3 - \\cos x) + i\\sin x \\big)}{(3 - \\cos x)^2 + \\sin^2 x} && (\\text{Reel kısmı ayırmak için paydanın eşleniği ile çarpımı}) \\\\
+                    \\text{Payda} &= 9 - 6\\cos x + \\cos^2 x + \\sin^2 x = 10 - 6\\cos x && (\\text{Trigonometrik Pisagor özdeşliği (} \\cos^2 + \\sin^2 = 1 \\text{) ile sadeleşme}) \\\\
+                    S &= \\text{Re}(Z) = \\frac{3(3 - \\cos x)}{10 - 6\\cos x} && (\\text{Sadece Gerçel (i'siz) kısmın çekilmesi}) \\\\
+                    S &= \\frac{9 - 3\\cos x}{10 - 6\\cos x} && (\\text{Matematiğin sınırlarını zorlayan o nihai şaheser})
+                    \\end{aligned}$$`
+                );
+
+html += createQuestion("Soru 16", "İleri Asimptotik Taylor: Dizilerde Üstel Belirsizlik", 
+                    "Aşağıda genel terimi verilen dizinin yakınsaklık durumunu inceleyiniz. Yakınsak ise limitini Taylor serisi açılımlarını kullanarak bulunuz:<br>\\[ a_n = \\bigg( \\frac{\\sin(1/n)}{1/n} \\bigg)^{n^2} \\]", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Bu soru sonsuzda \\( 1^\\infty \\) belirsizliği üretir. Ancak L'Hôpital kuralı uygulamak imkansıza yakındır. Çözüm, logaritma alıp iç içe Taylor serileri kullanmaktır.</p>
+                    $$\\begin{aligned}
+                    L &= \\lim_{n \\to \\infty} \\bigg( \\frac{\\sin(1/n)}{1/n} \\bigg)^{n^2} && (\\text{Dizinin limitinin kurulumu}) \\\\
+                    x &= \\frac{1}{n} \\implies \\lim_{x \\to 0} \\bigg( \\frac{\\sin x}{x} \\bigg)^{1/x^2} && (\\text{Sürekli limit formuna geçiş}) \\\\
+                    \\ln L &= \\lim_{x \\to 0} \\frac{1}{x^2} \\ln\\bigg( \\frac{\\sin x}{x} \\bigg) && (\\text{Üstel belirsizlikten kurtulmak için doğal logaritma alınması}) \\\\
+                    \\sin x &\\approx x - \\frac{x^3}{6} + \\frac{x^5}{120} && (\\text{Sinüs fonksiyonunun Maclaurin açılımı}) \\\\
+                    \\frac{\\sin x}{x} &\\approx 1 - \\frac{x^2}{6} + \\frac{x^4}{120} && (\\text{İfadenin x'e bölünerek sadeleştirilmesi}) \\\\
+                    \\ln(1+u) &\\approx u - \\frac{u^2}{2} && (\\text{Logaritma fonksiyonunun Taylor serisi}) \\\\
+                    \\ln\\bigg( 1 - \\frac{x^2}{6} + \\frac{x^4}{120} \\bigg) &\\approx \\bigg(-\\frac{x^2}{6} + \\frac{x^4}{120}\\bigg) - \\frac{1}{2}\\bigg(-\\frac{x^2}{6}\\bigg)^2 && (u \\text{ yerine elde edilen serinin yerleştirilmesi (Kompozisyon)}) \\\\
+                      &= -\\frac{x^2}{6} + x^4\\bigg(\\frac{1}{120} - \\frac{1}{72}\\bigg) && (\\text{Kare alma işlemi ve aynı dereceli terimlerin toparlanması}) \\\\
+                    \\ln L &= \\lim_{x \to 0} \\frac{ -\\frac{x^2}{6} + O(x^4) }{x^2} && (\\text{Elde edilen serinin asıl limite yerleştirilmesi}) \\\\
+                      &= -\\frac{1}{6} && (\\text{x karelerin sadeleşmesiyle kalan dominant katsayı}) \\\\
+                    L &= e^{-1/6} = \\frac{1}{\\sqrt[6]{e}} && (\\text{Logaritmanın tersinin alınmasıyla elde edilen nihai limit}) \\\\
+                      &\\text{Limit sonlu olduğu için Dizi Yakınsaktır.} && (\\text{Karar})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 17", "Euler Limitinin Gizli Iraksaklık İspatı", 
+                    "Aşağıda verilen sonsuz serinin karakterini (yakınsaklık/ıraksaklık durumunu) inceleyiniz:<br>\\[ \\sum_{n=1}^{\\infty} \\bigg[ e - \\bigg(1 + \\frac{1}{n}\\bigg)^n \\bigg] \\]", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Genel terimin limiti sıfıra gitse de, serinin karakterini belirlemek için terimin <b>hangi hızla</b> sıfıra gittiğini (asimptotik davranışını) Limit Karşılaştırma Testi (LCT) ve Taylor açılımı ile bulmalıyız.</p>
+                    $$\\begin{aligned}
+                    a_n &= e - \\bigg(1 + \\frac{1}{n}\\bigg)^n && (\\text{Genel terimin tanımlanması}) \\\\
+                    \\bigg(1 + \\frac{1}{n}\\bigg)^n &= e^{n \\ln(1 + 1/n)} && (\\text{İfadenin üstel e tabanına dönüştürülmesi}) \\\\
+                    \\ln\\bigg(1 + \\frac{1}{n}\\bigg) &= \\frac{1}{n} - \\frac{1}{2n^2} + \\frac{1}{3n^3} - \\dots && (\\text{Logaritmanın Maclaurin açılımı}) \\\\
+                    n \\ln\\bigg(1 + \\frac{1}{n}\\bigg) &= 1 - \\frac{1}{2n} + \\frac{1}{3n^2} - \\dots && (\\text{n çarpanının seri içine dağıtılması}) \\\\
+                    e^{n \\ln(1 + 1/n)} &= e^{1 - \\frac{1}{2n} + O(1/n^2)} = e^1 \\cdot e^{-\\frac{1}{2n} + O(1/n^2)} && (\\text{Üslü sayıların çarpım formunda ayrıştırılması}) \\\\
+                    e^u &= 1 + u + \\frac{u^2}{2} + \\dots && (e^u \\text{ fonksiyonunun Taylor serisi}) \\\\
+                    e^{-\\frac{1}{2n}} &\\approx 1 - \\frac{1}{2n} + \\frac{1}{8n^2} && (\\text{Yaklaşımın seriye entegre edilmesi}) \\\\
+                    \\bigg(1 + \\frac{1}{n}\\bigg)^n &\\approx e \\bigg( 1 - \\frac{1}{2n} \\bigg) = e - \\frac{e}{2n} && (\\text{Elde edilen ifadenin asimptotik eşdeğeri}) \\\\
+                    a_n &\\approx e - \\bigg( e - \\frac{e}{2n} \\bigg) = \\frac{e}{2n} && (\\text{Orijinal terimde yerine yazıp e'lerin sadeleştirilmesi}) \\\\
+                    b_n &= \\frac{1}{n} \\implies \\sum b_n = \\infty && (\\text{LCT için ıraksak Harmonik Serinin referans seçimi}) \\\\
+                    \\lim_{n \\to \\infty} \\frac{a_n}{b_n} &= \\lim_{n \\to \\infty} \\frac{e / 2n}{1 / n} = \\frac{e}{2} && (\\text{Limitin sonlu ve pozitif çıkması}) \\\\
+                      &\\text{LCT gereği seri Iraksaktır.} && (\\text{Karşılaştırma testi ile nihai karar})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 18", "Taylor Shift ve Genelleştirilmiş Binom Sentezi", 
+                    "\\( f(x) = \\sqrt{x} \\) fonksiyonunun \\( a = 4 \\) noktası civarındaki Taylor serisini <b>Binom Serisi</b> yöntemini kullanarak bulunuz ve bu serinin <b>yakınsaklık aralığını</b> belirleyiniz.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Fonksiyonun türevlerini tek tek alıp Taylor formülüne koymak ameleliktir. Fonksiyonun merkezini cebirsel olarak kaydırıp (Taylor Shift) doğrudan Newton'un Binom Serisi formülüne oturtacağız.</p>
+                    $$\\begin{aligned}
+                    f(x) &= \\sqrt{4 + (x-4)} && (\\text{a=4 noktasına göre x'in cebirsel manipülasyonu}) \\\\
+                      &= \\sqrt{4 \\bigg( 1 + \\frac{x-4}{4} \\bigg)} = 2 \\bigg( 1 + \\frac{x-4}{4} \\bigg)^{1/2} && (\\text{Kökün dışına sabit alarak (1+u) formatına getirme}) \\\\
+                    k &= \\frac{1}{2}, \\quad u = \\frac{x-4}{4} && (\\text{Binom parametrelerinin tespiti}) \\\\
+                    (1+u)^{1/2} &= \\sum_{n=0}^\\infty \\binom{1/2}{n} u^n && (\\text{Genelleştirilmiş Binom Serisi formülü}) \\\\
+                    f(x) &= 2 \\sum_{n=0}^\\infty \\binom{1/2}{n} \\bigg( \\frac{x-4}{4} \\bigg)^n && (\\text{Değişkenlerin Binom serisine yerleştirilmesi}) \\\\
+                      &= 2 + 2 \\sum_{n=1}^\\infty \\frac{(-1)^{n-1} 1 \\cdot 3 \\dots (2n-3)}{2^n n!} \\frac{(x-4)^n}{4^n} && (\\text{Binom katsayısının faktöriyelli ve eksi işaretli açık hali}) \\\\
+                      &= 2 + \\sum_{n=1}^\\infty \\frac{(-1)^{n-1} (2n-3)!!}{2^{3n-1} n!} (x-4)^n && (\\text{Katsayıların, 2'nin kuvvetlerinin ve çift faktöriyelin (!!) toparlanması}) \\\\
+                    |u| &< 1 \\implies \\bigg| \\frac{x-4}{4} \\bigg| < 1 && (\\text{Binom serisinin temel mutlak yakınsaklık şartı}) \\\\
+                    |x-4| &< 4 \\implies -4 < x-4 < 4 && (\\text{Eşitsizliğin açılarak yarıçapın (R=4) kullanılması}) \\\\
+                    0 &< x < 8 && (\\text{Açık yakınsaklık aralığının sınırları}) \\\\
+                    x &= 8 \\implies \\text{Seri Alterne ve Azalan olduğu için AST gereği Yakınsaktır.} && (\\text{Üst sınır analizi}) \\\\
+                    x &= 0 \\implies \\text{Seri } \\sum \\frac{(2n-3)!!}{2^{n-1} n!} \\text{ Raabe Testi ile Yakınsaktır.} && (\\text{Alt sınır analizi - İleri seviye ispat kuralı}) \\\\
+                      &\\text{Yakınsaklık Aralığı: } [0, 8] && (\\text{Nihai kapalı aralık})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 19", "Büyük Sentez: Karma Karakter Analizi (6 Öncüllü)", 
+                    "Aşağıda verilen 6 farklı sonsuz seriyi inceleyiniz:<br><br>" +
+                    "I. \\( \\sum_{n=1}^{\\infty} \\frac{(-1)^n n^2}{n^2+1} \\)<br>" +
+                    "II. \\( \\sum_{n=1}^{\\infty} \\frac{e^n + n}{3^n - 2} \\)<br>" +
+                    "III. \\( \\sum_{n=1}^{\\infty} \\frac{\\sin(n^3)}{n\\sqrt{n}} \\)<br>" +
+                    "IV. \\( \\sum_{n=1}^{\\infty} \\frac{n!}{n^n} \\)<br>" +
+                    "V. \\( \\sum_{n=1}^{\\infty} (-1)^n \\big( \\sqrt{n^2+n} - n \\big) \\)<br>" +
+                    "VI. \\( \\sum_{n=2}^{\\infty} \\frac{\\ln n}{n^2} \\)<br><br>" +
+                    "Yukarıda verilen serilerden hangileri <b>yakınsaktır</b>?", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Her bir öncülü en uygun ve en hızlı yakınsaklık testiyle analiz etmeliyiz.</p>
+                    $$\\begin{aligned}
+                    &\\textbf{I. Öncül:} && \\\\
+                    \\lim_{n \\to \\infty} \\frac{(-1)^n n^2}{n^2+1} &= \\text{Yoktur } (\\pm 1 \\text{ arasında salınır}) && (\\text{n. Terim Testi: Limit 0 olmadığı için doğrudan IRAKSAKTIR}) \\\\
+                    &\\textbf{II. Öncül:} && \\\\
+                    a_n &\\approx \\frac{e^n}{3^n} = \\bigg(\\frac{e}{3}\\bigg)^n && (\\text{Sonsuzda polinom ve sabit terimlerin ezilmesi (LCT Hazırlığı)}) \\\\
+                    b_n &= \\bigg(\\frac{e}{3}\\bigg)^n \\implies \\sum b_n \\text{ Yakınsaktır} && (e \\approx 2.71 < 3 \\text{ olduğundan Geometrik Seri yakınsar}) \\\\
+                    &\\text{LCT gereği II. seri YAKINSAKTIR.} && (\\text{Limit sonlu çıkacağından aynı karakteri taşırlar}) \\\\
+                    &\\textbf{III. Öncül:} && \\\\
+                    |a_n| &= \\bigg| \\frac{\\sin(n^3)}{n^{3/2}} \\bigg| \\le \\frac{1}{n^{3/2}} && (\\text{Sinüsün sınırlandırılması ile Mutlak Yakınsaklık (DCT) testi}) \\\\
+                    p &= 1.5 > 1 \\implies \\text{III. seri MUTLAK YAKINSAKTIR.} && (\\text{P-serisi kuralı}) \\\\
+                    &\\textbf{IV. Öncül:} && \\\\
+                    \\rho &= \\lim_{n \\to \\infty} \\frac{(n+1)!}{(n+1)^{n+1}} \\frac{n^n}{n!} = \\lim_{n \\to \\infty} \\bigg(\\frac{n}{n+1}\\bigg)^n = \\frac{1}{e} && (\\text{Oran Testi limitinin Euler sabitiyle çözümü}) \\\\
+                    1/e &< 1 \\implies \\text{IV. seri YAKINSAKTIR.} && (\\text{Oran Testi kararı}) \\\\
+                    &\\textbf{V. Öncül:} && \\\\
+                    \\lim_{n \\to \\infty} (\\sqrt{n^2+n} - n) &= \\lim_{n \\to \\infty} \\frac{n}{\\sqrt{n^2+n} + n} = \\frac{1}{2} && (\\text{Eşlenik ile çarpıp limit alma}) \\\\
+                    \\lim_{n \\to \\infty} a_n &= \\pm \\frac{1}{2} \\neq 0 \\implies \\text{V. seri IRAKSAKTIR.} && (\\text{AST çökmesi ve n. Terim Testi ile ret}) \\\\
+                    &\\textbf{VI. Öncül:} && \\\\
+                    n \\to \\infty &\\implies \\ln n < n^{0.5} && (\\text{Logaritmanın polinomdan yavaş büyümesi kuralı}) \\\\
+                    a_n &= \\frac{\\ln n}{n^2} < \\frac{n^{0.5}}{n^2} = \\frac{1}{n^{1.5}} && (\\text{Eşitsizliğin (DCT) oluşturulması}) \\\\
+                    &\\sum \\frac{1}{n^{1.5}} \\text{ (Yakınsak) } \\implies \\text{VI. seri YAKINSAKTIR.} && (\\text{Büyük olan yakınsaksa küçük de yakınsar}) \\\\
+                    &\\text{Doğru Cevap: } \\textbf{II, III, IV ve VI} && (\\text{Nihai sentez})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 20", "Teorinin Zirvesi: Serilerde Kesinlik ve Yanılgılar (6 Öncüllü)", 
+                    "Diziler ve seriler teorisine dair aşağıda 6 adet öncül verilmiştir:<br><br>" +
+                    "I. Bir \\( \\sum a_n \\) serisi <i>şartlı yakınsak</i> ise, \\( \\sum n^2 a_n \\) serisi kesinlikle ıraksaktır.<br>" +
+                    "II. Eğer \\( \\lim_{n \\to \\infty} |a_{n+1}/a_n| = 1 \\) ise, seri kesinlikle <i>şartlı yakınsaktır</i>.<br>" +
+                    "III. Bir kuvvet serisi \\( \\sum c_n(x-a)^n \\), \\( x=b \\) noktasında yakınsak ise, \\( |x-a| < |b-a| \\) aralığındaki her \\( x \\) için <i>mutlak yakınsaktır</i>.<br>" +
+                    "IV. Eğer \\( \\sum a_n \\) ve \\( \\sum b_n \\) ayrı ayrı ıraksak iseler, \\( \\sum (a_n + b_n) \\) serisi de kesinlikle ıraksaktır.<br>" +
+                    "V. Eğer \\( 0 < a_n < b_n \\) eşitsizliği sağlanıyor ve \\( \\sum a_n \\) ıraksak ise, \\( \\sum b_n \\) serisi de kesinlikle ıraksaktır.<br>" +
+                    "VI. Bir alterne seri \\( \\sum (-1)^n a_n \\) (\\( a_n > 0 \\)) için \\( \\lim a_n = 0 \\) olması, serinin yakınsaması için her zaman yeterlidir.<br><br>" +
+                    "Yukarıdaki öncüllerden <b>kaç tanesi</b> kesinlikle doğrudur?", 
+                    `<p><i>Çözüm:</i></p>         
+                    $$\\begin{aligned}
+                    &\\textbf{I. Öncül (Doğru):} && \\\\
+                    &\\text{Şartlı yakınsaklık, serinin mutlak ıraksak olduğu (} \\sum |a_n| = \\infty \\text{) anlamına gelir.} && \\\\
+                    &\\text{Eğer } \\sum n^2 a_n \\text{ yakınsasaydı, } n^2 a_n \\to 0 \\text{ olurdu. Bu da } a_n \\text{'in } 1/n^2 \\text{ den hızlı küçüldüğünü gösterir.} && \\\\
+                    &\\text{Eğer } 1/n^2 \\text{ den hızlı küçülürse seri MUTLAK yakınsak olurdu. Çelişki! Dolayısıyla } \\sum n^2 a_n \\text{ ıraksar.} && \\\\
+                    &\\textbf{II. Öncül (Yanlış):} && \\\\
+                    &\\text{Oran testi limiti 1 çıktığında test SONUÇSUZDUR.} && \\\\
+                    &1/n \\text{ (Iraksak), } 1/n^2 \\text{ (Mutlak Yakınsak) ve } (-1)^n/n \\text{ (Şartlı Yakınsak) serilerinin hepsinde limit 1 çıkar.} && \\\\
+                    &\\textbf{III. Öncül (D0ğru):} && \\\\
+                    &\\text{Kuvvet serilerinin varoluş teoremidir (Abel Lemması). Bir noktada yakınsaklık varsa,} && \\\\
+                    &\\text{o noktanın merkeze olan uzaklığından daha yakın olan HER YERDE mutlak yakınsaklık garantidir.} && \\\\
+                    &\\textbf{IV. Öncül (Yanlış):} && \\\\
+                    &a_n = 1/n \\text{ ve } b_n = -1/n \\text{ seçilirse ikisi de ıraksaktır.} && \\\\
+                    &\\text{Ancak toplamları } \\sum (1/n - 1/n) = \\sum 0 = 0 \\text{ (Yakınsaktır).} && \\\\
+                    &\\textbf{V. Öncül (Doğru):} && \\\\
+                    &\\text{Doğrudan Karşılaştırma Testinin (DCT) 2. kuralıdır. Küçük olan (altyapı) sonsuza gidiyorsa,} && \\\\
+                    &\\text{ondan daha büyük olan üst yapı da mecburen sonsuza (ıraksaklığa) gitmek zorundadır.} && \\\\
+                    &\\textbf{VI. Öncül (Yanlış):} && \\\\
+                    &\\text{Alterne Seri Testi (AST) için sadece limitin 0 olması YETMEZ. Dizi MONOTON AZALAN olmalıdır.} && \\\\
+                    &\\text{Örneğin; } a_n \\text{ terimi çiftlerde } 1/n, \\text{ teklerde } 1/n^2 \\text{ olursa limit 0 dır ama seri ıraksar.} && \\\\
+                    &\\text{Sonuç: } \\textbf{I, III ve V} \\text{ öncülleri doğru olduğundan cevap } \\textbf{3 tanesidir.} &&
+                    \\end{aligned}$$`
+                );
+}
 
 
 
