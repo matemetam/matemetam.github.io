@@ -29805,11 +29805,10 @@ else if (grafikId === "s8-jxg-canvas") {
 
 
 
-
 // --- SİNEMA MODU (AKILLI VİDEO OYNATICI) FONKSİYONU ---
 function openVideoModal(chapterId) {
     
-    // 1. MATEVERSE VİDEO KATALOĞU (Artık doğrudan ID bazlı ve başlıkları da içeriyor)
+    // 1. MATEVERSE VİDEO KATALOĞU
     const videoKatalogu = {
         "6":  { videoId: "eaGchaqYuf8", title: "Transandant Fonksiyonlar" },
         "7":  { videoId: "bbljPYHcVDs", title: "İntegrasyon Teknikleri" },
@@ -29820,13 +29819,15 @@ function openVideoModal(chapterId) {
         "14": { videoId: "1CvxNv8314Q", title: "Vektör Alanlarında İntegral" }
     };
     
-    // 2. KESİN ÇÖZÜM: DOĞRUDAN ID EŞLEŞTİRMESİ
-    // Artık kelime aramak yok, nokta silmek yok. Direkt "6" geldiyse 6'yı bulur.
-    const secilenKonu = videoKatalogu[chapterId];
+    // 2. KESİN ÇÖZÜM: ANA BÖLÜM NUMARASINI AYIKLAMA
+    // Gelen ID "6.9" veya "6.10" ise, noktadan (.) bölüp sadece ilk kısmı ("6") alırız.
+    let anaBolumId = String(chapterId).split('.')[0]; 
+    
+    const secilenKonu = videoKatalogu[anaBolumId];
 
     // 3. EĞER VİDEO YOKSA HATA VERİP İŞLEMİ DURDUR
     if (!secilenKonu) {
-        alert("Bu konu için yapay zeka destekli video anlatımı henüz hazırlanmaktadır. Lütfen daha sonra tekrar kontrol edin!");
+        alert("Bu konu (" + chapterId + ") için yapay zeka destekli video anlatımı henüz hazırlanmaktadır. Lütfen daha sonra tekrar kontrol edin!");
         return; 
     }
 
@@ -29850,7 +29851,6 @@ function openVideoModal(chapterId) {
     // Modalı (Sinema ekranını) sayfaya ekle
     document.body.insertAdjacentHTML('beforeend', modalHTML);
 }
-
 
 
 
