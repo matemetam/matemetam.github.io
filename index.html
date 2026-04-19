@@ -1009,13 +1009,15 @@ const id = topicTitle.split(" ")[0].trim();
                 lectureHTML = `<div class="lecture-box"><div class="lecture-title">📖 ${topicTitle}</div>${topicLectures[topicTitle]}</div>`;
             }
 
-           let headerHTML = `
+let headerHTML = `
                 <div class="content-header-wrapper">
                     <div class="title-wrapper">
                         <h2 class="content-title">${topicTitle}</h2>
-                        <button class="ai-play-btn" onclick="openVideoModal('${topicTitle}')" title="Yapay Zeka Anlatımını İzle">
+                        
+                        <button class="ai-play-btn" onclick="openVideoModal('${id}')" title="Yapay Zeka Anlatımını İzle">
                             ▶ Yapay Zeka Anlatımı
                         </button>
+                        
                     </div>
                     <div class="content-tools">
                         <div class="font-sizer">
@@ -8256,6 +8258,150 @@ html += createQuestion("Soru 11", "Doğal Logaritmanın Fonksiyonel Özellikleri
                     \\end{aligned}$$`
                 );
 
+    html += createQuestion("Soru 16", "İntegral Kapsamlı Sonsuz/Sonsuz Belirsizliği (FTC & L'Hôpital)", 
+        "\\( \\lim_{x \\to \\infty} \\frac{\\left( \\int_0^x e^{t^2} \\, dt \\right)^2}{\\int_0^x e^{2t^2} \\, dt} \\) limitinin değerini hesaplayınız.", 
+        `<p><i>Çözüm:</i></p>
+        <p>Her iki integral de üst sınıra bağlı olarak sonsuza ıraksadığından, limit \\( [\\infty / \\infty] \\) belirsizliği içerir. L'Hôpital kuralı ve Kalkülüsün Temel Teoremi (FTC) kullanılacaktır.</p>
+        $$\\begin{aligned}
+        L &= \\lim_{x \\to \\infty} \\frac{\\left( \\int_0^x e^{t^2} \\, dt \\right)^2}{\\int_0^x e^{2t^2} \\, dt} && (\\text{Verilen limit, } [\\infty/\\infty] \\text{ belirsizliği}) \\\\
+        &= \\lim_{x \\to \\infty} \\frac{\\frac{d}{dx} \\left[ \\left( \\int_0^x e^{t^2} \\, dt \\right)^2 \\right]}{\\frac{d}{dx} \\left[ \\int_0^x e^{2t^2} \\, dt \\right]} && (\\text{L'Hôpital kuralının uygulanması}) \\\\
+        &= \\lim_{x \\to \\infty} \\frac{2 \\left( \\int_0^x e^{t^2} \\, dt \\right) \\cdot e^{x^2}}{e^{2x^2}} && (\\text{Pay kısmında zincir kuralı ve FTC}) \\\\
+        &= \\lim_{x \\to \\infty} \\frac{2 \\int_0^x e^{t^2} \\, dt}{e^{x^2}} && (\\text{Üstel terimlerin sadeleştirilmesi, hala } [\\infty/\\infty]) \\\\
+        &= \\lim_{x \\to \\infty} \\frac{\\frac{d}{dx} \\left[ 2 \\int_0^x e^{t^2} \\, dt \\right]}{\\frac{d}{dx} \\left[ e^{x^2} \\right]} && (\\text{Belirsizliği gidermek için ikinci kez L'Hôpital}) \\\\
+        &= \\lim_{x \\to \\infty} \\frac{2 e^{x^2}}{2x e^{x^2}} && (\\text{Türevlerin alınması (FTC ve üstel zincir kuralı)}) \\\\
+        &= \\lim_{x \\to \\infty} \\frac{1}{x} && (\\text{İfadelerin son kez sadeleştirilmesi}) \\\\
+        &= 0 && (\\text{Nihai limit sonucu})
+        \\end{aligned}$$`
+    );
+
+    // SORU 17: İleri Bağıl Oranlar (Transandant Eğri Üzerinde Hareket)
+    html += createQuestion("Soru 17", "Transandant Geometride Bağıl Oranlar ve Ters Trigonometri", 
+        "Bir parçacık analitik düzlemde \\( y = \\text{sech}(x) \\) eğrisi üzerinde hareket etmektedir. Parçacık \\( x = \\ln 3 \\) apsisli noktadan geçerken x-koordinatının artış hızı \\( 2 \\text{ birim/sn} \\) olarak ölçülmüştür.<br>Buna göre, tam bu anda eğriye çizilen teğet doğrusunun eğim açısının (\\( \\theta \\)) değişim hızını (\\( \\frac{d\\theta}{dt} \\)) radyan/sn cinsinden bulunuz.", 
+        `<p><i>Çözüm:</i></p>
+        <p>Eğim açısı \\( \\theta \\) ile birinci türev arasındaki ilişki \\( \\tan \\theta = y' \\) şeklindedir. Kapalı türev ve zincir kurallarını zamana (\\( t \\)) göre işleteceğiz.</p>
+        $$\\begin{aligned}
+        \\theta &= \\arctan(y') && (\\text{Teğet eğim açısının ters trigonometrik tanımı}) \\\\
+        \\frac{d\\theta}{dt} &= \\frac{1}{1 + (y')^2} \\cdot y'' \\cdot \\frac{dx}{dt} && (\\text{Her iki tarafın zamana göre türevinin alınması}) \\\\
+        y' &= \\frac{d}{dx}[\\text{sech } x] = -\\text{sech } x \\tanh x && (\\text{Yörünge denkleminin birinci türevi}) \\\\
+        y'' &= \\frac{d}{dx}[-\\text{sech } x \\tanh x] = \\text{sech } x \\tanh^2 x - \\text{sech}^3 x && (\\text{Çarpım kuralı ile ikinci türevin elde edilmesi}) \\\\
+        x &= \\ln 3 \\implies e^x = 3, \\, e^{-x} = 1/3 && (\\text{Anlık konum değerlerinin üstel analizi}) \\\\
+        \\cosh x &= \\frac{3 + 1/3}{2} = \\frac{5}{3} \\implies \\text{sech } x = \\frac{3}{5} && (\\text{Hiperbolik kosinüs ve sekant hesabı}) \\\\
+        \\sinh x &= \\frac{3 - 1/3}{2} = \\frac{4}{3} \\implies \\tanh x = \\frac{4}{5} && (\\text{Hiperbolik sinüs ve tanjant hesabı}) \\\\
+        y' &= -\\left(\\frac{3}{5}\\right)\\left(\\frac{4}{5}\\right) = -\\frac{12}{25} && (\\text{Anlık birinci türev (eğim) değerinin bulunması}) \\\\
+        y'' &= \\frac{3}{5}\\left(\\frac{16}{25}\\right) - \\left(\\frac{3}{5}\\right)^3 = \\frac{21}{125} && (\\text{Anlık ikinci türev değerinin bulunması}) \\\\
+        \\frac{d\\theta}{dt} &= \\frac{1}{1 + (-12/25)^2} \\cdot \\frac{21}{125} \\cdot 2 && (\\text{Bulunan tüm değerlerin ana değişim denklemine yazılması}) \\\\
+        \\frac{d\\theta}{dt} &= \\frac{625}{769} \\cdot \\frac{42}{125} = \\frac{210}{769} \\text{ rad/sn} && (\\text{Nihai açısal değişim hızının hesaplanması})
+        \\end{aligned}$$`
+    );
+
+  // SORU 18: Alt/Üst Toplam ve Sandviç Teoremi İle Limit İspatı
+    html += createQuestion("Soru 18", "Sandviç Teoremi ve Riemann Toplamları ile Limit", 
+        "\\( \\lim_{n \\to \\infty} \\frac{1}{n} \\sum_{k=1}^{n} \\frac{e^{k/n}}{e^{2k/n} + 1} \\) limitinin değerini, fonksiyonun alt ve üst toplamlarını bulup Sandviç (Sıkıştırma) Teoremini kullanarak hesaplayınız.", 
+        `<p><i>Çözüm:</i></p>
+        <p>İfadeyi \\( f(x) = \\frac{e^x}{e^{2x}+1} \\) fonksiyonunun \\( [0, 1] \\) aralığındaki toplamı olarak modelleyeceğiz. Sandviç teoremini uygulayabilmek için öncelikle fonksiyonun bu aralıktaki artan/azalanlık durumunu inceleyip, aradığımız limitin (Sağ Riemann Toplamı) Alt Toplam mı yoksa Üst Toplam mı olduğunu belirlemeliyiz.</p>
+        $$\\begin{aligned}
+        f(x) &= \\frac{e^x}{e^{2x} + 1} && (\\text{Toplamın içindeki genel fonksiyon formatı}) \\\\
+        f'(x) &= \\frac{e^x(e^{2x}+1) - e^x(2e^{2x})}{(e^{2x} + 1)^2} = \\frac{e^x(1 - e^{2x})}{(e^{2x} + 1)^2} && (\\text{Bölüm türevi ile değişimin incelenmesi}) \\\\
+        f'(x) &< 0 \\implies f(x) \\text{ azalan fonksiyondur.} && (x \\in [0,1] \\text{ için } e^{2x} \\ge 1 \\text{ olduğundan pay negatiftir}) \\\\
+        Alt_n &= \\frac{1}{n} \\sum_{k=1}^{n} f(k/n) && (\\text{Azalan fonksiyonda sağ uç noktalar Alt Toplamı verir}) \\\\
+        Üst_n &= \\frac{1}{n} \\sum_{k=0}^{n-1} f(k/n) && (\\text{Azalan fonksiyonda sol uç noktalar Üst Toplamı verir}) \\\\
+        Alt_n &\\le \\int_0^1 f(x) \\, dx \\le Üst_n && (\\text{Belirli integralin alt ve üst toplamlar arasına sıkışması}) \\\\
+        Üst_n - Alt_n &= \\frac{1}{n} \\left[ f(0) - f(1) \\right] && (\\text{Alt ve üst toplamlar arasındaki farkın (hata payı) hesabı}) \\\\
+        \\int_0^1 f(x) \\, dx - \\frac{f(0)-f(1)}{n} &\\le Alt_n \\le \\int_0^1 f(x) \\, dx && (\\text{Eşitsizliğin } Alt_n \\text{ (aradığımız limit) için düzenlenmesi}) \\\\
+        \\lim_{n \\to \\infty} \\left[ \\int_0^1 f(x) \\, dx - \\frac{f(0)-f(1)}{n} \\right] &\\le \\lim_{n \\to \\infty} Alt_n \\le \\lim_{n \\to \\infty} \\int_0^1 f(x) \\, dx && (\\text{Sandviç Teoremi için her tarafın sonsuza limitinin alınması}) \\\\
+        \\lim_{n \\to \\infty} \\frac{f(0)-f(1)}{n} &= 0 && (\\text{Payda sonsuza giderken fark teriminin sıfırlanması}) \\\\
+        \\lim_{n \\to \\infty} Alt_n &= \\int_0^1 \\frac{e^x}{e^{2x} + 1} \\, dx && (\\text{Sandviç Teoremi sonucu limitin tam olarak integrale eşit çıkması}) \\\\
+        \\text{Dönüşüm: } u &= e^x \\implies du = e^x \\, dx && (\\text{İntegralin çözümü için üstel değişken dönüşümü}) \\\\
+        \\lim_{n \\to \\infty} Alt_n &= \\int_1^e \\frac{1}{u^2 + 1} \\, du && (\\text{İntegralin rasyonel ve ters trigonometrik forma gelmesi}) \\\\
+        &= \\left[ \\arctan(u) \\right]_1^e && (\\text{Ters tanjant integral kuralının uygulanması}) \\\\
+        &= \\arctan(e) - \\arctan(1) && (\\text{Sınır değerlerinin integral sonucuna yerleştirilmesi}) \\\\
+        &= \\arctan(e) - \\frac{\\pi}{4} && (\\text{Nihai limit sonucunun elde edilmesi})
+        \\end{aligned}$$`
+    );
+
+    // SORU 19: Ters Fonksiyonun İkinci Türevi ve Kalkülüsün Temel Teoremi
+    html += createQuestion("Soru 19", "İntegral Fonksiyonunun Tersinin İkinci Türev Analizi", 
+        "\\( F(x) = \\int_{\\ln 2}^x \\frac{dt}{\\sqrt{e^t - 1}} \\) fonksiyonu \\( x > 0 \\) için tanımlanmıştır.<br>\\( F^{-1}(x) \\), \\( F(x) \\)'in ters fonksiyonu olmak üzere, \\( (F^{-1})''(0) \\) değerini hesaplayınız.", 
+        `<p><i>Çözüm:</i></p>
+        <p>Ters fonksiyonun ikinci türevini bulmak için öncelikle zincir kuralı yardımıyla ters fonksiyon türev teoremini ikinci mertebeye genişletmemiz gerekir.</p>
+        $$\\begin{aligned}
+        y &= F^{-1}(x) \\implies F(y) = x && (\\text{Ters fonksiyonun tanım ilişkisi}) \\\\
+        y' &= \\frac{1}{F'(y)} && (\\text{Ters fonksiyon birinci türev formülü}) \\\\
+        y'' &= \\frac{d}{dx} \\left[ (F'(y))^{-1} \\right] && (\\text{İkinci türev için her iki tarafın diferansiyellenmesi}) \\\\
+        &= -\\frac{F''(y)}{(F'(y))^2} \\cdot y' && (\\text{Zincir kuralının uygulanması}) \\\\
+        &= -\\frac{F''(y)}{(F'(y))^3} && (\\text{Ters fonksiyon ikinci türev genel formülü}) \\\\
+        F(\\ln 2) &= \\int_{\\ln 2}^{\\ln 2} \\frac{dt}{\\sqrt{e^t - 1}} = 0 \\implies y = \\ln 2 && (\\text{Ters görüntü hesabı: } x=0 \\text{ iken } y=\\ln 2) \\\\
+        F'(x) &= \\frac{1}{\\sqrt{e^x - 1}} \\implies F'(\\ln 2) = 1 && (\\text{FTC ile birinci türev ve noktadaki değeri}) \\\\
+        F''(x) &= -\\frac{1}{2}(e^x - 1)^{-3/2} \\cdot e^x \\implies F''(\\ln 2) = -1 && (\\text{Zincir kuralı ile ikinci türev ve noktadaki değeri}) \\\\
+        (F^{-1})''(0) &= -\\frac{-1}{(1)^3} && (\\text{Bulunan anlık değerlerin formüle yazılması}) \\\\
+        &= 1 && (\\text{Nihai sonuç})
+        \\end{aligned}$$`
+    );
+// SORU 18: Alt/Üst Toplam ve Sandviç Teoremi İle Limit İspatı
+    html += createQuestion("Soru 18", "Sandviç Teoremi ve Riemann Toplamları ile Limit", 
+        "\\( \\lim_{n \\to \\infty} \\frac{1}{n} \\sum_{k=1}^{n} \\frac{e^{k/n}}{e^{2k/n} + 1} \\) limitinin değerini, fonksiyonun alt ve üst toplamlarını bulup Sandviç (Sıkıştırma) Teoremini kullanarak hesaplayınız.", 
+        `<p><i>Çözüm:</i></p>
+        <p>İfadeyi \\( f(x) = \\frac{e^x}{e^{2x}+1} \\) fonksiyonunun \\( [0, 1] \\) aralığındaki toplamı olarak modelleyeceğiz. Sandviç teoremini uygulayabilmek için öncelikle fonksiyonun bu aralıktaki artan/azalanlık durumunu inceleyip, aradığımız limitin Alt Toplam mı yoksa Üst Toplam mı olduğunu belirlemeliyiz.</p>
+        $$\\begin{aligned}
+        f(x) &= \\frac{e^x}{e^{2x} + 1} && (\\text{Toplamın içindeki genel fonksiyon formatı}) \\\\
+        f'(x) &= \\frac{e^x(e^{2x}+1) - e^x(2e^{2x})}{(e^{2x} + 1)^2} = \\frac{e^x(1 - e^{2x})}{(e^{2x} + 1)^2} && (\\text{Bölüm türevi ile değişimin incelenmesi}) \\\\
+        f'(x) &< 0 \\implies f(x) \\text{ azalan fonksiyondur.} && (x \\in [0,1] \\text{ için pay negatiftir}) \\\\
+        Alt_n &= \\frac{1}{n} \\sum_{k=1}^{n} f(k/n) && (\\text{Azalan fonksiyonda sağ uç noktalar Alt Toplamı verir}) \\\\
+        Üst_n &= \\frac{1}{n} \\sum_{k=0}^{n-1} f(k/n) && (\\text{Azalan fonksiyonda sol uç noktalar Üst Toplamı verir}) \\\\
+        Alt_n &\\le \\int_0^1 f(x) \\, dx \\le Üst_n && (\\text{Belirli integralin alt ve üst toplamlar arasına sıkışması}) \\\\
+        Üst_n - Alt_n &= \\frac{1}{n} \\left[ f(0) - f(1) \\right] && (\\text{Alt ve üst toplamlar arasındaki farkın hesabı}) \\\\
+        \\int_0^1 f(x) \\, dx - \\frac{f(0)-f(1)}{n} &\\le Alt_n \\le \\int_0^1 f(x) \\, dx && (\\text{Eşitsizliğin } Alt_n \\text{ için düzenlenmesi}) \\\\
+        \\lim_{n \\to \\infty} \\left[ \\int_0^1 f(x) \\, dx - \\frac{f(0)-f(1)}{n} \\right] &\\le \\lim_{n \\to \\infty} Alt_n \\le \\lim_{n \\to \\infty} \\int_0^1 f(x) \\, dx && (\\text{Sandviç Teoremi için limit alınması}) \\\\
+        \\lim_{n \\to \\infty} \\frac{f(0)-f(1)}{n} &= 0 && (\\text{Payda sonsuza giderken fark teriminin sıfırlanması}) \\\\
+        \\lim_{n \\to \\infty} Alt_n &= \\int_0^1 \\frac{e^x}{e^{2x} + 1} \\, dx && (\\text{Sandviç Teoremi sonucu limitin integrale eşitlenmesi}) \\\\
+        \\text{Dönüşüm: } u &= e^x \\implies du = e^x \\, dx && (\\text{İntegralin çözümü için üstel dönüşüm}) \\\\
+        \\lim_{n \\to \\infty} Alt_n &= \\int_1^e \\frac{1}{u^2 + 1} \\, du && (\\text{İntegralin ters trigonometrik forma gelmesi}) \\\\
+        &= \\left[ \\arctan(u) \\right]_1^e && (\\text{Ters tanjant integral kuralının uygulanması}) \\\\
+        &= \\arctan(e) - \\arctan(1) && (\\text{Sınır değerlerinin integral sonucuna yerleştirilmesi}) \\\\
+        &= \\arctan(e) - \\frac{\\pi}{4} && (\\text{Nihai limit sonucunun elde edilmesi})
+        \\end{aligned}$$`
+    );
+
+    // SORU 19: Ters Fonksiyonun İkinci Türevi ve Kalkülüsün Temel Teoremi
+    html += createQuestion("Soru 19", "İntegral Fonksiyonunun Tersinin İkinci Türev Analizi", 
+        "\\( F(x) = \\int_{\\ln 2}^x \\frac{dt}{\\sqrt{e^t - 1}} \\) fonksiyonu \\( x > 0 \\) için tanımlanmıştır.<br>\\( F^{-1}(x) \\), \\( F(x) \\)'in ters fonksiyonu olmak üzere, \\( (F^{-1})''(0) \\) değerini hesaplayınız.", 
+        `<p><i>Çözüm:</i></p>
+        <p>Ters fonksiyonun ikinci türevini bulmak için öncelikle zincir kuralı yardımıyla ters fonksiyon türev teoremini ikinci mertebeye genişletmemiz gerekir.</p>
+        $$\\begin{aligned}
+        y &= F^{-1}(x) \\implies F(y) = x && (\\text{Ters fonksiyonun tanım ilişkisi}) \\\\
+        y' &= \\frac{1}{F'(y)} && (\\text{Ters fonksiyon birinci türev formülü}) \\\\
+        y'' &= \\frac{d}{dx} \\left[ (F'(y))^{-1} \\right] && (\\text{İkinci türev için her iki tarafın diferansiyellenmesi}) \\\\
+        &= -\\frac{F''(y)}{(F'(y))^2} \\cdot y' && (\\text{Zincir kuralının uygulanması}) \\\\
+        &= -\\frac{F''(y)}{(F'(y))^3} && (\\text{Ters fonksiyon ikinci türev genel formülü}) \\\\
+        F(\\ln 2) &= \\int_{\\ln 2}^{\\ln 2} \\frac{dt}{\\sqrt{e^t - 1}} = 0 \\implies y = \\ln 2 && (\\text{Ters görüntü hesabı: } x=0 \\text{ iken } y=\\ln 2) \\\\
+        F'(x) &= \\frac{1}{\\sqrt{e^x - 1}} \\implies F'(\\ln 2) = 1 && (\\text{FTC ile birinci türev ve noktadaki değeri}) \\\\
+        F''(x) &= -\\frac{1}{2}(e^x - 1)^{-3/2} \\cdot e^x \\implies F''(\\ln 2) = -1 && (\\text{Zincir kuralı ile ikinci türev ve noktadaki değeri}) \\\\
+        (F^{-1})''(0) &= -\\frac{-1}{(1)^3} && (\\text{Bulunan anlık değerlerin formüle yazılması}) \\\\
+        &= 1 && (\\text{Nihai sonuç})
+        \\end{aligned}$$`
+    );
+
+    // SORU 20: Kral Kuralı (King's Rule) ve Hiperbolik Fonksiyon Simetrisi
+    html += createQuestion("Soru 20", "Belirli İntegral Özellikleriyle Hiperbolik Simetri Analizi", 
+        "\\( I = \\int_{-\\ln 3}^{\\ln 3} \\frac{\\cosh(x)}{1 + e^x} \\, dx \\) belirsizliğini içermeyen bu belirli integralin tam değerini hesaplayınız.", 
+        `<p><i>Çözüm:</i></p>
+        <p>Bu integral doğrudan kısmi yollarla çözülemez. Belirli integralin simetri dönüşümü olan \\( \\int_a^b f(x)dx = \\int_a^b f(a+b-x)dx \\) (King's Rule) kuralını ve hiperbolik fonksiyon özelliklerini kullanacağız.</p>
+        $$\\begin{aligned}
+        I &= \\int_{-\\ln 3}^{\\ln 3} \\frac{\\cosh(x)}{1 + e^x} \\, dx && (\\text{Orijinal integral denklem}) \\\\
+        &= \\int_{-\\ln 3}^{\\ln 3} \\frac{\\cosh(-\\ln 3 + \\ln 3 - x)}{1 + e^{-\\ln 3 + \\ln 3 - x}} \\, dx && (\\text{King's Property dönüşümünün uygulanması}) \\\\
+        &= \\int_{-\\ln 3}^{\\ln 3} \\frac{\\cosh(-x)}{1 + e^{-x}} \\, dx && (\\text{İntegral sınırlarının toplamının sadeleşmesi}) \\\\
+        &= \\int_{-\\ln 3}^{\\ln 3} \\frac{\\cosh(x)}{1 + 1/e^x} \\, dx && (\\cosh(-x) = \\cosh(x) \\text{ çift fonksiyon özelliği}) \\\\
+        &= \\int_{-\\ln 3}^{\\ln 3} \\frac{e^x \\cosh(x)}{e^x + 1} \\, dx && (\\text{Payda eşitlenip ifadenin ters çevrilmesi}) \\\\
+        2I &= \\int_{-\\ln 3}^{\\ln 3} \\bigg( \\frac{\\cosh(x)}{1 + e^x} + \\frac{e^x \\cosh(x)}{1 + e^x} \\bigg) \\, dx && (\\text{Orijinal ve dönüştürülmüş denklemlerin toplanması}) \\\\
+        &= \\int_{-\\ln 3}^{\\ln 3} \\frac{(1 + e^x)\\cosh(x)}{1 + e^x} \\, dx && (\\text{Ortak paydada pay kısımlarının birleştirilmesi}) \\\\
+        &= \\int_{-\\ln 3}^{\\ln 3} \\cosh(x) \\, dx && (\\text{Transandant karmaşık paydanın sadeleşmesi}) \\\\
+        &= \\Big[ \\sinh(x) \\Big]_{-\\ln 3}^{\\ln 3} && (\\text{Temel hiperbolik integralin alınması}) \\\\
+        &= \\sinh(\\ln 3) - \\sinh(-\\ln 3) && (\\text{Sınır değerlerinin integral sonucuna yerleştirilmesi}) \\\\
+        &= 2\\sinh(\\ln 3) && (\\sinh(-x) = -\\sinh(x) \\text{ tek fonksiyon özelliği}) \\\\
+        I &= \\sinh(\\ln 3) = \\frac{e^{\\ln 3} - e^{-\\ln 3}}{2} && (\\text{İntegral sonucunun üstel forma dönüştürülmesi}) \\\\
+        &= \\frac{3 - 1/3}{2} = \\frac{4}{3} && (\\text{İşlemin sonuçlandırılarak rasyonel değerin bulunması})
+        \\end{aligned}$$`
+    );
 }
 
          // === 7.1 KISMİ İNTEGRASYON ===
@@ -29661,51 +29807,38 @@ else if (grafikId === "s8-jxg-canvas") {
 
 
 // --- SİNEMA MODU (AKILLI VİDEO OYNATICI) FONKSİYONU ---
-function openVideoModal(topicTitle) {
+function openVideoModal(chapterId) {
     
-    // 1. MATEVERSE VİDEO KATALOĞU
+    // 1. MATEVERSE VİDEO KATALOĞU (Artık doğrudan ID bazlı ve başlıkları da içeriyor)
     const videoKatalogu = {
-        "6. Transandant Fonksiyonlar": "eaGchaqYuf8",
-        "7. İntegrasyon Teknikleri": "bbljPYHcVDs",
-        "8. İntegral Uygulamaları": "BQ49nqoQpc0",
-        "9. Sonsuz Diziler ve Seriler": "j374btcOrAs",
-        "12.Kısmi Türevler": "zK1AFZQusSI",
-        "13.Katlı İntegraller": "mN9hihali5E",
-        "14.Vektör Alanlarında İntegral": "1CvxNv8314Q",
+        "6":  { videoId: "eaGchaqYuf8", title: "Transandant Fonksiyonlar" },
+        "7":  { videoId: "bbljPYHcVDs", title: "İntegrasyon Teknikleri" },
+        "8":  { videoId: "BQ49nqoQpc0", title: "İntegral Uygulamaları" },
+        "9":  { videoId: "j374btcOrAs", title: "Sonsuz Diziler ve Seriler" },
+        "12": { videoId: "zK1AFZQusSI", title: "Kısmi Türevler" },
+        "13": { videoId: "mN9hihali5E", title: "Katlı İntegraller" },
+        "14": { videoId: "1CvxNv8314Q", title: "Vektör Alanlarında İntegral" }
     };
     
-    // 2. KESİN ÇÖZÜM: AKILLI EŞLEŞTİRME
-    let videoId = null;
-    
-    // Gelen başlığın içindeki sayıları ve noktaları temizleyip küçük harfe çeviriyoruz
-    let temizGelen = topicTitle.replace(/[0-9.]/g, '').trim().toLocaleLowerCase('tr-TR');
-
-    for (let key in videoKatalogu) {
-        // Katalogdaki anahtarın da sayılarını ve noktalarını temizleyip küçük harfe çeviriyoruz
-        let temizKatalog = key.replace(/[0-9.]/g, '').trim().toLocaleLowerCase('tr-TR');
-        
-        // Eğer kelimeler eşleşiyorsa (Boşluk, numara, büyük/küçük harf hatası olsa bile) ID'yi al
-        if (temizGelen.includes(temizKatalog) || temizKatalog.includes(temizGelen)) {
-            videoId = videoKatalogu[key];
-            break;
-        }
-    }
+    // 2. KESİN ÇÖZÜM: DOĞRUDAN ID EŞLEŞTİRMESİ
+    // Artık kelime aramak yok, nokta silmek yok. Direkt "6" geldiyse 6'yı bulur.
+    const secilenKonu = videoKatalogu[chapterId];
 
     // 3. EĞER VİDEO YOKSA HATA VERİP İŞLEMİ DURDUR
-    if (!videoId) {
-        alert("Bu konu (" + topicTitle + ") için yapay zeka destekli video anlatımı henüz hazırlanmaktadır. Lütfen daha sonra tekrar kontrol edin!");
+    if (!secilenKonu) {
+        alert("Bu konu için yapay zeka destekli video anlatımı henüz hazırlanmaktadır. Lütfen daha sonra tekrar kontrol edin!");
         return; 
     }
 
     // 4. YouTube Gömme (Embed) Linkini oluştur
-    let videoUrl = "https://www.youtube.com/embed/" + videoId; 
+    let videoUrl = "https://www.youtube.com/embed/" + secilenKonu.videoId; 
     
     const modalHTML = `
         <div id="videoModal" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.95); z-index: 999999; display: flex; align-items: center; justify-content: center; flex-direction: column; backdrop-filter: blur(10px);">
             
             <button onclick="document.getElementById('videoModal').remove()" style="position: absolute; top: 25px; right: 35px; background: rgba(255,255,255,0.05); color: white; border: 1px solid rgba(255,255,255,0.2); border-radius: 50%; width: 45px; height: 45px; font-size: 1.4rem; cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center;" onmouseover="this.style.background='rgba(239, 68, 68, 0.9)'; this.style.transform='rotate(90deg)';" onmouseout="this.style.background='rgba(255,255,255,0.05)'; this.style.transform='rotate(0deg)';">✖</button>
             
-            <h3 style="color: #cbd5e1; font-family: var(--font-main); font-weight: 500; margin-bottom: 25px; letter-spacing: 1px; text-transform: uppercase;">▶ ${topicTitle} - AI Anlatımı</h3>
+            <h3 style="color: #cbd5e1; font-family: var(--font-main); font-weight: 500; margin-bottom: 25px; letter-spacing: 1px; text-transform: uppercase;">▶ ${secilenKonu.title} - AI Anlatımı</h3>
             
             <div style="position: relative; width: 85%; max-width: 1000px; aspect-ratio: 16/9; background: #000; border-radius: 16px; overflow: hidden; box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7); border: 1px solid rgba(255,255,255,0.1);">
                 <iframe src="${videoUrl}?autoplay=1&rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="autoplay; fullscreen"></iframe>
@@ -29716,8 +29849,7 @@ function openVideoModal(topicTitle) {
     
     // Modalı (Sinema ekranını) sayfaya ekle
     document.body.insertAdjacentHTML('beforeend', modalHTML);
-}                    
-
+}
 
 
 
