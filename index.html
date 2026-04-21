@@ -771,6 +771,7 @@ mjx-container[display="true"] {
                     "12.9 İki Değişkenli Fonksiyonlar İçin Taylor Formülü",
                     "12.10 Kısıtlanmış Değişkenlerle Kısmi Türevler",
 "12.11 Değerlendirme Testi",
+"12.12 İleri Düzey Alıştırmalar",
                 ] 
             },
 
@@ -788,6 +789,7 @@ mjx-container[display="true"] {
                     "13.7 Silindirik ve Küresel Koordinatlarda Üç Katlı İntegraller",
                     "13.8 Katlı İntegrallerde Değişken Dönüşümü",
 "13.9 Değerlendirme Testi",
+"13.10 İleri Düzey Alıştırmalar",
                 ] 
             },
 
@@ -804,6 +806,7 @@ mjx-container[display="true"] {
                     "14.7 Stokes Teoremi",
                     "14.8 Diverjans Teoremi ve Birleştirilmiş Teori",
 "14.9 Değerlendirme Testi",
+"14.10 İleri Düzey Alıştırmalar",
                 ] 
             },
 
@@ -14242,6 +14245,446 @@ html += createQuestion("Soru 19", "Büyük Sentez: Karma Karakter Analizi (6 Ön
                 html += '</div>'; // question-container div kapanışı
             }
 
+// === 12.12 İLERİ DÜZEY SENTEZ (BÖLÜM 12 KARMA ZOR SORULAR) ===
+            else if (id === "12.12") {
+
+
+                html += createQuestion("Soru 1", "Topolojik İleri Tanım Kümesi ve İntegral Alanı", 
+                    "\\( f(x, y) = \\arcsin\\bigg(\\frac{2xy}{x^2+y^2}\\bigg) + \\ln(1 - |x| - |y|) \\) fonksiyonunun en geniş tanım kümesini bulunuz. Bu kümenin analitik alanını hesaplayıp, topolojik özelliklerini (açıklık, sınırlılık, bağlantısallık) sınıflandırınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    -1 &\\le \\frac{2xy}{x^2+y^2} \\le 1 && (\\text{Arksinüs argüman kısıtı}) \\\\
+                    -(x^2+y^2) &\\le 2xy \\le x^2+y^2 && (\\text{Paydanın karşıya atılması}) \\\\
+                    0 &\\le x^2 + 2xy + y^2 \\implies 0 \\le (x+y)^2 && (\\text{Sol tarafın tam kare formuna geçişi}) \\\\
+                    0 &\\le x^2 - 2xy + y^2 \\implies 0 \\le (x-y)^2 && (\\text{Sağ tarafın tam kare formuna geçişi}) \\\\
+                    x^2+y^2 &\\neq 0 \\implies (x,y) \\neq (0,0) && (\\text{Rasyonel ifadenin payda kısıtı}) \\\\
+                    1 - |x| - |y| &> 0 \implies |x| + |y| < 1 && (\\text{Logaritmanın pozitiflik kısıtı}) \\\\
+                    D_f &= \\{ (x,y) \\mid |x|+|y| < 1, \\; (x,y) \\neq (0,0) \\} && (\\text{Tüm şartların kesişim kümesi}) \\\\
+                    A &= 4 \\int_0^1 \\int_0^{1-x} 1 \\, dy \\, dx && (\\text{Simetrik bölge için alan integrali}) \\\\
+                      &= 4 \\int_0^1 \\big[ y \\big]_0^{1-x} \\, dx && (\\text{İç integralin alınması}) \\\\
+                      &= 4 \\int_0^1 (1-x) \\, dx && (\\text{Sınırların fonksiyona yerleştirilmesi}) \\\\
+                      &= 4 \\bigg[ x - \\frac{x^2}{2} \\bigg]_0^1 && (\\text{Dış integralin alınması}) \\\\
+                      &= 4 \\bigg( 1 - \\frac{1}{2} \\bigg) = 2 \\text{ birimkare} && (\\text{Sayısal alan hesabı}) \\\\
+                      &\\text{Sınırlar dahil olmadığı için küme açıktır.} && (\\text{Topolojik analiz 1}) \\\\
+                      &\\text{Sonlu bir diske sığabildiği için sınırlıdır.} && (\\text{Topolojik analiz 2}) \\\\
+                      &\\text{Orijindeki delik nedeniyle basit bağlantılı değildir.} && (\\text{Topolojik analiz 3})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 2", "Seviye Eğrilerinde Bifürkasyon ve Faz Geçişi", 
+                    "\\( f(x, y) = x^4 - 2x^2 + y^2 \\) fonksiyonunun \\( c \\) sabiti artarken seviye eğrilerinin yaşadığı topolojik değişimi (bifürkasyonu) inceleyiniz. \\( c=0 \\) anındaki faz geçiş denklemini elde ediniz.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    x^4 - 2x^2 + y^2 &= c && (\\text{Seviye eğrisinin genel denklemi}) \\\\
+                    y^2 &= c - x^4 + 2x^2 && (\\text{y değişkeninin tek tarafa yalıtılması}) \\\\
+                      &= c - (x^4 - 2x^2 + 1 - 1) && (\\text{Polinomun tam kareye hazırlanması}) \\\\
+                      &= c + 1 - (x^2 - 1)^2 && (\\text{Tam kare formunda ana denklem}) \\\\
+                    c &< -1 \\implies y^2 < 0 \\implies \\text{Boş küme} && (\\text{Reel çözümün olmadığı seviye}) \\\\
+                    c &= -1 \\implies y^2 = -(x^2 - 1)^2 && (\\text{Kritik alt sınır seviyesi}) \\\\
+                    y &= 0 \\implies x^2 - 1 = 0 \\implies x = \\pm 1 && (\\text{Eğrinin sadece iki izole nokta olması}) \\\\
+                    -1 &< c < 0 \\implies y = \\pm \\sqrt{c + 1 - (x^2 - 1)^2} && (\\text{Birbirinden kopuk iki ayrı oval bölge}) \\\\
+                    c &= 0 \\implies y^2 = 1 - (x^2 - 1)^2 && (\\text{Topolojik faz geçişinin yaşandığı an}) \\\\
+                      &= 1 - (x^4 - 2x^2 + 1) && (\\text{Tam karenin açılarak eksinin dağıtılması}) \\\\
+                      &= 2x^2 - x^4 = x^2(2 - x^2) && (\\text{Ortak çarpan parantezi}) \\\\
+                    y &= \\pm x \\sqrt{2 - x^2} && (\\text{Orijinde çapraz kesişen sonsuzluk eğrisi}) \\\\
+                    c &> 0 \\implies y^2 = c + 1 - (x^2 - 1)^2 > 0 && (\\text{Orijin köprüsünün pozitifleşmesi}) \\\\
+                      &\\text{Eğri iki çukuru saran tek bir büyük halkaya dönüşür.} && (\\text{Faz geçişinin tamamlanması})
+                    \\end{aligned}$$`
+                );
+
+html += createQuestion("Soru 3", "Transandant Yollar ve Polinom Tuzakları (Konu: 12.2)", 
+                    "İleri limit analizinde 'yol bağımsızlığı' yanılgısını kanıtlamak için tasarlanmış \\( f(x,y) = \\frac{y e^{-1/x^2}}{y^2 + e^{-2/x^2}} \\) fonksiyonu veriliyor.<br>a) Herhangi bir \\( y = mx^k \\) (\\( k > 0 \\)) polinom yolu boyunca orijine yaklaşıldığında limitin \\( 0 \\) çıktığını ispatlayınız.<br>b) Limitin aslında mevcut olmadığını, sonucu sıfırdan farklı yapan 'üstel' bir yol bularak kanıtlayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    L_1 &= \\lim_{x \\to 0} \\frac{(mx^k) e^{-1/x^2}}{(mx^k)^2 + e^{-2/x^2}} && (\\text{Polinom yolunun fonksiyona yerleştirilmesi}) \\\\
+                      &= \\lim_{x \\to 0} \\frac{m x^k e^{-1/x^2}}{m^2 x^{2k} + e^{-2/x^2}} && (\\text{Paydanın karesel açılımı}) \\\\
+                      &= \\lim_{x \\to 0} \\frac{m x^k / e^{1/x^2}}{m^2 x^{2k} + 1 / e^{2/x^2}} && (\\text{Negatif üslerin kesirli forma çevrilmesi}) \\\\
+                      &= \\lim_{t \\to \\infty} \\frac{m (1/\\sqrt{t})^k / e^t}{m^2 (1/\\sqrt{t})^{2k} + 1/e^{2t}} && (t = 1/x^2 \\text{ dönüşümüyle limitin sonsuza taşınması}) \\\\
+                      &= \\lim_{t \\to \\infty} \\frac{m t^{-k/2} e^t}{m^2 t^{-k} e^{2t} + 1} && (\\text{Pay ve paydanın } e^{2t} \\text{ ile genişletilmesi}) \\\\
+                      &= \\lim_{t \\to \\infty} \\frac{m}{t^{k/2} e^t} \\bigg/ \\bigg( \\frac{m^2 e^{2t}}{t^k} + 1 \\bigg) && (\\text{İfadenin asimptotik davranışa göre düzenlenmesi}) \\\\
+                      &= \\frac{0}{\\infty + 1} = 0 && (\\text{Üstel fonksiyonun polinomu ezmesi kuralı}) \\\\
+                    &\\text{Tüm polinom yollarında limit 0 çıkar, ancak bu varlığı kanıtlamaz.} && (\\text{Teorik ara sonuç}) \\\\
+                    L_2 &= \\lim_{x \\to 0} \\frac{(e^{-1/x^2}) e^{-1/x^2}}{(e^{-1/x^2})^2 + e^{-2/x^2}} && (\\text{Orijine } y = e^{-1/x^2} \\text{ üstel yolu ile yaklaşılması}) \\\\
+                      &= \\lim_{x \\to 0} \\frac{e^{-2/x^2}}{e^{-2/x^2} + e^{-2/x^2}} && (\\text{Üslerin toplanması}) \\\\
+                      &= \\lim_{x \\to 0} \\frac{e^{-2/x^2}}{2e^{-2/x^2}} && (\\text{Paydanın toparlanması}) \\\\
+                      &= \\frac{1}{2} && (\\text{Üstel terimlerin kusursuz sadeleşmesi}) \\\\
+                    &L_1 \\neq L_2 \\implies \\text{Limit mevcut değildir.} && (\\text{Nihai analitik karar})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 4", "Çok Boyutlu Maclaurin ile Gizli Iraksaklık Keşfi (Konu: 12.2)", 
+                    "L'Hôpital kuralının doğrudan uygulanamayacağı \\( \\lim_{(x,y) \\to (0,0)} \\frac{e^{x^2+y} - 1 - x^2 - y - \\frac{y^2}{2}}{x^2 y + y^3} \\) limitini inceleyiniz. İki boyutlu Taylor serisi yaklaşımı kullanarak, eksen yolları ve parabolik yollar boyunca farklı limitler elde edildiğini ispatlayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    e^u &= 1 + u + \\frac{u^2}{2} + \\frac{u^3}{6} + O(u^4) && (\\text{Tek değişkenli standart üstel Taylor serisi}) \\\\
+                    e^{x^2+y} &= 1 + (x^2+y) + \\frac{(x^2+y)^2}{2} + \\frac{(x^2+y)^3}{6} + \\dots && (u = x^2+y \\text{ dönüşümünün uygulanması}) \\\\
+                      &= 1 + x^2 + y + \\frac{x^4 + 2x^2y + y^2}{2} + \\frac{y^3 + \\dots}{6} && (\\text{Tam kare ve küp açılımlarının yapılması}) \\\\
+                      &= 1 + x^2 + y + \\frac{x^4}{2} + x^2y + \\frac{y^2}{2} + \\frac{y^3}{6} + \\dots && (\\text{Katsayıların terimlere dağıtılması}) \\\\
+                    \\text{Pay} &= \\bigg( 1 + x^2 + y + \\frac{x^4}{2} + x^2y + \\frac{y^2}{2} + \\frac{y^3}{6} \\bigg) - 1 - x^2 - y - \\frac{y^2}{2} && (\\text{Serinin limitin pay kısmına yerleştirilmesi}) \\\\
+                      &= \\frac{x^4}{2} + x^2y + \\frac{y^3}{6} + \\text{yüksek dereceler} && (\\text{Düşük dereceli lineer terimlerin sıfırlanması}) \\\\
+                    L &= \\lim_{(x,y) \\to (0,0)} \\frac{\\frac{x^4}{2} + x^2y + \\frac{y^3}{6}}{x^2y + y^3} && (\\text{Sadeleşmiş asimptotik limit ana denklemi}) \\\\
+                    L_1 &= \\lim_{y \\to 0} \\frac{0 + 0 + y^3/6}{0 + y^3} && (\\text{Orijine y-ekseni } (x=0) \\text{ boyunca yaklaşım}) \\\\
+                      &= \\lim_{y \\to 0} \\frac{y^3/6}{y^3} = \\frac{1}{6} && (\\text{Kübik terimlerin sadeleşmesiyle çıkan ilk limit}) \\\\
+                    L_2 &= \\lim_{x \\to 0} \\frac{\\frac{x^4}{2} + x^2(x^2) + \\frac{x^6}{6}}{x^2(x^2) + x^6} && (\\text{Orijine parabolik } (y=x^2) \\text{ yol boyunca yaklaşım}) \\\\
+                      &= \\lim_{x \\to 0} \\frac{\\frac{3}{2}x^4 + \\frac{1}{6}x^6}{x^4 + x^6} && (\\text{Pay ve paydadaki kuvvetlerin toparlanması}) \\\\
+                      &= \\lim_{x \\to 0} \\frac{x^4 \\big(\\frac{3}{2} + \\frac{x^2}{6}\\big)}{x^4 (1 + x^2)} && (\\text{Dominant } x^4 \\text{ ortak çarpan parantezi}) \\\\
+                      &= \\frac{3/2 + 0}{1 + 0} = \\frac{3}{2} && (\\text{Sadeleşme sonrası x'in sıfıra götürülmesi}) \\\\
+                    &1/6 \\neq 3/2 \\implies \\text{Limit mevcut değildir.} && (\\text{Çok yollu analiz teoremine göre nihai karar})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 5", "Kapalı Fonksiyonlarda İkinci Mertebe İleri Zincir Kuralı (Konu: 12.3)", 
+                    "\\( F(x, y, z) = 0 \\) denklemi ile kapalı (implicit) olarak tanımlanan diferansiyellenebilir bir \\( z = f(x,y) \\) fonksiyonu veriliyor. Çok değişkenli zincir kuralını kullanarak, \\( \\frac{\\partial^2 z}{\\partial x^2} \\) türevini yalnızca \\( F \\) fonksiyonunun kısmi türevleri cinsinden elde ediniz.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    z_x &= -\\frac{F_x}{F_z} && (\\text{Birinci mertebe kapalı türev}) \\\\
+                    z_{xx} &= \\frac{\\partial}{\\partial x} \\left( -\\frac{F_x}{F_z} \\right) && (\\text{x'e göre ikinci türev operatörü}) \\\\
+                      &= -\\frac{ \\frac{\\partial F_x}{\\partial x} F_z - F_x \\frac{\\partial F_z}{\\partial x} }{F_z^2} && (\\text{Bölümün türevi kuralı}) \\\\
+                    \\frac{\\partial F_x}{\\partial x} &= F_{xx} \\frac{\\partial x}{\\partial x} + F_{xy} \\frac{\\partial y}{\\partial x} + F_{xz} \\frac{\\partial z}{\\partial x} && (\\text{Paydaki ilk terim için zincir kuralı}) \\\\
+                      &= F_{xx}(1) + F_{xy}(0) + F_{xz}(z_x) && (\\text{Bağımsız değişken türevleri}) \\\\
+                      &= F_{xx} + F_{xz} \\left( -\\frac{F_x}{F_z} \\right) && (\\text{Birinci türevin yerine konması}) \\\\
+                    \\frac{\\partial F_z}{\\partial x} &= F_{zx} \\frac{\\partial x}{\\partial x} + F_{zy} \\frac{\\partial y}{\\partial x} + F_{zz} \\frac{\\partial z}{\\partial x} && (\\text{Paydaki ikinci terim için zincir kuralı}) \\\\
+                      &= F_{zx} + F_{zz} \\left( -\\frac{F_x}{F_z} \\right) && (\\text{Birinci türevin yerine konması}) \\\\
+                    z_{xx} &= -\\frac{ \\left( F_{xx} - F_{xz} \\frac{F_x}{F_z} \\right) F_z - F_x \\left( F_{zx} - F_{zz} \\frac{F_x}{F_z} \\right) }{F_z^2} && (\\text{Tüm parçaların ana denkleme yazılması}) \\\\
+                      &= -\\frac{ F_{xx} F_z - F_{xz} F_x - F_{zx} F_x + F_{zz} \\frac{F_x^2}{F_z} }{F_z^2} && (\\text{Parantezlerin içeri dağıtılması}) \\\\
+                      &= -\\frac{ F_{xx} F_z^2 - 2F_{xz} F_x F_z + F_{zz} F_x^2 }{F_z^3} && (\\text{Paydanın eşitlenip alt kata indirilmesi})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 6", "Laplace Operatörünün Konformal (Açı Koruyan) Dönüşümü (Konu: 12.4)", 
+                    "\\( z = f(u, v) \\) fonksiyonunun iki boyutlu Laplace operatörü \\( \\Delta z = \\frac{\\partial^2 z}{\\partial x^2} + \\frac{\\partial^2 z}{\\partial y^2} \\) formülünü, \\( u = x^2 - y^2 \\) ve \\( v = 2xy \\) dönüşümleri altında hesaplayınız ve sonucu \\( z_{uu} + z_{vv} \\) cinsinden yazınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    u_x &= 2x, \\quad u_y = -2y && (\\text{u dönüşümünün kısmi türevleri}) \\\\
+                    v_x &= 2y, \\quad v_y = 2x && (\\text{v dönüşümünün kısmi türevleri}) \\\\
+                    z_x &= z_u u_x + z_v v_x = 2x z_u + 2y z_v && (\\text{x ekseni birinci zincir kuralı}) \\\\
+                    z_y &= z_u u_y + z_v v_y = -2y z_u + 2x z_v && (\\text{y ekseni birinci zincir kuralı}) \\\\
+                    z_{xx} &= \\frac{\\partial}{\\partial x} (2x z_u + 2y z_v) && (\\text{x ekseni ikinci türev operatörü}) \\\\
+                      &= 2z_u + 2x(z_{uu} u_x + z_{uv} v_x) + 2y(z_{vu} u_x + z_{vv} v_x) && (\\text{Çarpım kuralı ve tekrar zincir kuralı}) \\\\
+                      &= 2z_u + 2x(2x z_{uu} + 2y z_{uv}) + 2y(2x z_{vu} + 2y z_{vv}) && (\\text{Dönüşüm türevlerinin yerleştirilmesi}) \\\\
+                      &= 2z_u + 4x^2 z_{uu} + 8xy z_{uv} + 4y^2 z_{vv} && (\\text{x'e göre ikinci türevin son hali}) \\\\
+                    z_{yy} &= \\frac{\\partial}{\\partial y} (-2y z_u + 2x z_v) && (\\text{y ekseni ikinci türev operatörü}) \\\\
+                      &= -2z_u - 2y(z_{uu} u_y + z_{uv} v_y) + 2x(z_{vu} u_y + z_{vv} v_y) && (\\text{Çarpım kuralı ve tekrar zincir kuralı}) \\\\
+                      &= -2z_u - 2y(-2y z_{uu} + 2x z_{uv}) + 2x(-2y z_{vu} + 2x z_{vv}) && (\\text{Dönüşüm türevlerinin yerleştirilmesi}) \\\\
+                      &= -2z_u + 4y^2 z_{uu} - 8xy z_{uv} + 4x^2 z_{vv} && (\\text{y'ye göre ikinci türevin son hali}) \\\\
+                    z_{xx} + z_{yy} &= (2z_u - 2z_u) + (4x^2+4y^2)z_{uu} + (8xy-8xy)z_{uv} + (4x^2+4y^2)z_{vv} && (\\text{Taraf tarafa toplama işlemi}) \\\\
+                      &= 4(x^2+y^2)(z_{uu} + z_{vv}) && (\\text{Sadeleştirilmiş nihai Laplace operatörü})
+                    \\end{aligned}$$`
+                );
+
+html += createQuestion("Soru 7", "Radyal Doğrultu Türevi ve Euler Teoremi (Konu: 12.5)", 
+                    "n. dereceden homojen bir \\( f(x,y,z) \\) fonksiyonunun, orijinden dışarı uzanan radyal \\( \\mathbf{r} = \\langle x,y,z \\rangle \\) vektörü yönündeki doğrultu türevinin \\( D_r f = n \\frac{f}{|\\mathbf{r}|} \\) olduğunu ispatlayınız. Ardından \\( f(x,y,z) = x^3 + y^3 + z^3 - 3xyz \\) fonksiyonu için \\( P(2,1,-1) \\) noktasındaki bu radyal türevi hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    \\mathbf{u} &= \\frac{\\mathbf{r}}{|\\mathbf{r}|} = \\frac{\\langle x,y,z \\rangle}{\\sqrt{x^2+y^2+z^2}} && (\\text{Birim radyal yön vektörü}) \\\\
+                    D_r f &= \\nabla f \\cdot \\mathbf{u} && (\\text{Doğrultu türevi ana tanımı}) \\\\
+                      &= \\langle f_x, f_y, f_z \\rangle \\cdot \\frac{\\langle x,y,z \\rangle}{|\\mathbf{r}|} && (\\text{Vektörlerin açık yazılımı}) \\\\
+                      &= \\frac{x f_x + y f_y + z f_z}{|\\mathbf{r}|} && (\\text{İç çarpım işleminin sonucu}) \\\\
+                    x f_x + y f_y + z f_z &= n f(x,y,z) && (\\text{Euler Homojenlik Teoremi}) \\\\
+                    D_r f &= \\frac{n f}{|\\mathbf{r}|} && (\\text{Teoremin yerine konmasıyla ispat}) \\\\
+                    f(tx,ty,tz) &= t^3 (x^3+y^3+z^3-3xyz) = t^3 f(x,y,z) && (\\text{Verilen fonksiyonun homojenlik testi}) \\\\
+                    n &= 3 && (\\text{Homojenlik derecesinin tespiti}) \\\\
+                    f(2,1,-1) &= 2^3 + 1^3 + (-1)^3 - 3(2)(1)(-1) && (\\text{P noktasının fonksiyona yerleştirilmesi}) \\\\
+                      &= 8 + 1 - 1 + 6 = 14 && (\\text{Noktasal fonksiyon değeri}) \\\\
+                    |\\mathbf{r}| &= \\sqrt{2^2 + 1^2 + (-1)^2} = \\sqrt{6} && (\\text{P noktasının orijine uzaklığı}) \\\\
+                    D_r f(2,1,-1) &= \\frac{3 \\cdot 14}{\\sqrt{6}} && (\\text{Değerlerin ispatlanan formüle yazılması}) \\\\
+                      &= \\frac{42}{\\sqrt{6}} = 7\\sqrt{6} && (\\text{Rasyonel payda eşitlemesi ve sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 8", "Kesişim Eğrisi Teğetinde Yönlü Türev (Konu: 12.5 & 12.6)", 
+                    "\\( z = x^2 + y^2 \\) paraboloidi ile \\( 2x + y - z = 0 \\) düzleminin kesişiminden oluşan \\( C \\) eğrisi veriliyor. \\( w = x y z \\) fonksiyonunun \\( P(1, 1, 2) \\) noktasındaki doğrultu türevini, \\( C \\) eğrisine bu noktada teğet olan vektör yönünde hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    F(x,y,z) &= x^2 + y^2 - z = 0 && (\\text{Paraboloidin kapalı fonksiyon formu}) \\\\
+                    G(x,y,z) &= 2x + y - z = 0 && (\\text{Düzlemin kapalı fonksiyon formu}) \\\\
+                    \\nabla F(1,1,2) &= \\langle 2x, 2y, -1 \\rangle \\bigg|_{(1,1,2)} = \\langle 2, 2, -1 \\rangle && (\\text{Paraboloidin P noktasındaki normali}) \\\\
+                    \\nabla G(1,1,2) &= \\langle 2, 1, -1 \\rangle && (\\text{Düzlemin P noktasındaki normali}) \\\\
+                    \\mathbf{v} &= \\nabla F \\times \\nabla G && (\\text{Kesişim eğrisinin teğet vektörü kurgusu}) \\\\
+                      &= \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ 2 & 2 & -1 \\\\ 2 & 1 & -1 \\end{vmatrix} && (\\text{Vektörel çarpım determinantı}) \\\\
+                      &= \\mathbf{i}(-2+1) - \\mathbf{j}(-2+2) + \\mathbf{k}(2-4) && (\\text{Determinantın açılması}) \\\\
+                      &= \\langle -1, 0, -2 \\rangle && (\\text{Teğet yön vektörü}) \\\\
+                    \\mathbf{u} &= \\frac{\\langle -1, 0, -2 \\rangle}{\\sqrt{(-1)^2 + 0^2 + (-2)^2}} = \\left\\langle -\\frac{1}{\\sqrt{5}}, 0, -\\frac{2}{\\sqrt{5}} \\right\\rangle && (\\text{Yön vektörünün birimleştirilmesi}) \\\\
+                    \\nabla w &= \\langle yz, xz, xy \\rangle && (\\text{Hedef fonksiyonun genel gradyanı}) \\\\
+                    \\nabla w(1,1,2) &= \\langle 2, 2, 1 \\rangle && (\\text{Hedef gradyanın P noktasındaki değeri}) \\\\
+                    D_u w &= \\nabla w \\cdot \\mathbf{u} && (\\text{Doğrultu türevi nokta çarpımı}) \\\\
+                      &= \\langle 2, 2, 1 \\rangle \\cdot \\left\\langle -\\frac{1}{\\sqrt{5}}, 0, -\\frac{2}{\\sqrt{5}} \\right\\rangle && (\\text{Vektörlerin çarpıma yerleştirilmesi}) \\\\
+                      &= -\\frac{2}{\\sqrt{5}} + 0 - \\frac{2}{\\sqrt{5}} && (\\text{Skaler bileşen çarpımları}) \\\\
+                      &= -\\frac{4}{\\sqrt{5}} && (\\text{Nihai doğrultu türevi değeri})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 9", "Konik Yüzeylerin Orijin Teğetliği İspatı (Konu: 12.6)", 
+                    "\\( z = x f\\left(\\frac{y}{x}\\right) \\) denklemiyle verilen genel konik yüzey üzerindeki herhangi bir \\( P_0(x_0, y_0, z_0) \\) noktasından çizilen teğet düzlemin, fonksiyondan bağımsız olarak daima orijinden geçtiğini ispatlayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    F(x,y,z) &= x f\\left(\\frac{y}{x}\\right) - z = 0 && (\\text{Kapalı fonksiyon kurgusu}) \\\\
+                    F_x &= f\\left(\\frac{y}{x}\\right) + x f'\\left(\\frac{y}{x}\\right) \\left(-\\frac{y}{x^2}\\right) && (\\text{Çarpım ve zincir kuralı}) \\\\
+                      &= f\\left(\\frac{y}{x}\\right) - \\frac{y}{x} f'\\left(\\frac{y}{x}\\right) && (\\text{Sadeleşmiş x türevi}) \\\\
+                    F_y &= x f'\\left(\\frac{y}{x}\\right) \\left(\\frac{1}{x}\\right) = f'\\left(\\frac{y}{x}\\right) && (\\text{Sadeleşmiş y türevi}) \\\\
+                    F_z &= -1 && (\\text{Basit z türevi}) \\\\
+                    0 &= F_x(P_0)(x - x_0) + F_y(P_0)(y - y_0) + F_z(P_0)(z - z_0) && (\\text{Genel teğet düzlem denklemi}) \\\\
+                    0 &= \\left[ f - \\frac{y_0}{x_0} f' \\right] (x - x_0) + f' (y - y_0) - (z - z_0) && (\\text{Türevlerin noktada değerlendirilmesi}) \\\\
+                    (x,y,z) &= (0,0,0) && (\\text{Orijinden geçme varsayımı}) \\\\
+                    0 &= \\left[ f - \\frac{y_0}{x_0} f' \\right] (-x_0) + f' (-y_0) - (-z_0) && (\\text{Orijin koordinatlarının denkleme yerleşimi}) \\\\
+                      &= -x_0 f + y_0 f' - y_0 f' + z_0 && (\\text{Parantezlerin açılıp dağıtılması}) \\\\
+                      &= z_0 - x_0 f\\left(\\frac{y_0}{x_0}\\right) && (\\text{Kalan terimlerin toparlanması}) \\\\
+                    z_0 &= x_0 f\\left(\\frac{y_0}{x_0}\\right) && (\\text{Sonucun yüzey denklemine eşit çıkması}) \\\\
+                    &\\text{Varsayım yüzey denklemini doğruladığı için ispat tamamlanır.} && (\\text{Q.E.D.})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 10", "İntegral Denklemli Transandant Yüzey Teğeti (Konu: 12.6)", 
+                    "Kapalı denklemi \\( \\int_{xy}^{z} e^{t^2} \\, dt = x^2 + y^2 - 2 \\) olarak verilen transandant yüzeyin \\( P(1, 1, 1) \\) noktasındaki teğet düzleminin denklemini Leibniz İntegral Kuralı yardımıyla bulunuz.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    F(x,y,z) &= \\int_{xy}^{z} e^{t^2} \\, dt - x^2 - y^2 + 2 = 0 && (\\text{Tüm terimlerin sola toplanması}) \\\\
+                    F_x &= -y e^{(xy)^2} - 2x && (\\text{Leibniz kuralıyla x türevi}) \\\\
+                    F_y &= -x e^{(xy)^2} - 2y && (\\text{Leibniz kuralıyla y türevi}) \\\\
+                    F_z &= e^{z^2} && (\\text{Kalkülüsün temel teoremiyle z türevi}) \\\\
+                    F_x(1,1,1) &= -1 e^{1^2} - 2(1) = -e - 2 && (\\text{P noktasında x normal bileşeni}) \\\\
+                    F_y(1,1,1) &= -1 e^{1^2} - 2(1) = -e - 2 && (\\text{P noktasında y normal bileşeni}) \\\\
+                    F_z(1,1,1) &= e^{1^2} = e && (\\text{P noktasında z normal bileşeni}) \\\\
+                    0 &= (-e - 2)(x - 1) + (-e - 2)(y - 1) + e(z - 1) && (\\text{Teğet düzlem formülüne yerleşim}) \\\\
+                      &= -(e + 2)x + e + 2 - (e + 2)y + e + 2 + ez - e && (\\text{Terimlerin tamamen açılması}) \\\\
+                      &= -(e + 2)x - (e + 2)y + ez + e + 4 && (\\text{Aynı cinsten terimlerin toparlanması}) \\\\
+                    (e + 2)x + (e + 2)y - ez &= e + 4 && (\\text{Sabitlerin sağa atıldığı nihai denklem})
+                    \\end{aligned}$$`
+                );
+
+html += createQuestion("Soru 11", "Dejenere Kritik Nokta Eğrileri ve Bölgesel İşaret Analizi (Konu: 12.7)", 
+                    "\\( f(x, y) = x^2 y^2 \\left( 1 - x - y \\right) \\) fonksiyonunun tüm kritik noktalarını bulunuz. İkinci türev testinin (Hessian) çalışmadığı, eksenler boyunca uzanan sonsuz kritik nokta kümesinin topolojik karakterini bölgesel işaret analiziyle sınıflandırınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    f_x &= 2xy^2 - 3x^2y^2 - 2xy^3 = xy^2(2 - 3x - 2y) = 0 && (\\text{Ortak çarpanlı x türevi}) \\\\
+                    f_y &= 2x^2y - 2x^3y - 3x^2y^2 = x^2y(2 - 2x - 3y) = 0 && (\\text{Ortak çarpanlı y türevi}) \\\\
+                    x &= 0 \\implies f_x = 0, \\; f_y = 0 && (\\text{Y ekseni tamamen kritik noktadır}) \\\\
+                    y &= 0 \\implies f_x = 0, \\; f_y = 0 && (\\text{X ekseni tamamen kritik noktadır}) \\\\
+                    2 - 3x - 2y &= 0 \\quad \\text{ve} \\quad 2 - 2x - 3y = 0 && (\\text{Eksenler dışındaki çözüm sistemi}) \\\\
+                    x &= \\frac{2}{5}, \\quad y = \\frac{2}{5} && (\\text{Sistemin tek izole çözüm noktası}) \\\\
+                    f_{xx} &= 2y^2 - 6xy^2 - 2y^3 \\implies f_{xx}\\bigg(\\frac{2}{5}, \\frac{2}{5}\\bigg) = -\\frac{24}{125} && (\\text{Noktasal ikinci x türevi}) \\\\
+                    f_{yy} &= 2x^2 - 2x^3 - 6x^2y \\implies f_{yy}\\bigg(\\frac{2}{5}, \\frac{2}{5}\\bigg) = -\\frac{24}{125} && (\\text{Noktasal ikinci y türevi}) \\\\
+                    f_{xy} &= 4xy - 6x^2y - 6xy^2 \\implies f_{xy}\\bigg(\\frac{2}{5}, \\frac{2}{5}\\bigg) = -\\frac{16}{125} && (\\text{Noktasal karışık türev}) \\\\
+                    D &= \\bigg(-\\frac{24}{125}\\bigg)\\bigg(-\\frac{24}{125}\\bigg) - \\bigg(-\\frac{16}{125}\\bigg)^2 = \\frac{320}{15625} > 0 && (\\text{Diskriminant hesabı}) \\\\
+                    &\\text{D pozitif ve } f_{xx} \\text{ negatif olduğundan } \\bigg(\\frac{2}{5}, \\frac{2}{5}\\bigg) \\text{ bir Yerel Maksimumdur.} && (\\text{İzole nokta analizi}) \\\\
+                    f(x,y) &= x^2 y^2 (1 - x - y) && (\\text{Eksenlerin analizi için ana fonksiyon}) \\\\
+                    &x^2 y^2 \\text{ çarpanı daima pozitiftir, dolayısıyla işaret } (1 - x - y) \\text{ çarpanına bağlıdır.} && (\\text{Dejenere bölge tespiti}) \\\\
+                    1 - x - y &> 0 \\implies f(x,y) \\ge 0 \\implies \\text{Eksenler yerel minimumdur.} && (\\text{Doğrunun altındaki eksen parçaları}) \\\\
+                    1 - x - y &< 0 \\implies f(x,y) \\le 0 \\implies \\text{Eksenler yerel maksimumdur.} && (\\text{Doğrunun üstündeki eksen parçaları}) \\\\
+                    1 - x - y &= 0 \\implies f(x,y) = 0 \\implies \\text{Karakter değişim (faz) sınırıdır.} && (\\text{Nihai topolojik karar})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 12", "Sonsuz Düzlemde Periyodik Ekstremum Ağı (Konu: 12.7)", 
+                    "\\( f(x, y) = \\cos(x+y) + \\sin(x-y) \\) fonksiyonunun \\( (0, \\pi) \\times (0, \\pi) \\) açık karesi içindeki tüm kritik noktalarını bulunuz ve Hessian matrisi ile topolojik karakterlerini sınıflandırınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    f_x &= -\\sin(x+y) + \\cos(x-y) = 0 && (\\text{Kısmi x türevi}) \\\\
+                    f_y &= -\\sin(x+y) - \\cos(x-y) = 0 && (\\text{Kısmi y türevi}) \\\\
+                    f_x - f_y &= 2\\cos(x-y) = 0 \\implies x - y = \\pm \\frac{\\pi}{2} && (\\text{Taraf tarafa çıkarma sonucu}) \\\\
+                    f_x + f_y &= -2\\sin(x+y) = 0 \\implies x + y = \\pi && (\\text{Taraf tarafa toplama sonucu}) \\\\
+                    x + y &= \\pi, \\quad x - y = \\frac{\\pi}{2} \\implies x = \\frac{3\\pi}{4}, \\quad y = \\frac{\\pi}{4} && (\\text{Birinci kritik nokta tespiti}) \\\\
+                    x + y &= \\pi, \\quad x - y = -\\frac{\\pi}{2} \\implies x = \\frac{\\pi}{4}, \\quad y = \\frac{3\\pi}{4} && (\\text{İkinci kritik nokta tespiti}) \\\\
+                    f_{xx} &= -\\cos(x+y) - \\sin(x-y) && (\\text{İkinci x türevi}) \\\\
+                    f_{yy} &= -\\cos(x+y) - \\sin(x-y) && (\\text{İkinci y türevi}) \\\\
+                    f_{xy} &= -\\cos(x+y) + \\sin(x-y) && (\\text{Karışık türev}) \\\\
+                    &\\text{Nokta 1: } P_1\\bigg(\\frac{3\\pi}{4}, \\frac{\\pi}{4}\\bigg) \\text{ analizi:} && \\\\
+                    f_{xx} &= -\\cos(\\pi) - \\sin\\bigg(\\frac{\\pi}{2}\\bigg) = -(-1) - 1 = 0 && (\\text{Bileşen hesaplaması}) \\\\
+                    f_{yy} &= 0, \\quad f_{xy} = -\\cos(\\pi) + \\sin\\bigg(\\frac{\\pi}{2}\\bigg) = 2 && (\\text{Diğer bileşenler}) \\\\
+                    D_1 &= (0)(0) - (2)^2 = -4 < 0 \\implies \\text{Yerel Eyer Noktası} && (\\text{Hessian kararı}) \\\\
+                    &\\text{Nokta 2: } P_2\\bigg(\\frac{\\pi}{4}, \\frac{3\\pi}{4}\\bigg) \\text{ analizi:} && \\\\
+                    f_{xx} &= -\\cos(\\pi) - \\sin\\bigg(-\\frac{\\pi}{2}\\bigg) = -(-1) - (-1) = 2 && (\\text{Bileşen hesaplaması}) \\\\
+                    f_{yy} &= 2, \\quad f_{xy} = -\\cos(\\pi) + \\sin\\bigg(-\\frac{\\pi}{2}\\bigg) = 0 && (\\text{Diğer bileşenler}) \\\\
+                    D_2 &= (2)(2) - (0)^2 = 4 > 0 \\implies \\text{Yerel Minimum} && (\\text{Hessian kararı})
+                    \\end{aligned}$$`
+                );
+
+html += createQuestion("Soru 13", "Çift Kısıtlı Hiperbolik Optimizasyon (Konu: 12.8)", 
+                    "\\( x^2 + y^2 = z^2 \\) konisi ile \\( x - 2z = 3 \\) düzleminin kesişim eğrisi üzerindeki noktalardan orijine en yakın olanı Lagrange Çarpanları yöntemi ile bulunuz. Bulunan diğer kritik noktanın geometrik anlamını yorumlayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    f(x,y,z) &= x^2 + y^2 + z^2 && (\\text{Uzaklığın karesi hedef fonksiyonu}) \\\\
+                    g(x,y,z) &= x^2 + y^2 - z^2 = 0 && (\\text{Koni kısıt denklemi}) \\\\
+                    h(x,y,z) &= x - 2z - 3 = 0 && (\\text{Düzlem kısıt denklemi}) \\\\
+                    \\nabla f &= \\lambda \\nabla g + \\mu \\nabla h && (\\text{Çift kısıtlı Lagrange denklemi}) \\\\
+                    2x &= 2\\lambda x + \\mu \\quad \\dots (1) && (\\text{x bileşeni eşitliği}) \\\\
+                    2y &= 2\\lambda y \\quad \\dots (2) && (\\text{y bileşeni eşitliği}) \\\\
+                    2z &= -2\\lambda z - 2\\mu \\quad \\dots (3) && (\\text{z bileşeni eşitliği}) \\\\
+                    2y(1 - \\lambda) &= 0 \\implies y = 0 \\text{ veya } \\lambda = 1 && (\\text{İkinci denklemden çıkan kökler}) \\\\
+                    \\lambda &= 1 \\implies 2x = 2x + \\mu \\implies \\mu = 0 && (\\text{Lambda 1 varsayımının analizi}) \\\\
+                    \\mu &= 0 \\implies 2z = -2z \\implies z = 0 && (\\text{z değerinin sıfırlanması}) \\\\
+                    z &= 0 \\implies x^2 + y^2 = 0 \\implies x = 0 && (\\text{Koni denkleminden x'in sıfırlanması}) \\\\
+                    0 - 0 &= 3 \\implies \\text{Çelişki} && (\\text{Düzlem denklemini sağlamaz}) \\\\
+                    y &= 0 \\implies x^2 = z^2 \\implies x = \\pm z && (\\text{y sıfır iken koni denklemi}) \\\\
+                    x &= -z \\implies -z - 2z = 3 \\implies z = -1 && (\\text{Eksi durumu için düzlem kesişimi}) \\\\
+                    P_1(1, 0, -1) &\\implies d_1^2 = 1^2 + 0^2 + (-1)^2 = 2 && (\\text{Mutlak minimum mesafe}) \\\\
+                    x &= z \\implies z - 2z = 3 \\implies z = -3 && (\\text{Artı durumu için düzlem kesişimi}) \\\\
+                    P_2(-3, 0, -3) &\\implies d_2^2 = (-3)^2 + 0^2 + (-3)^2 = 18 && (\\text{Diğer kritik nokta mesafesi}) \\\\
+                    &\\text{Kesişim eğrisi bir hiperboldür.} && (\\text{Geometrik yorum}) \\\\
+                    &P_1 \\text{ hiperbolün orijine en yakın tepe noktasıdır.} && (\\text{Minimum noktanın doğası}) \\\\
+                    &P_2 \\text{ diğer hiperbol dalının tepe noktasıdır (yerel minimum).} && (\\text{Uzaklık sonsuza gittiğinden maksimum yoktur})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 14", "n-Boyutlu Uzayda Eşitsizlik İspatı (Konu: 12.8)", 
+                    "Pozitif reel sayılar için Aritmetik-Geometrik Ortalama Eşitsizliğini (AM-GM) ispatlamak amacıyla, \\( \\sum_{i=1}^{n} x_i = S \\) kısıtı altında \\( f(x_1, x_2, \\dots, x_n) = \\prod_{i=1}^{n} x_i \\) fonksiyonunun maksimum değerini Lagrange Çarpanları ile \\( n \\)-boyutlu uzayda bulunuz.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    f(x_1, \\dots, x_n) &= x_1 x_2 \\dots x_n && (\\text{N-boyutlu çarpım hedef fonksiyonu}) \\\\
+                    g(x_1, \\dots, x_n) &= x_1 + x_2 + \\dots + x_n - S = 0 && (\\text{N-boyutlu toplam kısıt denklemi}) \\\\
+                    \\frac{\\partial f}{\\partial x_i} &= \\lambda \\frac{\\partial g}{\\partial x_i} && (\\text{Genel Lagrange kısmi türev kuralı}) \\\\
+                    \\frac{x_1 x_2 \\dots x_n}{x_i} &= \\lambda (1) && (\\text{Her bir bileşen için türev alımı}) \\\\
+                    \\frac{f}{x_i} &= \\lambda && (\\text{Fonksiyonun kendisine bağlı pratik yazım}) \\\\
+                    x_i &= \\frac{f}{\\lambda} && (\\text{Değişkenin tek tarafa yalıtılması}) \\\\
+                    x_1 &= x_2 = \\dots = x_n && (\\text{Tüm değişkenlerin aynı sabite eşitliği}) \\\\
+                    n x_i &= S \\implies x_i = \\frac{S}{n} && (\\text{Kısıt denkleminden ortak değerin hesabı}) \\\\
+                    f_{max} &= \\bigg(\\frac{S}{n}\\bigg)^n && (\\text{Maksimum çarpım değeri}) \\\\
+                    f(x_1, \\dots, x_n) &\\le f_{max} && (\\text{Herhangi bir noktanın maksimumdan küçük olması}) \\\\
+                    x_1 x_2 \\dots x_n &\\le \\bigg(\\frac{S}{n}\\bigg)^n && (\\text{Değerlerin eşitsizliğe yerleştirilmesi}) \\\\
+                    x_1 x_2 \\dots x_n &\\le \\bigg(\\frac{x_1 + x_2 + \\dots + x_n}{n}\\bigg)^n && (\\text{S toplamının açık formunun yazılması}) \\\\
+                    \\sqrt[n]{x_1 x_2 \\dots x_n} &\\le \\frac{x_1 + x_2 + \\dots + x_n}{n} && (\\text{Kök alınarak AM-GM ispatının tamamlanması})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 15", "Kapalı Fonksiyonun İkinci Derece Taylor Yaklaşımı (Konu: 12.9)", 
+                    "\\( z^3 - xz - y = 0 \\) denklemi ile kapalı olarak tanımlanan \\( z = f(x,y) \\) fonksiyonunun \\( (1,0) \\) noktası civarındaki 2. dereceden Taylor polinomunu, türev matrislerini kullanarak bulunuz.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    F(x,y,z) &= z^3 - xz - y = 0 && (\\text{Kapalı denklem kurgusu}) \\\\
+                    P_0(1,0) &\\implies z^3 - z = 0 \\implies z = 1 && (\\text{Merkezdeki z değerinin hesabı}) \\\\
+                    F_x &= -z, \\quad F_y = -1, \\quad F_z = 3z^2 - x && (\\text{Birinci mertebe kısmi türevler}) \\\\
+                    F_x(1,0,1) &= -1, \\quad F_y(1,0,1) = -1, \\quad F_z(1,0,1) = 2 && (\\text{Türevlerin noktada hesabı}) \\\\
+                    z_x &= -\\frac{F_x}{F_z} = \\frac{1}{2}, \\quad z_y = -\\frac{F_y}{F_z} = \\frac{1}{2} && (\\text{Kapalı türev kuralı}) \\\\
+                    z_{xx} &= -\\frac{F_{xx} + 2F_{xz}z_x + F_{zz}z_x^2}{F_z} && (\\text{İkinci x türevi formülü}) \\\\
+                    F_{xx} &= 0, \\quad F_{xz} = -1, \\quad F_{zz} = 6z = 6 && (\\text{İkinci mertebe F türevleri}) \\\\
+                    z_{xx} &= -\\frac{0 + 2(-1)\\big(\\frac{1}{2}\\big) + 6\\big(\\frac{1}{4}\\big)}{2} = -\\frac{1}{4} && (\\text{Değerlerin formüle yerleşimi}) \\\\
+                    z_{yy} &= -\\frac{F_{yy} + 2F_{yz}z_y + F_{zz}z_y^2}{F_z} && (\\text{İkinci y türevi formülü}) \\\\
+                    F_{yy} &= 0, \\quad F_{yz} = 0 && (\\text{İlgili F türevleri}) \\\\
+                    z_{yy} &= -\\frac{0 + 0 + 6\\big(\\frac{1}{4}\\big)}{2} = -\\frac{3}{4} && (\\text{Değerlerin formüle yerleşimi}) \\\\
+                    z_{xy} &= -\\frac{F_{xy} + F_{xz}z_y + F_{yz}z_x + F_{zz}z_x z_y}{F_z} && (\\text{Karışık türev formülü}) \\\\
+                    z_{xy} &= -\\frac{0 + (-1)\\big(\\frac{1}{2}\\big) + 0 + 6\\big(\\frac{1}{4}\\big)}{2} = -\\frac{1}{2} && (\\text{Değerlerin formüle yerleşimi}) \\\\
+                    P_2(x,y) &= z_0 + z_x(x-1) + z_y y + \\frac{1}{2} \\bigg[ z_{xx}(x-1)^2 + 2z_{xy}(x-1)y + z_{yy}y^2 \\bigg] && (\\text{2D Taylor serisi kalıbı}) \\\\
+                    P_2(x,y) &= 1 + \\frac{1}{2}(x-1) + \\frac{1}{2}y - \\frac{1}{8}(x-1)^2 - \\frac{1}{2}(x-1)y - \\frac{3}{8}y^2 && (\\text{Nihai polinom açılımı})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 16", "Seri Çarpımı ile Asimptotik Taylor Polinomu (Konu: 12.9)", 
+                    "Kısmi türevleri teker teker hesaplamanın amelelik yaratacağı \\( f(x,y) = \\cos(x + y^2) e^{x-y} \\) fonksiyonunun orijin \\( (0,0) \\) civarındaki 2. dereceden Maclaurin (Taylor) polinomunu, standart tek değişkenli serilerin kompozisyonunu ve çarpımını kullanarak bulunuz.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    \\cos u &= 1 - \\frac{u^2}{2} + O(u^4) && (\\text{Kosinüs standart serisi}) \\\\
+                    u &= x+y^2 \\implies u^2 = x^2 + 2xy^2 + y^4 \\approx x^2 && (\\text{İkinci dereceden yüksek terimlerin atılması}) \\\\
+                    \\cos(x+y^2) &\\approx 1 - \\frac{x^2}{2} && (\\text{Kosinüs çarpanının yaklaşığı}) \\\\
+                    e^v &= 1 + v + \\frac{v^2}{2} + O(v^3) && (\\text{Üstel standart seri}) \\\\
+                    v &= x-y \\implies v^2 = x^2 - 2xy + y^2 && (\\text{Üstel argümanın karesi}) \\\\
+                    e^{x-y} &\\approx 1 + x - y + \\frac{x^2 - 2xy + y^2}{2} && (\\text{Üstel çarpanın yaklaşığı}) \\\\
+                    f(x,y) &\\approx \\bigg(1 - \\frac{x^2}{2}\\bigg) \\bigg( 1 + x - y + \\frac{x^2}{2} - xy + \\frac{y^2}{2} \\bigg) && (\\text{Yaklaşımların çarpılması}) \\\\
+                      &= 1\\bigg(1 + x - y + \\frac{x^2}{2} - xy + \\frac{y^2}{2}\\bigg) - \\frac{x^2}{2}(1 + \\dots) && (\\text{Çarpmanın dağıtılması}) \\\\
+                      &= 1 + x - y + \\frac{x^2}{2} - xy + \\frac{y^2}{2} - \\frac{x^2}{2} && (\\text{Derecesi 2'den büyük terimlerin atılması}) \\\\
+                    P_2(x,y) &= 1 + x - y - xy + \\frac{y^2}{2} && (\\text{Sadeleştirilmiş nihai polinom})
+                    \\end{aligned}$$`
+                );
+
+html += createQuestion("Soru 17", "Fonksiyonel Bağımlılık ve Jakobiyen Çöküşü (Konu: 12.10)", 
+                    "\\( u = x+y+z \\), \\( v = x^2+y^2+z^2 \\) ve \\( w = xy+yz+zx \\) fonksiyonları veriliyor. Bu üç fonksiyonun birbirine bağımlı olduğunu Jakobiyen determinantı ile ispatlayınız ve aralarındaki gizli cebirsel ilişkiyi bulunuz.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    J &= \\frac{\\partial(u,v,w)}{\\partial(x,y,z)} = \\begin{vmatrix} u_x & u_y & u_z \\\\ v_x & v_y & v_z \\\\ w_x & w_y & w_z \\end{vmatrix} && (\\text{Jakobiyen matris kurgusu}) \\\\
+                      &= \\begin{vmatrix} 1 & 1 & 1 \\\\ 2x & 2y & 2z \\\\ y+z & x+z & x+y \\end{vmatrix} && (\\text{Kısmi türevlerin yerleştirilmesi}) \\\\
+                    R_3 &\\to R_3 + \\frac{1}{2}R_2 && (\\text{Matris satır operasyonu}) \\\\
+                    J &= \\begin{vmatrix} 1 & 1 & 1 \\\\ 2x & 2y & 2z \\\\ x+y+z & x+y+z & x+y+z \\end{vmatrix} && (\\text{Üçüncü satırın dönüşümü}) \\\\
+                      &= (x+y+z) \\begin{vmatrix} 1 & 1 & 1 \\\\ 2x & 2y & 2z \\\\ 1 & 1 & 1 \\end{vmatrix} && (\\text{Ortak çarpanın dışarı alınması}) \\\\
+                      &= 0 && (\\text{Aynı iki satır sıfır determinant üretir}) \\\\
+                    &\\text{Jakobiyen sıfır olduğu için fonksiyonlar bağımlıdır.} && (\\text{Teorem sonucu}) \\\\
+                    u^2 &= (x+y+z)^2 && (\\text{Bağıntı arayışı için karesel açılım}) \\\\
+                      &= x^2+y^2+z^2 + 2(xy+yz+zx) && (\\text{Polinomun açık hali}) \\\\
+                      &= v + 2w && (\\text{Bulunan gizli cebirsel ilişki})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 18", "Kısıtlı Türevlerde Ters İşlem Yanılgısı (Konu: 12.10)", 
+                    "\\( x = u^2 - v^2 \\) ve \\( y = 2uv \\) dönüşümleri veriliyor. İleri analizdeki en yaygın yanılgılardan birini çürütmek üzere, \\( \\left(\\frac{\\partial x}{\\partial u}\\right)_v \\) ile \\( \\left(\\frac{\\partial u}{\\partial x}\\right)_y \\) ifadelerini hesaplayınız ve birbirlerinin çarpmaya göre tersi olmadıklarını diferansiyel formlar üzerinden ispatlayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    dx &= 2u \\, du - 2v \\, dv && (\\text{x değişkeninin tam diferansiyeli}) \\\\
+                    dy &= 2v \\, du + 2u \\, dv && (\\text{y değişkeninin tam diferansiyeli}) \\\\
+                    v &= \\text{sabit} \\implies dv = 0 && (\\text{Birinci türev için kısıt şartı}) \\\\
+                    dx &= 2u \\, du - 0 \\implies \\left(\\frac{\\partial x}{\\partial u}\\right)_v = 2u && (\\text{v sabitken x'in u'ya göre değişimi}) \\\\
+                    y &= \\text{sabit} \\implies dy = 0 && (\\text{İkinci türev için kısıt şartı}) \\\\
+                    0 &= 2v \\, du + 2u \\, dv \\implies dv = -\\frac{v}{u} du && (\\text{y kısıtının diferansiyele etkisi}) \\\\
+                    dx &= 2u \\, du - 2v \\bigg(-\\frac{v}{u} du\\bigg) && (\\text{dv'nin x diferansiyeline yerleştirilmesi}) \\\\
+                      &= \\bigg(2u + \\frac{2v^2}{u}\\bigg) du = \\frac{2(u^2+v^2)}{u} du && (\\text{Payda eşitleme ve toparlama}) \\\\
+                    \\left(\\frac{\\partial x}{\\partial u}\\right)_y &= \\frac{2(u^2+v^2)}{u} && (\\text{y sabitken x'in u'ya göre değişimi}) \\\\
+                    \\left(\\frac{\\partial u}{\\partial x}\\right)_y &= \\frac{1}{\\left(\\frac{\\partial x}{\\partial u}\\right)_y} = \\frac{u}{2(u^2+v^2)} && (\\text{Aynı kısıt altındaki ters türev kuralı}) \\\\
+                    2u &\\neq \\frac{u}{2(u^2+v^2)} && (\\text{İfadelerin kıyaslanması}) \\\\
+                    &\\text{Farklı kısıtlamalar altındaki türevler birbirinin tersi değildir.} && (\\text{İspatlandı})
+                    \\end{aligned}$$`
+                );
+
+          html += createQuestion("Soru 19", "Kompakt Manifold Üzerinde Global Dejenerasyon ve Newton-Girard Özdeşlikleri", 
+                    "\\( x^2 + y^2 + z^2 = 1 \\) küresi ile \\( x + y + z = 0 \\) düzleminin arakesitinden oluşan \\( C \\) eğrisi üzerinde, \\( f(x, y, z) = x^4 + y^4 + z^4 \\) fonksiyonunun global ekstremum değerlerini Lagrange Çarpanları ve Kübik Çözücü (Resolvent) polinomlar kullanarak analiz ediniz.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    g(x,y,z) &= x^2 + y^2 + z^2 - 1 = 0 && (\\text{Küre kısıtı}) \\\\
+                    h(x,y,z) &= x + y + z = 0 && (\\text{Düzlem kısıtı}) \\\\
+                    \\nabla f &= \\lambda \\nabla g + \\mu \\nabla h && (\\text{Lagrange temel denklemi}) \\\\
+                    4x^3 &= 2\\lambda x + \\mu \\implies 4x^3 - 2\\lambda x - \\mu = 0 && (\\text{x ekseni türev eşitliği}) \\\\
+                    4y^3 &= 2\\lambda y + \\mu \\implies 4y^3 - 2\\lambda y - \\mu = 0 && (\\text{y ekseni türev eşitliği}) \\\\
+                    4z^3 &= 2\\lambda z + \\mu \\implies 4z^3 - 2\\lambda z - \\mu = 0 && (\\text{z ekseni türev eşitliği}) \\\\
+                    4t^3 - 2\\lambda t - \\mu &= 0 && (\\text{Ortak kübik çözücü polinom}) \\\\
+                    e_1 &= x + y + z = 0 && (\\text{Birinci Vieta formülü}) \\\\
+                    e_2 &= xy + yz + zx = -\\frac{2\\lambda}{4} = -\\frac{\\lambda}{2} && (\\text{İkinci Vieta formülü}) \\\\
+                    e_3 &= xyz = \\frac{\\mu}{4} && (\\text{Üçüncü Vieta formülü}) \\\\
+                    p_1 &= x + y + z = 0 && (\\text{Newton-Girard birinci kuvvet}) \\\\
+                    p_2 &= x^2 + y^2 + z^2 = e_1^2 - 2e_2 && (\\text{Newton-Girard ikinci kuvvet}) \\\\
+                    1 &= 0^2 - 2\\bigg(-\\frac{\\lambda}{2}\\bigg) && (\\text{Küre kısıtının yerine yazılması}) \\\\
+                    \\lambda &= 1 && (\\text{Birinci çarpanın analitik ispatı}) \\\\
+                    4t^3 &= 2\\lambda t + \\mu \\implies t^4 = \\frac{\\lambda}{2} t^2 + \\frac{\\mu}{4} t && (\\text{Kübik denklemin t ile genişletilmesi}) \\\\
+                    x^4 &= \\frac{1}{2} x^2 + \\frac{\\mu}{4} x && (\\text{x kökünün dördüncü kuvveti}) \\\\
+                    y^4 &= \\frac{1}{2} y^2 + \\frac{\\mu}{4} y && (\\text{y kökünün dördüncü kuvveti}) \\\\
+                    z^4 &= \\frac{1}{2} z^2 + \\frac{\\mu}{4} z && (\\text{z kökünün dördüncü kuvveti}) \\\\
+                    x^4 + y^4 + z^4 &= \\frac{1}{2} (x^2 + y^2 + z^2) + \\frac{\\mu}{4} (x + y + z) && (\\text{Taraf tarafa toplama işlemi}) \\\\
+                    f(x,y,z) &= \\frac{1}{2} (1) + \\frac{\\mu}{4} (0) && (\\text{Kısıt değerlerinin yerleştirilmesi}) \\\\
+                    f(x,y,z) &= \\frac{1}{2} && (\\text{Mutlak sabit sonuç}) \\\\
+                    &\\text{Fonksiyon bu kesişim eğrisi üzerindeki her noktada sabittir.} && (\\text{Global dejenerasyon tespiti}) \\\\
+                    &\\text{Maksimum ve minimum değerleri birbirine eşit ve } \\frac{1}{2} \\text{ dir.} && (\\text{Teoremin nihai ispatı})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 20", "Kapalı Transandant Yüzeylerde Yüksek Mertebe Taylor Asimptotiği ve Tam Simetri", 
+                    "\\( F(x,y,z) = z^3 + x y z - 2x^3 - 2y^3 = 0 \\) denklemi ile kapalı olarak tanımlanan \\( z = f(x,y) \\) fonksiyonunun \\( P_0(1, -1, 1) \\) noktası civarındaki ikinci dereceden Taylor polinomunu (\\( P_2(x,y) \\)) hesaplayınız. Tüm Hessian matrisi bileşenlerini ileri zincir kuralı formlarıyla eksiksiz şekilde türeterek simetrik çöküşü ispatlayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    F_x &= yz - 6x^2 \\implies F_x(1,-1,1) = -1 - 6 = -7 && (\\text{Birinci x türevi}) \\\\
+                    F_y &= xz - 6y^2 \\implies F_y(1,-1,1) = 1 - 6 = -5 && (\\text{Birinci y türevi}) \\\\
+                    F_z &= 3z^2 + xy \\implies F_z(1,-1,1) = 3 - 1 = 2 && (\\text{Birinci z türevi}) \\\\
+                    z_x &= -\\frac{F_x}{F_z} = -\\frac{-7}{2} = \\frac{7}{2} && (\\text{Kapalı x türevi kuralı}) \\\\
+                    z_y &= -\\frac{F_y}{F_z} = -\\frac{-5}{2} = \\frac{5}{2} && (\\text{Kapalı y türevi kuralı}) \\\\
+                    F_{xx} &= -12x \\implies F_{xx}(1,-1,1) = -12 && (\\text{İkinci xx türevi}) \\\\
+                    F_{yy} &= -12y \\implies F_{yy}(1,-1,1) = 12 && (\\text{İkinci yy türevi}) \\\\
+                    F_{zz} &= 6z \\implies F_{zz}(1,-1,1) = 6 && (\\text{İkinci zz türevi}) \\\\
+                    F_{xy} &= z \\implies F_{xy}(1,-1,1) = 1 && (\\text{İkinci xy türevi}) \\\\
+                    F_{xz} &= y \\implies F_{xz}(1,-1,1) = -1 && (\\text{İkinci xz türevi}) \\\\
+                    F_{yz} &= x \\implies F_{yz}(1,-1,1) = 1 && (\\text{İkinci yz türevi}) \\\\
+                    z_{xx} &= -\\frac{F_{xx} + 2F_{xz}z_x + F_{zz}z_x^2}{F_z} && (\\text{Kapalı ikinci türev z}_{xx} \\text{ formülü}) \\\\
+                      &= -\\frac{-12 + 2(-1)\\big(\\frac{7}{2}\\big) + 6\\big(\\frac{49}{4}\\big)}{2} && (\\text{Değerlerin x matrisine yerleşimi}) \\\\
+                      &= -\\frac{-12 - 7 + \\frac{147}{2}}{2} = -\\frac{-\\frac{38}{2} + \\frac{147}{2}}{2} = -\\frac{109}{4} && (\\text{Rasyonel indirgeme}) \\\\
+                    z_{yy} &= -\\frac{F_{yy} + 2F_{yz}z_y + F_{zz}z_y^2}{F_z} && (\\text{Kapalı ikinci türev z}_{yy} \\text{ formülü}) \\\\
+                      &= -\\frac{12 + 2(1)\\big(\\frac{5}{2}\\big) + 6\\big(\\frac{25}{4}\\big)}{2} && (\\text{Değerlerin y matrisine yerleşimi}) \\\\
+                      &= -\\frac{12 + 5 + \\frac{75}{2}}{2} = -\\frac{\\frac{34}{2} + \\frac{75}{2}}{2} = -\\frac{109}{4} && (\\text{Rasyonel indirgeme}) \\\\
+                    z_{xy} &= -\\frac{F_{xy} + F_{xz}z_y + F_{yz}z_x + F_{zz}z_x z_y}{F_z} && (\\text{Kapalı karışık türev z}_{xy} \\text{ formülü}) \\\\
+                      &= -\\frac{1 + (-1)\\big(\\frac{5}{2}\\big) + (1)\\big(\\frac{7}{2}\\big) + 6\\big(\\frac{7}{2}\\big)\\big(\\frac{5}{2}\\big)}{2} && (\\text{Değerlerin karma matrise yerleşimi}) \\\\
+                      &= -\\frac{1 - \\frac{5}{2} + \\frac{7}{2} + \\frac{105}{2}}{2} = -\\frac{\\frac{2}{2} + \\frac{2}{2} + \\frac{105}{2}}{2} = -\\frac{109}{4} && (\\text{Hessian simetrisinin mutlak ispatı}) \\\\
+                    P_2(x,y) &= z_0 + z_x(x-x_0) + z_y(y-y_0) + \\frac{1}{2}\\bigg[ z_{xx}(x-x_0)^2 + 2z_{xy}(x-x_0)(y-y_0) + z_{yy}(y-y_0)^2 \\bigg] && (\\text{İki boyutlu Taylor serisi ana kalıbı}) \\\\
+                     &= 1 + \\frac{7}{2}(x-1) + \\frac{5}{2}(y+1) - \\frac{109}{8}(x-1)^2 - \\frac{109}{4}(x-1)(y+1) - \\frac{109}{8}(y+1)^2 && (\\text{Değerlerin Taylor polinomuna yansıması}) \\\\
+                     &= 1 + \\frac{7}{2}(x-1) + \\frac{5}{2}(y+1) - \\frac{109}{8}\\bigg[ (x-1) + (y+1) \\bigg]^2 && (\\text{Karesel terimlerin tam kare yoğunlaşması})
+                    \\end{aligned}$$`
+                );
+
+                
+
+}
+
+
+
+
 
             // === 13.1 İKİ KATLI İNTEGRALLER (DİKDÖRTGENSEL BÖLGELER) ===
             else if (id === "13.1") {
@@ -15352,11 +15795,442 @@ html += createQuestion("Soru 19", "Büyük Sentez: Karma Karakter Analizi (6 Ön
                 html += '<button class="quiz-secenek" onclick="cevapKontrol(this, 3, 2)">C) \\( \\pi/4 \\)</button>';
                 html += '<button class="quiz-secenek" onclick="cevapKontrol(this, 3, 3)">D) \\( \\pi/8 \\)</button>';
                 html += '</div>';
-                html += '<div class="quiz-aciklama"><b>Bölüm sonu canavarı!</b> Bu integrali Kartezyen koordinatlarda çözmek imkansızdır. Hemen kutupsal koordinatlara geçelim. Bölge, birinci çeyrek düzlemdir: \\( 0 \\le r < \\infty \\) ve \\( 0 \\le \\theta \\le \\pi/2 \\). İntegralimiz \\( \\int_0^{\\pi/2} \\int_0^\\infty e^{-r^2} \\cos(r^2) r \\, dr \\, d\\theta \\) halini alır. Açı integrali doğrudan \\( \\pi/2 \\) verir. Kalan kısım: \\( \\frac{\\pi}{2} \\int_0^\\infty e^{-r^2} \\cos(r^2) r \\, dr \\). Burada \\( u = r^2 \\implies du = 2r dr \\) dönüşümü yaparsak: \\( \\frac{\\pi}{4} \\int_0^\\infty e^{-u} \\cos(u) \\, du \\) elde edilir. Parantez içindeki bu meşhur Laplace integralinin sonucu \\( 1/2 \\)\'dir. Çarptığımızda nihai cevap \\( \\pi/8 \\) olarak şapkadan çıkar!</div>';
+                html += '<div class="quiz-aciklama"><b>Bölüm sonu canavarı!</b> Bu integrali Kartezyen koordinatlarda çözmek imkansızdır. Hemen kutupsal koordinatlara geçelim. Bölge, birinci çeyrek düzlemdir: \\( 0 \\le r < \\infty \\) ve \\( 0 \\le \\theta \\le \\pi/2 \\). İntegralimiz \\( \\int_0^{\\pi/2} \\int_0^\\infty e^{-r^2} \\cos(r^2) r \\, dr \\, d\\theta \\) halini alır. Açı integrali doğrudan \\( \\pi/2 \\) verir. Kalan kısım: \\( \\frac{\\pi}{2} \\int_0^\\infty e^{-r^2} \\cos(r^2) r \\, dr \\). Burada \\( u = r^2 \\implies du = 2r dr \\) dönüşümü yaparsak: \\( \\frac{\\pi}{4} \\int_0^\\infty e^{-u} \\cos(u) \\, du \\) elde edilir. Parantez içindeki bu meşhur Laplace integralinin sonucu \\( 1/2 \\)\'dir. Çarptığımızda nihai cevap \\( \\pi/8 \\) olarak bulunur.</div>';
                 html += '</div>';
 
                 html += '</div>'; // question-container div kapanışı
             }
+
+// === 13.10 İLERİ DÜZEY SENTEZ (BÖLÜM 13 KARMA ZOR SORULAR) ===
+            else if (id === "13.10") {
+                
+             
+                html += createQuestion("Soru 1", "Fubini Teoremi ile Tersine Mühendislik (Konu: 13.1)", 
+                    "Tek değişkenli analiz teknikleriyle çözülmesi imkansız olan $I = \\int_{0}^{1} \\frac{x^b - x^a}{\\ln x} \\, dx$ integralini ($b > a > 0$), dikdörtgensel bir $R = [0, 1] \\times [a, b]$ bölgesi üzerinde uygun bir iki katlı integral kurgulayarak ve Fubini Teoremini kullanarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p><b>Strateji:</b> Pay kısmındaki $x^b - x^a$ ifadesinin, aslında $x^y$ fonksiyonunun $y$'ye göre alınmış belirli bir integrali olduğunu fark etmeliyiz. Bu "İntegral İşareti Altında İşlem" tekniğidir.</p>
+                    $$\\begin{aligned}
+                    \\int_{a}^{b} x^y \\, dy &= \\left[ \\frac{x^y}{\\ln x} \\right]_{y=a}^{y=b} && (\\text{Üstel fonksiyonun integrali ile logaritmik paydanın elde edilişi}) \\\\
+                      &= \\frac{x^b - x^a}{\\ln x} && (\\text{Orijinal integralin içindeki o çözülemez ifadenin türetilmesi}) \\\\
+                    I &= \\int_{0}^{1} \\left( \\int_{a}^{b} x^y \\, dy \\right) dx && (\\text{Bulunan bu özdeşliğin ana probleme yerleştirilerek çift katlı forma geçişi}) \\\\
+                      &= \\int_{a}^{b} \\int_{0}^{1} x^y \\, dx \\, dy && (\\text{Dikdörtgensel bölge olduğundan Fubini Teoremi ile sıranın değiştirilmesi}) \\\\
+                    \\int_{0}^{1} x^y \\, dx &= \\left[ \\frac{x^{y+1}}{y+1} \\right]_{x=0}^{x=1} && (\\text{İç integralin x'e göre basit bir polinom integrali haline gelmesi}) \\\\
+                      &= \\frac{1}{y+1} - 0 = \\frac{1}{y+1} && (\\text{Sınırların değerlendirilmesiyle kalan rasyonel ifade}) \\\\
+                    I &= \\int_{a}^{b} \\frac{1}{y+1} \\, dy && (\\text{Dış integrale aktarım ile problemin tamamen logaritmik forma dönmesi}) \\\\
+                      &= \\Big[ \\ln|y+1| \\Big]_a^b && (\\text{Standart logaritmik ters türevin alınması}) \\\\
+                      &= \\ln(b+1) - \\ln(a+1) && (\\text{Alt ve üst sınırların fonksiyon üzerine yerleştirilmesi}) \\\\
+                      &= \\ln\\left( \\frac{b+1}{a+1} \\right) && (\\text{Logaritma kurallarıyla birleştirilmiş nihai analitik sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 2", "Dikdörtgensel Bölgede Sonsuz Seri Sentezi (Konu: 13.1)", 
+                    "Kalkülüs 2'nin meşhur Euler (Basel) Problemini çift katlı integrallerle ispatlayacağız. $R = [0, 1] \\times [0, 1]$ karesi üzerinde tanımlı $I = \\iint_R \\frac{1}{1-xy} \\, dA$ integralini hesaplayınız. <br><br><i>İpucu: İntegrandı sonsuz geometrik seri olarak ifade edip, Tonelli Teoremi ile toplam sembolünü dışarı alınız. $\\sum_{n=1}^\\infty \\frac{1}{n^2} = \\frac{\\pi^2}{6}$ bağıntısını kullanınız.</i>", 
+                    `<p><i>Çözüm:</i></p>
+                    <p><b>Strateji:</b> Rasyonel ifadeyi Maclaurin serisine dönüştürerek çift katlı integrali sonsuz bir toplam dizisine çevireceğiz. Bu yöntem, analizi cebire bağlar.</p>
+                    $$\\begin{aligned}
+                    \\frac{1}{1 - r} &= \\sum_{n=0}^{\\infty} r^n \\implies \\frac{1}{1 - xy} = \\sum_{n=0}^{\\infty} (xy)^n && (\\text{Bölge içinde } |xy|<1 \\text{ şartı sağlandığından sonsuz geometrik seriye açılım}) \\\\
+                    I &= \\int_{0}^{1} \\int_{0}^{1} \\left( \\sum_{n=0}^{\\infty} x^n y^n \\right) dx \\, dy && (\\text{İntegrandın seri formuyla yer değiştirerek çift katlı yapıya entegrasyonu}) \\\\
+                      &= \\sum_{n=0}^{\\infty} \\left( \\int_{0}^{1} \\int_{0}^{1} x^n y^n \\, dx \\, dy \\right) && (\\text{Tonelli Teoremi uyarınca integral ve sonsuz toplam operatörlerinin değişimi}) \\\\
+                      &= \\sum_{n=0}^{\\infty} \\left( \\int_{0}^{1} x^n \\, dx \\right) \\left( \\int_{0}^{1} y^n \\, dy \\right) && (\\text{Değişkenlerine ayrılabilen fonksiyon yapısıyla integrallerin parçalanması}) \\\\
+                    \\int_{0}^{1} x^n \\, dx &= \\left[ \\frac{x^{n+1}}{n+1} \\right]_0^1 = \\frac{1}{n+1} && (\\text{Her iki tek değişkenli integralin de kuvvet kuralıyla aynı sonucu vermesi}) \\\\
+                    I &= \\sum_{n=0}^{\\infty} \\left( \\frac{1}{n+1} \\right) \\left( \\frac{1}{n+1} \\right) && (\\text{Elde edilen integral sonuçlarının sonsuz toplam sembolünün içine yazılması}) \\\\
+                      &= \\sum_{n=0}^{\\infty} \\frac{1}{(n+1)^2} && (\\text{Çarpanların birleştirilmesiyle karesel formdaki dizinin ortaya çıkması}) \\\\
+                      &= \\sum_{k=1}^{\\infty} \\frac{1}{k^2} && (k = n+1 \\text{ indeks kaydırması ile p-serisinin o ünlü klasik formuna ulaşılması}) \\\\
+                      &= \\frac{\\pi^2}{6} && (\\text{Leonhard Euler'in meşhur Basel Problemi ispatıyla elde edilen nihai değer})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 3", "Mutlak Değerli Faz Bölünmesi ve Ağır Polinom Entegrasyonu (Konu: 13.2)", 
+                    "\\( R = [0, 1] \\times [0, 1] \\) karesel bölgesi üzerinde, \\( I = \\iint_R |x - y^2| \\cdot 21 x^2 y \\, dA \\) integralini analitik olarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p><b>Strateji:</b> İntegrandın içindeki mutlak değer, bölgeyi \\( x = y^2 \\) (veya \\( y = \\sqrt{x} \\)) eğrisi boyunca iki farklı analitik faza böler. Bölgeyi dikey şeritlerle (\\( dy \\, dx \\)) parçalayıp mutlak değeri kaldıracağız.</p>
+                    $$\\begin{aligned}
+                    D_1 &= \\{ (x,y) \\mid 0 \\le x \\le 1, \\; 0 \\le y \\le \\sqrt{x} \\} \\implies x \\ge y^2 \\implies |x-y^2| = x-y^2 && (\\text{Alt bölgenin mutlak değer karakteri}) \\\\
+                    D_2 &= \\{ (x,y) \\mid 0 \\le x \\le 1, \\; \\sqrt{x} \\le y \\le 1 \\} \\implies x < y^2 \\implies |x-y^2| = y^2-x && (\\text{Üst bölgenin mutlak değer karakteri}) \\\\
+                    I_1 &= \\int_{0}^{1} \\int_{0}^{\\sqrt{x}} (x - y^2) 21 x^2 y \\, dy \\, dx && (\\text{Alt bölgenin integral kurgusu}) \\\\
+                    \\int_{0}^{\\sqrt{x}} (21 x^3 y - 21 x^2 y^3) \\, dy &= \\left[ \\frac{21}{2} x^3 y^2 - \\frac{21}{4} x^2 y^4 \\right]_0^{\\sqrt{x}} && (\\text{İç integralin y'ye göre alınması}) \\\\
+                      &= \\frac{21}{2} x^3 (x) - \\frac{21}{4} x^2 (x^2) = \\frac{21}{4} x^4 && (\\text{Sınırların yerleşimi ve sadeleşme}) \\\\
+                    I_2 &= \\int_{0}^{1} \\int_{\\sqrt{x}}^{1} (y^2 - x) 21 x^2 y \\, dy \\, dx && (\\text{Üst bölgenin integral kurgusu}) \\\\
+                    \\int_{\\sqrt{x}}^{1} (21 x^2 y^3 - 21 x^3 y) \\, dy &= \\left[ \\frac{21}{4} x^2 y^4 - \\frac{21}{2} x^3 y^2 \\right]_{\\sqrt{x}}^1 && (\\text{İç integralin y'ye göre alınması}) \\\\
+                      &= \\left( \\frac{21}{4} x^2 - \\frac{21}{2} x^3 \\right) - \\left( \\frac{21}{4} x^2 (x^2) - \\frac{21}{2} x^3 (x) \\right) && (\\text{Sınırların dikkatlice yerleştirilmesi}) \\\\
+                      &= \\frac{21}{4} x^2 - \\frac{21}{2} x^3 + \\frac{21}{4} x^4 && (\\text{Eksinin dağıtılmasıyla elde edilen polinom}) \\\\
+                    I &= \\int_{0}^{1} \\left( \\frac{21}{4} x^4 + \\frac{21}{4} x^2 - \\frac{21}{2} x^3 + \\frac{21}{4} x^4 \\right) dx && (\\text{İki bölgenin dış integrallerinin toplanması}) \\\\
+                      &= \\int_{0}^{1} \\left( \\frac{21}{2} x^4 - \\frac{21}{2} x^3 + \\frac{21}{4} x^2 \\right) dx && (\\text{Aynı dereceli terimlerin birleştirilmesi}) \\\\
+                      &= \\left[ \\frac{21}{10} x^5 - \\frac{21}{8} x^4 + \\frac{7}{4} x^3 \\right]_0^1 && (\\text{Dış integralin ters türevi}) \\\\
+                      &= \\frac{21}{10} - \\frac{21}{8} + \\frac{7}{4} = \\frac{84}{40} - \\frac{105}{40} + \\frac{70}{40} && (\\text{Rasyonel payda eşitleme işlemi}) \\\\
+                      &= \\frac{49}{40} && (\\text{Kusursuz cebirsel nihai sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 4", "Bölge Birleştirme ve Tersine Türev Kurgusu (Konu: 13.2)", 
+                    "Aşağıda verilen ve mevcut sırasıyla analitik çözümü <b>imkansız</b> olan parçalı integral toplamını hesaplayınız:<br> \\( I = \\int_{0}^{1} \\int_{0}^{x} 4\\big((x-y)^3 + y^3\\big) \\cos(y^4 + y) \\, dy \\, dx + \\int_{1}^{2} \\int_{x-1}^{1} 4\\big((x-y)^3 + y^3\\big) \\cos(y^4 + y) \\, dy \\, dx \\)", 
+                    `<p><i>Çözüm:</i></p>
+                    <p><b>Strateji:</b> Bu iki integral, \\( xy \\)-düzleminde tek bir paralelkenar bölgeyi temsil eder. Bölgeleri grafiğe döküp yatay şeritlerle (\\( dx \\, dy \\)) tek bir integrale dönüştürdüğümüzde, iç integralin sonucu dıştaki transandant fonksiyonun tam türevini üretecektir.</p>
+                    $$\\begin{aligned}
+                    D_1 &= \\{ (x,y) \\mid 0 \\le x \\le 1, \\; 0 \\le y \\le x \\} && (\\text{Birinci integralin dikey bölge sınırları}) \\\\
+                    D_2 &= \\{ (x,y) \\mid 1 \\le x \\le 2, \\; x-1 \\le y \\le 1 \\} && (\\text{İkinci integralin dikey bölge sınırları}) \\\\
+                    &\\text{Birleşik Bölgenin Alt Sınırı: } y = 0, \\quad \\text{Üst Sınırı: } y = 1 && (\\text{Tüm bölgenin y eksenindeki izdüşümü}) \\\\
+                    &\\text{Sol Sınır: } y = x \\implies x = y, \\quad \\text{Sağ Sınır: } y = x-1 \\implies x = y+1 && (\\text{Bölgenin yatay şeritler için sağ-sol analizi}) \\\\
+                    I &= \\int_{0}^{1} \\int_{y}^{y+1} 4\\big((x-y)^3 + y^3\\big) \\cos(y^4 + y) \\, dx \\, dy && (\\text{Fubini ile tek integrale indirgenmiş yeni form}) \\\\
+                    \\text{İç İnt.} &= \\cos(y^4 + y) \\int_{y}^{y+1} \\big( 4(x-y)^3 + 4y^3 \\big) dx && (\\text{y'li terimlerin sabit varsayılıp dışarı alınması}) \\\\
+                      &= \\cos(y^4 + y) \\left[ (x-y)^4 + 4y^3 x \\right]_{x=y}^{x=y+1} && (\\text{x değişkenine göre standart ters türev}) \\\\
+                      &= \\cos(y^4 + y) \\bigg( \\big( (y+1-y)^4 + 4y^3(y+1) \\big) - \\big( 0 + 4y^3(y) \\big) \\bigg) && (\\text{Sınırların x yerlerine dikkatlice yazılması}) \\\\
+                      &= \\cos(y^4 + y) \\big( 1 + 4y^4 + 4y^3 - 4y^4 \\big) && (\\text{Parantez içi cebirsel dağılım}) \\\\
+                      &= (4y^3 + 1) \\cos(y^4 + y) && (\\text{Sadeleşerek dış integral için kusursuz bir türev zinciri üretmesi}) \\\\
+                    I &= \\int_{0}^{1} (4y^3 + 1) \\cos(y^4 + y) \\, dy && (\\text{Bulunan iç ifadenin dış integrale aktarımı}) \\\\
+                    u &= y^4 + y \\implies du = (4y^3 + 1) \\, dy && (\\text{Hayat kurtaran u-dönüşümü}) \\\\
+                    I &= \\int_{0}^{2} \\cos(u) \\, du && (\\text{Sınırların (0'dan 2'ye) dönüşüme uyarlanması}) \\\\
+                      &= \\Big[ \\sin(u) \\Big]_0^2 = \\sin(2) && (\\text{Tasarım harikası bir sorunun nihai sonucu})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 5", "Mutlak Değerli Kapalı Bölge ve Topolojik Simetri Analizi (Konu: 13.3)", 
+                    "\\( x^2 + y^2 \\le 2(|x| + |y|) \\) eşitsizliği ile tanımlanan kapalı bölgenin analitik alanını, çift katlı integrallerin simetri özelliklerini ve dairesel segment (cap) geometrisini kullanarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p><b>Strateji:</b> Eşitsizlikteki mutlak değerler, bölgenin her iki eksene göre de tam simetrik olduğunu garantiler. Sadece 1. bölgedeki (\\( x \\ge 0, y \\ge 0 \\)) alanı bulup 4 ile çarpmak problemi çözecektir.</p>
+                    $$\\begin{aligned}
+                    x^2 - 2|x| + y^2 - 2|y| &\\le 0 && (\\text{Mutlak değerli terimlerin sola toplanması}) \\\\
+                    (|x|-1)^2 + (|y|-1)^2 &\\le 2 && (\\text{İfadenin tam kare formuna geçirilmesi}) \\\\
+                    (x-1)^2 + (y-1)^2 &\\le 2 \\quad (x \\ge 0, \\, y \\ge 0) && (\\text{1. çeyrek düzlemdeki alt bölgenin (} D_1 \\text{) tanımı}) \\\\
+                    &\\text{Bu bölge, merkezi } (1,1) \\text{ ve yarıçapı } \\sqrt{2} \\text{ olan bir disktir.} && (\\text{Geometrik formun tespiti}) \\\\
+                    A_{disk} &= \\pi (\\sqrt{2})^2 = 2\\pi && (\\text{Tam diskin analitik alanı}) \\\\
+                    &\\text{Ancak bu disk 1. çeyrek dışına da (2. ve 4. çeyreklere) taşmaktadır.} && (\\text{Topolojik taşma analizi}) \\\\
+                    &\\text{2. çeyreğe taşan kısım, } x=0 \\text{ doğrusu ile kesilen dairesel kapaktır.} && (\\text{Sınır kapağının belirlenmesi}) \\\\
+                    d &= 1, \\quad R = \\sqrt{2} && (\\text{Merkezin eksene uzaklığı ve yarıçap}) \\\\
+                    \\cos\\left(\\frac{\\theta}{2}\\right) &= \\frac{d}{R} = \\frac{1}{\\sqrt{2}} \\implies \\theta = \\frac{\\pi}{2} && (\\text{Kapak diliminin merkez açısı}) \\\\
+                    A_{kapak} &= \\frac{1}{2} R^2 \\theta - \\frac{1}{2} \\text{taban} \\times \\text{y\\ddot{u}kseklik} && (\\text{Dairesel segment (kapak) alan formülü}) \\\\
+                      &= \\frac{1}{2} (\\sqrt{2})^2 \\left(\\frac{\\pi}{2}\\right) - \\frac{1}{2}(2)(1) = \\frac{\\pi}{2} - 1 && (\\text{Tek bir kapağın alan hesabı}) \\\\
+                    A_1 &= A_{disk} - 2 \\times A_{kapak} && (\\text{1. çeyrekteki net alan için taşan kapakların çıkarılması}) \\\\
+                      &= 2\\pi - 2\\left(\\frac{\\pi}{2} - 1\\right) = \\pi + 2 && (\\text{Sadeleştirilmiş çeyrek alan}) \\\\
+                    A_{toplam} &= 4 \\times A_1 = 4(\\pi + 2) && (\\text{Global simetri kuralı ile 4 ile çarpım}) \\\\
+                      &= 4\\pi + 8 \\text{ birimkare} && (\\text{Kusursuz nihai sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 6", "Lame Eğrileri ve İleri Trigonometrik Alan Sentezi (Konu: 13.3)", 
+                    "Kartezyen koordinatlarda analitik entegrasyonu imkansız olan \\( x^4 + y^4 = x^2 + y^2 \\) kapalı eğrisinin (özel bir Superellipse türevi) sınırladığı toplam alanı, kutupsal koordinatlar ve genelleştirilmiş integraller kullanarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p><b>Strateji:</b> Eğri orijine göre simetriktir. Kutupsal koordinatlara geçiş yaparak trigonometrik indirgeme formüllerini ve asimptotik sınırları kullanacağız.</p>
+                    $$\\begin{aligned}
+                    r^4(\\cos^4\\theta + \\sin^4\\theta) &= r^2 && (\\text{Denklemin kutupsal forma dönüştürülmesi}) \\\\
+                    r^2 &= \\frac{1}{\\cos^4\\theta + \\sin^4\\theta} && (\\text{Radyal sınırın açısal fonksiyona bağlanması}) \\\\
+                    \\cos^4\\theta + \\sin^4\\theta &= (\\cos^2\\theta+\\sin^2\\theta)^2 - 2\\sin^2\\theta\\cos^2\\theta && (\\text{İleri trigonometrik tam kare özdeşliği}) \\\\
+                      &= 1 - \\frac{1}{2}\\sin^2(2\\theta) && (\\text{Yarım açı formülü ile indirgeme}) \\\\
+                    A &= 4 \\times \\left( \\frac{1}{2} \\int_{0}^{\\pi/2} r^2 \\, d\\theta \\right) && (\\text{Simetri kuralıyla 1. bölge alanının 4 ile çarpımı}) \\\\
+                      &= 2 \\int_{0}^{\\pi/2} \\frac{1}{1 - \\frac{1}{2}\\sin^2(2\\theta)} \\, d\\theta && (\\text{İntegralin ve radyal fonksiyonun kurgulanması}) \\\\
+                      &= 4 \\int_{0}^{\\pi/2} \\frac{1}{2 - \\sin^2(2\\theta)} \\, d\\theta && (\\text{Kesirlerin rasyonel olarak toparlanması}) \\\\
+                    \\alpha &= 2\\theta \\implies d\\alpha = 2d\\theta && (\\text{Frekans düşürme için açısal u-dönüşümü}) \\\\
+                    A &= 2 \\int_{0}^{\\pi} \\frac{1}{2 - \\sin^2\\alpha} \\, d\\alpha = 4 \\int_{0}^{\\pi/2} \\frac{1}{2 - \\sin^2\\alpha} \\, d\\alpha && (\\text{Periyodik simetriden yararlanarak sınır daraltması}) \\\\
+                      &= 4 \\int_{0}^{\\pi/2} \\frac{\\sec^2\\alpha}{2\\sec^2\\alpha - \\tan^2\\alpha} \\, d\\alpha && (\\text{Pay ve paydanın } \\cos^2\\alpha \\text{ ile bölünmesi}) \\\\
+                      &= 4 \\int_{0}^{\\pi/2} \\frac{\\sec^2\\alpha}{2(1+\\tan^2\\alpha) - \\tan^2\\alpha} \\, d\\alpha && (\\text{Sekant-Tanjant pisagorik özdeşliği}) \\\\
+                      &= 4 \\int_{0}^{\\pi/2} \\frac{\\sec^2\\alpha}{2 + \\tan^2\\alpha} \\, d\\alpha && (\\text{Sadeleşmiş mükemmel integrasyon formu}) \\\\
+                    u &= \\tan\\alpha \\implies du = \\sec^2\\alpha \\, d\\alpha && (\\text{Sonsuz sınırlı genelleştirilmiş integral dönüşümü}) \\\\
+                    A &= 4 \\int_{0}^{\\infty} \\frac{1}{2 + u^2} \\, du && (\\text{Sınırların sonsuzluğa uzandığı yeni yapı}) \\\\
+                      &= \\frac{4}{\\sqrt{2}} \\left[ \\arctan\\left(\\frac{u}{\\sqrt{2}}\\right) \\right]_0^\\infty && (\\text{Standart arktanjant ters türevinin alınması}) \\\\
+                      &= 2\\sqrt{2} \\left(\\frac{\\pi}{2} - 0\\right) && (\\text{Sonsuzluk limitinin arktanjanttaki yansıması}) \\\\
+                      &= \\sqrt{2}\\pi \\text{ birimkare} && (\\text{Nihai transandant sonuç})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 7", "Genelleştirilmiş Kutupsal Alan ve Euler-Mascheroni Sabiti Sentezi (Konu: 13.4)", 
+                    "Tüm iki boyutlu reel uzay \\( \\mathbb{R}^2 \\) üzerinde tanımlı \\( I = \\iint_{\\mathbb{R}^2} \\ln(x^2+y^2) e^{-(x^2+y^2)} \\, dA \\) genelleştirilmiş integralini kutupsal koordinatlar yardımıyla hesaplayınız. \\( \\Big(\\text{Not: } \\int_0^\\infty \\ln(t) e^{-t} \\, dt = -\\gamma \\text{ (Euler-Mascheroni Sabiti)}\\Big) \\)", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Tüm reel düzlemi taramak için kutupsal sınırları sonsuza uzatıp, radyal integrali Gama fonksiyonunun türevi formatına zorlayacağız.</p>
+                    $$\\begin{aligned}
+                    I &= \\int_{0}^{2\\pi} \\int_{0}^{\\infty} \\ln(r^2) e^{-r^2} r \\, dr \\, d\\theta && (\\text{Sonsuz düzlemin kutupsal forma dönüştürülmesi}) \\\\
+                      &= \\left( \\int_{0}^{2\\pi} 1 \\, d\\theta \\right) \\left( \\int_{0}^{\\infty} 2\\ln(r) e^{-r^2} r \\, dr \\right) && (\\text{Ayrılabilir sınırların bağımsız çarpım kurgusu}) \\\\
+                    u &= r^2 \\implies du = 2r \\, dr && (\\text{Üstel argümanın u-dönüşümü ile yalıtılması}) \\\\
+                    \\ln(r) &= \\ln(u^{1/2}) = \\frac{1}{2}\\ln u && (\\text{Logaritma fonksiyonunun u cinsinden yazımı}) \\\\
+                    \\int_{0}^{\\infty} 2\\ln(r) e^{-r^2} r \\, dr &= \\int_{0}^{\\infty} 2\\left(\\frac{1}{2}\\ln u\\right) e^{-u} \\frac{du}{2} && (\\text{Dönüşüm elemanlarının integrale yerleştirilmesi}) \\\\
+                      &= \\frac{1}{2} \\int_{0}^{\\infty} \\ln(u) e^{-u} \\, du && (\\text{Katsayıların sadeleşerek dışarı alınması}) \\\\
+                      &= \\frac{1}{2} (-\\gamma) = -\\frac{\\gamma}{2} && (\\text{Verilen asimptotik Gama değerinin kullanılması}) \\\\
+                    I &= (2\\pi) \\left( -\\frac{\\gamma}{2} \\right) && (\\text{Açısal ve radyal çarpanların birleştirilmesi}) \\\\
+                      &= -\\pi\\gamma && (\\text{Matematiğin iki büyük sabitini bağlayan sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 8", "Lemniskat Bölgesinde Rasyonel İntegral ve Trigonometrik İndirgeme (Konu: 13.4)", 
+                    "\\( (x^2+y^2)^2 = x^2-y^2 \\) lemniskatının sağ ilmeği (loop) tarafından sınırlanan kapalı \\( D \\) bölgesi üzerinde, \\( I = \\iint_D \\frac{1}{(1+x^2+y^2)^2} \\, dA \\) integralini kutupsal dönüşüm ve sekant özdeşlikleri kullanarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Lemniskatın kutupsal denklemini elde edip, rasyonel integrandın iç integrasyonundan doğacak trigonometrik paydayı yarım açı formülleriyle sekant karesine çevireceğiz.</p>
+                    $$\\begin{aligned}
+                    r^4 &= r^2(\\cos^2\\theta - \\sin^2\\theta) \\implies r^2 = \\cos(2\\theta) && (\\text{Lemniskatın kutupsal forma indirgenmesi}) \\\\
+                    \\cos(2\\theta) &\\ge 0 \\implies -\\frac{\\pi}{4} \\le \\theta \\le \\frac{\\pi}{4} && (\\text{Sağ ilmeğin açısal varlık kısıtı}) \\\\
+                    I &= \\int_{-\\pi/4}^{\\pi/4} \\int_{0}^{\\sqrt{\\cos(2\\theta)}} \\frac{r}{(1+r^2)^2} \\, dr \\, d\\theta && (\\text{Kutupsal alan elemanıyla yeni integral kurgusu}) \\\\
+                      &= 2 \\int_{0}^{\\pi/4} \\left[ -\\frac{1}{2(1+r^2)} \\right]_0^{\\sqrt{\\cos(2\\theta)}} d\\theta && (\\text{İç ters türev ve eksen simetrisi ile 2 çarpanı}) \\\\
+                      &= 2 \\int_{0}^{\\pi/4} \\left( \\frac{1}{2} - \\frac{1}{2(1+\\cos(2\\theta))} \\right) d\\theta && (\\text{Sınırların radyal fonksiyona yerleştirilmesi}) \\\\
+                    1+\\cos(2\\theta) &= 2\\cos^2\\theta && (\\text{Kosinüs yarım açı özdeşliği}) \\\\
+                    \\frac{1}{2(1+\\cos(2\\theta))} &= \\frac{1}{4\\cos^2\\theta} = \\frac{1}{4}\\sec^2\\theta && (\\text{Paydadaki kosinüsün sekant formuna geçişi}) \\\\
+                    I &= 2 \\int_{0}^{\\pi/4} \\left( \\frac{1}{2} - \\frac{1}{4}\\sec^2\\theta \\right) d\\theta && (\\text{Sadeleşmiş integrasyon hazır denklemi}) \\\\
+                      &= 2 \\left[ \\frac{\\theta}{2} - \\frac{\\tan\\theta}{4} \\right]_0^{\\pi/4} && (\\text{Trigonometrik dış integralin ters türevi}) \\\\
+                      &= 2 \\left( \\frac{\\pi}{8} - \\frac{1}{4} \\right) && (\\text{Üst sınırın radyal açıya yerleştirilmesi}) \\\\
+                      &= \\frac{\\pi}{4} - \\frac{1}{2} && (\\text{Kusursuz cebirsel nihai sonuç})
+                    \\end{aligned}$$`
+                );
+
+html += createQuestion("Soru 9", "Tricylinder (Üçlü Steinmetz Cismi) Hacmi ve İleri Permütasyon Simetrisi (Konu: 13.5)", 
+                    "Birbirine dik olan \\( x^2+y^2 \\le R^2 \\), \\( x^2+z^2 \\le R^2 \\) ve \\( y^2+z^2 \\le R^2 \\) sonsuz silindirlerinin kesişimiyle oluşan masif cismin hacmini, Kartezyen koordinatlarda üç katlı integraller ve mutlak bölge simetrisi kullanarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p><b>Strateji:</b> Bu cisim orijine göre tam simetriktir. 1. oktanttaki parça, \\( x=y, x=z, y=z \\) düzlemleriyle 6 eş parçaya (simplex) ayrılır. İntegrali, sınırların en net tanımlandığı \\( x \\ge y \\ge z \\ge 0 \\) hiyerarşisinde kurup tüm cisme oranlayacağız.</p>
+                    $$\\begin{aligned}
+                    & x^2+y^2 \\le R^2, \\quad x^2+z^2 \\le R^2, \\quad y^2+z^2 \\le R^2 && (\\text{Üç silindirin arakesit kısıtları}) \\\\
+                    & \\text{1. oktanttaki hacmin } 8 \\text{ katı toplam hacmi verir.} && (\\text{Ana oktant simetrisi}) \\\\
+                    & \\text{1. oktant bölgesi } x \\ge y \\ge z \\text{ eşitsizliğiyle } 6 \\text{ eş parçaya ayrılır.} && (\\text{Permütasyon (faktöriyel) simetrisi}) \\\\
+                    V &= 48 \\iiint_D 1 \\, dz \\, dy \\, dx && (\\text{Toplam hacim kurgusu}) \\\\
+                    & x \\ge y \\ge z \\implies y^2+z^2 \\le x^2+y^2 \\le R^2 && (\\text{Kısıtların doğal eşitsizlik hiyerarşisi}) \\\\
+                    & 0 \\le z \\le y, \\quad 0 \\le y \\le \\frac{R}{\\sqrt{2}}, \\quad y \\le x \\le \\sqrt{R^2-y^2} && (\\text{En daraltıcı sınırlara göre Kartezyen limitler}) \\\\
+                    V &= 48 \\int_{0}^{R/\\sqrt{2}} \\int_{y}^{\\sqrt{R^2-y^2}} \\int_{0}^{y} 1 \\, dz \\, dx \\, dy && (\\text{Üç katlı integralin asimetrik sınırlarla tam kurulumu}) \\\\
+                    \\int_{0}^{y} 1 \\, dz &= y && (\\text{Z ekseni iç integrali}) \\\\
+                    \\int_{y}^{\\sqrt{R^2-y^2}} y \\, dx &= y \\left( \\sqrt{R^2-y^2} - y \\right) && (\\text{X ekseni orta integrali}) \\\\
+                    V &= 48 \\int_{0}^{R/\\sqrt{2}} \\left( y\\sqrt{R^2-y^2} - y^2 \\right) dy && (\\text{Y ekseni dış integraline geçiş}) \\\\
+                    \\int y\\sqrt{R^2-y^2} \\, dy &= -\\frac{1}{3}(R^2-y^2)^{3/2} && (\\text{Kök içi ters türev kuralı}) \\\\
+                    \\left[ -\\frac{1}{3}(R^2-y^2)^{3/2} \\right]_0^{R/\\sqrt{2}} &= -\\frac{1}{3}\\left(\\frac{R^2}{2}\\right)^{3/2} + \\frac{R^3}{3} = \\frac{R^3}{3} \\left( 1 - \\frac{1}{2\\sqrt{2}} \\right) && (\\text{Birinci parçanın sınır hesabı}) \\\\
+                    \\int_{0}^{R/\\sqrt{2}} y^2 \\, dy &= \\left[ \\frac{y^3}{3} \\right]_0^{R/\\sqrt{2}} = \\frac{R^3}{6\\sqrt{2}} && (\\text{İkinci parçanın polinom hesabı}) \\\\
+                    V &= 48 \\left( \\frac{R^3}{3} - \\frac{R^3}{6\\sqrt{2}} - \\frac{R^3}{6\\sqrt{2}} \\right) && (\\text{Parçaların integrantta birleşimi}) \\\\
+                      &= 48 \\left( \\frac{R^3}{3} - \\frac{R^3}{3\\sqrt{2}} \\right) = 16R^3 \\left( 1 - \\frac{\\sqrt{2}}{2} \\right) && (\\text{Rasyonel toparlama ve katsayı çarpımı}) \\\\
+                      &= 8R^3 (2 - \\sqrt{2}) && (\\text{Tricylinder (Steinmetz) hacminin nihai analitik ispatı})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 10", "Liouville-Dirichlet Genelleştirmesi ve Euler Beta Fonksiyonu (Konu: 13.5)", 
+                    "\\( x, y, z \\ge 0 \\) ve \\( \\sqrt{x} + \\sqrt{y} + \\sqrt{z} \\le 1 \\) ile sınırlı, eğrisel yüzeylere sahip hacimsel bölge üzerinde tanımlanan \\( I = \\iiint_V x y z \\, dz \\, dy \\, dx \\) integralini, koordinat doğrusalizasyonu ve ardışık Beta/Gama fonksiyonları kullanarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p><b>Strateji:</b> Karekök kısıtlarından kurtulmak için değişkenleri kareleriyle değiştireceğiz. Ortaya çıkan yeni bölge standart bir \\( n \\)-simpleks olacaktır. Ardından değişkenleri normalize edip iç içe geçmiş Euler Beta fonksiyonlarına dönüştüreceğiz.</p>
+                    $$\\begin{aligned}
+                    V &= \\left\\{ (x,y,z) \\mid x,y,z \\ge 0, \\; x^{1/2} + y^{1/2} + z^{1/2} \\le 1 \\right\\} && (\\text{İntegrasyon bölgesinin analitik kısıtı}) \\\\
+                    x &= u^2, \\quad y = v^2, \\quad z = w^2 && (\\text{Karekök kısıtını doğrusallaştıran sentetik dönüşüm}) \\\\
+                    dx &= 2u \\, du, \\quad dy = 2v \\, dv, \\quad dz = 2w \\, dw && (\\text{Diferansiyel alan/hacim elemanı geçişleri}) \\\\
+                    V' &= \\left\\{ (u,v,w) \\mid u,v,w \\ge 0, \\; u+v+w \\le 1 \\right\\} && (\\text{Dönüşmüş standart simpleks (tetrahedron) bölgesi}) \\\\
+                    I &= \\iiint_{V'} (u^2)(v^2)(w^2) (8uvw) \\, du \\, dv \\, dw && (\\text{Dönüşümün hedef integrale yerleştirilmesi}) \\\\
+                      &= 8 \\iiint_{V'} u^3 v^3 w^3 \\, dw \\, dv \\, du && (\\text{Sadeleşmiş yeni polinom formu}) \\\\
+                    \\int_{0}^{1-u-v} w^3 \\, dw &= \\frac{(1-u-v)^4}{4} && (\\text{En iç w integralinin alınması}) \\\\
+                    \\int_{0}^{1-u} v^3 \\frac{(1-u-v)^4}{4} \\, dv &= \\frac{(1-u)^8}{4} \\int_{0}^{1} t^3 (1-t)^4 \\, dt && (v = (1-u)t \\text{ ölçekleme dönüşümü ile sınırların sabitlenmesi}) \\\\
+                    B(m,n) &= \\int_{0}^{1} t^{m-1} (1-t)^{n-1} \\, dt = \\frac{\\Gamma(m)\\Gamma(n)}{\\Gamma(m+n)} && (\\text{Euler Beta ve Gama fonksiyonları ana bağıntısı}) \\\\
+                    \\int_{0}^{1} t^3 (1-t)^4 \\, dt &= B(4,5) = \\frac{3! \\, 4!}{8!} = \\frac{6 \\times 24}{40320} = \\frac{1}{280} && (\\text{Gama fonksiyonel faktöriyel hesabı}) \\\\
+                    I &= 8 \\int_{0}^{1} u^3 \\left( \\frac{(1-u)^8}{4 \\times 280} \\right) du && (\\text{Bulunan değerin dış u integraline geçişi}) \\\\
+                      &= \\frac{1}{140} \\int_{0}^{1} u^3 (1-u)^8 \\, du && (\\text{Katsayıların integral dışına atılması}) \\\\
+                    \\int_{0}^{1} u^3 (1-u)^8 \\, du &= B(4,9) = \\frac{3! \\, 8!}{12!} = \\frac{6}{11880} = \\frac{1}{1980} && (\\text{İkinci Euler Beta fonksiyonunun faktöriyel ile hesabı}) \\\\
+                    I &= \\frac{1}{140} \\left( \\frac{1}{1980} \\right) = \\frac{1}{277200} && (\\text{Kusursuz transandant analitik sonuca ulaşılması})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 11", "Sonsuz Hacimli Kozmik Dağın Dönme Yarıçapı ve Gama Fonksiyonu (Konu: 13.6)", 
+                    "\\( z = e^{-(x^2+y^2)} \\) yüzeyi ile \\( z = 0 \\) düzlemi arasında kalan ve tüm \\( \\mathbb{R}^2 \\) düzlemine yayılan sonsuz hacimli cismin yoğunluğu \\( \\delta(x,y,z) = \\sqrt{x^2+y^2} \\) olarak verilmiştir. Bu cismin z-eksenine göre dönme yarıçapını (Radius of Gyration, \\( R_g \\)) genelleştirilmiş integraller ve Euler Gama fonksiyonu yardımıyla hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    R_g &= \\sqrt{\\frac{I_z}{M}} && (\\text{Dönme yarıçapı temel fiziksel tanımı}) \\\\
+                    M &= \\iiint_V \\delta \\, dV = \\int_{0}^{2\\pi} \\int_{0}^{\\infty} \\int_{0}^{e^{-r^2}} (r) \\, r \\, dz \\, dr \\, d\\theta && (\\text{Kütle integralinin silindirik koordinatlarda kurgusu}) \\\\
+                    \\int_{0}^{e^{-r^2}} r^2 \\, dz &= r^2 e^{-r^2} && (\\text{İç z-integralinin alınması}) \\\\
+                    M &= \\left( \\int_{0}^{2\\pi} d\\theta \\right) \\left( \\int_{0}^{\\infty} r^2 e^{-r^2} \\, dr \\right) && (\\text{Açısal ve radyal sınırların bağımsızlığından ayrıştırma}) \\\\
+                    u &= r^2 \\implies du = 2r \\, dr \\implies dr = \\frac{du}{2\\sqrt{u}} && (\\text{Radyal integral için kuvvet düşürücü dönüşüm}) \\\\
+                    \\int_{0}^{\\infty} r^2 e^{-r^2} \\, dr &= \\int_{0}^{\\infty} u e^{-u} \\frac{du}{2\\sqrt{u}} = \\frac{1}{2} \\int_{0}^{\\infty} u^{1/2} e^{-u} \\, du && (\\text{Dönüşümün integrale yerleşimi ve toparlanması}) \\\\
+                    \\Gamma(n) &= \\int_{0}^{\\infty} t^{n-1} e^{-t} \\, dt \\implies \\int_{0}^{\\infty} u^{1/2} e^{-u} \\, du = \\Gamma\\left(\\frac{3}{2}\\right) && (\\text{Euler Gama fonksiyonu tanımıyla eşleştirme}) \\\\
+                    \\Gamma\\left(\\frac{3}{2}\\right) &= \\frac{1}{2} \\Gamma\\left(\\frac{1}{2}\\right) = \\frac{\\sqrt{\\pi}}{2} && (\\text{Gama fonksiyonunun temel analitik değeri}) \\\\
+                    M &= (2\\pi) \\left( \\frac{1}{2} \\frac{\\sqrt{\\pi}}{2} \\right) = \\frac{\\pi\\sqrt{\\pi}}{2} && (\\text{Nihai kütle (M) sonucu}) \\\\
+                    I_z &= \\iiint_V (x^2+y^2) \\delta \\, dV = \\int_{0}^{2\\pi} \\int_{0}^{\\infty} \\int_{0}^{e^{-r^2}} (r^2) (r) \\, r \\, dz \\, dr \\, d\\theta && (\\text{Eylemsizlik momentinin silindirik kurgusu}) \\\\
+                    I_z &= (2\\pi) \\int_{0}^{\\infty} r^4 e^{-r^2} \\, dr && (\\text{Z-integrali ve açısal integralin doğrudan alınması}) \\\\
+                    \\int_{0}^{\\infty} r^4 e^{-r^2} \\, dr &= \\frac{1}{2} \\int_{0}^{\\infty} u^{3/2} e^{-u} \\, du = \\frac{1}{2} \\Gamma\\left(\\frac{5}{2}\\right) && (\\text{Aynı u-dönüşümüyle Gama formuna geçiş}) \\\\
+                    \\Gamma\\left(\\frac{5}{2}\\right) &= \\frac{3}{2} \\Gamma\\left(\\frac{3}{2}\\right) = \\frac{3\\sqrt{\\pi}}{4} && (\\text{İleri Gama indirgeme adımı}) \\\\
+                    I_z &= (2\\pi) \\left( \\frac{1}{2} \\frac{3\\sqrt{\\pi}}{4} \\right) = \\frac{3\\pi\\sqrt{\\pi}}{4} && (\\text{Nihai z-ekseni eylemsizlik momenti}) \\\\
+                    R_g &= \\sqrt{\\frac{\\frac{3\\pi\\sqrt{\\pi}}{4}}{\\frac{\\pi\\sqrt{\\pi}}{2}}} = \\sqrt{\\frac{3}{4} \\cdot 2} = \\sqrt{\\frac{3}{2}} && (\\text{Bölme işlemi ve dönme yarıçapı sonucu}) \\\\
+                      &= \\frac{\\sqrt{6}}{2} && (\\text{Rasyonel payda ile kusursuz nihai form})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 12", "Hiperbolik Ağda Kutupsal Eylemsizlik Momenti ve Jakobiyen Sentezi (Konu: 13.6 & 13.8)", 
+                    "\\( xy = 1 \\), \\( xy = 3 \\) hiperbolleri ile \\( y = x \\), \\( y = 4x \\) doğruları arasında kalan bölgeye yerleştirilen bir laminanın yoğunluğu \\( \\delta(x,y) = x^2 y^2 \\) olarak verilmiştir. Bu laminanın orijine (kutba) göre eylemsizlik momentini (\\( I_0 \\)), uygun değişken dönüşümleri (Jakobiyen) kullanarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    I_0 &= \\iint_D (x^2+y^2) \\delta(x,y) \\, dA = \\iint_D (x^2+y^2) x^2 y^2 \\, dx \\, dy && (\\text{Kutup noktasına göre eylemsizlik integrali}) \\\\
+                    u &= xy, \\quad v = \\frac{y}{x} && (\\text{Sınır denklemlerinden doğan optimal dönüşüm kurgusu}) \\\\
+                    1 &\\le u \\le 3, \\quad 1 \\le v \\le 4 && (\\text{Dönüşüm sonrası oluşan kusursuz dikdörtgensel sınırlar}) \\\\
+                    J &= \\frac{\\partial(x,y)}{\\partial(u,v)} = \\frac{1}{\\frac{\\partial(u,v)}{\\partial(x,y)}} = \\frac{1}{\\begin{vmatrix} y & x \\\\ -y/x^2 & 1/x \\end{vmatrix}} && (\\text{Ters Jakobiyen kuralı ile alan çarpanı}) \\\\
+                    J &= \\frac{1}{\\frac{y}{x} - \\left(-\\frac{y}{x}\\right)} = \\frac{1}{2\\frac{y}{x}} = \\frac{1}{2v} \\implies |J| = \\frac{1}{2v} && (\\text{Determinant hesabı ve v cinsinden mutlak alan çarpanı}) \\\\
+                    x^2 y^2 &= u^2 && (\\text{Yoğunluk fonksiyonunun u cinsinden ifadesi}) \\\\
+                    x^2 + y^2 &= x^2 \\left( 1 + \\left(\\frac{y}{x}\\right)^2 \\right) && (\\text{Uzaklık çarpanının dönüşüme hazırlanması}) \\\\
+                    x^2 &= \\frac{xy}{y/x} = \\frac{u}{v} \\implies x^2 + y^2 = \\frac{u}{v} (1 + v^2) = u(v^{-1} + v) && (\\text{Tüm kartezyen terimlerin u ve v uzayına aktarımı}) \\\\
+                    I_0 &= \\int_{1}^{4} \\int_{1}^{3} u(v^{-1} + v) (u^2) \\left(\\frac{1}{2v}\\right) \\, du \\, dv && (\\text{Yeni sınırlar ve integrand ile çift katlı integral}) \\\\
+                      &= \\frac{1}{2} \\int_{1}^{4} \\int_{1}^{3} u^3 (v^{-2} + 1) \\, du \\, dv && (\\text{v terimlerinin sadeleştirilip katsayının dışarı alınması}) \\\\
+                      &= \\frac{1}{2} \\left( \\int_{1}^{3} u^3 \\, du \\right) \\left( \\int_{1}^{4} (v^{-2} + 1) \\, dv \\right) && (\\text{Bağımsız sınırların ayrıştırılabilir fonksiyonlarla çarpımı}) \\\\
+                    \\int_{1}^{3} u^3 \\, du &= \\left[ \\frac{u^4}{4} \\right]_1^3 = \\frac{81 - 1}{4} = 20 && (\\text{u değişkenine göre ters türev ve sınır hesabı}) \\\\
+                    \\int_{1}^{4} (v^{-2} + 1) \\, dv &= \\left[ -v^{-1} + v \\right]_1^4 = \\left( -\\frac{1}{4} + 4 \\right) - (-1 + 1) && (\\text{v değişkenine göre ters türev ve sınır hesabı}) \\\\
+                      &= \\frac{15}{4} - 0 = \\frac{15}{4} && (\\text{İkinci çarpanın sayısal sonucu}) \\\\
+                    I_0 &= \\frac{1}{2} (20) \\left( \\frac{15}{4} \\right) = 10 \\left( \\frac{15}{4} \\right) && (\\text{Tüm hesaplanan çarpanların ana denkleme dönüşü}) \\\\
+                      &= \\frac{75}{2} && (\\text{Kusursuz analitik eylemsizlik momenti})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 13", "Eksensel Olmayan Silindirik Bölge ve Değişken Yoğunluk Analizi (Konu: 13.7)", 
+                    "\\( x^2 + y^2 = 2x \\) silindiri içerisinde kalan, alttan \\( z = 0 \\) ve üstten \\( z = x^2 + y^2 \\) paraboloidi ile sınırlanan cismin toplam kütlesini hesaplayınız. Cismin yoğunluk fonksiyonu \\( \\delta(x,y,z) = z \\) olarak verilmiştir.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Silindir orijin merkezli olmadığı için sınırları silindirik koordinatlara aktarırken açısal aralığa ve radyal üst sınıra azami dikkat edilmelidir. Yoğunluğun z'ye bağlı olması iç integralin derecesini artıracaktır.</p>
+                    $$\\begin{aligned}
+                    x^2 - 2x + y^2 = 0 &\\implies (r\\cos\\theta)^2 + (r\\sin\\theta)^2 = 2r\\cos\\theta && (\\text{Silindir denkleminin kutupsal dönüşümü}) \\\\
+                    r^2 = 2r\\cos\\theta &\\implies r = 2\\cos\\theta && (\\text{Radyal üst sınırın açıya bağlı fonksiyonu}) \\\\
+                    \\theta \\in \\left[ -\\frac{\\pi}{2}, \\frac{\\pi}{2} \\right] &, \\quad r \\in [0, 2\\cos\\theta], \\quad z \\in [0, r^2] && (\\text{Entegrasyon bölgesinin tam silindirik kısıtları}) \\\\
+                    M &= \\int_{-\\pi/2}^{\\pi/2} \\int_{0}^{2\\cos\\theta} \\int_{0}^{r^2} (z) \\, r \\, dz \\, dr \\, d\\theta && (\\text{Kütle integralinin diferansiyel kurgusu}) \\\\
+                      &= \\int_{-\\pi/2}^{\\pi/2} \\int_{0}^{2\\cos\\theta} r \\left[ \\frac{z^2}{2} \\right]_0^{r^2} dr \\, d\\theta && (\\text{Yoğunluk içeren iç z-integralinin alınması}) \\\\
+                      &= \\frac{1}{2} \\int_{-\\pi/2}^{\\pi/2} \\int_{0}^{2\\cos\\theta} r^5 \\, dr \\, d\\theta && (\\text{Sınırların yerleşimiyle radyal polinomun oluşması}) \\\\
+                      &= \\frac{1}{2} \\int_{-\\pi/2}^{\\pi/2} \\left[ \\frac{r^6}{6} \\right]_0^{2\\cos\\theta} d\\theta && (\\text{Radyal integralin ters türevinin hesaplanması}) \\\\
+                      &= \\frac{1}{12} \\int_{-\\pi/2}^{\\pi/2} 64\\cos^6\\theta \\, d\\theta && (\\text{Sabit çarpanların ve açısal fonksiyonun yalıtılması}) \\\\
+                      &= \\frac{32}{3} \\int_{0}^{\\pi/2} \\cos^6\\theta \\, d\\theta \\times 2 && (\\text{Çift fonksiyon simetrisiyle sınır daraltma}) \\\\
+                    \\int_{0}^{\\pi/2} \\cos^6\\theta \\, d\\theta &= \\frac{5}{6} \\cdot \\frac{3}{4} \\cdot \\frac{1}{2} \\cdot \\frac{\\pi}{2} = \\frac{5\\pi}{32} && (\\text{Wallis indirgeme formülünün uygulanması}) \\\\
+                    M &= \\frac{64}{3} \\left( \\frac{5\\pi}{32} \\right) && (\\text{Tüm hesaplanan katsayıların birleştirilmesi}) \\\\
+                      &= \\frac{10\\pi}{3} && (\\text{Silindirik sistemden gelen nihai analitik kütle})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 14", "Merkezi Kayık Küre Üzerinde Gravitasyonel Potansiyel Sentezi (Konu: 13.7)", 
+                    "\\( x^2 + y^2 + z^2 = 2az \\) küresi tarafından sınırlanan homojen cismin (\\( \\delta = k \\)), orijinde (\\( 0,0,0 \\)) oluşturduğu çekim potansiyelini temsil eden \\( I = \\iiint_V \\frac{\\delta}{\\rho} \\, dV \\) integralini küresel koordinatlar kullanarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Küre merkezi \\( (0,0,a) \\) noktasındadır. Orijinden çıkan ışınlar küreyi açıya bağlı bir mesafede terk eder. Bu "kayık" geometriyi küresel koordinatların sınırlarına doğru yansıtmak çözümün anahtarıdır.</p>
+                    $$\\begin{aligned}
+                    x^2 + y^2 + z^2 = 2az &\\implies \\rho^2 = 2a(\\rho\\cos\\phi) && (\\text{Küresel denklemin zenit açısına göre türetilmesi}) \\\\
+                    \\rho &= 2a\\cos\\phi && (\\text{Radyal sınırın açısal fonksiyonu}) \\\\
+                    \\phi \\in [0, \\pi/2] &, \\quad \\theta \\in [0, 2\\pi], \\quad \\rho \\in [0, 2a\\cos\\phi] && (\\text{Bölgenin küresel koordinatlardaki tam tanımı}) \\\\
+                    I &= k \\int_{0}^{2\\pi} \\int_{0}^{\\pi/2} \\int_{0}^{2a\\cos\\phi} \\left(\\frac{1}{\\rho}\\right) \\rho^2 \\sin\\phi \\, d\\rho \\, d\\phi \\, d\\theta && (\\text{Hacim elemanındaki karesel terimin potansiyel ile sadeleşmesi}) \\\\
+                      &= k \\int_{0}^{2\\pi} \\int_{0}^{\\pi/2} \\sin\\phi \\left[ \\frac{\\rho^2}{2} \\right]_0^{2a\\cos\\phi} d\\phi \\, d\\theta && (\\text{Radyal integralin ters türevi}) \\\\
+                      &= k \\int_{0}^{2\\pi} \\int_{0}^{\\pi/2} \\sin\\phi \\left( \\frac{4a^2\\cos^2\\phi}{2} \\right) d\\phi \\, d\\theta && (\\text{Sınırların yerleşimiyle trigonometrik yapıya geçiş}) \\\\
+                      &= 2a^2 k \\int_{0}^{2\\pi} \\left( \\int_{0}^{\\pi/2} \\cos^2\\phi \\sin\\phi \\, d\\phi \\right) d\\theta && (\\text{Bağımsız integrallerin ayrıştırılması}) \\\\
+                    u = \\cos\\phi &\\implies du = -\\sin\\phi \\, d\\phi && (\\text{Trigonometrik iç integral için u-dönüşümü}) \\\\
+                    \\int_{1}^{0} -u^2 \\, du &= \\int_{0}^{1} u^2 \\, du = \\left[ \\frac{u^3}{3} \\right]_0^1 = \\frac{1}{3} && (\\text{Sınırların değişimi ve ters türev hesabı}) \\\\
+                    I &= 2a^2 k (2\\pi) \\left( \\frac{1}{3} \\right) && (\\text{Açısal dış integral ve iç sonucun birleşimi}) \\\\
+                      &= \\frac{4\\pi a^2 k}{3} && (\\text{Kayık küre sistemi için nihai potansiyel değeri})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 15", "Gizli Dönüşüm ve Jakobiyen İptali (Konu: 13.8)", 
+                    "Birinci bölgede \\( x^2 - y^2 = 1 \\), \\( x^2 - y^2 = 4 \\) hiperbolleri ile \\( xy = 1 \\), \\( xy = 3 \\) ters orantı eğrileri arasında kalan kapalı \\( D \\) bölgesi üzerinde, \\( I = \\iint_D (x^2 + y^2) e^{xy} \\, dA \\) integralini hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Soru bize hangi değişken dönüşümünü yapacağımızı söylemiyor. Ancak entegrasyon bölgesini sınırlayan eğrilerin denklemleri, aslında yeni eksen takımımızın (u ve v) ta kendisidir.</p>
+                    $$\\begin{aligned}
+                    u &= x^2 - y^2, \\quad v = xy && (\\text{Sınır denklemlerinden ilham alınarak kurgulanan optimal dönüşüm}) \\\\
+                    1 &\\le u \\le 4, \\quad 1 \\le v \\le 3 && (\\text{Karmaşık eğrisel bölgeyi kusursuz bir dikdörtgene çeviren yeni sınırlar}) \\\\
+                    \\frac{\\partial(u,v)}{\\partial(x,y)} &= \\begin{vmatrix} 2x & -2y \\\\ y & x \\end{vmatrix} && (\\text{Ters fonksiyonları bulmak imkansız olduğundan u ve v'nin Jakobiyen matrisi}) \\\\
+                      &= 2x(x) - (-2y)(y) = 2x^2 + 2y^2 && (\\text{Kısmi türev determinantının hesaplanması}) \\\\
+                    J &= \\frac{\\partial(x,y)}{\\partial(u,v)} = \\frac{1}{\\frac{\\partial(u,v)}{\\partial(x,y)}} = \\frac{1}{2(x^2+y^2)} && (\\text{Jakobiyenlerin çarpıma göre tersi kuralıyla alan diferansiyeli çarpanı}) \\\\
+                    I &= \\int_{1}^{3} \\int_{1}^{4} (x^2 + y^2) e^v \\left( \\frac{1}{2(x^2+y^2)} \\right) \\, du \\, dv && (\\text{İntegrand, yeni sınırlar ve Jakobiyenin bir araya getirilmesi}) \\\\
+                      &= \\int_{1}^{3} \\int_{1}^{4} \\frac{1}{2} e^v \\, du \\, dv && (\\text{Jakobiyen sayesinde kartezyen karmaşanın tamamen sadeleşmesi}) \\\\
+                      &= \\frac{1}{2} \\left( \\int_{1}^{4} 1 \\, du \\right) \\left( \\int_{1}^{3} e^v \\, dv \\right) && (\\text{Sabit sınırlı tam bağımsız değişken integrallerine ayrıştırma}) \\\\
+                    \\int_{1}^{4} 1 \\, du &= 4 - 1 = 3 && (\\text{Diferansiyel u eksenindeki boy hesabı}) \\\\
+                    \\int_{1}^{3} e^v \\, dv &= e^3 - e^1 && (\\text{Üstel v eksenindeki alan hesabı}) \\\\
+                    I &= \\frac{1}{2} (3) (e^3 - e) && (\\text{Çarpanların birleştirilmesi}) \\\\
+                      &= \\frac{3}{2} (e^3 - e) && (\\text{Analitik zekanın eseri olan nihai sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 16", "Kuadratik Formlar, Ortogonal Rotasyon ve Çok Değişkenli Gauss İntegrali (Konu: 13.8)", 
+                    "Tüm iki boyutlu reel uzay (\\( \\mathbb{R}^2 \\)) üzerinde tanımlı \\( I = \\iint_{\\mathbb{R}^2} e^{-(5x^2 - 6xy + 5y^2)} \\, dA \\) genelleştirilmiş integralini, lineer cebirdeki kuadratik formları ve ortogonal eksen rotasyonunu (Jakobiyen) kullanarak analitik olarak hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Üstel argümandaki çapraz \\( xy \\) terimi integrasyonu imkansız kılar. İfadeyi bir matris olarak yazıp, özdeğerleri (eigenvalues) bularak eksenleri kendi etrafında döndüreceğiz (Diagonalization).</p>
+                    $$\\begin{aligned}
+                    Q(x,y) &= 5x^2 - 6xy + 5y^2 && (\\text{Üstel fonksiyonun argümanındaki kuadratik form}) \\\\
+                    A &= \\begin{pmatrix} 5 & -3 \\\\ -3 & 5 \\end{pmatrix} && (\\text{Kuadratik formun simetrik katsayılar matrisi}) \\\\
+                    \\det(A - \\lambda I) &= 0 \\implies (5-\\lambda)^2 - (-3)^2 = 0 && (\\text{Matrisi köşegenleştirmek için karakteristik özdeğer denklemi}) \\\\
+                    (5-\\lambda)^2 &= 9 \\implies 5-\\lambda = \\pm 3 && (\\text{Karesel köklerin ayrıştırılması}) \\\\
+                    \\lambda_1 &= 2, \\quad \\lambda_2 = 8 && (\\text{Elde edilen yeni bağımsız eksenlerin (u ve v) katsayıları}) \\\\
+                    Q(u,v) &= 2u^2 + 8v^2 && (\\text{Çapraz terimden arınmış rotasyonel kuadratik form}) \\\\
+                    \\begin{pmatrix} x \\\\ y \\end{pmatrix} &= P \\begin{pmatrix} u \\\\ v \\end{pmatrix} && (\\text{Eski eksenleri yeni eksenlere bağlayan ortogonal rotasyon matrisi}) \\\\
+                    |J| &= |\\det P| = 1 && (\\text{Sadece dönme işlemi yapıldığından alanın esnememesi (İzometri)}) \\\\
+                    I &= \\int_{-\\infty}^{\\infty} \\int_{-\\infty}^{\\infty} e^{-(2u^2 + 8v^2)} (1) \\, du \\, dv && (\\text{Sonsuz düzlemin yeni bağımsız eksenlerde kurgulanması}) \\\\
+                      &= \\left( \\int_{-\\infty}^{\\infty} e^{-2u^2} \\, du \\right) \\left( \\int_{-\\infty}^{\\infty} e^{-8v^2} \\, dv \\right) && (\\text{Çift katlı integralin iki adet tek değişkenli Gauss integraline ayrılması}) \\\\
+                    \\int_{-\\infty}^{\\infty} e^{-at^2} \\, dt &= \\sqrt{\\frac{\\pi}{a}} && (\\text{Standart Euler-Poisson (Gauss) integrali kuralı}) \\\\
+                    I_u &= \\int_{-\\infty}^{\\infty} e^{-2u^2} \\, du = \\sqrt{\\frac{\\pi}{2}} && (\\text{Birinci eksendeki olasılık alanı}) \\\\
+                    I_v &= \\int_{-\\infty}^{\\infty} e^{-8v^2} \\, dv = \\sqrt{\\frac{\\pi}{8}} && (\\text{İkinci eksendeki olasılık alanı}) \\\\
+                    I &= \\left( \\sqrt{\\frac{\\pi}{2}} \\right) \\left( \\sqrt{\\frac{\\pi}{8}} \\right) = \\sqrt{\\frac{\\pi^2}{16}} && (\\text{Çarpanların birleşimiyle kök içi sentezi}) \\\\
+                      &= \\frac{\\pi}{4} && (\\text{Lineer cebir ve analizin kesişiminden doğan kusursuz sonuç})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 17", "Non-Lineer Hiperbolik Ağda Ters Jakobiyen İptali (Konu: 13.8)", 
+                    "Birinci bölgede \\( y^2 = x^3 \\), \\( y^2 = 8x^3 \\) asimetrik kübik parabolleri ile \\( x^2 = y^3 \\), \\( x^2 = 8y^3 \\) eğrileri tarafından sınırlanan kapalı bölgenin alanını hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Sınırların denklemlerinden bağımsız değişkenleri (u, v) üreteceğiz. Doğrudan türev almak imkansız olduğu için matris determinantının tersini (Ters Jakobiyen) kullanacağız.</p>
+                    $$\\begin{aligned}
+                    u &= \\frac{y^2}{x^3}, \\quad v = \\frac{x^2}{y^3} && (\\text{Sınır kısıtlarından yalıtılan optimal değişken dönüşümleri}) \\\\
+                    1 &\\le u \\le 8, \\quad 1 \\le v \\le 8 && (\\text{Non-lineer eğrileri kusursuz bir karesel bölgeye dönüştüren sınırlar}) \\\\
+                    \\frac{\\partial(u,v)}{\\partial(x,y)} &= \\begin{vmatrix} \\frac{\\partial u}{\\partial x} & \\frac{\\partial u}{\\partial y} \\\\ \\frac{\\partial v}{\\partial x} & \\frac{\\partial v}{\\partial y} \\end{vmatrix} = \\begin{vmatrix} -\\frac{3y^2}{x^4} & \\frac{2y}{x^3} \\\\ \\frac{2x}{y^3} & -\\frac{3x^2}{y^4} \\end{vmatrix} && (\\text{Dönüşüm operatörlerinin kısmi türev matrisi}) \\\\
+                      &= \\left(-\\frac{3y^2}{x^4}\\right)\\left(-\\frac{3x^2}{y^4}\\right) - \\left(\\frac{2y}{x^3}\\right)\\left(\\frac{2x}{y^3}\\right) && (\\text{Matris determinantının çapraz çarpım açılımı}) \\\\
+                      &= \\frac{9}{x^2 y^2} - \\frac{4}{x^2 y^2} = \\frac{5}{x^2 y^2} && (\\text{Cebirsel sadeleşme ile elde edilen ters dönüşüm oranı}) \\\\
+                    u \\cdot v &= \\left(\\frac{y^2}{x^3}\\right) \\left(\\frac{x^2}{y^3}\\right) = \\frac{1}{xy} \\implies xy = \\frac{1}{uv} && (\\text{Kartezyen çarpımın yeni eksenler cinsinden yalıtılması}) \\\\
+                    x^2 y^2 &= \\frac{1}{u^2 v^2} \\implies \\frac{\\partial(u,v)}{\\partial(x,y)} = 5u^2 v^2 && (\\text{Ters Jakobiyenin sadece u ve v'ye bağlı nihai formu}) \\\\
+                    J &= \\frac{\\partial(x,y)}{\\partial(u,v)} = \\frac{1}{\\frac{\\partial(u,v)}{\\partial(x,y)}} = \\frac{1}{5u^2 v^2} && (\\text{Matris tersinirliği kuralıyla ana alan diferansiyeli çarpanı}) \\\\
+                    A &= \\int_{1}^{8} \\int_{1}^{8} (1) \\left( \\frac{1}{5u^2 v^2} \\right) \\, du \\, dv && (\\text{Yeni karesel sınırlar ve Jakobiyen ile alan entegrasyonu}) \\\\
+                      &= \\frac{1}{5} \\left( \\int_{1}^{8} u^{-2} \\, du \\right) \\left( \\int_{1}^{8} v^{-2} \\, dv \\right) && (\\text{Bağımsız değişkenlerin ayrılabilir fonksiyon çarpımı}) \\\\
+                    \\int_{1}^{8} u^{-2} \\, du &= \\left[ -\\frac{1}{u} \\right]_1^8 = -\\frac{1}{8} - (-1) = \\frac{7}{8} && (\\text{Kuvvet kuralıyla birinci eksen sınır hesabı}) \\\\
+                    A &= \\frac{1}{5} \\left( \\frac{7}{8} \\right) \\left( \\frac{7}{8} \\right) = \\frac{49}{320} \\text{ birimkare} && (\\text{İleri kalkülüs senteziyle elde edilen analitik sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 18", "Genel Elipsoid Üzerinde Yüksek Derece Yoğunluk ve Küresel İndirgeme (Konu: 13.5 & 13.8)", 
+                    "\\( \\frac{x^2}{a^2} + \\frac{y^2}{b^2} + \\frac{z^2}{c^2} \\le 1 \\) elipsoid bölgesini dolduran cismin yoğunluğu \\( \\delta(x,y,z) = x^2 y^2 z^2 \\) olarak verilmiştir. Bu cismin kütlesini genelleştirilmiş küresel koordinatlar ve trigonometrik Wallis formülleriyle hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Elipsoidi birim küreye çeken genelleştirilmiş dönüşümü yapıp, 6. dereceden oluşan yoğunluk polinomunu açısal integrallerle (Wallis) tamamen ayrıştıracağız.</p>
+                    $$\\begin{aligned}
+                    x &= a\\rho\\sin\\phi\\cos\\theta, \\quad y = b\\rho\\sin\\phi\\sin\\theta, \\quad z = c\\rho\\cos\\phi && (\\text{Elipsoidi normalize eden genelleştirilmiş küresel dönüşüm}) \\\\
+                    |J| &= abc\\rho^2\\sin\\phi && (\\text{Eksen esnemelerinin yarattığı Jakobiyen modifikasyonu}) \\\\
+                    \\delta(x,y,z) &= a^2 b^2 c^2 \\rho^6 \\sin^4\\phi \\cos^2\\phi \\sin^2\\theta \\cos^2\\theta && (\\text{Yoğunluk fonksiyonunun küresel parametrelerle açılımı}) \\\\
+                    M &= \\iiint_V \\delta \\, |J| \\, d\\rho \\, d\\phi \\, d\\theta && (\\text{Genel kütle integrali kurgusu}) \\\\
+                    M &= a^3 b^3 c^3 \\int_{0}^{2\\pi} \\int_{0}^{\\pi} \\int_{0}^{1} \\rho^8 \\sin^5\\phi \\cos^2\\phi \\sin^2\\theta \\cos^2\\theta \\, d\\rho \\, d\\phi \\, d\\theta && (\\text{Dönüşüm elemanlarının tek potada birleşimi}) \\\\
+                    M_\\rho &= \\int_{0}^{1} \\rho^8 \\, d\\rho = \\frac{1}{9} && (\\text{Normalize edilmiş radyal sınırların sabit integrali}) \\\\
+                    M_\\theta &= \\int_{0}^{2\\pi} \\sin^2\\theta \\cos^2\\theta \\, d\\theta = \\frac{1}{4} \\int_{0}^{2\\pi} \\sin^2(2\\theta) \\, d\\theta = \\frac{\\pi}{4} && (\\text{Yarım açı ve periyodik simetri ile azimutal integral}) \\\\
+                    M_\\phi &= \\int_{0}^{\\pi} \\sin^5\\phi \\cos^2\\phi \\, d\\phi = 2 \\int_{0}^{\\pi/2} \\sin^5\\phi \\cos^2\\phi \\, d\\phi && (\\text{Çift fonksiyon kuralıyla zenit integralinin daraltılması}) \\\\
+                    M_\\phi &= 2 \\left( \\frac{\\Gamma(3)\\Gamma(1.5)}{2\\Gamma(4.5)} \\right) \\dots \\text{veya trigonometrik dönüşümle:} && (\\text{İleri Euler Beta fonksiyonu ile alternatif yaklaşım}) \\\\
+                    u &= \\cos\\phi \\implies \\int_{1}^{0} -(1-u^2)^2 u^2 \\, du = \\int_{0}^{1} (u^2 - 2u^4 + u^6) \\, du && (\\text{Trigonometrik u-dönüşümü ile klasik cebirsel geçiş}) \\\\
+                    M_\\phi &= 2 \\left[ \\frac{u^3}{3} - \\frac{2u^5}{5} + \\frac{u^7}{7} \\right]_0^1 = 2 \\left( \\frac{35 - 42 + 15}{105} \\right) = \\frac{16}{105} && (\\text{Rasyonel polinom aritmetiği}) \\\\
+                    M &= (a^3 b^3 c^3) \\left( \\frac{1}{9} \\right) \\left( \\frac{\\pi}{4} \\right) \\left( \\frac{16}{105} \\right) && (\\text{Parçalanmış tüm eksen integrallerinin sentezi}) \\\\
+                      &= \\frac{4\\pi a^3 b^3 c^3}{945} && (\\text{Tam simetrik elipsoid kütlesinin nihai ispatı})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 19", "Lemniskat Silindiri ve Küre Kesişiminde İleri Hacim Analizi (Konu: 13.5 & 13.7)", 
+                    "Yarıçapı \\( R \\) olan \\( x^2+y^2+z^2 \\le R^2 \\) küresi ile, tabanı bir Bernoulli Lemniskatı olan \\( (x^2+y^2)^2 \\le R^2(x^2-y^2) \\) dikey silindirinin kesişiminden oluşan (Viviani konseptinin en üst düzeyi) asimetrik masif cismin hacmini hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Kesişim bölgesi 8 simetrik oktanta (veya parçaya) ayrılır. Silindirik koordinatları kullanarak küre sınırını üst kapak olarak, lemniskat eğrisini ise taban radyal sınırı olarak kurgulayacağız.</p>
+                    $$\\begin{aligned}
+                    r^4 &\\le R^2 r^2 (\\cos^2\\theta - \\sin^2\\theta) \\implies r^2 \\le R^2 \\cos(2\\theta) && (\\text{Lemniskat tabanının silindirik koordinatlara indirgenmesi}) \\\\
+                    r &\\le R\\sqrt{\\cos(2\\theta)} \\quad (\\text{için } \\cos(2\\theta) \\ge 0 \\implies -\\frac{\\pi}{4} \\le \\theta \\le \\frac{\\pi}{4}) && (\\text{Sağ ilmek için geçerli radyal üst sınır ve açısal varlık kısıtı}) \\\\
+                    z &\\le \\sqrt{R^2 - r^2} && (\\text{Küre denkleminin hacmin tavanını (z) oluşturması}) \\\\
+                    V &= 8 \\int_{0}^{\\pi/4} \\int_{0}^{R\\sqrt{\\cos(2\\theta)}} \\int_{0}^{\\sqrt{R^2-r^2}} 1 \\, r \\, dz \\, dr \\, d\\theta && (\\text{3D oktant simetrisi (8 parça) ile diferansiyel hacim kurgusu}) \\\\
+                    \\int_{0}^{\\sqrt{R^2-r^2}} r \\, dz &= r\\sqrt{R^2-r^2} && (\\text{Z-ekseni iç integralinin radyal forma çöküşü}) \\\\
+                    \\int_{0}^{R\\sqrt{\\cos(2\\theta)}} r(R^2-r^2)^{1/2} \\, dr &= \\left[ -\\frac{1}{3} (R^2-r^2)^{3/2} \\right]_0^{R\\sqrt{\\cos(2\\theta)}} && (\\text{Radyal alan elemanının ters zincir kuralıyla integralinin alınması}) \\\\
+                      &= -\\frac{1}{3} \\left( R^2 - R^2\\cos(2\\theta) \\right)^{3/2} - \\left( -\\frac{R^3}{3} \\right) && (\\text{Üst ve alt sınırların radyal kök içine yerleşimi}) \\\\
+                    1-\\cos(2\\theta) &= 2\\sin^2\\theta && (\\text{Trigonometrik yarım açı özdeşliği ile kök içi sadeleştirme}) \\\\
+                    \\text{İç Sonuç} &= \\frac{R^3}{3} - \\frac{R^3}{3} (2\\sin^2\\theta)^{3/2} = \\frac{R^3}{3} \\left( 1 - 2\\sqrt{2}\\sin^3\\theta \\right) && (\\text{Parantez dışına çıkarılmış ve açılara indirgenmiş form}) \\\\
+                    V &= \\frac{8R^3}{3} \\int_{0}^{\\pi/4} \\left( 1 - 2\\sqrt{2}\\sin^3\\theta \\right) d\\theta && (\\text{Nihai dış açısal integrale aktarım}) \\\\
+                    \\int_{0}^{\\pi/4} \\sin^3\\theta \\, d\\theta &= \\int_{0}^{\\pi/4} (1-\\cos^2\\theta)\\sin\\theta \\, d\\theta = \\left[ -\\cos\\theta + \\frac{\\cos^3\\theta}{3} \\right]_0^{\\pi/4} && (\\text{Tek kuvvetli sinüs integralinin polinom dönüşümü}) \\\\
+                      &= \\left( -\\frac{\\sqrt{2}}{2} + \\frac{\\sqrt{2}}{12} \\right) - \\left( -1 + \\frac{1}{3} \\right) = \\frac{2}{3} - \\frac{5\\sqrt{2}}{12} && (\\text{Sınırların aritmetik olarak değerlendirilmesi}) \\\\
+                    V &= \\frac{8R^3}{3} \\left( \\frac{\\pi}{4} - 2\\sqrt{2}\\left( \\frac{2}{3} - \\frac{5\\sqrt{2}}{12} \\right) \\right) && (\\text{Bulunan değerin ana denkleme sentezlenmesi}) \\\\
+                      &= \\frac{8R^3}{3} \\left( \\frac{\\pi}{4} - \\frac{4\\sqrt{2}}{3} + \\frac{5}{3} \\right) && (\\text{Parantezlerin açılıp rasyonel toparlanmanın yapılması}) \\\\
+                      &= R^3 \\left( \\frac{2\\pi}{3} + \\frac{40 - 32\\sqrt{2}}{9} \\right) && (\\text{Asimetrik kesişimin hacmini veren eşsiz nihai sonuç})
+                    \\end{aligned}$$`
+                );
+ html += createQuestion("Soru 20", "Tüm ℝ³ Uzayında Transandant Çekim Potansiyeli ve Kompleks Analiz Sentezi (Konu: 13.7 & Ötesi)", 
+                    "Tüm üç boyutlu reel uzay (\\( \\mathbb{R}^3 \\)) üzerinde dağılmış bir enerji alanını temsil eden \\( I = \\iiint_{\\mathbb{R}^3} e^{-\\sqrt{x^2+y^2+z^2}} \\sin\\left(\\sqrt{x^2+y^2+z^2}\\right) \\, dV \\) genelleştirilmiş integralini, küresel koordinatlar ve Laplace dönüşümü / kompleks üstel analizi kullanarak hesaplayınız.", 
+                    `<div style="background-color: var(--bg-secondary); border-left: 4px solid var(--accent); padding: 15px; margin-bottom: 20px; border-radius: 4px;">
+                        <h4 style="margin-top: 0; color: var(--accent); font-family: var(--font-math); font-size: 1.05rem;">📌 İleri Analiz Notu (Teorik Altyapı)</h4>
+                        <ul style="margin-bottom: 0; font-size: 0.95rem; color: var(--text-primary); padding-left: 20px;">
+                            <li style="margin-bottom: 8px;"><b>Katı Açı (Solid Angle):</b> Tüm uzayı kapsayan küresel bir integralde, fonksiyon sadece $\\rho$'ya bağlıysa açısal integraller her zaman tam kürenin yüzey alanını, yani <b>$4\\pi$</b> steradyan değerini üretir.</li>
+                            <li style="margin-bottom: 8px;"><b>Euler'in Kompleks Formülü:</b> Hem sönümleme ($e^{-\\rho}$) hem de dalgalanma ($\\sin\\rho$) içeren integralleri LAPTÜ ile çözmek yerine $\\sin\\rho = \\Im(e^{i\\rho})$ dönüşümü yapılır. Bu, işlemi saf bir cebire çevirir ($\\Im$: İmajiner/Sanal Kısım).</li>
+                            <li><b>Laplace Dönüşümü ve Gama:</b> $\\int_0^\\infty \\rho^n e^{-s\\rho} d\\rho = \\frac{n!}{s^{n+1}}$ kuralı, sonsuz sınırları olan bu tarz integralleri tek hamlede çözen evrensel bir denklemdir.</li>
+                        </ul>
+                    </div>
+                    <p><i>Çözüm:</i></p>
+                    <p>Strateji: Küresel sistemde sınırları sonsuza taşıdıktan sonra oluşan açısal bağdan bağımsız radyal integrali, Euler'in kompleks formülü (\\( e^{i\\rho} \\)) yardımıyla imajiner (sanal) eksene bükerek çözeceğiz.</p>
+                    $$\\begin{aligned}
+                    \\rho &= \\sqrt{x^2+y^2+z^2}, \\quad dV = \\rho^2 \\sin\\phi \\, d\\rho \\, d\\phi \\, d\\theta && (\\text{Hacim diferansiyelinin ve sonsuz sınırların küresel uzaya geçişi}) \\\\
+                    I &= \\int_{0}^{2\\pi} \\int_{0}^{\\pi} \\int_{0}^{\\infty} e^{-\\rho} \\sin(\\rho) \\, \\rho^2 \\sin\\phi \\, d\\rho \\, d\\phi \\, d\\theta && (\\text{Genelleştirilmiş integralin tam küresel kurgusu}) \\\\
+                      &= \\left( \\int_{0}^{2\\pi} d\\theta \\right) \\left( \\int_{0}^{\\pi} \\sin\\phi \\, d\\phi \\right) \\left( \\int_{0}^{\\infty} \\rho^2 e^{-\\rho} \\sin\\rho \\, d\\rho \\right) && (\\text{Küresel bağımsızlığın sağladığı mükemmel 3'lü ayrışma}) \\\\
+                      &= (2\\pi) \\Big[ -\\cos\\phi \\Big]_0^\\pi \\times I_\\rho = 4\\pi \\times I_\\rho && (\\text{Tam küre katı açısının (} 4\\pi \\text{ steradyan) dışarı çekilmesi}) \\\\
+                    I_\\rho &= \\int_{0}^{\\infty} \\rho^2 e^{-\\rho} \\sin\\rho \\, d\\rho = \\Im \\left( \\int_{0}^{\\infty} \\rho^2 e^{-\\rho} e^{i\\rho} \\, d\\rho \\right) && (\\text{Sinüs fonksiyonunun kompleks üstel fonksiyonun sanal (İmajiner) kısmına denkliği}) \\\\
+                      &= \\Im \\left( \\int_{0}^{\\infty} \\rho^2 e^{-\\rho(1-i)} \\, d\\rho \\right) && (\\text{Üstel argümanların toparlanarak tek fonksiyon haline getirilmesi}) \\\\
+                    \\mathcal{L}\\{t^n\\} &= \\frac{\\Gamma(n+1)}{s^{n+1}} \\implies \\int_{0}^{\\infty} \\rho^2 e^{-s\\rho} \\, d\\rho = \\frac{2!}{s^3} && (\\text{Laplace dönüşümü temel kuralı ile genelleştirilmiş integral yansıması}) \\\\
+                    s &= 1-i \\implies \\text{Sonuç} = \\Im \\left( \\frac{2}{(1-i)^3} \\right) && (\\text{Kompleks s-domeninde katsayının yerine konması}) \\\\
+                    (1-i)^3 &= 1^3 - 3i(1)^2 + 3i^2(1) - i^3 = 1 - 3i - 3 + i = -2 - 2i && (\\text{Kübik kompleks açılım ve i'nin kuvvetlerinin düzenlenmesi}) \\\\
+                    \\frac{2}{-2-2i} &= \\frac{-1}{1+i} = \\frac{-1(1-i)}{(1+i)(1-i)} = \\frac{-1+i}{2} && (\\text{Eşlenik (conjugate) ile çarpılarak karmaşık paydanın rasyonelleştirilmesi}) \\\\
+                    I_\\rho &= \\Im \\left( -\\frac{1}{2} + \\frac{1}{2}i \\right) = \\frac{1}{2} && (\\text{Sanal kısmı ayıklayarak ulaşılan saf radyal analitik değer}) \\\\
+                    I &= 4\\pi \\left( \\frac{1}{2} \\right) = 2\\pi && (\\text{Transandant dalgalanmanın tüm uzaydaki net hacimsel potansiyeli})
+                    \\end{aligned}$$`
+                );               
+              
+}
+
+
+
+
 
 // === 14.1 VEKTÖR ALANLARI VE EĞRİSEL İNTEGRALLER ===
             else if (id === "14.1") {
@@ -16576,6 +17450,504 @@ html += createQuestion("Soru 19", "Büyük Sentez: Karma Karakter Analizi (6 Ön
 
                 html += '</div>'; // question-container div kapanışı
             }  
+
+// === 14.10 İLERİ DÜZEY SENTEZ (BÖLÜM 14 KARMA ZOR SORULAR) ===
+            else if (id === "14.10") {
+             
+                html += createQuestion("Soru 1", "Viviani Eğrisi Boyunca Diferansiyel İş ve İleri Trigonometrik Sentez (Konu: 14.1)", 
+                    "$\\mathbf{F}(x,y,z) = \\langle z, x, y \\rangle$ vektör alanının, $x^2 + y^2 + z^2 = a^2$ küresi ile $x^2 + y^2 = ax$ silindirinin kesişiminden oluşan ve $z \\ge 0$ bölgesinde yer alan Viviani Eğrisi ($C$) boyunca, saat yönünün tersine yaptığı toplam işi hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Kesişim eğrisini küresel-silindirik melez bir yapıda parametrize edeceğiz. Asimetrik silindir denkleminden yola çıkarak Viviani eğrisinin konum ve diferansiyel vektörlerini inşa edeceğiz.</p>
+                    $$\\begin{aligned}
+                    x^2 + y^2 &= a\\left(r\\cos\\theta\\right) \\implies r^2 = ar\\cos\\theta \\implies r = a\\cos\\theta && (\\text{Silindirin kutupsal forma dönüştürülmesi}) \\\\
+                    x &= (a\\cos\\theta)\\cos\\theta = a\\cos^2\\theta && (\\text{x'in } \\theta \\text{ parametresine göre yazımı}) \\\\
+                    y &= (a\\cos\\theta)\\sin\\theta = a\\sin\\theta\\cos\\theta && (\\text{y'nin } \\theta \\text{ parametresine göre yazımı}) \\\\
+                    z^2 &= a^2 - (x^2+y^2) = a^2 - a^2\\cos^2\\theta = a^2\\sin^2\\theta \\implies z = a\\sin\\theta && (\\text{z'nin küre denkleminden } \\theta \\text{ cinsine çekilmesi}) \\\\
+                    \\mathbf{r}(\\theta) &= \\langle a\\cos^2\\theta, \\; a\\sin\\theta\\cos\\theta, \\; a\\sin\\theta \\rangle \\quad (0 \\le \\theta \\le \\pi) && (\\text{Viviani eğrisinin tam parametrizasyonu}) \\\\
+                    dx &= -2a\\cos\\theta\\sin\\theta \\, d\\theta = -a\\sin(2\\theta) \\, d\\theta && (\\text{x bileşeninin diferansiyeli}) \\\\
+                    dy &= a(\\cos^2\\theta - \\sin^2\\theta) \\, d\\theta = a\\cos(2\\theta) \\, d\\theta && (\\text{y bileşeninin diferansiyeli}) \\\\
+                    dz &= a\\cos\\theta \\, d\\theta && (\\text{z bileşeninin diferansiyeli}) \\\\
+                    \\mathbf{F} \\cdot d\\mathbf{r} &= z \\, dx + x \\, dy + y \\, dz && (\\text{Diferansiyel iş (dW) kurgusu}) \\\\
+                      &= (a\\sin\\theta)(-2a\\cos\\theta\\sin\\theta) + (a\\cos^2\\theta)(a\\cos(2\\theta)) + (a\\sin\\theta\\cos\\theta)(a\\cos\\theta) && (\\text{Vektör alanının ve yolun çarpıma yerleşimi}) \\\\
+                      &= a^2 \\left[ -2\\sin^2\\theta\\cos\\theta + \\cos^2\\theta(\\cos^2\\theta - \\sin^2\\theta) + \\sin\\theta\\cos^2\\theta \\right] d\\theta && (\\text{Ortak çarpan ve trigonometrik açılımlar}) \\\\
+                      &= a^2 \\left[ -2\\sin^2\\theta\\cos\\theta + \\cos^4\\theta - \\sin^2\\theta\\cos^2\\theta + \\sin\\theta\\cos^2\\theta \\right] d\\theta && (\\text{İntegrandın tamamen polinomik açı formuna gelişi}) \\\\
+                    W &= a^2 \\int_{0}^{\\pi} \\left( -2\\sin^2\\theta\\cos\\theta + \\cos^4\\theta - \\frac{1}{4}\\sin^2(2\\theta) + \\sin\\theta\\cos^2\\theta \\right) d\\theta && (\\text{İntegrallerin ayrı ayrı değerlendirilmesi için hazırlık}) \\\\
+                    \\int_{0}^{\\pi} \\sin^2\\theta\\cos\\theta \\, d\\theta &= \\left[ \\frac{\\sin^3\\theta}{3} \\right]_0^\\pi = 0 && (\\text{Tek kuvvetli kosinüs içeren terimin sıfırlanması}) \\\\
+                    \\int_{0}^{\\pi} \\sin\\theta\\cos^2\\theta \\, d\\theta &= \\left[ -\\frac{\\cos^3\\theta}{3} \\right]_0^\\pi = -\\frac{-1}{3} - \\left(-\\frac{1}{3}\\right) = \\frac{2}{3} && (\\text{Tek kuvvetli sinüs içeren terimin hesabı}) \\\\
+                    \\int_{0}^{\\pi} \\cos^4\\theta \\, d\\theta &= \\frac{3\\pi}{8}, \\quad \\int_{0}^{\\pi} \\frac{1}{4}\\sin^2(2\\theta) \\, d\\theta = \\frac{1}{4} \\left( \\frac{\\pi}{2} \\right) = \\frac{\\pi}{8} && (\\text{Wallis indirgemeleri ile çift kuvvetlerin hesabı}) \\\\
+                    W &= a^2 \\left( 0 + \\frac{3\\pi}{8} - \\frac{\\pi}{8} + \\frac{2}{3} \\right) = a^2 \\left( \\frac{2\\pi}{8} + \\frac{2}{3} \\right) && (\\text{Parçaların ana denkleme entegrasyonu}) \\\\
+                      &= a^2 \\left( \\frac{\\pi}{4} + \\frac{2}{3} \\right) \\text{ Joule} && (\\text{Eşsiz bir 3D eğri üzerindeki nihai analitik iş})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 2", "Kıvrımlı Konik Sarmal Üzerinde Skaler Kütle İntegrali (Konu: 14.1)", 
+                    "$\\mathbf{r}(t) = a(\\cos t + t\\sin t)\\mathbf{i} + a(\\sin t - t\\cos t)\\mathbf{j} + \\frac{1}{2}at^2\\mathbf{k}$ parametrizasyonu ile verilen kıvrımlı konik sarmal eğrisi ($C$) üzerinde, $t=0$'dan $t=2\\pi$'ye kadar uzanan telin yoğunluğu $\\delta(x,y,z) = \\frac{x^2+y^2}{z+a}$ olarak verilmiştir. Telin toplam kütlesini ($\\int_C \\delta \\, ds$) hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Karmaşık görünen bu parametrizasyon, hız vektörünün büyüklüğünü ($ds$) hesaplarken muazzam bir trigonometrik sadeleşmeye uğrar. Yoğunluk fonksiyonu da bu sadeleşmeyle uyumlu olarak dizayn edilmiştir.</p>
+                    $$\\begin{aligned}
+                    x'(t) &= a(-\\sin t + \\sin t + t\\cos t) = at\\cos t && (\\text{Çarpım kuralı ile birinci türev ve sadeleşme}) \\\\
+                    y'(t) &= a(\\cos t - \\cos t + t\\sin t) = at\\sin t && (\\text{Çarpım kuralı ile ikinci türev ve sadeleşme}) \\\\
+                    z'(t) &= at && (\\text{Üçüncü türev}) \\\\
+                    |\\mathbf{r}'(t)|^2 &= (at\\cos t)^2 + (at\\sin t)^2 + (at)^2 && (\\text{Hız vektörünün normunun karesi}) \\\\
+                      &= a^2 t^2 (\\cos^2 t + \\sin^2 t) + a^2 t^2 = 2a^2 t^2 && (\\text{Pisagor özdeşliği ile kusursuz çöküş}) \\\\
+                    ds &= |\\mathbf{r}'(t)| \\, dt = \\sqrt{2} at \\, dt && (\\text{Kök dışına çıkarak elde edilen yay diferansiyeli}) \\\\
+                    x^2 + y^2 &= a^2(\\cos t + t\\sin t)^2 + a^2(\\sin t - t\\cos t)^2 && (\\text{Yoğunluk fonksiyonunun pay kısmının açılımı}) \\\\
+                      &= a^2( \\cos^2 t + 2t\\sin t\\cos t + t^2\\sin^2 t + \\sin^2 t - 2t\\sin t\\cos t + t^2\\cos^2 t ) && (\\text{Tam karelerin açılıp toplanması}) \\\\
+                      &= a^2(1 + t^2) && (\\text{Çapraz terimlerin yok olmasıyla kalan net x}^2\\text{+y}^2) \\\\
+                    z + a &= \\frac{1}{2}at^2 + a = a\\left(1 + \\frac{t^2}{2}\\right) = \\frac{a(2+t^2)}{2} && (\\text{Yoğunluk fonksiyonunun paydasının düzenlenmesi}) \\\\
+                    \\delta(\\mathbf{r}(t)) &= \\frac{a^2(1+t^2)}{\\frac{a(2+t^2)}{2}} = \\frac{2a(1+t^2)}{2+t^2} && (\\text{Rasyonel yoğunluk formülünün t cinsinden sentezi}) \\\\
+                    M &= \\int_{0}^{2\\pi} \\left( \\frac{2a(1+t^2)}{2+t^2} \\right) (\\sqrt{2} at) \\, dt && (\\text{Kütle (M = }\\int \\delta \\, ds\\text{) integralinin kurulumu}) \\\\
+                      &= 2\\sqrt{2} a^2 \\int_{0}^{2\\pi} \\frac{t + t^3}{t^2+2} \\, dt && (\\text{Sabitlerin dışarı alınarak integrandın toparlanması}) \\\\
+                    \\frac{t^3+t}{t^2+2} &= t - \\frac{t}{t^2+2} && (\\text{Polinom bölmesi ile integrali alınabilir forma geçiş}) \\\\
+                    M &= 2\\sqrt{2} a^2 \\int_{0}^{2\\pi} \\left( t - \\frac{t}{t^2+2} \\right) dt && (\\text{Ayrıştırılmış ifadenin integrale yerleşimi}) \\\\
+                      &= 2\\sqrt{2} a^2 \\left[ \\frac{t^2}{2} - \\frac{1}{2}\\ln(t^2+2) \\right]_0^{2\\pi} && (\\text{Logaritmik ve polinomik ters türevlerin alınması}) \\\\
+                      &= \\sqrt{2} a^2 \\Big[ t^2 - \\ln(t^2+2) \\Big]_0^{2\\pi} && (\\text{1/2 parantezinin dışarıdaki katsayı ile sadeleşmesi}) \\\\
+                      &= \\sqrt{2} a^2 \\Big( (4\\pi^2 - \\ln(4\\pi^2+2)) - (0 - \\ln 2) \\Big) && (\\text{Üst ve alt sınır değerlerinin yerine konulması}) \\\\
+                      &= \\sqrt{2} a^2 \\left( 4\\pi^2 - \\ln\\left(\\frac{4\\pi^2+2}{2}\\right) \\right) = \\sqrt{2} a^2 (4\\pi^2 - \\ln(2\\pi^2+1)) && (\\text{Kütlenin nihai ve eksiksiz analitik değeri})
+                    \\end{aligned}$$`
+                );
+
+html += createQuestion("Soru 3", "Yüzey Kısıtıyla İndirgenmiş Vektör Alanı ve Gizli Stokes (Konu: 14.2 & 14.7)", 
+                    "$\\mathbf{F}(x,y,z) = \\langle y \\ln(1+x^2+y^2+z^2) + z^3, \\; z \\ln(1+x^2+y^2+z^2) + x^3, \\; x \\ln(1+x^2+y^2+z^2) + y^3 \\rangle$ vektör alanının, $x^2+y^2+z^2=1$ küresi ile $x+y+z=0$ düzleminin kesişiminden oluşan kapalı $C$ eğrisi boyunca (üstten bakıldığında saat yönünün tersine) yaptığı net işi hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Bu vektör alanının genel rotasyonelini (curl) almak analitik bir intihardır. Ancak eğri (C) daima birim küre üzerinde yer aldığından, vektör alanını sadece eğri üzerindeki değerlerine indirgeyerek yepyeni ve çok daha basit bir $\\mathbf{F}^*$ alanı yaratabiliriz.</p>
+                    $$\\begin{aligned}
+                    &\\text{C eğrisi } x^2+y^2+z^2=1 \\text{ yüzeyindedir.} && (\\text{Yolun geometrik kısıt analizi}) \\\\
+                    &\\ln(1+x^2+y^2+z^2) = \\ln(1+1) = \\ln 2 && (\\text{Transandant argümanın sabitlenmesi}) \\\\
+                    \\mathbf{F}^* &= \\langle y\\ln 2 + z^3, \\; z\\ln 2 + x^3, \\; x\\ln 2 + y^3 \\rangle && (\\text{Sadece C üzerinde geçerli eşdeğer vektör alanı}) \\\\
+                    W &= \\oint_C \\mathbf{F} \\cdot d\\mathbf{r} = \\oint_C \\mathbf{F}^* \\cdot d\\mathbf{r} = \\iint_D (\\nabla \\times \\mathbf{F}^*) \\cdot \\mathbf{n} \\, dS && (\\text{Eşdeğer alan üzerinden Stokes Teoremi}) \\\\
+                    \\nabla \\times \\mathbf{F}^* &= \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ \\partial_x & \\partial_y & \\partial_z \\\\ y\\ln 2+z^3 & z\\ln 2+x^3 & x\\ln 2+y^3 \\end{vmatrix} && (\\text{Sadeleşmiş alanın rotasyonel matrisi}) \\\\
+                      &= \\langle 3y^2 - \\ln 2, \\; 3z^2 - \\ln 2, \\; 3x^2 - \\ln 2 \\rangle && (\\text{Kısmi türevlerin alınmış saf hali}) \\\\
+                    x+y+z=0 &\\implies \\mathbf{n} = \\frac{1}{\\sqrt{3}} \\langle 1, 1, 1 \\rangle && (\\text{Kesişim düzleminin birim normal vektörü}) \\\\
+                    (\\nabla \\times \\mathbf{F}^*) \\cdot \\mathbf{n} &= \\frac{1}{\\sqrt{3}} \\left( 3y^2 - \\ln 2 + 3z^2 - \\ln 2 + 3x^2 - \\ln 2 \\right) && (\\text{İntegrand çekirdeği için nokta çarpım}) \\\\
+                      &= \\frac{1}{\\sqrt{3}} \\left( 3(x^2+y^2+z^2) - 3\\ln 2 \\right) && (\\text{Koordinat karesi toplamının yalıtılması}) \\\\
+                      &= \\frac{1}{\\sqrt{3}} (3(1) - 3\\ln 2) = \\sqrt{3}(1 - \\ln 2) && (\\text{Küre denklemi kısıtının tekrar kullanımı}) \\\\
+                    W &= \\iint_D \\sqrt{3}(1 - \\ln 2) \\, dS = \\sqrt{3}(1 - \\ln 2) \\text{Alan}(D) && (\\text{Sabit değerin alan integraline dönüşümü}) \\\\
+                    \\text{Alan}(D) &= \\pi(1)^2 = \\pi && (\\text{Düzlemin küreyi kestiği en büyük çember diski}) \\\\
+                    W &= \\sqrt{3}\\pi(1 - \\ln 2) \\text{ Joule} && (\\text{Mükemmel analitik manevrayla doğan sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 4", "Karmaşık Parametrik İllüzyon ve Green'in Akı (Flux) Teoremi (Konu: 14.2 & 14.4)", 
+                    "$x(t) = \\frac{a\\sqrt{2}\\cos t}{1+\\sin^2 t}$ ve $y(t) = \\frac{a\\sqrt{2}\\sin t\\cos t}{1+\\sin^2 t}$ parametrik denklemleri ile tanımlanan kapalı $C$ eğrisi üzerinden dışa doğru, $\\mathbf{F} = \\langle \\frac{x^3}{3} + e^{\\sin y}, \\; \\frac{y^3}{3} - \\cosh(x^2) \\rangle$ vektör alanının net akısını (Flux) hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Verilen $x(t)$ ve $y(t)$ ifadelerinin diferansiyellerini ($dx, dy$) almak içinden çıkılamaz bir bölüm kuralı girdabıdır. Ancak bu parametrik denklemlerin karelerini alıp topladığımızda, eğrinin aslında ünlü "Bernoulli Lemniskatı" olduğunu ispatlayabiliriz. Ardından 2D Diverjans Teoremiyle işi kutupsal bir alana dökeceğiz.</p>
+                    $$\\begin{aligned}
+                    x^2+y^2 &= \\frac{2a^2\\cos^2 t + 2a^2\\sin^2 t\\cos^2 t}{(1+\\sin^2 t)^2} = \\frac{2a^2\\cos^2 t(1+\\sin^2 t)}{(1+\\sin^2 t)^2} = \\frac{2a^2\\cos^2 t}{1+\\sin^2 t} && (\\text{Parametrik x ve y'nin karelerinin toplamı}) \\\\
+                    x^2-y^2 &= \\frac{2a^2\\cos^2 t - 2a^2\\sin^2 t\\cos^2 t}{(1+\\sin^2 t)^2} = \\frac{2a^2\\cos^2 t(1-\\sin^2 t)}{(1+\\sin^2 t)^2} = \\frac{2a^2\\cos^4 t}{(1+\\sin^2 t)^2} && (\\text{Parametrik x ve y'nin karelerinin farkı}) \\\\
+                    (x^2+y^2)^2 &= \\frac{4a^4\\cos^4 t}{(1+\\sin^2 t)^2} = 2a^2 \\left( \\frac{2a^2\\cos^4 t}{(1+\\sin^2 t)^2} \\right) = 2a^2(x^2-y^2) && (\\text{Bernoulli Lemniskatının analitik ispatı}) \\\\
+                    r^4 &= 2a^2 r^2(\\cos^2\\theta - \\sin^2\\theta) \\implies r^2 = 2a^2\\cos(2\\theta) && (\\text{Lemniskatın kutupsal (polar) izdüşümü}) \\\\
+                    \\Phi &= \\oint_C M \\, dy - N \\, dx = \\iint_D \\left( \\frac{\\partial M}{\\partial x} + \\frac{\\partial N}{\\partial y} \\right) dA && (\\text{Green Teoremi 2 Boyutlu Akı (Flux) versiyonu}) \\\\
+                    \\text{div } \\mathbf{F} &= \\frac{\\partial}{\\partial x}\\left( \\frac{x^3}{3} + e^{\\sin y} \\right) + \\frac{\\partial}{\\partial y}\\left( \\frac{y^3}{3} - \\cosh(x^2) \\right) = x^2 + y^2 && (\\text{Transandant illüzyonların sıfırlanıp geriye } r^2 \\text{ kalması}) \\\\
+                    \\Phi &= \\iint_D (x^2+y^2) \\, dA = 4 \\int_{0}^{\\pi/4} \\int_{0}^{a\\sqrt{2\\cos(2\\theta)}} (r^2) \\cdot r \\, dr \\, d\\theta && (\\text{4 simetrik yaprak üzerinden kutupsal alan integrali}) \\\\
+                      &= 4 \\int_{0}^{\\pi/4} \\left[ \\frac{r^4}{4} \\right]_0^{a\\sqrt{2\\cos(2\\theta)}} d\\theta && (\\text{İç yarıçap integralinin ters türevi}) \\\\
+                      &= \\int_{0}^{\\pi/4} \\left( 2a^2\\cos(2\\theta) \\right)^2 d\\theta = 4a^4 \\int_{0}^{\\pi/4} \\cos^2(2\\theta) \\, d\\theta && (\\text{Sınırların fonksiyon üzerine aktarımı}) \\\\
+                      &= 4a^4 \\int_{0}^{\\pi/4} \\frac{1+\\cos(4\\theta)}{2} \\, d\\theta = 2a^4 \\left[ \\theta + \\frac{\\sin(4\\theta)}{4} \\right]_0^{\\pi/4} && (\\text{Trigonometrik çift açı dönüşümü ve integrasyon}) \\\\
+                      &= 2a^4 \\left( \\frac{\\pi}{4} + 0 \\right) = \\frac{\\pi a^4}{2} && (\\text{Kusursuz cebirsel ve topolojik manipülasyon sonucu})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 5", "Yoldan Bağımsızlık ve İleri Transandant Potansiyel İnşası (Konu: 14.3)", 
+                    "$\\mathbf{F}(x,y,z) = \\left\\langle 2xy e^z + \\frac{2xy^2}{x^2+1}, \\; x^2 e^z + 2y \\ln(x^2+1) + z \\cosh(y), \\; x^2 y e^z + \\sinh(y) \\right\\rangle$ vektör alanı veriliyor. $\\mathbf{r}(t) = \\left\\langle \\tan\\left(\\frac{\\pi}{4}t\\right), \\; \\ln(1+t), \\; \\ln(1+t^2) \\right\\rangle$ eğrisi boyunca $t=0$'dan $t=1$'e kadar yapılan işi hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Verilen $\\mathbf{r}(t)$ eğrisi üzerinden doğrudan integral almak ($\\mathbf{F} \\cdot d\\mathbf{r}$) transandant bir kabusa dönüşür. Vektör alanının korunumlu olduğunu (Curl $\\mathbf{F} = \\mathbf{0}$) varsayarak 3 boyutlu potansiyel fonksiyonu ($f$) inşa edip, işi sadece uç noktalar üzerinden (Temel Teorem ile) çözeceğiz.</p>
+                    $$\\begin{aligned}
+                    f_x &= 2xy e^z + \\frac{2xy^2}{x^2+1} && (\\text{Potansiyel fonksiyonun inşasına P bileşeninden başlanması}) \\\\
+                    f(x,y,z) &= \\int \\left( 2xy e^z + \\frac{2xy^2}{x^2+1} \\right) dx = x^2 y e^z + y^2 \\ln(x^2+1) + g(y,z) && (\\text{x değişkenine göre kısmi entegrasyon ve integrasyon sabiti}) \\\\
+                    f_y &= x^2 e^z + 2y \\ln(x^2+1) + g_y(y,z) && (\\text{Bulunan f fonksiyonunun y'ye göre kısmi türevinin alınması}) \\\\
+                    Q(x,y,z) &= x^2 e^z + 2y \\ln(x^2+1) + z \\cosh(y) && (\\text{Vektör alanının Q bileşeni ile eşleştirme testi}) \\\\
+                    g_y(y,z) &= z \\cosh(y) \\implies g(y,z) = \\int z \\cosh(y) \\, dy = z \\sinh(y) + h(z) && (\\text{Fazlalık terimin y'ye göre entegrasyonu ile g fonksiyonunun inşası}) \\\\
+                    f(x,y,z) &= x^2 y e^z + y^2 \\ln(x^2+1) + z \\sinh(y) + h(z) && (\\text{Güncellenmiş yarı-tam potansiyel fonksiyon}) \\\\
+                    f_z &= x^2 y e^z + \\sinh(y) + h'(z) = R(x,y,z) && (\\text{z'ye göre türetip vektör alanının R bileşenine eşitleme}) \\\\
+                    h'(z) &= 0 \\implies h(z) = C && (\\text{R bileşeninde ekstra z terimi olmadığından h fonksiyonunun sabitlenmesi}) \\\\
+                    f(x,y,z) &= x^2 y e^z + y^2 \\ln(x^2+1) + z \\sinh(y) && (\\text{3 Boyutlu uzaydaki kusursuz analitik potansiyel (C=0)}) \\\\
+                    A(t=0) &= \\langle \\tan(0), \\ln(1), \\ln(1) \\rangle = (0, 0, 0) && (\\text{Parametrik eğrideki hareketin başlangıç noktası}) \\\\
+                    B(t=1) &= \\langle \\tan(\\pi/4), \\ln(2), \\ln(2) \\rangle = (1, \\ln 2, \\ln 2) && (\\text{Parametrik eğrideki hareketin bitiş noktası}) \\\\
+                    W &= f(B) - f(A) = f(1, \\ln 2, \\ln 2) - f(0, 0, 0) && (\\text{Eğrisel İntegrallerin Temel Teoremi (FTLI) uygulaması}) \\\\
+                    f(1, \\ln 2, \\ln 2) &= (1)^2 (\\ln 2) e^{\\ln 2} + (\\ln 2)^2 \\ln(1^2+1) + (\\ln 2) \\sinh(\\ln 2) && (\\text{Bitiş koordinatlarının potansiyel fonksiyona yerleştirilmesi}) \\\\
+                    e^{\\ln 2} &= 2, \\quad \\sinh(\\ln 2) = \\frac{e^{\\ln 2} - e^{-\\ln 2}}{2} = \\frac{2 - 1/2}{2} = \\frac{3}{4} && (\\text{Üstel ve hiperbolik terimlerin logaritmik sadeleştirilmesi}) \\\\
+                    f(B) &= 2\\ln 2 + (\\ln 2)^3 + \\frac{3}{4}\\ln 2 = \\frac{11}{4}\\ln 2 + (\\ln 2)^3 && (\\text{Terimlerin toparlanarak B noktasındaki enerjinin bulunması}) \\\\
+                    W &= \\frac{11}{4}\\ln 2 + (\\ln 2)^3 - 0 && (\\text{Kaotik bir yol üzerinde yapılan nihai net mekanik iş})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 6", "Diferansiyel Formların Simetrisi ve Topolojik Faz Açıları (Konu: 14.3)", 
+                    "$\\mathbf{F}(x,y,z) = \\left\\langle \\frac{-y}{x^2+y^2} + \\frac{z}{x^2+z^2}, \\; \\frac{x}{x^2+y^2} - \\frac{z}{y^2+z^2}, \\; \\frac{-x}{x^2+z^2} + \\frac{y}{y^2+z^2} \\right\\rangle$ vektör alanı veriliyor. Bu alanın korunumlu olduğunu gösteriniz ve bir parçacığın birinci oktantta $A(1,1,1)$ noktasından $B\\left(\\sqrt{3}, \\frac{1}{\\sqrt{3}}, \\sqrt{3}\\right)$ noktasına taşınması sırasında yapılan işi hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Vektör alanının rotasyonelini (curl) hesaplamak cebirsel bir işkencedir. Bunun yerine, diferansiyel iş denklemini ($\\mathbf{F} \\cdot d\\mathbf{r}$) yazıp, terimleri simetrik çiftler halinde gruplayarak her birinin bir <b>Arktanjant</b> fonksiyonunun tam diferansiyeli olduğunu ispatlayacağız.</p>
+                    $$\\begin{aligned}
+                    dW &= \\mathbf{F} \\cdot d\\mathbf{r} = P \\, dx + Q \\, dy + R \\, dz && (\\text{Diferansiyel işin kartezyen bileşenlerle genel kurulumu}) \\\\
+                     &= \\left( \\frac{-y}{x^2+y^2} + \\frac{z}{x^2+z^2} \\right) dx + \\left( \\frac{x}{x^2+y^2} - \\frac{z}{y^2+z^2} \\right) dy + \\left( \\frac{-x}{x^2+z^2} + \\frac{y}{y^2+z^2} \\right) dz && (\\text{Vektör alanı bileşenlerinin diferansiyel denkleme yerleştirilmesi}) \\\\
+                     &= \\frac{x \\, dy - y \\, dx}{x^2+y^2} + \\frac{z \\, dx - x \\, dz}{x^2+z^2} + \\frac{y \\, dz - z \\, dy}{y^2+z^2} && (\\text{Benzer paydalara sahip terimlerin ustaca gruplandırılması}) \\\\
+                    d\\left( \\arctan\\left(\\frac{y}{x}\\right) \\right) &= \\frac{1}{1+(y/x)^2} \\left( \\frac{x \\, dy - y \\, dx}{x^2} \\right) = \\frac{x \\, dy - y \\, dx}{x^2+y^2} && (\\text{Birinci grubun y/x faz açısının tam diferansiyeli olduğunun ispatı}) \\\\
+                    dW &= d\\left( \\arctan\\left(\\frac{y}{x}\\right) \\right) + d\\left( \\arctan\\left(\\frac{x}{z}\\right) \\right) + d\\left( \\arctan\\left(\\frac{z}{y}\\right) \\right) && (\\text{Tüm grupların topolojik faz (açı) diferansiyellerine dönüşümü}) \\\\
+                    f(x,y,z) &= \\arctan\\left(\\frac{y}{x}\\right) + \\arctan\\left(\\frac{x}{z}\\right) + \\arctan\\left(\\frac{z}{y}\\right) && (\\text{İntegrasyonla elde edilen, alanın korunumlu olduğunu kanıtlayan potansiyel}) \\\\
+                    f(A) &= f(1,1,1) = \\arctan(1) + \\arctan(1) + \\arctan(1) = \\frac{3\\pi}{4} && (\\text{A(1,1,1) başlangıç noktasındaki toplam potansiyel enerji}) \\\\
+                    B &= \\left(\\sqrt{3}, \\frac{1}{\\sqrt{3}}, \\sqrt{3}\\right) && (\\text{Hedef noktanın (B) koordinatlarının analizi}) \\\\
+                    f(B) &= \\arctan\\left(\\frac{1/\\sqrt{3}}{\\sqrt{3}}\\right) + \\arctan\\left(\\frac{\\sqrt{3}}{\\sqrt{3}}\\right) + \\arctan\\left(\\frac{\\sqrt{3}}{1/\\sqrt{3}}\\right) && (\\text{B noktasının potansiyel fonksiyon içindeki dizilimi}) \\\\
+                    f(B) &= \\arctan\\left(\\frac{1}{3}\\right) + \\arctan(1) + \\arctan(3) && (\\text{Koordinatların sadeleşerek temel oranlara dönüşmesi}) \\\\
+                    \\arctan(\\theta) + \\arctan\\left(\\frac{1}{\\theta}\\right) &= \\frac{\\pi}{2} \\implies \\arctan(3) + \\arctan\\left(\\frac{1}{3}\\right) = \\frac{\\pi}{2} && (\\text{Ters trigonometrik tümler açı (complementary) özdeşliği}) \\\\
+                    f(B) &= \\frac{\\pi}{2} + \\frac{\\pi}{4} = \\frac{3\\pi}{4} && (\\text{B noktasındaki toplam potansiyel enerjinin hesaplanması}) \\\\
+                    W &= f(B) - f(A) = \\frac{3\\pi}{4} - \\frac{3\\pi}{4} = 0 \\text{ Joule} && (\\text{Farklı konumlara rağmen kusursuz simetrinin yarattığı SIFIR iş})
+                    \\end{aligned}$$`
+                );
+
+html += createQuestion("Soru 7", "Kartezyen İllüzyon ve Diferansiyel Alan Hilesi (Konu: 14.4)", 
+                    "\\( x^3 + y^3 = 3axy \\) (Descartes'ın Yaprağı) eğrisinin birinci bölgede oluşturduğu ilmeğin (loop) alanını, Green Teoremi kullanarak hesaplayınız. <br><i>(İpucu: Sınır eğrisini \\( y = tx \\) parametrizasyonu ile tanımlayıp diferansiyel oran kuralını kullanınız.)</i>", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Eğrinin $x$ ve $y$ bileşenlerinin $t$'ye göre diferansiyelini alıp klasik $x dy - y dx$ formülüne yazmak devasa bir polinom girdabı yaratır. Bunun yerine, diferansiyel operatörünün bölüm kuralı yapısını kullanarak integrandı $x$ ve $t$ cinsinden kusursuzca izole edeceğiz.</p>
+                    $$\\begin{aligned}
+                    x^3 + (tx)^3 &= 3ax(tx) \\implies x^3(1+t^3) = 3atx^2 && (\\text{y = tx parametrizasyonunun ana denkleme yerleştirilmesi}) \\\\
+                    x(t) &= \\frac{3at}{1+t^3}, \\quad y(t) = \\frac{3at^2}{1+t^3} && (\\text{Sınır eğrisinin t parametresine göre vektörel inşası}) \\\\
+                    &\\text{Birinci bölgedeki ilmek } t=0 \\text{ (orijin) ile } t \\to \\infty \\text{ aralığını kapsar.} && (\\text{İntegrasyon sınırlarının asimptotik analizi}) \\\\
+                    A &= \\frac{1}{2} \\oint_C x \\, dy - y \\, dx && (\\text{Green Teoremi 2 Boyutlu Alan Formülü}) \\\\
+                    d\\left(\\frac{y}{x}\\right) &= \\frac{x \\, dy - y \\, dx}{x^2} \\implies x \\, dy - y \\, dx = x^2 d\\left(\\frac{y}{x}\\right) && (\\text{Bölümün türevi kuralıyla formülün çekirdeğinin yeniden yazılması}) \\\\
+                    \\frac{y}{x} &= t \\implies d\\left(\\frac{y}{x}\\right) = dt && (\\text{Parametrik tanımın diferansiyele mükemmel uyumu}) \\\\
+                    x \\, dy - y \\, dx &= x^2 \\, dt && (\\text{O karmaşık dx ve dy işlemlerini çöpe atan sihirli sadeleşme}) \\\\
+                    A &= \\frac{1}{2} \\int_{0}^{\\infty} x^2 \\, dt = \\frac{1}{2} \\int_{0}^{\\infty} \\left( \\frac{3at}{1+t^3} \\right)^2 dt && (\\text{x(t) denkleminin yerine konarak genelleştirilmiş integrale geçiş}) \\\\
+                      &= \\frac{9a^2}{2} \\int_{0}^{\\infty} \\frac{t^2}{(1+t^3)^2} \\, dt && (\\text{Katsayıların dışarı alınmasıyla oluşan integrand}) \\\\
+                    u &= 1+t^3 \\implies du = 3t^2 \\, dt \\implies t^2 \\, dt = \\frac{du}{3} && (\\text{Paydayı yok etmek için derece düşürücü u-dönüşümü}) \\\\
+                    &t = 0 \\implies u = 1, \\quad t \\to \\infty \\implies u \\to \\infty && (\\text{Asimptotik sınırların dönüşüme uğraması}) \\\\
+                    A &= \\frac{9a^2}{2} \\int_{1}^{\\infty} \\frac{1}{u^2} \\frac{du}{3} = \\frac{3a^2}{2} \\int_{1}^{\\infty} u^{-2} \\, du && (\\text{Sadeleşmiş standart form}) \\\\
+                      &= \\frac{3a^2}{2} \\lim_{b \\to \\infty} \\left[ -\\frac{1}{u} \\right]_1^b = \\frac{3a^2}{2} (0 - (-1)) && (\\text{Ters türevin alınıp sonsuzluk limitinin uygulanması}) \\\\
+                      &= \\frac{3a^2}{2} \\text{ birimkare} && (\\text{Descartes\\'ın Yaprağı için eşsiz ve zarif analitik sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 8", "Green'in Birinci Özdeşliği ve Harmonik Fonksiyon Sentezi (Konu: 14.4)", 
+                    "\\( u(x,y) = \\ln(x^2+y^2) \\) skaler fonksiyonu veriliyor. \\( D \\) bölgesi, \\( x^2+y^2=1 \\) ile \\( x^2+y^2=4 \\) çemberleri arasında kalan üst yarı düzlem (\\( y \\ge 0 \\)) halkasıdır. Sınır eğrisi \\( \\partial D \\) üzerinden dışa doğru tanımlanan \\( \\oint_{\\partial D} (u \\nabla u) \\cdot \\mathbf{n} \\, ds \\) akı (flux) integralini hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Yarı-halkanın 4 farklı sınır eğrisi üzerinden tek tek çizgi integrali hesaplamak saatler sürer. Bunun yerine Green Teoremi'nin skaler alanlar için genelleştirilmiş hali olan <b>Green'in Birinci Özdeşliği'ni</b> kullanarak problemi anında çift katlı integrale dökeceğiz.</p>
+                    $$\\begin{aligned}
+                    \\oint_{\\partial D} (u \\nabla u) \\cdot \\mathbf{n} \\, ds &= \\iint_D \\nabla \\cdot (u \\nabla u) \\, dA && (\\text{Green Teoremi Diverjans formunun vektör alanına uyarlanması}) \\\\
+                    \\nabla \\cdot (u \\nabla v) &= u \\nabla^2 v + \\nabla u \\cdot \\nabla v && (\\text{Vektör analizi özdeşliği (Green\\'in Birinci Özdeşliği)}) \\\\
+                    &\\text{Burada } v = u \\text{ olduğundan formül:} && \\\\
+                    \\nabla \\cdot (u \\nabla u) &= u \\nabla^2 u + |\\nabla u|^2 && (\\text{Diverjansın skaler formda açılımı}) \\\\
+                    u(x,y) &= \\ln(x^2+y^2) = 2\\ln(\\sqrt{x^2+y^2}) = 2\\ln r && (\\text{Fonksiyonun kutupsal (radyal) sadelikte yazımı}) \\\\
+                    \\nabla^2 u &= \\frac{\\partial^2 u}{\\partial x^2} + \\frac{\\partial^2 u}{\\partial y^2} = 0 \\quad (\\text{orijin hariç}) && (\\text{2D Logaritmik fonksiyon bir Harmonik fonksiyondur (Laplacian = 0)}) \\\\
+                    \\nabla \\cdot (u \\nabla u) &= u(0) + |\\nabla u|^2 = |\\nabla u|^2 && (\\text{İntegrandın sadece gradyentin norm karesine dönüşmesi}) \\\\
+                    \\nabla u &= \\left\\langle \\frac{2x}{x^2+y^2}, \\; \\frac{2y}{x^2+y^2} \\right\\rangle && (\\text{Skaler fonksiyonun (u) x ve y\\'ye göre türev vektörü}) \\\\
+                    |\\nabla u|^2 &= \\frac{4x^2 + 4y^2}{(x^2+y^2)^2} = \\frac{4(x^2+y^2)}{(x^2+y^2)^2} = \\frac{4}{x^2+y^2} && (\\text{Gradyent vektörünün boyunun karesi (Nokta çarpımı)}) \\\\
+                    |\\nabla u|^2 &= \\frac{4}{r^2} && (\\text{İntegrandın kutupsal koordinatlardaki kusursuz formu}) \\\\
+                    I &= \\iint_D \\frac{4}{r^2} \\, dA = \\int_{0}^{\\pi} \\int_{1}^{2} \\left( \\frac{4}{r^2} \\right) r \\, dr \\, d\\theta && (\\text{Üst yarı halka sınırlarıyla (}\\theta\\in[0,\\pi], r\\in[1,2]\\text{) integralin inşası}) \\\\
+                      &= 4 \\left( \\int_{0}^{\\pi} d\\theta \\right) \\left( \\int_{1}^{2} \\frac{1}{r} \\, dr \\right) && (\\text{Sınırların sabitliği nedeniyle integrallerin tam ayrışması}) \\\\
+                      &= 4 \\Big[ \\theta \\Big]_0^\\pi \\Big[ \\ln r \\Big]_1^2 && (\\text{Ters türevlerin alınması}) \\\\
+                      &= 4 (\\pi) (\\ln 2 - \\ln 1) = 4\\pi\\ln 2 && (\\text{Green Özdeşlikleri sayesinde ulaşılan şok edici kısalıktaki sonuç})
+                    \\end{aligned}$$`
+                );
+
+html += createQuestion("Soru 9", "Enneper Minimal Yüzeyi Üzerinde Alan Sentezi (Konu: 14.5)", 
+                    "\\( \\mathbf{r}(u,v) = \\langle u - \\frac{u^3}{3} + uv^2, \\; v - \\frac{v^3}{3} + vu^2, \\; u^2 - v^2 \\rangle \\) parametrizasyonu ile verilen meşhur Enneper Minimal Yüzeyinin, \\( u^2 + v^2 \\le 3 \\) dairesel bölgesi üzerinde kalan parçasının yüzey alanını hesaplayınız.", 
+                    `<div style="background-color: var(--bg-secondary); border-left: 4px solid var(--accent); padding: 15px; margin-bottom: 20px; border-radius: 4px;">
+                        <h4 style="margin-top: 0; color: var(--accent); font-family: var(--font-math); font-size: 1.05rem;">📌 İleri Geometri Notu: Birinci Temel Form (E, F, G)</h4>
+                        <p style="margin-bottom: 0; font-size: 0.95rem; color: var(--text-primary);">
+                            Parametrik bir yüzeyin alanını hesaplarken her zaman çapraz çarpım (\\( |\\mathbf{r}_u \\times \\mathbf{r}_v| \\)) yapmak zorunda değiliz. Diferansiyel geometride kullanılan <b>Gauss Özdeşliği</b> ile alan diferansiyeli (dS) şöyle bulunur:
+                            <br><br>
+                            \\( E = \\mathbf{r}_u \\cdot \\mathbf{r}_u, \\quad F = \\mathbf{r}_u \\cdot \\mathbf{r}_v, \\quad G = \\mathbf{r}_v \\cdot \\mathbf{r}_v \\)
+                            <br>
+                            \\( dS = \\sqrt{EG - F^2} \\, du \\, dv \\)
+                            <br><br>
+                            Bu yönteme <b>Birinci Temel Form</b> denir ve karmaşık vektörel çarpımlardan kaçınarak sadece skaler nokta çarpımları üzerinden gitmemizi sağlar.
+                        </p>
+                    </div>
+                    <p><i>Çözüm:</i></p>
+                    <p>Strateji: Enneper yüzeyi gibi cebirsel olarak yoğun parametrizasyonlarda çapraz çarpım normu almak yerine, yukarıdaki E, F, G katsayılarını kullanarak yüzey diferansiyelini (dS) elde edeceğiz.</p>
+                    $$\\begin{aligned}
+                    \\mathbf{r}_u &= \\langle 1-u^2+v^2, \\; 2uv, \\; 2u \\rangle && (\\text{u parametresine göre teğet vektör}) \\\\
+                    \\mathbf{r}_v &= \\langle 2uv, \\; 1-v^2+u^2, \\; -2v \\rangle && (\\text{v parametresine göre teğet vektör}) \\\\
+                    E = \\mathbf{r}_u \\cdot \\mathbf{r}_u &= (1-u^2+v^2)^2 + (2uv)^2 + (2u)^2 && (\\text{Birinci katsayının nokta çarpım açılımı}) \\\\
+                      &= 1+u^4+v^4-2u^2+2v^2-2u^2v^2 + 4u^2v^2 + 4u^2 && (\\text{Polinom genişletmesi}) \\\\
+                      &= (1+u^2+v^2)^2 && (\\text{Tam kare özdeşliğinin fark edilmesi}) \\\\
+                    G = \\mathbf{r}_v \\cdot \\mathbf{r}_v &= (2uv)^2 + (1-v^2+u^2)^2 + (-2v)^2 && (\\text{İkinci katsayının nokta çarpım açılımı}) \\\\
+                      &= (1+u^2+v^2)^2 && (\\text{Simetri gereği E katsayısı ile özdeş sonuç}) \\\\
+                    F = \\mathbf{r}_u \\cdot \\mathbf{r}_v &= (1-u^2+v^2)(2uv) + (2uv)(1-v^2+u^2) + (2u)(-2v) && (\\text{Karma katsayı nokta çarpımı}) \\\\
+                      &= 2uv - 2u^3v + 2uv^3 + 2uv - 2uv^3 + 2u^3v - 4uv = 0 && (\\text{Tüm terimlerin birbirini yok ederek F=0 (ortogonallik) üretmesi}) \\\\
+                    dS &= \\sqrt{E \\cdot G - F^2} = \\sqrt{(1+u^2+v^2)^4 - 0} = (1+u^2+v^2)^2 && (\\text{Yüzey diferansiyelinin elde edilmesi}) \\\\
+                    A &= \\iint_{u^2+v^2 \\le 3} (1+u^2+v^2)^2 \\, du \\, dv && (\\text{Alan integralinin dairesel bölge üzerinde kurgulanması}) \\\\
+                      &= \\int_{0}^{2\\pi} \\int_{0}^{\\sqrt{3}} (1+r^2)^2 \\cdot r \\, dr \\, d\\theta && (\\text{Kutupsal koordinatlara geçiş}) \\\\
+                    \\int_{0}^{\\sqrt{3}} (r + 2r^3 + r^5) \\, dr &= \\left[ \\frac{r^2}{2} + \\frac{r^4}{2} + \\frac{r^6}{6} \\right]_0^{\\sqrt{3}} && (\\text{Radyal integralin ters türevi}) \\\\
+                      &= \\frac{3}{2} + \\frac{9}{2} + \\frac{27}{6} = 6 + 4.5 = 10.5 && (\\text{Sınırların sayısal hesabı}) \\\\
+                    A &= (2\\pi) \\times \\frac{21}{2} = 21\\pi \\text{ birimkare} && (\\text{Minimal yüzey için ulaşılan nihai kusursuz alan})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 10", "Eğik Parametrik Düzlem ve Birinci Temel Formun Zorlanması (Konu: 14.5)", 
+                    "\\( \\mathbf{r}(u,v) = \\langle u+v, \\; u-v, \\; uv \\rangle \\) parametrizasyonu ile verilen yüzeyin, \\( u^2 + v^2 \\le 1 \\) bölgesi içinde kalan yüzey alanını hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Bu yüzeyde teğet vektörler birbirine dik değildir (\\( F \\neq 0 \\)). Bu durum, klasik Monge formülünü yetersiz kılar ve bizi tam \\( \\sqrt{EG-F^2} \\) formülünü kullanmaya zorlar.</p>
+                    $$\\begin{aligned}
+                    \\mathbf{r}_u &= \\langle 1, \\; 1, \\; v \\rangle, \\quad \\mathbf{r}_v = \\langle 1, \\; -1, \\; u \\rangle && (\\text{Parametrik teğet türev vektörleri}) \\\\
+                    E &= \\mathbf{r}_u \\cdot \\mathbf{r}_u = 1^2 + 1^2 + v^2 = 2 + v^2 && (\\text{E katsayısı}) \\\\
+                    G &= \\mathbf{r}_v \\cdot \\mathbf{r}_v = 1^2 + (-1)^2 + u^2 = 2 + u^2 && (\\text{G katsayısı}) \\\\
+                    F &= \\mathbf{r}_u \\cdot \\mathbf{r}_v = (1)(1) + (1)(-1) + (v)(u) = uv && (\\text{Sıfırdan farklı çıkan F (eğiklik) katsayısı}) \\\\
+                    EG - F^2 &= (2+v^2)(2+u^2) - (uv)^2 && (\\text{Gauss alan çarpanı hesabı}) \\\\
+                      &= 4 + 2u^2 + 2v^2 + u^2v^2 - u^2v^2 = 4 + 2(u^2 + v^2) && (\\text{Çapraz terimlerin sadeleşmesiyle kalan net ifade}) \\\\
+                    dS &= \\sqrt{4 + 2(u^2+v^2)} \\, du \\, dv && (\\text{Yüzey diferansiyelinin nihai formu}) \\\\
+                    A &= \\int_{0}^{2\\pi} \\int_{0}^{1} \\sqrt{4 + 2r^2} \\cdot r \\, dr \\, d\\theta && (\\text{Birim disk üzerinde kutupsal entegrasyon}) \\\\
+                    w &= 4 + 2r^2 \\implies dw = 4r \\, dr \\implies r \\, dr = \\frac{dw}{4} && (\\text{Radyal integral için değişken değiştirme}) \\\\
+                    \\int \\sqrt{w} \\frac{dw}{4} &= \\frac{1}{4} \\cdot \\frac{2}{3} w^{3/2} = \\frac{1}{6} (4+2r^2)^{3/2} && (\\text{Kuvvet kuralıyla ters türev}) \\\\
+                    \\text{İç İnt.} &= \\left[ \\frac{1}{6} (4+2r^2)^{3/2} \\right]_0^1 = \\frac{1}{6} (6^{3/2} - 4^{3/2}) && (\\text{Sınır değerlerinin uygulanması}) \\\\
+                      &= \\frac{1}{6} (6\\sqrt{6} - 8) = \\sqrt{6} - \\frac{4}{3} && (\\text{Rasyonel sadeleştirme}) \\\\
+                    A &= 2\\pi \\left( \\sqrt{6} - \\frac{4}{3} \\right) \\text{ birimkare} && (\\text{Eğik parametrik sistemden gelen nihai sonuç})
+                    \\end{aligned}$$`
+                );
+html += createQuestion("Soru 11", "Küresel Yüzeyde Skaler İntegral ve Asimetrik Yoğunluk Dağılımı (Konu: 14.6)", 
+                    "\\( S \\) yüzeyi, orijin merkezli \\( R \\) yarıçaplı \\( x^2+y^2+z^2=R^2 \\) küresidir. Kürenin yüzey yoğunluğu, kuzey kutup noktasına \\( (0,0,R) \\) olan uzaklığı ile doğru orantılıdır: \\( \\delta(x,y,z) = k\\sqrt{x^2+y^2+(z-R)^2} \\). Kürenin toplam kütlesini yüzey integrali (\\( \\iint_S \\delta \\, dS \\)) kurgusuyla hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Uzaklık fonksiyonu ilk bakışta entegre edilemez bir karekök girdabı gibi görünür. Ancak küre denklemini (\\( x^2+y^2+z^2=R^2 \\)) kullanarak bu kök içini sadece \\( z \\) eksenindeki zenit açısına (\\( \\phi \\)) bağlayacağız ve trigonometrik yarım açı özdeşliğiyle kökten kurtulacağız.</p>
+                    $$\\begin{aligned}
+                    d^2 &= x^2 + y^2 + (z-R)^2 && (\\text{Kuzey kutbuna olan uzaklığın karesi}) \\\\
+                      &= x^2 + y^2 + z^2 - 2Rz + R^2 && (\\text{Tam kare açılımının yapılması}) \\\\
+                      &= R^2 - 2Rz + R^2 = 2R^2 - 2Rz && (\\text{Küre yüzeyinde } x^2+y^2+z^2=R^2 \\text{ eşitliğinin kullanılması}) \\\\
+                    z &= R\\cos\\phi \\implies d^2 = 2R^2 - 2R^2\\cos\\phi && (\\text{Küresel koordinatlarda z bileşeninin yerine konması}) \\\\
+                    d^2 &= 2R^2(1 - \\cos\\phi) && (\\text{Uzaklık karesinin sadeleştirilmiş trigonometrik formu}) \\\\
+                    1 - \\cos\\phi &= 2\\sin^2\\left(\\frac{\\phi}{2}\\right) && (\\text{Hayat kurtaran trigonometrik yarım açı özdeşliği}) \\\\
+                    d &= \\sqrt{4R^2\\sin^2\\left(\\frac{\\phi}{2}\\right)} = 2R\\sin\\left(\\frac{\\phi}{2}\\right) && (\\text{Karekökün alınması } (\\phi \\in [0,\\pi] \\text{ için sinüs daima pozitiftir)}) \\\\
+                    \\delta(\\phi) &= k \\cdot d = 2kR\\sin\\left(\\frac{\\phi}{2}\\right) && (\\text{Yoğunluk fonksiyonunun saf açısal forma indirgenmesi}) \\\\
+                    dS &= R^2\\sin\\phi \\, d\\phi \\, d\\theta && (\\text{Küre yüzey alanı diferansiyel elemanı}) \\\\
+                    M &= \\iint_S \\delta \\, dS = \\int_{0}^{2\\pi} \\int_{0}^{\\pi} \\left( 2kR\\sin\\left(\\frac{\\phi}{2}\\right) \\right) (R^2\\sin\\phi) \\, d\\phi \\, d\\theta && (\\text{Kütle integralinin küresel parametrelerle kurgulanması}) \\\\
+                      &= 2kR^3 \\left( \\int_{0}^{2\\pi} d\\theta \\right) \\left( \\int_{0}^{\\pi} \\sin\\left(\\frac{\\phi}{2}\\right) \\sin\\phi \\, d\\phi \\right) && (\\text{Sabitlerin dışarı alınması ve integrallerin ayrıştırılması}) \\\\
+                    \\sin\\phi &= 2\\sin\\left(\\frac{\\phi}{2}\\right)\\cos\\left(\\frac{\\phi}{2}\\right) && (\\text{İntegrandaki sinüsün yarım açıya parçalanması}) \\\\
+                    \\text{İç İnt.} &= \\int_{0}^{\\pi} \\sin\\left(\\frac{\\phi}{2}\\right) \\left( 2\\sin\\left(\\frac{\\phi}{2}\\right)\\cos\\left(\\frac{\\phi}{2}\\right) \\right) d\\phi && (\\text{Parçalanmış sinüsün integrale yerleştirilmesi}) \\\\
+                      &= 2 \\int_{0}^{\\pi} \\sin^2\\left(\\frac{\\phi}{2}\\right) \\cos\\left(\\frac{\\phi}{2}\\right) \\, d\\phi && (\\text{Kuvvet kuralı (u-dönüşümü) için hazır hale gelmiş integrand}) \\\\
+                    u &= \\sin\\left(\\frac{\\phi}{2}\\right) \\implies du = \\frac{1}{2}\\cos\\left(\\frac{\\phi}{2}\\right) d\\phi && (\\text{Diferansiyel dönüşüm analizi}) \\\\
+                    \\text{İç İnt.} &= 2 \\left[ \\frac{2}{3} \\sin^3\\left(\\frac{\\phi}{2}\\right) \\right]_0^\\pi = \\frac{4}{3} \\left( \\sin^3\\left(\\frac{\\pi}{2}\\right) - \\sin^3(0) \\right) = \\frac{4}{3} && (\\text{Ters türevin sınır değerleriyle hesaplanması}) \\\\
+                    M &= 2kR^3 (2\\pi) \\left( \\frac{4}{3} \\right) = \\frac{16\\pi k R^3}{3} && (\\text{Asimetrik kütle dağılımından doğan nihai kusursuz sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 12", "Açık Konik Yüzeyden Vektörel Akı (Flux) ve Yönlendirme Analizi (Konu: 14.6)", 
+                    "\\( \\mathbf{F}(x,y,z) = \\left\\langle \\frac{x}{x^2+y^2}, \\; \\frac{y}{x^2+y^2}, \\; z^2 \\right\\rangle \\) vektör alanı veriliyor. \\( S \\) yüzeyi, \\( z = \\sqrt{x^2+y^2} \\) konisinin \\( z=1 \\) ve \\( z=2 \\) düzlemleri arasında kalan açık parçasıdır. Yüzeyin normal vektörü <b>içe (z-eksenine doğru)</b> yönlendirilmiştir. Bu yüzeyden geçen net akıyı (\\( \\iint_S \\mathbf{F} \\cdot d\\mathbf{S} \\)) doğrudan parametrik yüzey integrali ile hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Yüzey kapalı olmadığı için Diverjans Teoremi uygulanamaz. Koniyi silindirik koordinatlara benzeyen iki parametreli bir denklemle (\\( r \\) ve \\( \\theta \\)) ifade edip, teğet vektörlerin çapraz çarpımından normal vektörü (\\( \\mathbf{N} \\)) üreteceğiz. Normal vektörün yönünü test edip, gerekirse eksi ile çarparak içe bakmasını (z-eksenini göstermesini) sağlayacağız.</p>
+                    $$\\begin{aligned}
+                    \\mathbf{r}(r,\\theta) &= \\langle r\\cos\\theta, \\; r\\sin\\theta, \\; r \\rangle && (\\text{Koninin (z=r) parametrik vektörel inşası}) \\\\
+                    1 &\\le r \\le 2, \\quad 0 \\le \\theta \\le 2\\pi && (\\text{Kesik koniyi oluşturan parametrik sınırlar}) \\\\
+                    \\mathbf{r}_r &= \\langle \\cos\\theta, \\; \\sin\\theta, \\; 1 \\rangle && (\\text{Yüzeyin radyal teğet vektörü}) \\\\
+                    \\mathbf{r}_\\theta &= \\langle -r\\sin\\theta, \\; r\\cos\\theta, \\; 0 \\rangle && (\\text{Yüzeyin açısal teğet vektörü}) \\\\
+                    \\mathbf{N} &= \\mathbf{r}_r \\times \\mathbf{r}_\\theta = \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ \\cos\\theta & \\sin\\theta & 1 \\\\ -r\\sin\\theta & r\\cos\\theta & 0 \\end{vmatrix} && (\\text{Yüzey normalini veren çapraz çarpım matrisi}) \\\\
+                      &= \\langle -r\\cos\\theta, \\; -r\\sin\\theta, \\; r\\cos^2\\theta - (-r\\sin^2\\theta) \\rangle && (\\text{Determinant açılımı}) \\\\
+                      &= \\langle -x, \\; -y, \\; r \\rangle && (\\text{Normal vektörün bileşen analizi}) \\\\
+                    &\\text{Vektörün x ve y bileşenleri orijine (z eksenine) doğru bakmaktadır. } && (\\text{Yönlendirme kontrolü}) \\\\
+                    &\\text{Z bileşeni pozitif olduğundan vektör yukarı ve İÇE bakmaktadır (Uygun).} && (\\text{Normal vektörün istenen yönlendirmeyi sağladığının teyidi}) \\\\
+                    \\mathbf{F}(\\mathbf{r}) &= \\left\\langle \\frac{r\\cos\\theta}{r^2}, \\; \\frac{r\\sin\\theta}{r^2}, \\; r^2 \\right\\rangle = \\left\\langle \\frac{\\cos\\theta}{r}, \\; \\frac{\\sin\\theta}{r}, \\; r^2 \\right\\rangle && (\\text{Vektör alanının parametrik yüzeye yansıtılması}) \\\\
+                    \\mathbf{F} \\cdot \\mathbf{N} &= \\left(\\frac{\\cos\\theta}{r}\\right)(-r\\cos\\theta) + \\left(\\frac{\\sin\\theta}{r}\\right)(-r\\sin\\theta) + (r^2)(r) && (\\text{Akı çekirdeğini oluşturan nokta çarpım işlemi}) \\\\
+                      &= -\\cos^2\\theta - \\sin^2\\theta + r^3 && (\\text{Rasyonel terimlerin r'leri sadeleştirerek yok etmesi}) \\\\
+                      &= r^3 - 1 && (\\text{Trigonometrik 1 özdeşliği ile kalan kusursuz integrand}) \\\\
+                    \\Phi &= \\int_{0}^{2\\pi} \\int_{1}^{2} (r^3 - 1) \\, dr \\, d\\theta = \\left( \\int_{0}^{2\\pi} d\\theta \\right) \\left( \\int_{1}^{2} (r^3 - 1) \\, dr \\right) && (\\text{Bağımsız sınırların ayrıştırılması ve integral kurgusu}) \\\\
+                    \\int_{1}^{2} (r^3 - 1) \\, dr &= \\left[ \\frac{r^4}{4} - r \\right]_1^2 = \\left( \\frac{16}{4} - 2 \\right) - \\left( \\frac{1}{4} - 1 \\right) && (\\text{Radyal integralin ters türevi ve sınır hesabı}) \\\\
+                      &= (4 - 2) - \\left( -\\frac{3}{4} \\right) = 2 + \\frac{3}{4} = \\frac{11}{4} && (\\text{İç kısımdan gelen net akı yoğunluğu}) \\\\
+                    \\Phi &= (2\\pi) \\left( \\frac{11}{4} \\right) = \\frac{11\\pi}{2} && (\\text{Parametrik sistemin gücüyle ulaşılan nihai akı (Flux) sonucu})
+                    \\end{aligned}$$`
+                );
+
+html += createQuestion("Soru 13", "Topolojik Yüzey Bağımsızlığı ve Transandant İllüzyon (Konu: 14.7)", 
+                    "\\( \\mathbf{F}(x,y,z) = \\langle \\sin(x^3) - y, \\; e^{y^2} + x^2, \\; z^4 \\cos(z) \\rangle \\) vektör alanı veriliyor. \\( C \\) eğrisi, \\( x^2 + y^2 = 4 \\) silindirinin, \\( z = \\ln(1 + x^2 y^4) + \\cos(\\pi x y) \\) transandant yüzeyini kestiği kapalı yoldur. Üstten bakıldığında saat yönünün tersine yönlendirilmiş bu eğri boyunca yapılan işi (\\( \\oint_C \\mathbf{F} \\cdot d\\mathbf{r} \\)) Stokes Teoremi ile hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Eğrinin denklemi analitik olarak çözülemez. Ancak Stokes Teoremi bize, sınır eğrisi aynı kalmak şartıyla, o eğriyi kapatan <b>istediğimiz herhangi bir yüzeyi</b> seçme özgürlüğü verir. Yine de biz en kötü senaryoyu seçip, verilen korkunç yüzeyin kendisini kullansak bile matematiğin bizi nasıl koruduğunu göreceğiz.</p>
+                    $$\\begin{aligned}
+                    \\oint_C \\mathbf{F} \\cdot d\\mathbf{r} &= \\iint_S (\\nabla \\times \\mathbf{F}) \\cdot \\mathbf{n} \\, dS && (\\text{Çizgi integralini yüzey integraline bağlayan Stokes kurgusu}) \\\\
+                    \\nabla \\times \\mathbf{F} &= \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ \\partial_x & \\partial_y & \\partial_z \\\\ \\sin(x^3)-y & e^{y^2}+x^2 & z^4\\cos(z) \\end{vmatrix} && (\\text{Vektör alanının rotasyonel determinantı}) \\\\
+                      &= \\langle 0 - 0, \\; 0 - 0, \\; 2x - (-1) \\rangle && (\\text{z bileşenine etki etmeyen transandant terimlerin sıfırlanması}) \\\\
+                      &= \\langle 0, \\; 0, \\; 2x + 1 \\rangle && (\\text{Sadeleşmiş kusursuz Curl (Girdap) vektörü}) \\\\
+                    \\mathbf{N} \\, dS &= \\langle -z_x, \\; -z_y, \\; 1 \\rangle \\, dx \\, dy && (\\text{Transandant yüzeyin yukarı bakan Monge Normal diferansiyeli}) \\\\
+                    (\\nabla \\times \\mathbf{F}) \\cdot \\mathbf{N} \\, dS &= \\big( 0(-z_x) + 0(-z_y) + (2x+1)(1) \\big) \\, dx \\, dy && (\\text{O korkunç türevleri (z}_x, \\text{z}_y\\text{) sıfırla çarparak yok eden nokta çarpım}) \\\\
+                      &= (2x + 1) \\, dA && (\\text{İntegrandın sadece xy-düzlemindeki izdüşüme indirgenmesi}) \\\\
+                    I &= \\iint_D (2x + 1) \\, dA && (\\text{Zemin diski } (x^2+y^2 \\le 4) \\text{ üzerinden 2 katlı integral}) \\\\
+                    \\iint_D 2x \\, dA &= 0 && (\\text{Bölge y eksenine simetrik, 2x ise tek (odd) fonksiyon olduğundan iptal}) \\\\
+                    I &= \\iint_D 1 \\, dA = \\text{Alan}(D) && (\\text{Geriye sadece zemin disk bölgesinin alanının kalması}) \\\\
+                      &= \\pi (2)^2 = 4\\pi \\text{ Joule} && (\\text{Matematiksel illüzyonun çöküşüyle ulaşılan efsanevi sonuç})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 14", "Eğik Düzlem Kesiti ve İleri Vektörel Rotasyon Analizi (Konu: 14.7)", 
+                    "\\( C \\) eğrisi, merkezi orijinde olan \\( x^2 + y^2 + z^2 = R^2 \\) küresi ile \\( x + y + z = R \\) düzleminin uzaydaki kesişimidir. Üstten (z-ekseni pozitif yönünden) bakıldığında saat yönünün tersine yönlendirilmiş bu eğri üzerinde, \\( \\mathbf{F} = \\langle y, z, x \\rangle \\) alanının sirkülasyonunu hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Bu kesişim, uzayda yan yatmış bir çemberdir. Onu parametrize etmek için 3D rotasyon matrisleri (Euler açıları) gerekir ki bu tam bir işkencedir. Bunun yerine Stokes Teoremi'ni kullanıp, çemberin içini dolduran düzlem parçasını (diski) yüzey olarak seçeceğiz. Çemberin alanını ise Lineer Cebir (noktanın düzleme uzaklığı) ile bulacağız.</p>
+                    $$\\begin{aligned}
+                    \\nabla \\times \\mathbf{F} &= \\begin{vmatrix} \\mathbf{i} & \\mathbf{j} & \\mathbf{k} \\\\ \\partial_x & \\partial_y & \\partial_z \\\\ y & z & x \\end{vmatrix} = \\langle -1, -1, -1 \\rangle && (\\text{Vektör alanının rotasyonel vektörünün hesabı}) \\\\
+                    x + y + z &= R \\implies \\mathbf{n} = \\frac{\\langle 1, 1, 1 \\rangle}{\\sqrt{1^2+1^2+1^2}} = \\frac{1}{\\sqrt{3}} \\langle 1, 1, 1 \\rangle && (\\text{Düzleme (ve dolayısıyla yüzeye) dik birim normal vektör}) \\\\
+                    (\\nabla \\times \\mathbf{F}) \\cdot \\mathbf{n} &= \\langle -1, -1, -1 \\rangle \\cdot \\frac{1}{\\sqrt{3}} \\langle 1, 1, 1 \\rangle && (\\text{Sirkülasyon çekirdeği için nokta çarpım işlemi}) \\\\
+                      &= \\frac{-1 - 1 - 1}{\\sqrt{3}} = -\\frac{3}{\\sqrt{3}} = -\\sqrt{3} && (\\text{İntegrandın her yerde sabit çıkması}) \\\\
+                    \\oint_C \\mathbf{F} \\cdot d\\mathbf{r} &= \\iint_S (-\\sqrt{3}) \\, dS = -\\sqrt{3} \\iint_S dS = -\\sqrt{3} \\times \\text{Alan}(S) && (\\text{İntegralin doğrudan eğik çemberin alanına bağlanması}) \\\\
+                    d &= \\frac{|0 + 0 + 0 - R|}{\\sqrt{1^2+1^2+1^2}} = \\frac{R}{\\sqrt{3}} && (\\text{Orijinin (küre merkezi) kesişim düzlemine olan dik uzaklığı}) \\\\
+                    r_c^2 &= R^2 - d^2 && (\\text{Kesit çemberinin yarıçapı için uzaysal Pisagor teoremi}) \\\\
+                      &= R^2 - \\left(\\frac{R}{\\sqrt{3}}\\right)^2 = R^2 - \\frac{R^2}{3} = \\frac{2R^2}{3} && (\\text{Eğik çemberin yarıçapının karesi}) \\\\
+                    \\text{Alan}(S) &= \\pi r_c^2 = \\frac{2\\pi R^2}{3} && (\\text{Çemberin alanının analitik hesabı}) \\\\
+                    \\oint_C \\mathbf{F} \\cdot d\\mathbf{r} &= -\\sqrt{3} \\left( \\frac{2\\pi R^2}{3} \\right) = -\\frac{2\\sqrt{3}\\pi R^2}{3} && (\\text{Geometri ve Vektör Analizinin kusursuz sentezi})
+                    \\end{aligned}$$`
+                );
+
+html += createQuestion("Soru 15", "Tüm Evrensel Uzayda ($\\mathbb{R}^3$) Asimptotik Akı ve L'Hôpital Kuralı Sentezi (Konu: 14.8)", 
+                    "Tüm üç boyutlu uzayı (\\( \\mathbb{R}^3 \\)) dolduran \\( \\mathbf{F}(x,y,z) = e^{-(x^2+y^2+z^2)} \\langle x, y, z \\rangle \\) vektör alanı veriliyor. Bu alanın tüm uzaydaki toplam ıraksama (kaynak/kuyu) miktarının, yani \\( \\iiint_{\\mathbb{R}^3} (\\nabla \\cdot \\mathbf{F}) \\, dV \\) integralinin analitik olarak <b>SIFIR</b> olduğunu, Diverjans Teoremi'ni asimptotik bir limit küresi üzerinde kullanarak ispatlayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Bu vektör alanının doğrudan diverjansını alıp sonsuz hacim integrali çözmek, çok ağır kısmi integrasyon zincirleri gerektirir. Ancak Diverjans Teoremi bize, "Tüm hacimdeki ıraksama toplamı, o hacmi saran dış kabuktan çıkan akıya eşittir" der. Uzayı sonsuz yarıçaplı bir \\( R \\) küresi ile sarıp, limiti sonsuza (\\( R \\to \\infty \\)) götüreceğiz.</p>
+                    $$\\begin{aligned}
+                    \\iiint_V (\\nabla \\cdot \\mathbf{F}) \\, dV &= \\iint_{S} \\mathbf{F} \\cdot \\mathbf{n} \\, dS && (\\text{Klasik Gauss - Diverjans Teoremi}) \\\\
+                    \\iiint_{\\mathbb{R}^3} (\\nabla \\cdot \\mathbf{F}) \\, dV &= \\lim_{R \\to \\infty} \\iint_{S_R} \\mathbf{F} \\cdot \\mathbf{n} \\, dS && (\\text{Tüm uzayı kaplamak için küre yarıçapının (R) sonsuza gönderilmesi}) \\\\
+                    S_R &: x^2+y^2+z^2=R^2 \\implies \\rho = R && (\\text{Limit küresinin radyal denklemi}) \\\\
+                    \\mathbf{n} &= \\frac{\\mathbf{r}}{|\\mathbf{r}|} = \\frac{\\langle x, y, z \\rangle}{R} && (\\text{Orijin merkezli küreden dışarı doğru bakan birim normal vektör}) \\\\
+                    \\mathbf{F}(\\mathbf{r}) &= e^{-R^2} \\langle x, y, z \\rangle = e^{-R^2} \\mathbf{r} && (\\text{Limit küresi üzerinde vektör alanının alacağı sabit üstel değer}) \\\\
+                    \\mathbf{F} \\cdot \\mathbf{n} &= \\left( e^{-R^2} \\mathbf{r} \\right) \\cdot \\left( \\frac{\\mathbf{r}}{R} \\right) = \\frac{e^{-R^2}}{R} (\\mathbf{r} \\cdot \\mathbf{r}) && (\\text{Akı çekirdeğini oluşturan vektörel nokta çarpım}) \\\\
+                    \\mathbf{r} \\cdot \\mathbf{r} &= x^2+y^2+z^2 = R^2 && (\\text{Konum vektörünün kendisiyle çarpımından doğan yarıçap karesi}) \\\\
+                    \\mathbf{F} \\cdot \\mathbf{n} &= \\frac{e^{-R^2}}{R} (R^2) = R e^{-R^2} && (\\text{Küre yüzeyindeki her bir diferansiyel noktadan çıkan net akı yoğunluğu}) \\\\
+                    \\Phi(R) &= \\iint_{S_R} R e^{-R^2} \\, dS = R e^{-R^2} \\iint_{S_R} 1 \\, dS && (\\text{R değeri yüzey boyunca sabit olduğundan integral dışına alınması}) \\\\
+                    \\iint_{S_R} 1 \\, dS &= \\text{Alan}(S_R) = 4\\pi R^2 && (\\text{Yarıçapı R olan kürenin standart yüzey alanı}) \\\\
+                    \\Phi(R) &= R e^{-R^2} (4\\pi R^2) = 4\\pi R^3 e^{-R^2} = \\frac{4\\pi R^3}{e^{R^2}} && (\\text{Limit küresinden taşan toplam enerjinin asimptotik fonksiyonu}) \\\\
+                    \\lim_{R \\to \\infty} \\Phi(R) &= 4\\pi \\lim_{R \\to \\infty} \\frac{R^3}{e^{R^2}} = \\left[ \\frac{\\infty}{\\infty} \\right] && (\\text{Sonsuzluk limitinde karşılaşılan belirsizlik durumu}) \\\\
+                    \\lim_{R \\to \\infty} \\frac{3R^2}{2R e^{R^2}} &= \\lim_{R \\to \\infty} \\frac{3R}{2 e^{R^2}} = \\left[ \\frac{\\infty}{\\infty} \\right] && (\\text{L\\'Hôpital Kuralı\\'nın ardışık olarak uygulanması}) \\\\
+                    \\lim_{R \\to \\infty} \\frac{3}{4R e^{R^2}} &= \\frac{3}{\\infty} = 0 && (\\text{Üstel büyümenin polinomu ezmesiyle ulaşılan nihai limit}) \\\\
+                    \\iiint_{\\mathbb{R}^3} (\\nabla \\cdot \\mathbf{F}) \\, dV &= 0 \\quad (\\text{İspatlandı}) && (\\text{Fiziksel Yorum: Merkezden fışkıran enerji sonsuzluğa ulaşamadan sönümlenir})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 16", "Açık Şemsiye İllüzyonu ve Topolojik Hacim İptali (Konu: 14.8)", 
+                    "\\( S \\) yüzeyi, \\( z = e^{1-x^2-y^2} \\) (Gaussian Tepesi) yüzeyinin \\( z \\ge 1 \\) bölgesinde kalan <b>açık</b> parçasıdır ve normal vektörü yukarı yönlüdür. \\( \\mathbf{F} = \\langle xy^2 + \\sin(z), \\; x^2y - \\cosh(z), \\; 5 - z(x^2+y^2) \\rangle \\) vektör alanının bu karmaşık yüzey üzerinden yukarı doğru akısını (\\( \\iint_S \\mathbf{F} \\cdot d\\mathbf{S} \\)) hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Bu yüzeyi parametrize edip doğrudan integral almak imkansızdır. Vektör alanının diverjansını aldığımızda sonucun muazzam bir şekilde SIFIR çıkacağını göreceğiz. Diverjans sıfırsa, hacmin içindeki net enerji sıfırdır. Bu da demektir ki; açık tepeden (S) çıkan akı, bu tepeyi alttan kapatan düz bir diskten (D) giren akıya birebir eşittir!</p>
+                    $$\\begin{aligned}
+                    \\nabla \\cdot \\mathbf{F} &= \\frac{\\partial}{\\partial x}\\big(xy^2+\\sin z\\big) + \\frac{\\partial}{\\partial y}\\big(x^2y-\\cosh z\\big) + \\frac{\\partial}{\\partial z}\\big(5-zx^2-zy^2\\big) && (\\text{Diverjansın (hacimsel patlama/çökme miktarının) hesabı}) \\\\
+                      &= y^2 + x^2 + (-x^2-y^2) = 0 && (\\text{Korkunç fonksiyonların sıfırlanarak alanı sıkıştırılamaz (solenoidal) yapması}) \\\\
+                    &\\text{S yüzeyini alttan } z=1 \\text{ düzlemindeki bir } D \\text{ diski ile kapatalım.} && (\\text{Açık şemsiyenin altını kapatıp kapalı bir hacim (V) oluşturma}) \\\\
+                    z &= e^{1-x^2-y^2} \\ge 1 \\implies 1-x^2-y^2 \\ge 0 \\implies x^2+y^2 \\le 1 && (\\text{Tepenin altındaki D diskinin yarıçapının (r=1) tespiti}) \\\\
+                    \\iiint_V (0) \\, dV &= \\iint_S \\mathbf{F} \\cdot \\mathbf{n}_S \\, dS + \\iint_D \\mathbf{F} \\cdot \\mathbf{n}_D \\, dS = 0 && (\\text{Kapalı sistem için Diverjans Teoremi\\'nin uygulanması}) \\\\
+                    \\iint_S \\mathbf{F} \\cdot \\mathbf{n}_S \\, dS &= -\\iint_D \\mathbf{F} \\cdot \\mathbf{n}_D \\, dS && (\\text{Karmaşık açık yüzeyin integrali, basit D diskinin tersine eşitlendi}) \\\\
+                    \\mathbf{n}_D &= \\langle 0, 0, -1 \\rangle = -\\mathbf{k} && (\\text{D diski hacmin tabanı olduğu için dışa bakan normali AŞAĞI doğrudur}) \\\\
+                    -\\iint_D \\mathbf{F} \\cdot (-\\mathbf{k}) \\, dA &= \\iint_D \\mathbf{F} \\cdot \\mathbf{k} \\, dA && (\\text{Eksilerin birbirini götürmesiyle integralin z-bileşenine (R) indirgenmesi}) \\\\
+                    \\mathbf{F} \\cdot \\mathbf{k} &= 5 - z(x^2+y^2) && (\\text{Vektör alanının sadece z katsayısının (R) kalması}) \\\\
+                    &\\text{D diski üzerinde } z=1 \\text{ olduğundan } \\mathbf{F} \\cdot \\mathbf{k} = 5 - (x^2+y^2) && (\\text{Düzlem denkleminin integranda yerleştirilmesi}) \\\\
+                    \\Phi_S &= \\iint_D (5 - x^2 - y^2) \\, dA = \\int_{0}^{2\\pi} \\int_{0}^{1} (5-r^2) \\cdot r \\, dr \\, d\\theta && (\\text{Karmaşık yüzey akısının, birim disk üzerinde basit bir kutupsal alana dönüşümü}) \\\\
+                      &= \\left( \\int_{0}^{2\\pi} d\\theta \\right) \\left( \\int_{0}^{1} (5r - r^3) \\, dr \\right) && (\\text{Bağımsız sınırların ayrıştırılması}) \\\\
+                      &= (2\\pi) \\left[ \\frac{5r^2}{2} - \\frac{r^4}{4} \\right]_0^1 = 2\\pi \\left( \\frac{5}{2} - \\frac{1}{4} \\right) && (\\text{Radyal ters türevin sınır değerleriyle hesabı}) \\\\
+                      &= 2\\pi \\left( \\frac{9}{4} \\right) = \\frac{9\\pi}{2} && (\\text{Amelelikten kurtaran analitik zekanın muazzam zaferi})
+                    \\end{aligned}$$`
+                );
+
+html += createQuestion("Soru 17", "Vektör Alanlarının Dekompozisyonu ve Topolojik İş Analizi (Tüm Bölüm Sentezi - I)", 
+                    "$\\mathbf{F}(x,y,z) = \\left\\langle 2xyz e^{x^2y} - \\frac{y}{x^2+y^2}, \\; x^2z e^{x^2y} + \\frac{x}{x^2+y^2}, \\; e^{x^2y} + z \\right\\rangle$ vektör alanının, $x = t\\cos t, \\; y = t\\sin t, \\; z = t$ konik sarmalı boyunca $t=2\\pi$'den $t=4\\pi$'ye kadar yaptığı toplam işi hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Bu vektör alanı, devasa bir korunumlu (potansiyelli) alan ile orijinde tekilliği (singularity) olan ve girdap yaratan non-korunumlu bir manyetik alanın toplamıdır. Alanı ikiye bölecek ($\\mathbf{F} = \\mathbf{F}_c + \\mathbf{F}_{nc}$), korunumlu kısım için Temel Teoremi kullanacak, girdap kısmı için ise eğrisel integrali bizzat hesaplayacağız.</p>
+                    $$\\begin{aligned}
+                    \\mathbf{F}_c &= \\langle 2xyz e^{x^2y}, \\; x^2z e^{x^2y}, \\; e^{x^2y} \\rangle && (\\text{Vektör alanının transandant ve potansiyel barındıran birinci parçası}) \\\\
+                    \\mathbf{F}_{nc} &= \\left\\langle \\frac{-y}{x^2+y^2}, \\; \\frac{x}{x^2+y^2}, \\; z \\right\\rangle && (\\text{Vektör alanının girdap barındıran (non-conservative) ikinci parçası}) \\\\
+                    f(x,y,z) &= z e^{x^2y} \\implies \\nabla f = \\mathbf{F}_c && (\\text{Birinci parçanın gizli potansiyel (enerji) fonksiyonunun keşfi}) \\\\
+                    A(t=2\\pi) &= \\langle 2\\pi\\cos(2\\pi), \\; 2\\pi\\sin(2\\pi), \\; 2\\pi \\rangle = (2\\pi, 0, 2\\pi) && (\\text{Parçacığın harekete başladığı noktanın koordinatları}) \\\\
+                    B(t=4\\pi) &= \\langle 4\\pi\\cos(4\\pi), \\; 4\\pi\\sin(4\\pi), \\; 4\\pi \\rangle = (4\\pi, 0, 4\\pi) && (\\text{Parçacığın hareketi bitirdiği noktanın koordinatları}) \\\\
+                    W_c &= f(B) - f(A) = f(4\\pi, 0, 4\\pi) - f(2\\pi, 0, 2\\pi) && (\\text{Korunumlu kısım için FTLI (Temel Teorem) uygulanması}) \\\\
+                      &= 4\\pi e^{(4\\pi)^2(0)} - 2\\pi e^{(2\\pi)^2(0)} = 4\\pi - 2\\pi = 2\\pi && (\\text{Üstel argümanın sıfırlanmasıyla elde edilen birinci iş miktarı}) \\\\
+                    W_{nc} &= \\int_C \\mathbf{F}_{nc} \\cdot d\\mathbf{r} = \\int_{2\\pi}^{4\\pi} \\left( \\frac{-y \\, dx + x \\, dy}{x^2+y^2} + z \\, dz \\right) && (\\text{Girdap (manyetik) kısmı için doğrudan diferansiyel iş kurgusu}) \\\\
+                    x^2 + y^2 &= (t\\cos t)^2 + (t\\sin t)^2 = t^2 && (\\text{Sarmalın zemin yarıçapının karesi}) \\\\
+                    dx &= (\\cos t - t\\sin t) dt, \\quad dy = (\\sin t + t\\cos t) dt && (\\text{Sarmalın x ve y eksenlerindeki hız diferansiyelleri}) \\\\
+                    -y \\, dx + x \\, dy &= -t\\sin t(\\cos t - t\\sin t)dt + t\\cos t(\\sin t + t\\cos t)dt && (\\text{Pay kısmının parametrik olarak genişletilmesi}) \\\\
+                      &= (-t\\sin t\\cos t + t^2\\sin^2 t + t\\cos t\\sin t + t^2\\cos^2 t)dt = t^2 dt && (\\text{Tüm çapraz terimlerin sıfırlanıp geriye } t^2 \\text{ kalması}) \\\\
+                    \\frac{-y \\, dx + x \\, dy}{x^2+y^2} &= \\frac{t^2 \\, dt}{t^2} = 1 \\, dt && (\\text{Korkunç rasyonel ifadenin kusursuzca sadeleşmesi}) \\\\
+                    W_{nc} &= \\int_{2\\pi}^{4\\pi} (1) \\, dt + \\int_{2\\pi}^{4\\pi} t \\, dt && (\\text{Sadeleşmiş diferansiyellerin integrasyon sınırlarına alınması}) \\\\
+                      &= \\Big[ t \\Big]_{2\\pi}^{4\\pi} + \\left[ \\frac{t^2}{2} \\right]_{2\\pi}^{4\\pi} = (4\\pi - 2\\pi) + \\frac{16\\pi^2 - 4\\pi^2}{2} && (\\text{Ters türevlerin hesaplanması}) \\\\
+                      &= 2\\pi + 6\\pi^2 && (\\text{İkinci kısımdan (girdaptan) gelen mekanik iş}) \\\\
+                    W_{toplam} &= W_c + W_{nc} = 2\\pi + 2\\pi + 6\\pi^2 = 4\\pi + 6\\pi^2 \\text{ Joule} && (\\text{Sentez analiziyle ulaşılan nihai toplam enerji aktarımı})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 18", "Green Teoreminin Non-Lineer Formları ve Kutuplu Atalet Akısı (Tüm Bölüm Sentezi - II)", 
+                    "\\( C \\) eğrisi, \\( (x^2+y^2)^2 = 2a^2(x^2-y^2) \\) Bernoulli Lemniskatının sağ ilmeğidir ve saat yönünün tersine yönlendirilmiştir. \\( \\mathbf{F}(x,y) = \\left\\langle \\cos(x^2) - \\frac{y^3}{3}, \\; e^{\\sqrt{y}} + \\frac{x^3}{3} \\right\\rangle \\) vektör alanının bu ilmek etrafındaki dolanımını (sirkülasyonunu) hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Vektör alanı entegre edilemez transandant fonksiyonlarla doludur. Eğri kapalı olduğu için doğrudan Green Teoremi'ni kullanıp, rotasyonel (curl) ile bu pürüzleri yok edeceğiz. Ortaya çıkan polinomu ise lemniskatın kutupsal alanında ezeceğiz.</p>
+                    $$\\begin{aligned}
+                    \\oint_C M \\, dx + N \\, dy &= \\iint_D \\left( \\frac{\\partial N}{\\partial x} - \\frac{\\partial M}{\\partial y} \\right) \\, dA && (\\text{2 Boyutlu Uzayda Green Teoremi (Rotasyonel Form)}) \\\\
+                    \\frac{\\partial N}{\\partial x} &= \\frac{\\partial}{\\partial x}\\left( e^{\\sqrt{y}} + \\frac{x^3}{3} \\right) = x^2 && (\\text{N bileşeninin x'e göre türetilmesi (Y'li terim sıfırlanır)}) \\\\
+                    \\frac{\\partial M}{\\partial y} &= \\frac{\\partial}{\\partial y}\\left( \\cos(x^2) - \\frac{y^3}{3} \\right) = -y^2 && (\\text{M bileşeninin y'ye göre türetilmesi (X'li terim sıfırlanır)}) \\\\
+                    \\text{Curl } \\mathbf{F} &= x^2 - (-y^2) = x^2 + y^2 && (\\text{İntegrandın kutupsal (r}^2\\text{) forma mükemmel indirgenişi}) \\\\
+                    I &= \\iint_D (x^2 + y^2) \\, dA = \\int_{-\\pi/4}^{\\pi/4} \\int_{0}^{a\\sqrt{2\\cos(2\\theta)}} (r^2) \\cdot r \\, dr \\, d\\theta && (\\text{İntegralin Lemniskat sınırlarıyla kutupsal kurgulanması}) \\\\
+                    \\int_{0}^{a\\sqrt{2\\cos(2\\theta)}} r^3 \\, dr &= \\left[ \\frac{r^4}{4} \\right]_0^{a\\sqrt{2\\cos(2\\theta)}} = \\frac{1}{4} \\big( a^2 (2\\cos(2\\theta)) \\big)^2 && (\\text{İç yarıçap integralinin alınması ve üst sınırın dördüncü kuvveti}) \\\\
+                      &= \\frac{4a^4 \\cos^2(2\\theta)}{4} = a^4 \\cos^2(2\\theta) && (\\text{Katsayıların sadeleşerek açısal integranda dönüşmesi}) \\\\
+                    I &= \\int_{-\\pi/4}^{\\pi/4} a^4 \\cos^2(2\\theta) \\, d\\theta = 2a^4 \\int_{0}^{\\pi/4} \\frac{1+\\cos(4\\theta)}{2} \\, d\\theta && (\\text{Simetri kuralı (2 katı) ve trigonometrik yarım açı özdeşliği}) \\\\
+                      &= a^4 \\left[ \\theta + \\frac{\\sin(4\\theta)}{4} \\right]_0^{\\pi/4} && (\\text{Trigonometrik dış integralin ters türevinin alınması}) \\\\
+                      &= a^4 \\left( \\frac{\\pi}{4} + \\frac{\\sin(\\pi)}{4} - 0 \\right) && (\\text{Üst sınırın (}\\pi/4\\text{) fonksiyona yazılıp değerlendirilmesi}) \\\\
+                      &= \\frac{\\pi a^4}{4} && (\\text{Green ve Kutupsal sistemin birleşimiyle ulaşılan net dolanım})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 19", "Açık Yüzeylerde Stokes Teoremi ve İleri Trigonometrik Sirkülasyon (Tüm Bölüm Sentezi - III)", 
+                    "\\( S \\) yüzeyi, \\( x^2+y^2+z^2=25 \\) küresinin \\( z \\ge 3 \\) bölgesinde kalan (açık) üst kapağıdır (Normali yukarı ve dışa bakar). Sınır eğrisi \\( C \\) ise bu kapağın tabanındaki çemberdir (üstten bakınca saat yönünün tersine). \\( \\mathbf{F} = \\langle -y^3 + z^2, \\; x^3 + y^2, \\; z^3 + x^2 \\rangle \\) vektör alanı veriliyor. Stokes Teoremi yardımıyla, bu rotasyonel akı integralini (\\( \\iint_S (\\nabla \\times \\mathbf{F}) \\cdot d\\mathbf{S} \\)) hesaplayınız.", 
+                    `<p><i>Çözüm:</i></p>
+                    <p>Strateji: Küre kapağı (spherical cap) üzerinde bir curl integrali almak, normal vektör ve Jacobianlarla boğuşmak demektir. Stokes Teoremi sayesinde bu korkunç yüzey integralini, sadece sınır çemberi (C) üzerindeki tek katlı bir çizgi (dolanım) integraline eşitleyeceğiz.</p>
+                    $$\\begin{aligned}
+                    \\iint_S (\\nabla \\times \\mathbf{F}) \\cdot d\\mathbf{S} &= \\oint_C \\mathbf{F} \\cdot d\\mathbf{r} && (\\text{Stokes Teoremi temel eşdeğerliği}) \\\\
+                    z=3 &\\implies x^2+y^2+3^2 = 25 \\implies x^2+y^2 = 16 && (\\text{Sınır eğrisinin (C) z=3 düzlemindeki izdüşüm yarıçapı (r=4)}) \\\\
+                    \\mathbf{r}(t) &= \\langle 4\\cos t, \\; 4\\sin t, \\; 3 \\rangle \\quad (0 \\le t \\le 2\\pi) && (\\text{C çemberinin uzaysal parametrik vektörü}) \\\\
+                    d\\mathbf{r} &= \\langle -4\\sin t, \\; 4\\cos t, \\; 0 \\rangle \\, dt && (\\text{Sınır eğrisinin teğet diferansiyel hız vektörü}) \\\\
+                    \\mathbf{F}(\\mathbf{r}(t)) &= \\langle -64\\sin^3 t + 9, \\; 64\\cos^3 t + 16\\sin^2 t, \\; 27 + 16\\cos^2 t \\rangle && (\\text{Vektör alanına (x,y,z) koordinatlarının parametrik yansıtılması}) \\\\
+                    \\mathbf{F} \\cdot d\\mathbf{r} &= (-64\\sin^3 t + 9)(-4\\sin t) + (64\\cos^3 t + 16\\sin^2 t)(4\\cos t) + (0) && (\\text{İş/Dolanım integralini oluşturacak nokta çarpım}) \\\\
+                      &= 256\\sin^4 t - 36\\sin t + 256\\cos^4 t + 64\\sin^2 t\\cos t && (\\text{Dağılma özelliği ile açılan trigonometrik polinom}) \\\\
+                    I &= \\int_{0}^{2\\pi} \\big( 256(\\sin^4 t + \\cos^4 t) - 36\\sin t + 64\\sin^2 t\\cos t \\big) dt && (\\text{Diferansiyel formun belirli integrale dönüşümü}) \\\\
+                    \\int_{0}^{2\\pi} (-36\\sin t) \\, dt &= 0, \\quad \\int_{0}^{2\\pi} 64\\sin^2 t\\cos t \\, dt = \\left[ \\frac{64\\sin^3 t}{3} \\right]_0^{2\\pi} = 0 && (\\text{Tek fonksiyonların tam periyotta sıfırlanması}) \\\\
+                    \\sin^4 t + \\cos^4 t &= (\\sin^2 t + \\cos^2 t)^2 - 2\\sin^2 t\\cos^2 t = 1 - \\frac{1}{2}\\sin^2(2t) && (\\text{Kalan 4. derece terimler için Pisagor ve yarım açı özdeşliği}) \\\\
+                      &= 1 - \\frac{1}{4}(1 - \\cos(4t)) = \\frac{3}{4} + \\frac{1}{4}\\cos(4t) && (\\text{Frekansı 4 katına çıkartarak integrallenebilir forma geçiş}) \\\\
+                    I &= 256 \\int_{0}^{2\\pi} \\left( \\frac{3}{4} + \\frac{1}{4}\\cos(4t) \\right) dt && (\\text{Sadeleştirilmiş nihai integral kurgusu}) \\\\
+                      &= 256 \\left[ \\frac{3}{4}t + \\frac{\\sin(4t)}{16} \\right]_0^{2\\pi} = 256 \\left( \\frac{3}{4}(2\\pi) + 0 \\right) && (\\text{Periyodik kosinüsün yok olması ve sınır değerlendirmesi}) \\\\
+                      &= 256 \\left( \\frac{3\\pi}{2} \\right) = 384\\pi && (\\text{Stokes Teoreminin gücüyle aydınlatılan rotasyonel akı sonucu})
+                    \\end{aligned}$$`
+                );
+
+                html += createQuestion("Soru 20", "Evrensel Gauss Kanunu, Solenoidal İptaller ve Eliptik Diverjans Sentezi (DEV 3 KATLI FİNAL - Bölüm 14)", 
+                    "$\\mathbf{F}(x,y,z) = \\frac{c \\mathbf{r}}{|\\mathbf{r}|^3} + \\nabla \\times \\mathbf{G} + \\langle x^3, y^3, z^3 \\rangle$ vektör alanı veriliyor (Burada $\\mathbf{G}$ türevlenebilir rastgele bir vektör alanıdır). Bu karmaşık vektör alanının, merkezi orijinde olan $\\frac{x^2}{a^2} + \\frac{y^2}{b^2} + \\frac{z^2}{c^2} = 1$ elipsoid yüzeyinden dışa doğru net akısını ($\\iint_S \\mathbf{F} \\cdot d\\mathbf{S}$) Diverjans Teoremi'ni genelleştirilmiş küresel koordinatlara entegre ederek hesaplayınız.", 
+                    `<div style="background-color: var(--bg-secondary); border-left: 4px solid var(--accent); padding: 15px; margin-bottom: 20px; border-radius: 4px;">
+                        <h4 style="margin-top: 0; color: var(--accent); font-family: var(--font-math); font-size: 1.05rem;">📌 İleri Kalkülüs Notu: Diverjans Teoreminin Topolojik Parçalanması</h4>
+                        <p style="margin-bottom: 0; font-size: 0.95rem; color: var(--text-primary);">
+                            Bu final sorusunda Vektör Analizinin üç büyük yasası aynı anda test edilmektedir:<br>
+                            <b>1. Gauss Yasası (Singülarite):</b> $\\frac{\\mathbf{r}}{|\\mathbf{r}|^3}$ alanı orijinde tanımsızdır. Diverjans Teoremi doğrudan uygulanamaz. Bu alanın, orijini hapseden herhangi bir kapalı yüzeyden akısı daima <b>$4\\pi$</b>'dir.<br>
+                            <b>2. Solenoidal İptal (Curl):</b> Herhangi bir vektör alanının rotasyonelinin diverjansı daima sıfırdır: $\\nabla \\cdot (\\nabla \\times \\mathbf{G}) = 0$. Kapalı yüzeyden akısı yoktur.<br>
+                            <b>3. Genelleştirilmiş Küresel (Elliptic) Dönüşüm:</b> Üçüncü polinom teriminin hacim integrali, standart küresel koordinatlar elipsoide göre esnetilerek (Jakobiyen $J = abc\\rho^2\\sin\\phi$) çözülür.
+                        </p>
+                    </div>
+                    <p><i>Çözüm:</i></p>
+                    $$\\begin{aligned}
+                    \\Phi_{toplam} &= \\Phi_1 + \\Phi_2 + \\Phi_3 && (\\text{Süperpozisyon ilkesiyle akıların 3 ayrı parçaya bölünmesi}) \\\\
+                    \\Phi_1 &= \\iint_S \\left( \\frac{c\\mathbf{r}}{|\\mathbf{r}|^3} \\right) \\cdot d\\mathbf{S} = 4\\pi c && (\\text{Orijindeki noktasal kaynaktan (source) doğan sabit Gauss akısı}) \\\\
+                    \\Phi_2 &= \\iint_S (\\nabla \\times \\mathbf{G}) \\cdot d\\mathbf{S} = \\iiint_V \\nabla \\cdot (\\nabla \\times \\mathbf{G}) \\, dV = 0 && (\\text{Vektör özdeşliği gereği Girdap (Curl) alanının akısının sıfırlanması}) \\\\
+                    \\Phi_3 &= \\iiint_V \\nabla \\cdot \\langle x^3, y^3, z^3 \\rangle \\, dV = \\iiint_V (3x^2 + 3y^2 + 3z^2) \\, dV && (\\text{Diverjans Teoremi ile polinom alanının Hacim integrali kurgusu}) \\\\
+                    x &= a\\rho\\sin\\phi\\cos\\theta, \\; y = b\\rho\\sin\\phi\\sin\\theta, \\; z = c\\rho\\cos\\phi && (\\text{Elipsoidi birim küreye (}\\rho \\le 1\\text{) dönüştüren genelleştirilmiş sistem}) \\\\
+                    dV &= abc\\rho^2\\sin\\phi \\, d\\rho \\, d\\phi \\, d\\theta && (\\text{Diferansiyel hacmin eliptik esneme katsayılarıyla Jakobiyeni}) \\\\
+                    3(x^2+y^2+z^2) &= 3\\rho^2(a^2\\sin^2\\phi\\cos^2\\theta + b^2\\sin^2\\phi\\sin^2\\theta + c^2\\cos^2\\phi) && (\\text{Diverjans fonksiyonunun yeni parametrelere uyarlanması}) \\\\
+                    \\Phi_3 &= 3abc \\int_{0}^{2\\pi} \\int_{0}^{\\pi} \\int_{0}^{1} \\rho^4\\sin\\phi (\\dots) \\, d\\rho \\, d\\phi \\, d\\theta && (\\text{Devasa 3 katlı eliptik diverjans integralinin inşası}) \\\\
+                    \\int_{0}^{1} \\rho^4 \\, d\\rho &= \\frac{1}{5} && (\\text{Normalizasyon sayesinde iç radyal integralin anında çözümü}) \\\\
+                    I_a &= a^2 \\left( \\int_0^{2\\pi} \\cos^2\\theta \\, d\\theta \\right) \\left( \\int_0^\\pi \\sin^3\\phi \\, d\\phi \\right) = a^2 (\\pi) \\left(\\frac{4}{3}\\right) = \\frac{4\\pi a^2}{3} && (\\text{Birinci (x) ekseni için ayrıştırılmış trigonometrik hacim katkısı}) \\\\
+                    I_b &= b^2 \\left( \\int_0^{2\\pi} \\sin^2\\theta \\, d\\theta \\right) \\left( \\int_0^\\pi \\sin^3\\phi \\, d\\phi \\right) = b^2 (\\pi) \\left(\\frac{4}{3}\\right) = \\frac{4\\pi b^2}{3} && (\\text{İkinci (y) ekseni için ayrıştırılmış trigonometrik hacim katkısı}) \\\\
+                    I_c &= c^2 \\left( \\int_0^{2\\pi} 1 \\, d\\theta \\right) \\left( \\int_0^\\pi \\cos^2\\phi\\sin\\phi \\, d\\phi \\right) = c^2 (2\\pi) \\left(\\frac{2}{3}\\right) = \\frac{4\\pi c^2}{3} && (\\text{Üçüncü (z) ekseni için ayrıştırılmış trigonometrik hacim katkısı}) \\\\
+                    \\Phi_3 &= 3abc \\left( \\frac{1}{5} \\right) \\left( \\frac{4\\pi a^2}{3} + \\frac{4\\pi b^2}{3} + \\frac{4\\pi c^2}{3} \\right) && (\\text{Tüm bağımsız parçaların ana denkleme sentezlenmesi}) \\\\
+                      &= \\frac{4\\pi abc}{5} (a^2 + b^2 + c^2) && (\\text{Polinom akısının elipsoid asimetrisi altındaki nihai değeri}) \\\\
+                    \\Phi_{toplam} &= 4\\pi c + 0 + \\frac{4\\pi abc}{5} (a^2 + b^2 + c^2) && (\\text{Süperpozisyon parçalarının birleştirilmesi}) \\\\
+                      &= 4\\pi \\left( c + \\frac{abc(a^2+b^2+c^2)}{5} \\right) && (\\text{Vektör Analizinin zirvesinde ulaşılan Mutlak Matematiksel Zafer})
+                    \\end{aligned}$$`
+                );
+                
+                
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     
