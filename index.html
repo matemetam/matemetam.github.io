@@ -21742,8 +21742,20 @@ html += createQuestion("Soru 17", "Vektör Alanlarının Dekompozisyonu ve Topol
                     <h4>Dairesel Olmayan Kesitler</h4>
                     <p>
                         Her hacim sorusu dönel cisim değildir. Bazen tabanı bir daire olan ama yukarı doğru kare, üçgen veya yarım daire kesitlerle yükselen cisimler sorulur. Bu durumda \\( A(x) \\) formülü geometri bilgisiyle bulunur:
-<div id="grafik-konu-8-geometrik" class="grafik-alani jxgbox" style="width: 100%; max-width: 550px; height: 400px; margin: 15px auto; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1);"></div>
-                    </p>
+<div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; width: 100%; margin: 20px 0;">
+    <div style="flex: 1; min-width: 260px;">
+        <h4 style="text-align: center; color: #1e40af; margin-bottom: 5px;">Kare Kesit</h4>
+        <div id="grafik-geo-kare" class="jxgbox" style="width: 100%; height: 320px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1);"></div>
+    </div>
+    <div style="flex: 1; min-width: 260px;">
+        <h4 style="text-align: center; color: #047857; margin-bottom: 5px;">Eşkenar Üçgen</h4>
+        <div id="grafik-geo-ucgen" class="jxgbox" style="width: 100%; height: 320px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1);"></div>
+    </div>
+    <div style="flex: 1; min-width: 260px;">
+        <h4 style="text-align: center; color: #b91c1c; margin-bottom: 5px;">Yarım Daire</h4>
+        <div id="grafik-geo-daire" class="jxgbox" style="width: 100%; height: 320px; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1);"></div>
+    </div>
+</div>                    </p>
                     <ul style="list-style-type: square; margin-left: 20px;">
                         <li><b>Kare Kesitler:</b> \\( A(x) = (kenar)^2 \\)</li>
                         <li><b>Eşkenar Üçgen Kesitler:</b> \\( A(x) = \\frac{\\sqrt{3}}{4}(kenar)^2 \\)</li>
@@ -21796,6 +21808,7 @@ html += createQuestion("Soru 17", "Vektör Alanlarının Dekompozisyonu ve Topol
                             <br>\\( 2\\pi x \\): Kabuğun çevresi (Yarıçap \\( x \\)).
                             <br>\\( f(x) \\): Kabuğun yüksekliği.
                             <br>\\( dx \\): Kabuğun kalınlığı.
+<div id="grafik-konu-8-kabuk" class="grafik-alani jxgbox" style="width: 100%; max-width: 550px; height: 400px; margin: 15px auto; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1);"></div>
                         </p>
                     </div>
 
@@ -21900,7 +21913,7 @@ html += createQuestion("Soru 17", "Vektör Alanlarının Dekompozisyonu ve Topol
                         <li>\\( dy \\) parantezine alırsan -> Durum 1B</li>
                         <li>\\( dt \\) parantezine alırsan -> Durum 2 (Parametrik)</li>
                     </ul>
-
+<div id="grafik-konu-8-yay" class="grafik-alani jxgbox" style="width: 100%; max-width: 550px; height: 400px; margin: 15px auto; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1);"></div>
                 </div>
                 `; 
             
@@ -21963,9 +21976,9 @@ html += createQuestion("Soru 17", "Vektör Alanlarının Dekompozisyonu ve Topol
                         <p>
                             <i>Not:</i> Eğer integral \\( y \\)'ye göre alınacaksa (\\( dy \\)), formül \\( \\int 2\\pi x \\sqrt{1+(x')^2} dy \\) olur. Önemli olan yarıçapın \\( x \\) olduğunun unutulmamasıdır.
                         </p>
+</div> <div id="grafik-konu-8-yuzey" class="grafik-alani jxgbox" style="width: 100%; max-width: 550px; height: 400px; margin: 15px auto; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1);"></div>
                     </div>
-                    
-                    <br>
+                                        <br>
 
                     <div style="background-color: transparent; border-left: 4px solid currentColor; padding-left: 15px; margin: 20px 0;">
                         <strong style="display: block; margin-bottom: 5px;">Gabriel'in Borusu (Gabriel's Horn) Paradoksu:</strong>
@@ -21974,6 +21987,8 @@ html += createQuestion("Soru 17", "Vektör Alanlarının Dekompozisyonu ve Topol
                             <br><b>Hacmi:</b> Sonludur (\\( \\pi \\)).
                             <br><b>Yüzey Alanı:</b> Sonsuzdur.
                             <br>Yani bu borunun içini boyayla doldurabilirsiniz ama dış yüzeyini boyamaya boya yetmez!
+ <div id="grafik-konu-8-gabriel" class="grafik-alani jxgbox" style="width: 100%; max-width: 550px; height: 400px; margin: 15px auto; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1);"></div>
+
                         </p>
                     </div>
 
@@ -22007,6 +22022,7 @@ html += createQuestion("Soru 17", "Vektör Alanlarının Dekompozisyonu ve Topol
                         </ul>
                     </div>
 
+<div id="grafik-konu-8-hooke" class="grafik-alani jxgbox" style="width: 100%; max-width: 550px; height: 400px; margin: 15px auto; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1);"></div>
                     ` + "" + `
 
                     <br>
@@ -22047,7 +22063,7 @@ html += createQuestion("Soru 17", "Vektör Alanlarının Dekompozisyonu ve Topol
                     <p style="font-size: 0.9em; opacity: 0.8;">
                         <i>Örnek Uygulama:</i> Silindirik bir gözetleme penceresine veya yamuk şeklindeki bir kanal kapağına etki eden kuvvet hesaplanırken, pencerenin genişlik fonksiyonu \\( L(y) \\) geometri kullanılarak bulunur ve formüle yazılır.
                     </p>
-
+<div id="grafik-konu-8-akiskan" class="grafik-alani jxgbox" style="width: 100%; max-width: 550px; height: 400px; margin: 15px auto; border-radius: 8px; border: 1px solid rgba(0,0,0,0.1);"></div>
                 </div>
                 `;
 
@@ -31890,7 +31906,7 @@ function konuGrafikleriniCiz() {
         }
     }, 100);
 
-// --- 1. GRAFİK: Disk Yöntemi (8.1) ---
+// --- 1. GRAFİK: Disk Yöntemi (Genel Eğri, a ve b sınırları) ---
     if (document.getElementById("grafik-konu-8-disk")) {
         var diskCizildi = false;
         var diskBekci = setInterval(function() {
@@ -31898,124 +31914,527 @@ function konuGrafikleriniCiz() {
             if (kutu && kutu.offsetWidth > 10 && !diskCizildi) {
                 diskCizildi = true; clearInterval(diskBekci);
                 var board1 = JXG.JSXGraph.initBoard('grafik-konu-8-disk', {
-                    boundingbox: [-1, 3.5, 5, -3.5], axis: true, showCopyright: false, showNavigation: false, keepaspectratio: false, pan: {enabled: false}, zoom: {enabled: false}
+                    boundingbox: [-0.5, 3.5, 5.5, -3.5], axis: true, showCopyright: false, showNavigation: false, keepaspectratio: false, pan: {enabled: false}, zoom: {enabled: false}
                 });
-                var px = 0.15; // 3D Derinlik algısı
-                var f = function(x){ return Math.sqrt(x); };
                 
-                // Ana Eğri ve Ayna Eğrisi
-                board1.create('functiongraph', [f, 0, 4], { strokeColor: '#1e40af', strokeWidth: 3 });
-                board1.create('functiongraph', [function(x){ return -f(x); }, 0, 4], { strokeColor: '#1e40af', strokeWidth: 2, dash: 2 });
+                var p_x = 0.25; // 3D Elips Derinliği (Perspektif)
+                var a = 1.0;    // İntegral alt sınırı
+                var b = 4.5;    // İntegral üst sınırı
                 
-                // Sağ kapak elipsi (3D hissi için)
-                board1.create('curve', [ function(t){ return 4 + 2 * px * Math.sin(t); }, function(t){ return 2 * Math.cos(t); }, 0, Math.PI ], { strokeColor: '#1e40af', strokeWidth: 2 });
-                board1.create('curve', [ function(t){ return 4 + 2 * px * Math.sin(t); }, function(t){ return 2 * Math.cos(t); }, Math.PI, 2*Math.PI ], { strokeColor: '#1e40af', strokeWidth: 1, dash: 2 });
+                // 1. Bölgede dalgalı, jenerik ve x-eksenine değmeyen bir fonksiyon
+                var f = function(x){ return 1.5 + 0.4 * Math.sin(2*x); }; 
+                
+                // a ve b Sınır Çizgileri (Eğitimsel vurgu)
+                board1.create('segment', [[a, 0], [a, f(a)]], {strokeColor: '#94a3b8', dash: 2, strokeWidth: 1});
+                board1.create('segment', [[b, 0], [b, f(b)]], {strokeColor: '#94a3b8', dash: 2, strokeWidth: 1});
+                board1.create('text', [a - 0.1, -0.3, 'a'], {fontSize: 16, color: '#475569', fontStyle: 'italic'});
+                board1.create('text', [b - 0.1, -0.3, 'b'], {fontSize: 16, color: '#475569', fontStyle: 'italic'});
 
-                // Hareketli Sürgü ve Disk
-                var sld1 = board1.create('slider', [[0.5, -2.8], [3.5, -2.8], [0.1, 2.0, 4.0]], { name: 'x', snapWidth: 0.05, strokeColor: '#ef4444', fillColor: '#ef4444' });
-                var R = function() { return f(sld1.Value()); };
+                // Ana Eğri (Katı Mavi) ve Simetriği (Kesik Mavi)
+                board1.create('functiongraph', [f, a, b], { strokeColor: '#1e40af', strokeWidth: 3 });
+                board1.create('functiongraph', [function(x){ return -f(x); }, a, b], { strokeColor: '#1e40af', strokeWidth: 2, dash: 2 });
                 
+                // Sol Kapak Elipsi (x=a noktasındaki açık ağız)
+                // Ön yüz kesik, arka yüz katı (Çünkü bu kapak bize dönük değil)
+                board1.create('curve', [ function(t){ return a + f(a) * p_x * Math.sin(t); }, function(t){ return f(a) * Math.cos(t); }, 0, Math.PI ], { strokeColor: '#1e40af', strokeWidth: 1.5, dash: 2 });
+                board1.create('curve', [ function(t){ return a + f(a) * p_x * Math.sin(t); }, function(t){ return f(a) * Math.cos(t); }, Math.PI, 2*Math.PI ], { strokeColor: '#1e40af', strokeWidth: 1.5 });
+
+                // Sağ Kapak Elipsi (x=b noktasındaki kapalı ağız)
+                // Ön yüz katı, arka yüz kesik (Çünkü bu kapağı cepheden görüyoruz)
+                board1.create('curve', [ function(t){ return b + f(b) * p_x * Math.sin(t); }, function(t){ return f(b) * Math.cos(t); }, 0, Math.PI ], { strokeColor: '#1e40af', strokeWidth: 2 });
+                board1.create('curve', [ function(t){ return b + f(b) * p_x * Math.sin(t); }, function(t){ return f(b) * Math.cos(t); }, Math.PI, 2*Math.PI ], { strokeColor: '#1e40af', strokeWidth: 1, dash: 2 });
+
+                // Hareketli Sürgü (Sadece a ile b arasında hareket eder)
+                var sld1 = board1.create('slider', [[1.0, -2.8], [4.0, -2.8], [a, (a+b)/2, b]], { name: 'Kesit (x)', snapWidth: 0.05, strokeColor: '#ef4444', fillColor: '#ef4444' });
+                var x_val = function() { return sld1.Value(); };
+                var r_val = function() { return f(x_val()); };
+
+                // Dinamik 3D Disk Kesiti (İçi dolu kırmızı daire)
                 board1.create('curve', [ 
-                    function(t){ return sld1.Value() + R() * px * Math.sin(t); }, 
-                    function(t){ return R() * Math.cos(t); }, 
+                    function(t){ return x_val() + r_val() * p_x * Math.sin(t); }, 
+                    function(t){ return r_val() * Math.cos(t); }, 
                     0, 2*Math.PI 
-                ], { fillColor: '#ef4444', fillOpacity: 0.4, strokeColor: '#ef4444', strokeWidth: 2 });
+                ], { fillColor: '#ef4444', fillOpacity: 0.4, strokeColor: '#b91c1c', strokeWidth: 2 });
 
-                // Yarıçap çizgisi ve Dinamik Metinler
-                board1.create('segment', [function(){ return [sld1.Value(), 0]; }, function(){ return [sld1.Value(), R()]; }], { strokeColor: '#991b1b', strokeWidth: 2 });
-                board1.create('text', [0.2, 3.0, function(){ return 'Yarıçap R(x) = ' + R().toFixed(2); }], {fontSize: 14, color: '#ef4444', fontWeight: 'bold'});
-                board1.create('text', [0.2, 2.5, function(){ return 'Disk Alanı = πR² = ' + (Math.PI * R()*R()).toFixed(2); }], {fontSize: 14, color: '#1e40af', fontWeight: 'bold'});
+                // Yarıçap (r) Göstergesi (Merkezden yukarı çıkan kırmızı çizgi)
+                board1.create('segment', [function(){ return [x_val(), 0]; }, function(){ return [x_val(), r_val()]; }], { strokeColor: '#991b1b', strokeWidth: 2 });
+
+                // Öğretici Metin Paneli
+                board1.create('text', [0.2, 3.0, 'Genel Eğri: y = f(x)'], {fontSize: 15, color: '#1e40af', fontWeight: 'bold'});
+                board1.create('text', [0.2, 2.5, function(){ return '► Yarıçap r(x) = ' + r_val().toFixed(2); }], {fontSize: 14, color: '#ef4444'});
+                board1.create('text', [0.2, 2.0, function(){ return '► Disk Alanı (πr²) = ' + (Math.PI * Math.pow(r_val(), 2)).toFixed(2); }], {fontSize: 14, color: '#ef4444', fontWeight: 'bold'});
             }
         }, 100);
     }
-
-// --- 2. GRAFİK: Pul (Washer) Yöntemi (8.1) ---
+// --- 2. GRAFİK: Pul (Washer) Yöntemi (Genel Eğriler, a ve b sınırları) ---
     if (document.getElementById("grafik-konu-8-pul")) {
         var pulCizildi = false;
         var pulBekci = setInterval(function() {
             var kutu = document.getElementById("grafik-konu-8-pul");
             if (kutu && kutu.offsetWidth > 10 && !pulCizildi) {
                 pulCizildi = true; clearInterval(pulBekci);
+                
                 var board2 = JXG.JSXGraph.initBoard('grafik-konu-8-pul', {
-                    boundingbox: [-0.5, 5.5, 2.5, -5.5], axis: true, showCopyright: false, showNavigation: false, keepaspectratio: false, pan: {enabled: false}, zoom: {enabled: false}
+                    boundingbox: [-0.5, 4.0, 5.5, -4.0], axis: true, showCopyright: false, showNavigation: false, keepaspectratio: false, pan: {enabled: false}, zoom: {enabled: false}
                 });
-                var px = 0.15;
-                var f_ust = function(x){ return 2*x; };
-                var f_alt = function(x){ return x*x; };
                 
-                // Ana Eğriler ve Ayna Eğrileri
-                board2.create('functiongraph', [f_ust, 0, 2], { strokeColor: '#1e40af', strokeWidth: 2 });
-                board2.create('functiongraph', [f_alt, 0, 2], { strokeColor: '#64748b', strokeWidth: 2 });
-                board2.create('functiongraph', [function(x){ return -f_ust(x); }, 0, 2], { strokeColor: '#1e40af', strokeWidth: 1, dash: 2 });
-                board2.create('functiongraph', [function(x){ return -f_alt(x); }, 0, 2], { strokeColor: '#64748b', strokeWidth: 1, dash: 2 });
+                var p_x = 0.20; // 3D Elips Derinliği
+                var a = 1.0;    // İntegral alt sınırı
+                var b = 4.5;    // İntegral üst sınırı
+                
+                // Jenerik, dalgalı ve birbiriyle çakışmayan iki eğri
+                var f_ust = function(x){ return 2.5 + 0.3 * Math.cos(3*x); }; // Dış Yarıçap (R)
+                var f_alt = function(x){ return 1.0 + 0.2 * Math.sin(2*x); }; // İç Yarıçap (r)
+                
+                // a ve b Sınır Çizgileri
+                board2.create('segment', [[a, 0], [a, f_ust(a)]], {strokeColor: '#94a3b8', dash: 2, strokeWidth: 1});
+                board2.create('segment', [[b, 0], [b, f_ust(b)]], {strokeColor: '#94a3b8', dash: 2, strokeWidth: 1});
+                board2.create('text', [a - 0.1, -0.3, 'a'], {fontSize: 16, color: '#475569', fontStyle: 'italic'});
+                board2.create('text', [b - 0.1, -0.3, 'b'], {fontSize: 16, color: '#475569', fontStyle: 'italic'});
 
-                // Hareketli Sürgü ve Yarıçaplar
-                var sld2 = board2.create('slider', [[0.2, -4.5], [1.8, -4.5], [0.1, 1.2, 1.9]], { name: 'x', snapWidth: 0.05, strokeColor: '#ef4444', fillColor: '#ef4444' });
-                var R_dis = function() { return f_ust(sld2.Value()); };
-                var r_ic = function() { return f_alt(sld2.Value()); };
+                // Ana Eğriler (Katı) ve Simetrikleri (Kesik)
+                board2.create('functiongraph', [f_ust, a, b], { strokeColor: '#1e40af', strokeWidth: 3 });
+                board2.create('functiongraph', [f_alt, a, b], { strokeColor: '#64748b', strokeWidth: 2 });
+                board2.create('functiongraph', [function(x){ return -f_ust(x); }, a, b], { strokeColor: '#1e40af', strokeWidth: 2, dash: 2 });
+                board2.create('functiongraph', [function(x){ return -f_alt(x); }, a, b], { strokeColor: '#64748b', strokeWidth: 1, dash: 2 });
 
-                // Dış Çember (Kırmızımsı yarı şeffaf)
+                // --- 3D UÇ KAPAKLARI ---
+                // Sol Kapak (x=a) - Bize dönük değil, ön yüz kesik arka yüz katı
+                board2.create('curve', [ function(t){ return a + f_ust(a) * p_x * Math.sin(t); }, function(t){ return f_ust(a) * Math.cos(t); }, 0, Math.PI ], { strokeColor: '#1e40af', strokeWidth: 1.5, dash: 2 });
+                board2.create('curve', [ function(t){ return a + f_ust(a) * p_x * Math.sin(t); }, function(t){ return f_ust(a) * Math.cos(t); }, Math.PI, 2*Math.PI ], { strokeColor: '#1e40af', strokeWidth: 1.5 });
+                board2.create('curve', [ function(t){ return a + f_alt(a) * p_x * Math.sin(t); }, function(t){ return f_alt(a) * Math.cos(t); }, 0, Math.PI ], { strokeColor: '#64748b', strokeWidth: 1.5, dash: 2 });
+                board2.create('curve', [ function(t){ return a + f_alt(a) * p_x * Math.sin(t); }, function(t){ return f_alt(a) * Math.cos(t); }, Math.PI, 2*Math.PI ], { strokeColor: '#64748b', strokeWidth: 1.5 });
+
+                // Sağ Kapak (x=b) - Bize dönük, ön yüz katı arka yüz kesik
+                board2.create('curve', [ function(t){ return b + f_ust(b) * p_x * Math.sin(t); }, function(t){ return f_ust(b) * Math.cos(t); }, 0, Math.PI ], { strokeColor: '#1e40af', strokeWidth: 2 });
+                board2.create('curve', [ function(t){ return b + f_ust(b) * p_x * Math.sin(t); }, function(t){ return f_ust(b) * Math.cos(t); }, Math.PI, 2*Math.PI ], { strokeColor: '#1e40af', strokeWidth: 1.5, dash: 2 });
+                board2.create('curve', [ function(t){ return b + f_alt(b) * p_x * Math.sin(t); }, function(t){ return f_alt(b) * Math.cos(t); }, 0, Math.PI ], { strokeColor: '#64748b', strokeWidth: 2 });
+                board2.create('curve', [ function(t){ return b + f_alt(b) * p_x * Math.sin(t); }, function(t){ return f_alt(b) * Math.cos(t); }, Math.PI, 2*Math.PI ], { strokeColor: '#64748b', strokeWidth: 1.5, dash: 2 });
+
+                // --- ETKİLEŞİMLİ PUL KESİTİ (WASHER) ---
+                var sld2 = board2.create('slider', [[1.0, -3.2], [4.0, -3.2], [a, (a+b)/2, b]], { name: 'Kesit (x)', snapWidth: 0.05, strokeColor: '#ef4444', fillColor: '#ef4444' });
+                var x_val = function() { return sld2.Value(); };
+                var R_dis = function() { return f_ust(x_val()); };
+                var r_ic = function() { return f_alt(x_val()); };
+
+                // Dış Çember (Kırmızımsı yarı şeffaf pul gövdesi)
                 board2.create('curve', [ 
-                    function(t){ return sld2.Value() + R_dis() * px * Math.sin(t); }, 
+                    function(t){ return x_val() + R_dis() * p_x * Math.sin(t); }, 
                     function(t){ return R_dis() * Math.cos(t); }, 0, 2*Math.PI 
-                ], { fillColor: '#ef4444', fillOpacity: 0.3, strokeColor: '#b91c1c', strokeWidth: 2 });
+                ], { fillColor: '#ef4444', fillOpacity: 0.4, strokeColor: '#b91c1c', strokeWidth: 2 });
                 
-                // İç Çember Delik (Tamamen Beyaz ve Katı)
+                // İç Çember (Deliği vurgulamak için katı beyaz ile içi boşaltılır)
                 board2.create('curve', [ 
-                    function(t){ return sld2.Value() + r_ic() * px * Math.sin(t); }, 
+                    function(t){ return x_val() + r_ic() * p_x * Math.sin(t); }, 
                     function(t){ return r_ic() * Math.cos(t); }, 0, 2*Math.PI 
                 ], { fillColor: '#ffffff', fillOpacity: 1.0, strokeColor: '#7f1d1d', strokeWidth: 2 });
 
-                board2.create('text', [0.1, 4.8, function(){ return 'Dış R = ' + R_dis().toFixed(2) + ' | İç r = ' + r_ic().toFixed(2); }], {fontSize: 14, color: '#b91c1c', fontWeight: 'bold'});
-                board2.create('text', [0.1, 4.2, function(){ return 'Pul Alanı = π(R² - r²) = ' + (Math.PI * (R_dis()*R_dis() - r_ic()*r_ic())).toFixed(2); }], {fontSize: 14, color: '#1e40af', fontWeight: 'bold'});
+                // Öğretici Metin Paneli
+                board2.create('text', [0.2, 3.5, 'Dış: y = f(x) | İç: y = g(x)'], {fontSize: 14, color: '#1e40af', fontWeight: 'bold'});
+                board2.create('text', [0.2, 2.9, function(){ return '► Dış R(x) = ' + R_dis().toFixed(2) + '  |  İç r(x) = ' + r_ic().toFixed(2); }], {fontSize: 13, color: '#ef4444'});
+                board2.create('text', [0.2, 2.4, function(){ return '► Kesit Alanı = π(R² - r²) = ' + (Math.PI * (Math.pow(R_dis(), 2) - Math.pow(r_ic(), 2))).toFixed(2); }], {fontSize: 14, color: '#ef4444', fontWeight: 'bold'});
             }
         }, 100);
     }
+// --- 3. GRAFİK: 3'LÜ GEOMETRİK KESİT KIYASLAMASI ---
+    if (document.getElementById("grafik-geo-kare")) {
+        var geoUcluCizildi = false;
+        var geoUcluBekci = setInterval(function() {
+            var kutu = document.getElementById("grafik-geo-kare");
+            if (kutu && kutu.offsetWidth > 10 && !geoUcluCizildi) {
+                geoUcluCizildi = true; clearInterval(geoUcluBekci);
 
-// --- 3. GRAFİK: Geometrik Kesitler (8.1) ---
-    if (document.getElementById("grafik-konu-8-geometrik")) {
-        var geoCizildi = false;
-        var geoBekci = setInterval(function() {
-            var kutu = document.getElementById("grafik-konu-8-geometrik");
-            if (kutu && kutu.offsetWidth > 10 && !geoCizildi) {
-                geoCizildi = true; clearInterval(geoBekci);
-                var board3 = JXG.JSXGraph.initBoard('grafik-konu-8-geometrik', {
-                    boundingbox: [-3.5, 7.5, 4.5, -2], axis: false, showCopyright: false, showNavigation: false, keepaspectratio: false, pan: {enabled: false}, zoom: {enabled: false}
+                // Ortak Parametreler
+                var a = 0.5, b = 4.5;
+                var px = 0.35, py = 0.45; // 3D Perspektif
+                var f = function(x){ return 1.5 + 0.5 * Math.sin(3*x); }; // Jenerik dalgalı taban
+
+                // ==========================================
+                // 1. KARE KESİT (Mavi Temalı)
+                // ==========================================
+                var bKare = JXG.JSXGraph.initBoard('grafik-geo-kare', {boundingbox: [-0.5, 6.5, 5.5, -2], axis: false, showCopyright: false, showNavigation: false, pan: {enabled: false}, zoom: {enabled: false}});
+                bKare.create('axis', [[0,0], [1,0]], { name: 'x', withLabel: true, ticks: {minorTicks:0}, strokeColor: '#475569' });
+                bKare.create('axis', [[0,0], [0,1]], { name: 'y', withLabel: true, ticks: {minorTicks:0}, strokeColor: '#475569' });
+                bKare.create('integral', [[a, b], bKare.create('functiongraph', [f, a, b], {strokeColor:'#1e40af', strokeWidth:2})], {fillColor:'#93c5fd', fillOpacity:0.3, withLabel:false});
+                
+                // Çatı iskeleti
+                bKare.create('curve', [ function(t){ return t + f(t)*px; }, function(t){ return f(t) + f(t)*py; }, a, b ], { strokeColor: '#1e3a8a', strokeWidth: 1.5, dash: 2 });
+                
+                var sldK = bKare.create('slider', [[1, -1.2], [4, -1.2], [a, 2.5, b]], { name: 'x', snapWidth: 0.05, strokeColor: '#1e40af', fillColor: '#1e40af' });
+                bKare.create('polygon', [
+                    function() { return [sldK.Value(), 0]; }, 
+                    function() { return [sldK.Value(), f(sldK.Value())]; }, 
+                    function() { var x = sldK.Value(); var s = f(x); return [x + s*px, s + s*py]; },
+                    function() { var x = sldK.Value(); var s = f(x); return [x + s*px, s*py]; }
+                ], { fillColor: '#3b82f6', fillOpacity: 0.6, borders: {strokeColor: '#1e3a8a', strokeWidth: 2} });
+                bKare.create('text', [0.2, 5.5, function(){ return 'Alan = s² = ' + Math.pow(f(sldK.Value()),2).toFixed(2); }], {fontSize: 14, color: '#1e40af', fontWeight: 'bold'});
+
+                // ==========================================
+                // 2. EŞKENAR ÜÇGEN KESİT (Yeşil Temalı)
+                // ==========================================
+                var bUcgen = JXG.JSXGraph.initBoard('grafik-geo-ucgen', {boundingbox: [-0.5, 6.5, 5.5, -2], axis: false, showCopyright: false, showNavigation: false, pan: {enabled: false}, zoom: {enabled: false}});
+                bUcgen.create('axis', [[0,0], [1,0]], { name: 'x', withLabel: true, ticks: {minorTicks:0}, strokeColor: '#475569' });
+                bUcgen.create('axis', [[0,0], [0,1]], { name: 'y', withLabel: true, ticks: {minorTicks:0}, strokeColor: '#475569' });
+                bUcgen.create('integral', [[a, b], bUcgen.create('functiongraph', [f, a, b], {strokeColor:'#047857', strokeWidth:2})], {fillColor:'#a7f3d0', fillOpacity:0.3, withLabel:false});
+                
+                // Çatı iskeleti (Tepe noktası hizası)
+                bUcgen.create('curve', [ function(t){ return t + (f(t)*Math.sqrt(3)/2)*px; }, function(t){ return f(t)/2 + (f(t)*Math.sqrt(3)/2)*py; }, a, b ], { strokeColor: '#064e3b', strokeWidth: 1.5, dash: 2 });
+
+                var sldU = bUcgen.create('slider', [[1, -1.2], [4, -1.2], [a, 2.5, b]], { name: 'x', snapWidth: 0.05, strokeColor: '#047857', fillColor: '#047857' });
+                bUcgen.create('polygon', [
+                    function() { return [sldU.Value(), 0]; }, 
+                    function() { return [sldU.Value(), f(sldU.Value())]; }, 
+                    function() { var x = sldU.Value(); var s = f(x); var h = s*Math.sqrt(3)/2; return [x + h*px, s/2 + h*py]; }
+                ], { fillColor: '#10b981', fillOpacity: 0.6, borders: {strokeColor: '#064e3b', strokeWidth: 2} });
+                bUcgen.create('text', [0.2, 5.5, function(){ return 'Alan = (√3/4)s² = ' + (Math.sqrt(3)/4 * Math.pow(f(sldU.Value()),2)).toFixed(2); }], {fontSize: 14, color: '#047857', fontWeight: 'bold'});
+
+                // ==========================================
+                // 3. YARIM DAİRE KESİT (Kırmızı Temalı)
+                // ==========================================
+                var bDaire = JXG.JSXGraph.initBoard('grafik-geo-daire', {boundingbox: [-0.5, 6.5, 5.5, -2], axis: false, showCopyright: false, showNavigation: false, pan: {enabled: false}, zoom: {enabled: false}});
+                bDaire.create('axis', [[0,0], [1,0]], { name: 'x', withLabel: true, ticks: {minorTicks:0}, strokeColor: '#475569' });
+                bDaire.create('axis', [[0,0], [0,1]], { name: 'y', withLabel: true, ticks: {minorTicks:0}, strokeColor: '#475569' });
+                bDaire.create('integral', [[a, b], bDaire.create('functiongraph', [f, a, b], {strokeColor:'#b91c1c', strokeWidth:2})], {fillColor:'#fecaca', fillOpacity:0.3, withLabel:false});
+                
+                // Çatı iskeleti (Dairenin tepe noktası Z = R)
+                bDaire.create('curve', [ function(t){ return t + (f(t)/2)*px; }, function(t){ return f(t)/2 + (f(t)/2)*py; }, a, b ], { strokeColor: '#7f1d1d', strokeWidth: 1.5, dash: 2 });
+
+                var sldD = bDaire.create('slider', [[1, -1.2], [4, -1.2], [a, 2.5, b]], { name: 'x', snapWidth: 0.05, strokeColor: '#b91c1c', fillColor: '#b91c1c' });
+                
+                // Yarım Daire Eğrisi (İçi dolu)
+                bDaire.create('curve', [
+                    function(t) { var x = sldD.Value(); var r = f(x)/2; return x + r*Math.sin(t)*px; },
+                    function(t) { var x = sldD.Value(); var r = f(x)/2; return r - r*Math.cos(t) + r*Math.sin(t)*py; },
+                    0, Math.PI
+                ], { fillColor: '#ef4444', fillOpacity: 0.6, strokeColor: '#7f1d1d', strokeWidth: 2 });
+                // Kapatıcı taban çizgisi
+                bDaire.create('segment', [ function(){ return [sldD.Value(), 0]; }, function(){ return [sldD.Value(), f(sldD.Value())]; } ], { strokeColor: '#7f1d1d', strokeWidth: 2 });
+                
+                bDaire.create('text', [0.2, 5.5, function(){ return 'Alan = (π/8)s² = ' + (Math.PI/8 * Math.pow(f(sldD.Value()),2)).toFixed(2); }], {fontSize: 14, color: '#b91c1c', fontWeight: 'bold'});
+            }
+        }, 100);
+    }
+// --- 4. GRAFİK: Silindirik Kabuk Yöntemi (y-Ekseni Etrafında) ---
+    if (document.getElementById("grafik-konu-8-kabuk")) {
+        var kabukCizildi = false;
+        var kabukBekci = setInterval(function() {
+            var kutu = document.getElementById("grafik-konu-8-kabuk");
+            if (kutu && kutu.offsetWidth > 10 && !kabukCizildi) {
+                kabukCizildi = true; clearInterval(kabukBekci);
+                
+                var board4 = JXG.JSXGraph.initBoard('grafik-konu-8-kabuk', {
+                    boundingbox: [-3, 5.5, 3, -1.5], axis: false, showCopyright: false, showNavigation: false, keepaspectratio: false, pan: {enabled: false}, zoom: {enabled: false}
                 });
-                var px = 0.35, py = 0.45; // 3D perspektif açıları
-                var f = function(x){ return 4 - x*x; };
                 
-                board3.create('axis', [[0,0], [1,0]], { name: 'x', withLabel: true, strokeColor: '#475569' });
-                board3.create('axis', [[0,0], [0,1]], { name: 'y', withLabel: true, strokeColor: '#475569' });
+                var py = 0.25; // 3D Elips Derinliği
+                var f = function(x){ return 4 - x*x; }; // Eğrimiz
                 
-                // Mavi Zemin Parabolü
-                var zemin = board3.create('functiongraph', [f, -2, 2], { strokeColor: '#2563eb', strokeWidth: 2 });
-                board3.create('integral', [[-2, 2], zemin], { fillColor: '#93c5fd', fillOpacity: 0.3, withLabel: false });
+                board4.create('axis', [[0,0], [1,0]], { name: 'x', withLabel: true, label: {offset: [-15, 15]}, strokeColor: '#475569', ticks: { minorTicks: 0 }, fixed: true });
+                // Dönme Ekseni (y-ekseni kırmızı ve kalın)
+                board4.create('axis', [[0,0], [0,1]], { name: 'y (Dönme Ekseni)', withLabel: true, label: {offset: [10, -5]}, strokeColor: '#ef4444', strokeWidth: 2, ticks: { minorTicks: 0 }, fixed: true });
 
-                // 3D Çatı İskeleti
-                board3.create('curve', [ function(t){ return t; }, function(t){ return f(t); }, -2, 2 ], { strokeColor: '#64748b', strokeWidth: 1.5 });
-                board3.create('curve', [ function(t){ return t + f(t)*px; }, function(t){ return f(t) + f(t)*py; }, -2, 2 ], { strokeColor: '#1e3a8a', strokeWidth: 2 });
-                board3.create('curve', [ function(t){ return t + f(t)*px; }, function(t){ return f(t)*py; }, -2, 2 ], { strokeColor: '#94a3b8', strokeWidth: 1, dash: 2 });
+                // Ana Eğri (Sağ kol) ve Ayna Eğri (Sol kol)
+                board4.create('functiongraph', [f, 0, 2], { strokeColor: '#1e40af', strokeWidth: 2 });
+                board4.create('functiongraph', [function(x){ return f(-x); }, -2, 0], { strokeColor: '#1e40af', strokeWidth: 1, dash: 2 });
 
-                // Kayan Kare Kesit
-                var sld3 = board3.create('slider', [[1, -1.2], [3, -1.2], [-2, 0.5, 2]], { name: 'x', snapWidth: 0.05, strokeColor: '#ef4444', fillColor: '#ef4444' });
+                // Hacmin Alt Kapağı
+                board4.create('curve', [ function(t){ return 2 * Math.cos(t); }, function(t){ return 2 * py * Math.sin(t); }, Math.PI, 2*Math.PI ], { strokeColor: '#1e40af', strokeWidth: 2 });
+                board4.create('curve', [ function(t){ return 2 * Math.cos(t); }, function(t){ return 2 * py * Math.sin(t); }, 0, Math.PI ], { strokeColor: '#1e40af', strokeWidth: 1, dash: 2 });
 
-                board3.create('polygon', [
-                    function() { return [sld3.Value(), 0]; }, 
-                    function() { return [sld3.Value(), f(sld3.Value())]; }, 
-                    function() { var x = sld3.Value(); var s = f(x); return [x + s*px, s + s*py]; },
-                    function() { var x = sld3.Value(); var s = f(x); return [x + s*px, s*py]; }
-                ], { fillColor: '#ef4444', fillOpacity: 0.55, borders: {strokeColor: '#b91c1c', strokeWidth: 2}, vertices: {visible: false} });
+                // Hareketli Sürgü
+                var sld4 = board4.create('slider', [[0.5, -1], [2.5, -1], [0.1, 1.2, 1.9]], { name: 'x', snapWidth: 0.02, strokeColor: '#ef4444', fillColor: '#ef4444' });
+                var x_val = function() { return sld4.Value(); };
+                var h_val = function() { return f(x_val()); };
 
-                board3.create('text', [-3.2, 7.0, 'Zemin: y = 4 - x² (Kare Kesitler)'], {fontSize: 14, color: '#2563eb', fontWeight: 'bold'});
-                board3.create('text', [-3.2, 6.2, function() { return '► Kenar s(x) = ' + f(sld3.Value()).toFixed(2); }], {fontSize: 13, color: '#ef4444'});
-                board3.create('text', [-3.2, 5.5, function() { return '► Alan = s² = ' + Math.pow(f(sld3.Value()), 2).toFixed(2); }], {fontSize: 14, color: '#ef4444', fontWeight: 'bold'});
+                // Kabuğun Ön Yüzeyi (Gövde)
+                board4.create('polygon', [
+                    function(){ return [-x_val(), 0]; }, function(){ return [x_val(), 0]; },
+                    function(){ return [x_val(), h_val()]; }, function(){ return [-x_val(), h_val()]; }
+                ], { fillColor: '#ef4444', fillOpacity: 0.2, borders: {visible: false} });
+
+                // Kabuğun Üst ve Alt Çemberleri
+                board4.create('curve', [ function(t){ return x_val() * Math.cos(t); }, function(t){ return h_val() + x_val() * py * Math.sin(t); }, 0, 2*Math.PI ], { fillColor: '#fca5a5', fillOpacity: 0.5, strokeColor: '#b91c1c', strokeWidth: 2 });
+                board4.create('curve', [ function(t){ return x_val() * Math.cos(t); }, function(t){ return x_val() * py * Math.sin(t); }, Math.PI, 2*Math.PI ], { strokeColor: '#b91c1c', strokeWidth: 2 });
+                board4.create('curve', [ function(t){ return x_val() * Math.cos(t); }, function(t){ return x_val() * py * Math.sin(t); }, 0, Math.PI ], { strokeColor: '#b91c1c', strokeWidth: 1, dash: 2 });
+
+                // Kabuğun Kenarları
+                board4.create('segment', [ function(){ return [x_val(), 0]; }, function(){ return [x_val(), h_val()]; } ], { strokeColor: '#b91c1c', strokeWidth: 2 });
+                board4.create('segment', [ function(){ return [-x_val(), 0]; }, function(){ return [-x_val(), h_val()]; } ], { strokeColor: '#b91c1c', strokeWidth: 2 });
+
+                // Yarıçap (x) Vurgusu (Eksenden kabuğa uzanan ok)
+                board4.create('segment', [ function(){ return [0, h_val()/2]; }, function(){ return [x_val(), h_val()/2]; } ], { strokeColor: '#1e40af', strokeWidth: 2, lastArrow: true });
+                board4.create('text', [function(){ return x_val()/2 - 0.2; }, function(){ return h_val()/2 + 0.2; }, 'r = x'], {fontSize: 14, color: '#1e40af', fontWeight: 'bold'});
+                
+                // Öğretici Metinler
+                board4.create('text', [-2.8, 5.0, 'Eğri: y = 4 - x²'], {fontSize: 15, color: '#1e40af', fontWeight: 'bold'});
+                board4.create('text', [-2.8, 4.4, function(){ return '► Yarıçap (r) = x = ' + x_val().toFixed(2); }], {fontSize: 14, color: '#ef4444'});
+                board4.create('text', [-2.8, 3.9, function(){ return '► Yükseklik (h) = ' + h_val().toFixed(2); }], {fontSize: 14, color: '#ef4444'});
+                board4.create('text', [-2.8, 3.3, function(){ return '► Kabuk Alanı (2πrh) = ' + (2 * Math.PI * x_val() * h_val()).toFixed(2); }], {fontSize: 15, color: '#ef4444', fontWeight: 'bold'});
+            }
+        }, 100);
+    }
+// --- 5. GRAFİK: Yay Uzunluğu (ds = dx^2 + dy^2) ---
+    if (document.getElementById("grafik-konu-8-yay")) {
+        var yayCizildi = false;
+        var yayBekci = setInterval(function() {
+            var kutu = document.getElementById("grafik-konu-8-yay");
+            if (kutu && kutu.offsetWidth > 10 && !yayCizildi) {
+                yayCizildi = true; clearInterval(yayBekci);
+                
+                var board5 = JXG.JSXGraph.initBoard('grafik-konu-8-yay', {
+                    boundingbox: [-0.5, 4.5, 5.5, -0.5], axis: true, showCopyright: false, showNavigation: false, keepaspectratio: true, pan: {enabled: false}, zoom: {enabled: false}
+                });
+                
+                var f = function(x){ return Math.pow(x, 1.5) / 2 + 0.5; }; 
+                var df = function(x){ return 0.75 * Math.sqrt(x); }; // Eğrinin türevi (eğim)
+                
+                // Ana Eğri
+                board5.create('functiongraph', [f, 0, 5], { strokeColor: '#1e40af', strokeWidth: 3 });
+
+                // Eğri üzerindeki noktayı belirleyen kaydırıcı
+                var sld5 = board5.create('slider', [[0.5, 4.0], [3.5, 4.0], [0.5, 2.0, 4.0]], { name: 'P (Noktası)', snapWidth: 0.1, strokeColor: '#ef4444', fillColor: '#ef4444' });
+                
+                var x_val = function() { return sld5.Value(); };
+                var y_val = function() { return f(x_val()); };
+                var m = function() { return df(x_val()); }; // Anlık Eğim
+                
+                // P Noktası (Ana odak)
+                var P = board5.create('point', [x_val, y_val], { name: 'P', color: '#1e40af', size: 4 });
+
+                // Üçgenin Köşeleri (Büyütülmüş Diferansiyel Üçgeni)
+                var dx = 1.0; // Görsel amaçlı sabit, büyük bir 'dx' adımı
+                var Q = board5.create('point', [function(){ return x_val() + dx; }, function(){ return y_val(); }], { name: '', visible: false });
+                var R = board5.create('point', [function(){ return x_val() + dx; }, function(){ return y_val() + m()*dx; }], { name: '', visible: false });
+
+                // Üçgenin İçi
+                board5.create('polygon', [P, Q, R], { fillColor: '#fef08a', fillOpacity: 0.5, borders: {strokeWidth: 2} });
+                
+                // Üçgen Kenarları ve Özel İsimlendirmeler
+                board5.create('segment', [P, Q], { strokeColor: '#ef4444', strokeWidth: 3, name: 'dx', withLabel: true, label: {position: 'bot', offset: [0, -10], color: '#ef4444', fontSize: 16, fontWeight: 'bold'} });
+                board5.create('segment', [Q, R], { strokeColor: '#10b981', strokeWidth: 3, name: 'dy', withLabel: true, label: {position: 'rt', offset: [10, 0], color: '#10b981', fontSize: 16, fontWeight: 'bold'} });
+                board5.create('segment', [P, R], { strokeColor: '#1e40af', strokeWidth: 3, name: 'ds', withLabel: true, label: {position: 'ul', offset: [-15, 10], color: '#1e40af', fontSize: 16, fontWeight: 'bold'} });
+
+                // Teğet Doğrusu (Kesik Çizgi)
+                board5.create('line', [P, R], {strokeColor: '#64748b', strokeWidth: 1, dash: 2});
+
+                // Bilgi Paneli
+                board5.create('text', [0.2, 3.5, 'Yay Uzunluğu Diferansiyeli'], {fontSize: 16, color: '#1e40af', fontWeight: 'bold'});
+                board5.create('text', [0.2, 3.0, 'Pisagor: ds² = dx² + dy²'], {fontSize: 15, color: '#475569'});
+                board5.create('text', [0.2, 2.5, function(){ return 'dy/dx (Eğim) = ' + m().toFixed(2); }], {fontSize: 15, color: '#ef4444', fontWeight: 'bold'});
             }
         }, 100);
     }
 
+// =========================================================================
+    // 8.4 DÖNEL YÜZEYLERİN ALANI (Yüzey Şeridi ve Gabriel Borusu)
+    // =========================================================================
 
+    // --- 6. GRAFİK: Yüzey Alanı (Kesik Koni / Frustum Şeridi) ---
+    if (document.getElementById("grafik-konu-8-yuzey")) {
+        var yuzeyCizildi = false;
+        var yuzeyBekci = setInterval(function() {
+            var kutu = document.getElementById("grafik-konu-8-yuzey");
+            if (kutu && kutu.offsetWidth > 10 && !yuzeyCizildi) {
+                yuzeyCizildi = true; clearInterval(yuzeyBekci);
+                
+                var bYuzey = JXG.JSXGraph.initBoard('grafik-konu-8-yuzey', {
+                    boundingbox: [-0.5, 4.0, 5.5, -4.0], axis: false, showNavigation: false, pan: {enabled: false}, zoom: {enabled: false}
+                });
+                
+                var py = 0.25; 
+                var f = function(x){ return 1.5 + 0.3 * Math.sin(2*x); }; 
+                var df = function(x){ return 0.6 * Math.cos(2*x); }; // Türev
 
+                bYuzey.create('axis', [[0,0], [1,0]], { name: 'x', withLabel: true, strokeColor: '#475569', ticks: { minorTicks: 0 }, fixed: true });
+                bYuzey.create('axis', [[0,0], [0,1]], { name: 'y', withLabel: true, strokeColor: '#475569', ticks: { minorTicks: 0 }, fixed: true });
+
+                // Hacim Dış Hatları (Şeffaf Gövde)
+                bYuzey.create('functiongraph', [f, 0.5, 4.5], { strokeColor: '#1e40af', strokeWidth: 2 });
+                bYuzey.create('functiongraph', [function(x){ return -f(x); }, 0.5, 4.5], { strokeColor: '#1e40af', strokeWidth: 1, dash: 2 });
+                bYuzey.create('curve', [ function(t){ return 0.5 + f(0.5)*py*Math.sin(t); }, function(t){ return f(0.5)*Math.cos(t); }, 0, 2*Math.PI ], { strokeColor: '#1e40af', strokeWidth: 1, dash: 2 });
+                bYuzey.create('curve', [ function(t){ return 4.5 + f(4.5)*py*Math.sin(t); }, function(t){ return f(4.5)*Math.cos(t); }, 0, 2*Math.PI ], { strokeColor: '#1e40af', strokeWidth: 1 });
+
+                // Sürgü ve Şerit (ds)
+                var sldY = bYuzey.create('slider', [[1, -3.2], [4, -3.2], [0.6, 2.5, 4.3]], { name: 'x', snapWidth: 0.05, strokeColor: '#ef4444', fillColor: '#ef4444' });
+                var dx = 0.2; // Şerit kalınlığı
+                
+                // Seçilen x noktasındaki kırmızı 3D Frustum Şeridi (ds yayının dönmesiyle oluşan bant)
+                bYuzey.create('curve', [
+                    function(T) { var t = T*2*Math.PI; return sldY.Value() + f(sldY.Value())*py*Math.sin(t); },
+                    function(T) { var t = T*2*Math.PI; return f(sldY.Value())*Math.cos(t); }, 0, 1
+                ], { strokeColor: '#ef4444', strokeWidth: 2, fillColor: '#fca5a5', fillOpacity: 0.5 });
+                
+                bYuzey.create('curve', [
+                    function(T) { var x2 = sldY.Value()+dx; var t = T*2*Math.PI; return x2 + f(x2)*py*Math.sin(t); },
+                    function(T) { var x2 = sldY.Value()+dx; var t = T*2*Math.PI; return f(x2)*Math.cos(t); }, 0, 1
+                ], { strokeColor: '#ef4444', strokeWidth: 2, fillColor: '#fca5a5', fillOpacity: 0.5 });
+
+                // İki çemberi birleştiren yüzey efekti (Poligon)
+                bYuzey.create('polygon', [
+                    function(){ return [sldY.Value(), f(sldY.Value())]; }, function(){ return [sldY.Value()+dx, f(sldY.Value()+dx)]; },
+                    function(){ return [sldY.Value()+dx, -f(sldY.Value()+dx)]; }, function(){ return [sldY.Value(), -f(sldY.Value())]; }
+                ], { fillColor: '#ef4444', fillOpacity: 0.3, borders: {visible: false} });
+
+                bYuzey.create('text', [0.2, 3.5, 'Yüzey Alanı Diferansiyeli: dS = 2πr·ds'], {fontSize: 15, color: '#1e40af', fontWeight: 'bold'});
+                bYuzey.create('text', [0.2, 2.9, function(){ return '► Yarıçap (r) = ' + f(sldY.Value()).toFixed(2); }], {fontSize: 14, color: '#ef4444'});
+                bYuzey.create('text', [0.2, 2.4, function(){ return '► ds = √(1+(y\')²)dx = ' + Math.sqrt(1 + Math.pow(df(sldY.Value()),2)).toFixed(2) + ' dx'; }], {fontSize: 14, color: '#ef4444'});
+            }
+        }, 100);
+    }
+
+    // --- 7. GRAFİK: Gabriel'in Borusu Paradoksu ---
+    if (document.getElementById("grafik-konu-8-gabriel")) {
+        var gabCizildi = false;
+        var gabBekci = setInterval(function() {
+            var kutu = document.getElementById("grafik-konu-8-gabriel");
+            if (kutu && kutu.offsetWidth > 10 && !gabCizildi) {
+                gabCizildi = true; clearInterval(gabBekci);
+                
+                var bGab = JXG.JSXGraph.initBoard('grafik-konu-8-gabriel', {
+                    boundingbox: [-0.5, 2.0, 8.5, -2.0], axis: true, showNavigation: false, pan: {enabled: false}, zoom: {enabled: false}
+                });
+                
+                var py = 0.15; 
+                var f = function(x){ return 1/x; }; 
+
+                // y = 1/x'in 1'den sonsuza gidiş efekti (8'e kadar çizip fade-out yapacağız)
+                bGab.create('functiongraph', [f, 1, 8], { strokeColor: '#d97706', strokeWidth: 3 });
+                bGab.create('functiongraph', [function(x){ return -f(x); }, 1, 8], { strokeColor: '#d97706', strokeWidth: 2, dash: 2 });
+                
+                // Açılış Ağzı (x=1)
+                bGab.create('curve', [ function(t){ return 1 + f(1)*py*Math.sin(t); }, function(t){ return f(1)*Math.cos(t); }, 0, 2*Math.PI ], { strokeColor: '#d97706', strokeWidth: 2, fillColor: '#fcd34d', fillOpacity: 0.3 });
+
+                // 3D Boru Hissi (Dinamik çemberler)
+                for(var i=1.5; i<=7; i+=0.5) {
+                    bGab.create('curve', [ function(t, x_v){ return x_v + f(x_v)*py*Math.sin(t); }, function(t, x_v){ return f(x_v)*Math.cos(t); }, 0, 2*Math.PI ], { strokeColor: '#d97706', strokeWidth: 1, dash: 2, strokeOpacity: 1-(i/10) });
+                }
+
+                bGab.create('text', [3.0, 1.5, 'Gabriel\'in Borusu (y = 1/x)'], {fontSize: 16, color: '#b45309', fontWeight: 'bold'});
+                bGab.create('text', [3.0, 1.0, '► Toplam Hacim: Sonlu (V = π)'], {fontSize: 15, color: '#15803d', fontWeight: 'bold'});
+                bGab.create('text', [3.0, 0.6, '► Yüzey Alanı: Sonsuz (A = ∞)'], {fontSize: 15, color: '#b91c1c', fontWeight: 'bold'});
+                bGab.create('text', [3.0, 0.2, '"İçini boyayla doldurabilirsin, ama dışını boyayamazsın!"'], {fontSize: 13, color: '#475569', fontStyle: 'italic'});
+            }
+        }, 100);
+    }
+
+    // =========================================================================
+    // 8.5 İŞ VE AKIŞKAN KUVVETLERİ (Hooke Yasası ve Baraj Basıncı)
+    // =========================================================================
+
+    // --- 8. GRAFİK: Yay ve Değişken İş (Hooke Yasası) ---
+    if (document.getElementById("grafik-konu-8-hooke")) {
+        var hookeCizildi = false;
+        var hookeBekci = setInterval(function() {
+            var kutu = document.getElementById("grafik-konu-8-hooke");
+            if (kutu && kutu.offsetWidth > 10 && !hookeCizildi) {
+                hookeCizildi = true; clearInterval(hookeBekci);
+                
+                var bHooke = JXG.JSXGraph.initBoard('grafik-konu-8-hooke', {
+                    boundingbox: [-1, 6, 6, -2], axis: false, showNavigation: false, pan: {enabled: false}, zoom: {enabled: false}
+                });
+
+                var k = 1.5; // Yay sabiti
+
+                // Eksen (Sadece x ekseni pozitif bölge)
+                bHooke.create('axis', [[0,0], [1,0]], { name: 'x (Uzama Miktarı)', withLabel: true, label: {offset: [-15, -15]}, ticks: {minorTicks: 0} });
+                bHooke.create('axis', [[0,0], [0,1]], { name: 'F (Kuvvet)', withLabel: true, label: {offset: [10, -10]}, ticks: {minorTicks: 0} });
+
+                // Kuvvet Grafiği F = kx
+                var f_kuvvet = function(x) { return k * x; };
+                var kuvvetEgrisi = bHooke.create('functiongraph', [f_kuvvet, 0, 5], { strokeColor: '#2563eb', strokeWidth: 3 });
+
+                // Dinamik Sürgü
+                var sldH = bHooke.create('slider', [[1, -1.2], [4, -1.2], [0, 2.5, 5]], { name: 'Yayı Çek (x)', snapWidth: 0.1, strokeColor: '#ef4444', fillColor: '#ef4444' });
+                var x_val = function() { return sldH.Value(); };
+
+                // İş Alanı (Kuvvet eğrisi altındaki alan)
+                bHooke.create('polygon', [
+                    [0,0], function(){ return [x_val(), 0]; }, function(){ return [x_val(), f_kuvvet(x_val())]; }
+                ], { fillColor: '#93c5fd', fillOpacity: 0.5, borders: {visible: false} });
+
+                // --- YAY ANİMASYONU ---
+                // Yayı duvar (x=0) ile sürgü konumu (x_val) arasında çizer
+                bHooke.create('curve', [
+                    function(t) { return t * x_val(); }, // X ekseninde esneme
+                    function(t) { return 5 + 0.5 * Math.sin(t * 30 * Math.PI); }, // Zigzag yay efekti (y=5 hizasında)
+                    0, 1
+                ], { strokeColor: '#64748b', strokeWidth: 2 });
+                
+                // Duvar ve Kütle Kutusu
+                bHooke.create('segment', [[0, 4.2], [0, 5.8]], {strokeColor: '#334155', strokeWidth: 4}); // Duvar
+                bHooke.create('polygon', [
+                    function(){ return [x_val(), 4.6]; }, function(){ return [x_val()+0.8, 4.6]; },
+                    function(){ return [x_val()+0.8, 5.4]; }, function(){ return [x_val(), 5.4]; }
+                ], { fillColor: '#ef4444', fillOpacity: 0.8, borders: {strokeColor: '#b91c1c'} });
+
+                // Metinler
+                bHooke.create('text', [0.2, 5.8, 'Kuvvet: F(x) = k·x'], {fontSize: 14, color: '#2563eb', fontWeight: 'bold'});
+                bHooke.create('text', [1.5, 2.5, function(){ return 'Kuvvet = ' + f_kuvvet(x_val()).toFixed(1) + ' N'; }], {fontSize: 14, color: '#2563eb'});
+                bHooke.create('text', [1.5, 1.8, function(){ return 'Yapılan İş (Alan) = ' + (0.5 * x_val() * f_kuvvet(x_val())).toFixed(1) + ' J'; }], {fontSize: 15, color: '#ef4444', fontWeight: 'bold'});
+            }
+        }, 100);
+    }
+
+    // --- 9. GRAFİK: Hidrostatik Basınç (Akışkan Kuvveti) ---
+    if (document.getElementById("grafik-konu-8-akiskan")) {
+        var suCizildi = false;
+        var suBekci = setInterval(function() {
+            var kutu = document.getElementById("grafik-konu-8-akiskan");
+            if (kutu && kutu.offsetWidth > 10 && !suCizildi) {
+                suCizildi = true; clearInterval(suBekci);
+                
+                var bSu = JXG.JSXGraph.initBoard('grafik-konu-8-akiskan', {
+                    boundingbox: [-3, 6, 3, -1], axis: false, showNavigation: false, pan: {enabled: false}, zoom: {enabled: false}
+                });
+
+                var suSeviyesi = 5;
+
+                // Eksen (Y ekseni derinliği gösterir, aşağı doğru artar mantığı)
+                bSu.create('axis', [[0,0], [0,1]], { name: 'y', withLabel: true });
+                bSu.create('axis', [[0,0], [1,0]], { ticks: {visible: false} });
+
+                // Su Yüzeyi (Mavi dalgalı çizgi)
+                bSu.create('functiongraph', [function(x){ return suSeviyesi + 0.1*Math.sin(5*x); }, -3, 3], { strokeColor: '#2563eb', strokeWidth: 2 });
+                bSu.create('polygon', [[-3,0], [3,0], [3, suSeviyesi], [-3, suSeviyesi]], { fillColor: '#bfdbfe', fillOpacity: 0.4, borders: {visible: false} });
+
+                // Baraj Kapağı (İkizkenar Yamuk)
+                var taban = 1, tavan = 2, altY = 1, ustY = 4;
+                var kapak = bSu.create('polygon', [
+                    [-taban, altY], [taban, altY], [tavan, ustY], [-tavan, ustY]
+                ], { fillColor: '#94a3b8', fillOpacity: 0.8, borders: {strokeColor: '#334155', strokeWidth: 2} });
+
+                // Derinlik Sürgüsü
+                var sldSu = bSu.create('slider', [[-2.5, -0.5], [1.5, -0.5], [altY, 2.5, ustY]], { name: 'Derinlik İncele (y)', snapWidth: 0.1, strokeColor: '#ef4444', fillColor: '#ef4444' });
+                var y_val = function() { return sldSu.Value(); };
+                
+                // Kapak Genişliği Fonksiyonu L(y) (Yamuk benzerliğinden L(y) hesabı)
+                var L_val = function(y) { return 2 * (taban + (y - altY) * (tavan - taban) / (ustY - altY)); };
+
+                // Yatay Şerit (Kırmızı İnce Bant)
+                var dy = 0.15;
+                bSu.create('polygon', [
+                    function(){ return [-L_val(y_val())/2, y_val()]; }, function(){ return [L_val(y_val())/2, y_val()]; },
+                    function(){ return [L_val(y_val()+dy)/2, y_val()+dy]; }, function(){ return [-L_val(y_val()+dy)/2, y_val()+dy]; }
+                ], { fillColor: '#ef4444', fillOpacity: 0.7, borders: {visible: false} });
+
+                // Derinliğe göre artan basınç okları
+                for (let yy = 1.5; yy <= 3.5; yy += 0.5) {
+                    bSu.create('segment', [[0, yy], function(){ return [-(suSeviyesi - yy)*0.4, yy]; }], { strokeColor: '#1d4ed8', strokeWidth: 2, lastArrow: true });
+                }
+                // Seçili şeritteki Dinamik Basınç Oku
+                bSu.create('segment', [
+                    function(){ return [0, y_val()]; }, 
+                    function(){ return [-(suSeviyesi - y_val())*0.4, y_val()]; }
+                ], { strokeColor: '#ef4444', strokeWidth: 3, lastArrow: true });
+
+                // Metinler
+                bSu.create('text', [1.5, 5.2, 'Su Yüzeyi (y = 5)'], {fontSize: 14, color: '#2563eb', fontWeight: 'bold'});
+                bSu.create('text', [1.5, 3.5, function(){ return 'Derinlik h = ' + (suSeviyesi - y_val()).toFixed(2) + 'm'; }], {fontSize: 14, color: '#ef4444'});
+                bSu.create('text', [1.5, 3.0, function(){ return 'Genişlik L(y) = ' + L_val(y_val()).toFixed(2) + 'm'; }], {fontSize: 14, color: '#ef4444'});
+                bSu.create('text', [-2.8, 1.5, function(){ return 'Basınç Orantısı: ' + (suSeviyesi - y_val()).toFixed(1); }], {fontSize: 13, color: '#1d4ed8', fontWeight: 'bold'});
+            }
+        }, 100);
+    }
 
 
 
